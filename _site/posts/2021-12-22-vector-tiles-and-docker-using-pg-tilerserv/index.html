@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2021-12-22">
+<meta name="description" content="Serve your geospatial data as Vector Tiles using pg_tileserv in a Docker container">
+
+<title>Aman Bagrecha - Vector tiles and Docker using pg_tilerserv</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Aman Bagrecha - Vector tiles and Docker using pg_tilerserv">
+<meta property="og:description" content="Serve your geospatial data as Vector Tiles using pg_tileserv in a Docker container">
+<meta property="og:image" content="featured.png">
+<meta property="og:site-name" content="Aman Bagrecha">
+<meta name="twitter:title" content="Aman Bagrecha - Vector tiles and Docker using pg_tilerserv">
+<meta name="twitter:description" content="Serve your geospatial data as Vector Tiles using pg_tileserv in a Docker container">
+<meta name="twitter:image" content="featured.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Aman Bagrecha</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks" rel="" target="">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts" rel="" target="">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <a href="https://twitter.com/aman_bagrecha" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/amanbagrecha" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-are-vector-tiles" id="toc-what-are-vector-tiles" class="nav-link active" data-scroll-target="#what-are-vector-tiles">What are vector tiles?</a></li>
+  <li><a href="#why-use-docker-for-this" id="toc-why-use-docker-for-this" class="nav-link" data-scroll-target="#why-use-docker-for-this">Why use docker for this?</a></li>
+  <li><a href="#what-is-pg_tileserve" id="toc-what-is-pg_tileserve" class="nav-link" data-scroll-target="#what-is-pg_tileserve">What is pg_tileserve?</a>
+  <ul class="collapse">
+  <li><a href="#to-get-started-with-serving-your-vector-data-to-the-web-using-pg_tileserv-we-follow-the-below-mentioned-steps" id="toc-to-get-started-with-serving-your-vector-data-to-the-web-using-pg_tileserv-we-follow-the-below-mentioned-steps" class="nav-link" data-scroll-target="#to-get-started-with-serving-your-vector-data-to-the-web-using-pg_tileserv-we-follow-the-below-mentioned-steps">To get started with serving your vector data to the web using pg_tileserv, we follow the below mentioned steps</a></li>
+  </ul></li>
+  <li><a href="#endnote" id="toc-endnote" class="nav-link" data-scroll-target="#endnote">Endnote</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Vector tiles and Docker using pg_tilerserv</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Docker</div>
+    <div class="quarto-category">Vector-tiles</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Serve your geospatial data as Vector Tiles using pg_tileserv in a Docker container
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p> </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 December 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this blog we look at how to serve your geospatial data as vector tiles using pg_tileserv in a docker container.</p>
+<section id="what-are-vector-tiles" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-vector-tiles">What are vector tiles?</h2>
+<p>Vector Tiles are similar to raster tiles, but instead of serving images, vector tiles serve geospatial data which are vectors themselves and not images. This allows for reduced data transfer over a network, faster loading while allowing client side rendering. Moreover, vector tiles allow for flexible styling of your geospatial data since it renders on the client side. All this is not possible with raster tiles and hence vector tiles have gained traction in the last few years.</p>
+<p>One of the most popular specifications to serve vector tiles is mapbox vector tiles, utilized by many open source tile servers.</p>
+<p>Because PostGIS can create mapbox vector tiles from vector data, it becomes easy to serve them over the web. Many tileservers use the power of this postGIS functionality to serve vector tiles over the web.</p>
+<p>As for a visual understanding as to what is different between vector and raster tiles, the following image illustrates that. The red bounding box is the response to clients request to serve vector tiles. Notice the format is <code>pbf</code> as opposed to <code>png</code> for raster tiles.</p>
+<p><img src="https://i.imgur.com/S5uzLpN.png" class="img-fluid"></p>
+</section>
+<section id="why-use-docker-for-this" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-docker-for-this">Why use docker for this?</h2>
+<p>Using docker would expedite the process of starting and “actually” using the applications. It is like sharing your machine with others so that they do not have to install anything to get started. For this reason, it makes complete sense to use docker for moderate to high complexity projects.</p>
+</section>
+<section id="what-is-pg_tileserve" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-pg_tileserve">What is pg_tileserve?</h2>
+<p>To create vector tiles, and serve them on the web, you need a middleware that can talk to the database and also serve them on the web. Since pg_tileserve uses a postgis function under the hood, it becomes a default choice to add a lightweight service to serve vector tiles. pg_tileserv returns Mapbox Vector tiles on input of vector geometry. In addition to reading tables from the database, it can handle complex functions to meet our needs.</p>
+<p>ST_asMVT, an aggregate function which is used under the hood for pg_tileserv, returns mapbox vector tile format based on google protobuf. While there are other formats such as MBtiles which is sqlite based binary file (can be opened in sqlite), Mapbox Vector Tile format seems to be winning this race and is thus the most popular format currently.</p>
+<section id="to-get-started-with-serving-your-vector-data-to-the-web-using-pg_tileserv-we-follow-the-below-mentioned-steps" class="level3">
+<h3 class="anchored" data-anchor-id="to-get-started-with-serving-your-vector-data-to-the-web-using-pg_tileserv-we-follow-the-below-mentioned-steps">To get started with serving your vector data to the web using pg_tileserv, we follow the below mentioned steps</h3>
+<ol type="1">
+<li>Download <a href="https://github.com/CrunchyData/pg_tileserv">pg_tileserv</a> folder from <a href="https://downgit.github.io/#/home">down-git</a> website and save it to your local directory. <img src="https://i.imgur.com/QkF6OF9.png" class="img-fluid"></li>
+</ol>
+<p>The folder contains all the files required to start a docker container and serve vector tiles.</p>
+<pre><code>└───data/  — would contain all your vector data
+└───load-data.sh — shell script to load data into PostgreSQL
+└───pg_tileserv.env — database URL to connect
+└───docker-compose.yml — 
+└───pg.env — environment variable for database
+└───cleanup.sh — assemble multiple containers
+└───README — guide to setup docker by Just van den Broecke</code></pre>
+<ol start="2" type="1">
+<li>Next, Modify <code>docker-compose.yml</code> file under <strong>build-&gt;context</strong> to point to the docker file https://github.com/CrunchyData/pg_tileserv.git. Since we did not clone the repository, we specify the Dockerfile using the git link.</li>
+</ol>
+<p><img src="https://i.imgur.com/AzclY3c.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li><p>Dump all your geospatial data into <code>data</code> dir. This directory will be <em>mounted</em> to the container, once we start it.</p></li>
+<li><p>Change the <code>pg_tileserv.env</code> environment file as you wish, to specify the name and password of your database.</p></li>
+</ol>
+<p>Notes on env files: - <code>pg_tilerserv.env</code> file contains the database url which is of the format <code>postgres://your-username:your-password@localhost:5432/your-database-name</code> while <code>pg.env</code> contains credentials for postgres database.</p>
+<p>Notes on docker-compose file - We are mounting <code>data</code> dir from our local system to the work dir in the docker container. - We are mapping port 7800 from our local machine to 7800 to the pg_tileserv container.</p>
+<p>Start Docker Desktop and run <code>docker-compose build</code> in the command line. It will download the image needed from the dockerfile specified. It only downloads the latest alpine image and all other dependencies are installed in the build.</p>
+<p>Once the database setup is done, we now load data into the database by running either <code>load-data.sh</code> shell script (or) the following command,</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load data using shp2pgsql </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> exec pg_tileserv_db sh <span class="at">-c</span> <span class="st">"shp2pgsql -D -s 4326 /work/ne_50m_admin_0_countries.shp | psql -U tileserv -d tileserv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The above command opens a terminal inside the pg_tileserv_db container and runs the <code>shp2pgsql</code> command.</p>
+<p>We can use <code>ogr2ogr</code> command line tool if your data is anything other than shapefile. Read this blog by <a href="https://blog.crunchydata.com/blog/loading-data-into-postgis-an-overview">Kat Batuigas</a> to know how to do it.</p>
+<p>Finally, run <code>docker-compose up</code> to start the service. You’d see both containers starting up and your web app being served on port 7800. If you do not see this, stop the container and run again.</p>
+<p><img src="https://i.imgur.com/Gy4QlTL.png" class="img-fluid"></p>
+<p>On running the web app in the browser we see our tables visible under Table Layers and the schema it belongs to. We added a few additional layers (public.hydrants and a function layer following steps from <code>README.md</code>) to play around with it.</p>
+<p><img src="https://i.imgur.com/CwmhUdK.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="endnote" class="level2">
+<h2 class="anchored" data-anchor-id="endnote">Endnote</h2>
+<p>We looked at serving vector data as tiles using pg_tileserv and docker container. Docker enables reproducibility and expedites the process of running a web app. Although there are numerous open-source tile servers available, each has its use case and would require testing them out to identify the best tileserver for your use case. You can read a long list of tileservers <a href="https://github.com/mapbox/awesome-vector-tiles">here</a>.</p>
+<p>So next time you think to serve large vector data on the web app, make sure to use vector tiles built inside a docker container. It will surely simplify things!</p>
+<p>Source: 1. CrunchyData/pg_tileserv: A very thin PostGIS-only tile server in Go. Takes in HTTP tile requests, executes SQL, returns MVT tiles. (https://github.com/CrunchyData/pg_tileserv/)</p>
+<ol start="2" type="1">
+<li><p>Lightweight PostGIS Web Services Using pg tileserv and pg featureserv (https://www.youtube.com/watch?v=TXPtocZWr78&amp;t=1s&amp;ab_channel=CrunchyData)</p></li>
+<li><p>Reference | Vector tiles | Mapbox (https://docs.mapbox.com/vector-tiles/reference/)</p></li>
+<li><p>Vector Tiles – Geoinformation HSR (https://giswiki.hsr.ch/Vector_Tiles)</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">(c) Aman Bagrecha, 2023. <a href="disclaimer">Disclaimer</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

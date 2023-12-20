@@ -1,0 +1,66 @@
+- path: https://github.com/amanbagrecha/cresi-modified
+  image: spacenet-5-cresi-extract-road-satellite/featured.png
+  title: "Train 1Spacenet 5 CRESI Algorithm to extract road network from Satellite Imagery."
+  description: "Extract Road Network from Satellite Imagery"
+  date: 2022-07-28
+  categories: [Python, Docker, Deep Learning]
+- path: https://github.com/amanbagrecha/smap_time_series_analysis
+  image: smap-soil-moisture/featured.png
+  title: "SMAP Soil Moisture Time Series Analysis"
+  description: "This script downloads SMAP L3 data and computes the soil moisture time series for specified region."
+  date: 2021-09-08
+  categories: [Remote Sensing, Python]
+- path: https://github.com/amanbagrecha/openlayers-geoserver-query
+  image: geoserver-query/featured.png
+  title: "Openlayers Query via Geoserver"
+  description: "This application demonstrates how to display and query all geoserver layers or from a workspace using geoserver REST API. CQL (Common Query Language) filter provided by geoserver is used to query the layer."
+  date: 2021-08-10
+  categories: [Geoserver, OpenLayers]
+- path: https://github.com/amanbagrecha/MyProjects/tree/master/Avyaan
+  image: atharva/featured.png
+  title: "Structural Modelling and analysis of concrete canoe hull"
+  description: "As part of concrete canoe competition representing team ASCE RVCE, the canoe hull was designed and analysed using SAP2000 and maxsurf"
+  date: 2021-07-12
+  categories: [Structures]
+- path: https://github.com/amanbagrecha/datascience_project/blob/master/ML_socialMediaAnalysis/dphi_Prediction_model.ipynb
+  image: ml-challenge/featured.png
+  title: "Predicting Age group of Social Media Application users"
+  description: "The task at hand is to predict the age group of social media (app) users. Given the data of their users ranging from number of followers they have to hours they spend on the app, we are on the quest to solve what is the demography of the app."
+  date: 2021-07-24
+  categories: [Python, Machine Learning]
+- path: https://github.com/amanbagrecha/datascience_project/tree/master/enrolmentByLevel
+  image: enrolment-by-level/featured.png
+  title: "Analyse professional degree student enrolment v/s university count"
+  description: "To evaluate the trend in higher education over the years based on gender, state, and degree program."
+  date: 2021-07-12
+  categories: [Python, Machine Learning]
+- path: https://github.com/amanbagrecha/MyProjects/tree/master/LST
+  image: land-surface-temperature/featured.png
+  title: "Land Surface Temperature"
+  description: "Determining Land Surface Temperature of Bengaluru in ArcGIS using Landsat 8 product."
+  date: 2021-07-12
+  categories: [Python, Remote Sensing]
+- path: https://amanbagrecha.github.io/mapbox-search-functionality/
+  image: mapbox-api/featured.png
+  title: "Geocoding using Mapbox API"
+  description: "This Application demonstrates how to geocode an address using mapbox api implemented in openlayers v6. Additionally, on-click of search, the map gets zoomed to the location of Interest."
+  date: 2021-07-08
+  categories: [Geocoding, Javascript]
+- path: https://github.com/amanbagrecha/datascience_project/blob/master/Spot%20the%20Crop%20Hackathon/ZINDI_SPOT_THE_CROP_CHALLENGE.ipynb
+  image: spot-the-crop-radiantearth/featured.png
+  title: "Radiant Earth Spot the Crop Hackathon"
+  description: "Hackathon to classify crop type in south africa Based on time-series of Sentinel-1 satellite images. Stood at 5th place on public leaderboard."
+  date: 2021-07-12
+  categories: [Python, Machine Learning]
+- path: https://amanbagrecha.github.io/store-info/
+  image: store-info-leaflet/featured.png
+  title: "Web application to access store information on click of marker!"
+  description: "store-info is developed to let users access the whereabouts of store using Leaflet."
+  date: 2021-07-12
+  categories: [Javascript, Leaflet]
+- path: https://github.com/amanbagrecha/drf_userprofile
+  image: drf-userprofile/featured.png
+  title: "Django-rest-framework CRUD Token Authetication Application"
+  description: "Create API end points for DRF-CRUD and add security layer using Token Authentication."
+  date: 2021-07-12
+  categories: [Django, Python]

@@ -1,0 +1,31 @@
+---
+title: "Events"
+description: |
+  News and Professional Journal - Updated once a month!
+---
+
+
+## November 2023
+Attended FOSS4G Asia in Seoul - co-conducted workshop on [GeoPython](https://github.com/Rotten-Grapes-Pvt-Ltd/geopython-workshop) and also gave a talk on [Sentinel-1 Image Analysis Flood detection using cloud native tooling](https://github.com/amanbagrecha/Foss4gAsia2023). South Korea was a experience to be lived. It was chilly outside, but I had good company throughout. Found Indian food luckily :)
+
+We also had our [13th meetup](https://twitter.com/letstalkspatial/status/1725733833688129980) at Indian Institute of Human Settlements in collaboration with OpenStreetMap Bengaluru - to talk about OSM and iD editor. The presenters also showcased map making using QGIS.
+
+Our paper [Climate responsive design for road surface drainage systems: a case study for city of Bengaluru](https://www.tandfonline.com/doi/abs/10.1080/1573062X.2023.2287049) got accepted in Urban water Journal!
+
+
+
+## October 2023
+
+I conducted [workshop](https://www.youtube.com/watch?v=lUMjcau7JAs) on Planetary Computer and STAC API which was also the 12th meetup conducted by Let's Talk Spatial. 
+
+I attended [Geosmart Conference](https://geosmartindia.net/2023/index.php) in Hyderabad. A lot of geospatial companies were present. Made many new connections and got to know about latest trends and how the indian geospatial community is up to. 
+
+
+## September 2023
+I joined [GalaxEye](https://www.galaxeye.space/)!
+
+We organised mapping party in Chamrajpet, Bengaluru! Read my OSM Diary [here](https://www.openstreetmap.org/user/aman_bagrecha/diary/402347).
+
+## June - July 2023
+
+I attended FOSS4G for the very first time and gave two talks. I had the most memorable experience in Prizren. Read in-depth blog [here](../posts/first-foss4g).

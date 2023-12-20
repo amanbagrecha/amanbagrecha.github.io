@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Aman Bagrecha - Blog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 10,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Aman Bagrecha - Blog">
+<meta property="og:image" content="../posts/first-foss4g/featured.jpeg">
+<meta property="og:site-name" content="Aman Bagrecha">
+<meta name="twitter:title" content="Aman Bagrecha - Blog">
+<meta name="twitter:image" content="../posts/first-foss4g/featured.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/AB.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Aman Bagrecha</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../talks" rel="" target="">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts" rel="" target="">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../events" rel="" target="">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <a href="https://twitter.com/aman_bagrecha" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/amanbagrecha" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(23)</span></div><div class="category" data-category="Django">Django <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Docker">Docker <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GDAL">GDAL <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Geoserver">Geoserver <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Mapbox">Mapbox <span class="quarto-category-count">(1)</span></div><div class="category" data-category="OpenLayers">OpenLayers <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(8)</span></div><div class="category" data-category="QGIS">QGIS <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Remote Sensing">Remote Sensing <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Vector-tiles">Vector-tiles <span class="quarto-category-count">(1)</span></div><div class="category" data-category="earth-engine">earth-engine <span class="quarto-category-count">(1)</span></div><div class="category" data-category="foss4g">foss4g <span class="quarto-category-count">(1)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(1)</span></div></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Blog</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Aman Bagrecha <a href="https://orcid.org/0000-0003-3131-0864" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="foss4g" data-listing-date-sort="1688495400000" data-listing-file-modified-sort="1702801228047" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="../posts/first-foss4g/index.html"> <img src="../posts/first-foss4g/featured.jpeg" class="thumbnail-image" alt="A tightly knitted foss4g community @foss4g2023"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/first-foss4g/index.html">
+<h3 class="no-anchor listing-title">
+My first FOSS4G experience
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('foss4g'); return false;">
+foss4g
+</div>
+</div>
+<a href="../posts/first-foss4g/index.html">
+<div class="listing-description">
+<p>I traveled to Prizren, Kosovo to attend the largest geospatial conference in the world. This was my first international travel and conference!</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/first-foss4g/index.html">
+<div class="listing-date">
+5 Jul 2023
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Python,Remote Sensing" data-listing-date-sort="1674671400000" data-listing-file-modified-sort="1702805096051" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="thumbnail">
+<p><a href="../posts/understanding-jason-3-satellite-data-and-its-applications/index.html"> <img src="../posts/understanding-jason-3-satellite-data-and-its-applications/featured.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/understanding-jason-3-satellite-data-and-its-applications/index.html">
+<h3 class="no-anchor listing-title">
+Understanding Jason-3 satellite: Data and its Applications
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Remote Sensing'); return false;">
+Remote Sensing
+</div>
+</div>
+<a href="../posts/understanding-jason-3-satellite-data-and-its-applications/index.html">
+<div class="listing-description">
+<p>Understand Jason-3 level-2 satellite products and know how to download it</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/understanding-jason-3-satellite-data-and-its-applications/index.html">
+<div class="listing-date">
+26 Jan 2023
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Python" data-listing-date-sort="1673634600000" data-listing-file-modified-sort="1702805898351" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="../posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/index.html"> <img src="../posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/featured.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/index.html">
+<h3 class="no-anchor listing-title">
+Cloud Native Composite, Subset and Processing of Satellite Imagery with STAC and Stackstac
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="../posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/index.html">
+<div class="listing-description">
+If you wanted to collect all Sentinel satellite data for a given region of interest (ROI), say, for a given…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/index.html">
+<div class="listing-date">
+14 Jan 2023
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Django" data-listing-date-sort="1672597800000" data-listing-file-modified-sort="1702805484959" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14">
+<div class="thumbnail">
+<p><a href="../posts/2021-crud-in-django-rest-framework/index.html"> <p class="card-img-top"><img src="https://i.imgur.com/Ea8W3Bj.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-crud-in-django-rest-framework/index.html">
+<h3 class="no-anchor listing-title">
+Full Fledged CRUD application using DRF and Token Authentication
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Django'); return false;">
+Django
+</div>
+</div>
+<a href="../posts/2021-crud-in-django-rest-framework/index.html">
+<div class="listing-description">
+<p>How to perform Create, Read, Update and Delete operations in Django Rest Framework</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-crud-in-django-rest-framework/index.html">
+<div class="listing-date">
+2 Jan 2023
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="QGIS" data-listing-date-sort="1671561000000" data-listing-file-modified-sort="1702806031802" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="../posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/index.html"> <img src="../posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/featured.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/index.html">
+<h3 class="no-anchor listing-title">
+How hard can it be to create 30 Maps?
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('QGIS'); return false;">
+QGIS
+</div>
+</div>
+<a href="../posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/index.html">
+<div class="listing-description">
+<p>Compiling maps I made for Map challenge in Nov of 2022</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/index.html">
+<div class="listing-date">
+21 Dec 2022
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="" data-listing-date-sort="1663439400000" data-listing-file-modified-sort="1702801453895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="../posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/index.html"> <img src="../posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/featured.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/index.html">
+<h3 class="no-anchor listing-title">
+Import CSV and OSM data into PostgreSQL using ogr2ogr
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+
+</div>
+<a href="../posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/index.html">
+<div class="listing-description">
+ogr2ogr is the swiss knife for vector geometry conversion. You can import CSV with…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/index.html">
+<div class="listing-date">
+18 Sept 2022
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="Python" data-listing-date-sort="1659810600000" data-listing-file-modified-sort="1702801436898" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
+<div class="thumbnail">
+<p><a href="../posts/2022-07-31-merge-rasters-the-modern-way-using-python/index.html"> <img src="../posts/2022-07-31-merge-rasters-the-modern-way-using-python/featured.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2022-07-31-merge-rasters-the-modern-way-using-python/index.html">
+<h3 class="no-anchor listing-title">
+Merging Rasters using Rasterio
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="../posts/2022-07-31-merge-rasters-the-modern-way-using-python/index.html">
+<div class="listing-description">
+<p>Use pystac-client to fetch and merge data. Also, understand the merge functionality of rasterio.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2022-07-31-merge-rasters-the-modern-way-using-python/index.html">
+<div class="listing-date">
+7 Aug 2022
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Python" data-listing-date-sort="1658946600000" data-listing-file-modified-sort="1702801415420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="../posts/2022-07-28-download-modis-data-using-cmr-api-in-python/index.html"> <img src="../posts/2022-07-28-download-modis-data-using-cmr-api-in-python/featured.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2022-07-28-download-modis-data-using-cmr-api-in-python/index.html">
+<h3 class="no-anchor listing-title">
+Download MODIS data using CMR API in Python
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="../posts/2022-07-28-download-modis-data-using-cmr-api-in-python/index.html">
+<div class="listing-description">
+If you have ever used USGS…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2022-07-28-download-modis-data-using-cmr-api-in-python/index.html">
+<div class="listing-date">
+28 Jul 2022
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="Python" data-listing-date-sort="1650393000000" data-listing-file-modified-sort="1702800892776" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/gpm-imerg-xarray/index.html"> <p class="card-img-top"><img src="https://i.imgur.com/3RH1ot2.png" alt="GPM IMERG GES DESC website"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/gpm-imerg-xarray/index.html">
+<h3 class="no-anchor listing-title">
+Download and preprocess NASA GPM IMERG Data using Python and wget
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="../posts/gpm-imerg-xarray/index.html">
+<div class="listing-description">
+<p>In this blog post we look into how to download precipitation data from NASA website and process it with <code>xarray</code> and/or <code>wget</code>.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/gpm-imerg-xarray/index.html">
+<div class="listing-date">
+20 Apr 2022
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="Django" data-listing-date-sort="1648924200000" data-listing-file-modified-sort="1702805699223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="thumbnail">
+<p><a href="../posts/2021-django-image-upload/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-django-image-upload/index.html">
+<h3 class="no-anchor listing-title">
+How to Upload Multiple Geotagged Images in Django
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Django'); return false;">
+Django
+</div>
+</div>
+<a href="../posts/2021-django-image-upload/index.html">
+<div class="listing-description">
+<p>we look into how to upload multiple geo-tagged/non-geotagged images to aws s3 using plain Django and postgresql as databbase.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-django-image-upload/index.html">
+<div class="listing-date">
+3 Apr 2022
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="" data-listing-date-sort="1646505000000" data-listing-file-modified-sort="1702805557380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
+<div class="thumbnail">
+<p><a href="../posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/index.html"> <img data-src="../posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/featured1.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/index.html">
+<h3 class="no-anchor listing-title">
+COGs as the Stand-in Replacement for GeoTIFFs
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+
+</div>
+<a href="../posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/index.html">
+<div class="listing-description">
+I decided to write this blog when my twitter feed was buzzing with the usefulness of Cloud Optimized…<strong></strong>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/index.html">
+<div class="listing-date">
+6 Mar 2022
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="earth-engine" data-listing-date-sort="1644172200000" data-listing-file-modified-sort="1702801363424" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/index.html"> <img data-src="../posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/index.html">
+<h3 class="no-anchor listing-title">
+How to save Earth Engine Image directly to your local machine
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('earth-engine'); return false;">
+earth-engine
+</div>
+</div>
+<a href="../posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/index.html">
+<div class="listing-description">
+<p>In this post I show a trick which can let you download upto 100 times larger size images, directly to your local machine. Spoiler: <code>getRegion</code> method plays a significant role to help accomplish this task.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/index.html">
+<div class="listing-date">
+7 Feb 2022
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="Docker,Vector-tiles" data-listing-date-sort="1640111400000" data-listing-file-modified-sort="1702805557380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/index.html"> <img data-src="../posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/featured.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/index.html">
+<h3 class="no-anchor listing-title">
+Vector tiles and Docker using pg_tilerserv
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Docker'); return false;">
+Docker
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Vector-tiles'); return false;">
+Vector-tiles
+</div>
+</div>
+<a href="../posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/index.html">
+<div class="listing-description">
+<p>Serve your geospatial data as Vector Tiles using pg_tileserv in a Docker container</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/index.html">
+<div class="listing-date">
+22 Dec 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="GDAL,Python" data-listing-date-sort="1632940200000" data-listing-file-modified-sort="1702805557380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="../posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/xeJ4BGa.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/index.html">
+<h3 class="no-anchor listing-title">
+Polygonize Raster and Compute Zonal-Statistics in Python
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('GDAL'); return false;">
+GDAL
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="../posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/index.html">
+<div class="listing-description">
+<p>Computing zonal statistics over raster using GDAL and Python</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/index.html">
+<div class="listing-date">
+30 Sept 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="GDAL,Python" data-listing-date-sort="1632940200000" data-listing-file-modified-sort="1702801525364" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="../posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/Udf4gdV.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/index.html">
+<h3 class="no-anchor listing-title">
+Two ways to Programmatically change projection of raw CSV
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('GDAL'); return false;">
+GDAL
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="../posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/index.html">
+<div class="listing-description">
+<p>Change projection of CSV on-the-fly using GDAL, GeoPandas</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/index.html">
+<div class="listing-date">
+30 Sept 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-categories="Remote Sensing,Python" data-listing-date-sort="1631989800000" data-listing-file-modified-sort="1702805585521" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="../posts/2021-09-19-overlay-cropped-raster-with-vector-layer/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/A33Vopw.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-09-19-overlay-cropped-raster-with-vector-layer/index.html">
+<h3 class="no-anchor listing-title">
+Overlay cropped raster with vector layer
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Remote Sensing'); return false;">
+Remote Sensing
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="../posts/2021-09-19-overlay-cropped-raster-with-vector-layer/index.html">
+<div class="listing-description">
+<p>Plot cropped raster and vector layer on the same figure using rasterio and matplotlib</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-09-19-overlay-cropped-raster-with-vector-layer/index.html">
+<div class="listing-date">
+19 Sept 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-categories="Remote Sensing" data-listing-date-sort="1631039400000" data-listing-file-modified-sort="1702805195185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="thumbnail">
+<p><a href="../posts/2021-09-08-smap-time-series/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/aoKJnay.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-09-08-smap-time-series/index.html">
+<h3 class="no-anchor listing-title">
+SMAP Time Series
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Remote Sensing'); return false;">
+Remote Sensing
+</div>
+</div>
+<a href="../posts/2021-09-08-smap-time-series/index.html">
+<div class="listing-description">
+<p>We perform time-series analysis of soil moisture derived from SMAP L3 product for Bengaluru city.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-09-08-smap-time-series/index.html">
+<div class="listing-date">
+8 Sept 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-categories="QGIS" data-listing-date-sort="1627065000000" data-listing-file-modified-sort="1702805557372" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="thumbnail">
+<p><a href="../posts/2021-07-24-contour-maps-in-qgis/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/fZpYAK9.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-07-24-contour-maps-in-qgis/index.html">
+<h3 class="no-anchor listing-title">
+Contour Maps in QGIS
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('QGIS'); return false;">
+QGIS
+</div>
+</div>
+<a href="../posts/2021-07-24-contour-maps-in-qgis/index.html">
+<div class="listing-description">
+<p>Generate contour maps in QGIS and understand various interpolation methods.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-07-24-contour-maps-in-qgis/index.html">
+<div class="listing-date">
+24 Jul 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-categories="Geoserver,OpenLayers" data-listing-date-sort="1626373800000" data-listing-file-modified-sort="1702805969416" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="thumbnail">
+<p><a href="../posts/2021-07-16-geoserver-query-builder/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/zSSpoqV.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-07-16-geoserver-query-builder/index.html">
+<h3 class="no-anchor listing-title">
+Query Geoserver Layer using openlayers
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Geoserver'); return false;">
+Geoserver
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('OpenLayers'); return false;">
+OpenLayers
+</div>
+</div>
+<a href="../posts/2021-07-16-geoserver-query-builder/index.html">
+<div class="listing-description">
+<p>This blog demonstrates how to display and query all geoserver layers or from a workspace using geoserver REST API. CQL (Common Query Language) filter provided by geoserver is used to query the layer.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-07-16-geoserver-query-builder/index.html">
+<div class="listing-date">
+16 Jul 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="19" data-categories="QGIS,machine learning" data-listing-date-sort="1623177000000" data-listing-file-modified-sort="1702805347792" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="../posts/2021-06-09-validating-lulc-classes-in-qgis/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/xdx5Tsn.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-06-09-validating-lulc-classes-in-qgis/index.html">
+<h3 class="no-anchor listing-title">
+Validating LULC classes in QGIS
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('QGIS'); return false;">
+QGIS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('machine learning'); return false;">
+machine learning
+</div>
+</div>
+<a href="../posts/2021-06-09-validating-lulc-classes-in-qgis/index.html">
+<div class="listing-description">
+<p>The objective of this quality assessment was to validate the land cover map performed on June, 2020 sentinel-2 imagery by k-means classification algorithm in QGIS</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-06-09-validating-lulc-classes-in-qgis/index.html">
+<div class="listing-date">
+9 Jun 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="20" data-categories="Django" data-listing-date-sort="1621794600000" data-listing-file-modified-sort="1702805575381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/2021-05-24-pdf-and-email-creation/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-05-24-pdf-and-email-creation/index.html">
+<h3 class="no-anchor listing-title">
+Django rest framework PDF creation and email via gmail SMTP and reportLab
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Django'); return false;">
+Django
+</div>
+</div>
+<a href="../posts/2021-05-24-pdf-and-email-creation/index.html">
+<div class="listing-description">
+<p>In this blog we create PDF using <code>Report Lab</code> and email it to the user using gmail SMTP service. All actions are performed in Django.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-05-24-pdf-and-email-creation/index.html">
+<div class="listing-date">
+24 May 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="21" data-categories="OpenLayers" data-listing-date-sort="1621794600000" data-listing-file-modified-sort="1702805984597" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/jodNbPQ.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html">
+<h3 class="no-anchor listing-title">
+Polygon Selection and Area Calculation in Openlayers
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('OpenLayers'); return false;">
+OpenLayers
+</div>
+</div>
+<a href="../posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html">
+<div class="listing-description">
+<p>Select multiple polygons (parcels) and calculate area on the fly in openlayers</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html">
+<div class="listing-date">
+24 May 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="22" data-categories="OpenLayers,Mapbox" data-listing-date-sort="1620066600000" data-listing-file-modified-sort="1702821751190" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="thumbnail">
+<p><a href="../posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html"> <p class="card-img-top"><img data-src="https://i.imgur.com/joNvjw7.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="../posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html">
+<h3 class="no-anchor listing-title">
+Geocoding using Mapbox API with Zoom-in map functionality
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('OpenLayers'); return false;">
+OpenLayers
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mapbox'); return false;">
+Mapbox
+</div>
+</div>
+<a href="../posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html">
+<div class="listing-description">
+<p>How to bulid geocoding web-app using openlayers</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html">
+<div class="listing-date">
+4 May 2021
+</div>
+<div class="listing-author">
+Aman Bagrecha
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">(c) Aman Bagrecha, 2023. <a href="disclaimer">Disclaimer</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

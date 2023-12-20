@@ -1,0 +1,14 @@
+{
+  "listingMap": {
+    "posts/index.qmd": [
+      "*.qmd",
+      "*.md"
+    ],
+    "projects/index.qmd": [
+      "gallery.yaml"
+    ],
+    "talks/index.qmd": [
+      "B3049D40"
+    ]
+  }
+}

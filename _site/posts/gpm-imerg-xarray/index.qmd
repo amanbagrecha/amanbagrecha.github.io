@@ -1,0 +1,137 @@
+---
+title: Download and preprocess NASA GPM IMERG Data using Python and wget
+date: 2022-04-20
+slug: download-and-preprocess-nasa-gpm-imerg-data-using-python-and-wget
+categories: [Python]
+tags: [xarray, Colab]
+subtitle: ''
+description: 'In this blog post we look into how to download precipitation data from NASA website and process it with `xarray` and/or `wget`.'
+featured: no
+draft: false
+# image: featured.jpeg
+
+reading-time: yes
+---
+
+
+In this blog post we look into how to download precipitation data from NASA website and process it to get information using xarray and wget. 
+
+
+We are going to work with [GPM IMERG Late Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06 (GPM_3IMERGHHL)](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGHHL_06/summary) data provided by NASA which gives half-hourly precipitation values for entire globe.
+
+
+### Pre-requisites
+- You must have an Earthdata Account
+- Link GES DISC with your account
+
+Refer to [this](https://daac.gsfc.nasa.gov/earthdata-login) page on how to Link GES DISC to your account.
+
+*First method* - We would be downloading netCDF data using the `requests` module and preprocessing the file using `xarray`. 
+
+*Second method* - To download netCDF file using wget and using `xarray` to preprocess and visualise the data. 
+
+### Downloading link list
+
+We first select the region for which we want to download the data by visiting the [GPM IMERG](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGHHL_06/summary) website and clicking on **subset/ Get Data** link at right corner. 
+![](https://i.imgur.com/3RH1ot2.png)
+
+In the popup, select
+1.  **Download Method** as `Get File Subsets using OPeNDAP` 
+2. **Refine Date Range** as the date you want the data for. In my case, I choose 10 days of data.
+3. **Refine Region** to subset data for your area of interest. In my case I choose `77.45,12.85,77.75,13.10`
+4. Under **Variables**, select `precipitationCal`.
+5. For **file format**, we choose `netCDF` and click the **Get Data** button.
+
+![](https://i.imgur.com/xCp8Shs.png)
+
+This will download a text file, containing all the links to download individual half hourly data for our area of interest in netCDF file format.
+
+Now we move to Google Colaboratory, to download the data in netCDF file format. We use Google Colaboratory as it has many libraries pre-loaded and saves the hassle to install them.
+
+If you're area of interest (or) the timeframe of download is large, please use local machine as Google Colaboratory only offers ~60 GB of free storage.
+
+### Method 1: Using Python to read and preprocess the data inside Google Colaboratory.
+
+Open a new google Colab notebook and upload the downloaded text file. Our uploaded text file looks like the following.
+
+![](https://i.imgur.com/njlFhPT.png)
+
+As one last requirement, NASA requires authentication to access the data and thus we have to create a `.netrc` file and save it at specified location (under `/root` dir in our case). 
+
+### Creating `.netrc` file
+
+Open your notepad and type in the following text. Make sure to replace `your_login_username` and `your_password` with your earthdata credentials. Now save it as `.netrc` file.
+
+```
+machine urs.earthdata.nasa.gov login your_login_username password your_password
+```
+
+Upload the `.netrc` file to Colab under `root` directory as shown in the figure below.
+
+![](https://i.imgur.com/oZLeJuY.png)
+
+
+Now we have all the setup done and are ready to code.
+
+We first load the required libraries. Then, read the text file and loop over every line in it to download from the URL using the `requests` module. Finally, we save the file to Colab's hard drive. If you do not see the files after running code, make sure to wait for at least a day after registering to earthdata to make your account activated. I was late to read about it and had wasted a long time debugging it. 
+
+```python
+import pandas as pd
+import numpy as np
+import xarray as xr
+import requests 
+
+# dataframe to read the text file which contains all the download links
+ds = pd.read_csv('/content/subset_GPM_3IMERGHH_06_20210611_142330.txt', header = None, sep = '\n')[0]
+
+# Do not forget to add .netrc file in the root dir of Colab. printing `result` should return status code 200
+for file in range(2, len(ds)): # skip first 2 rows as they contain metadata files
+  URL = ds[file]
+  result = requests.get(URL)
+  try:
+    result.raise_for_status()
+    filename = 'test' + str(file) + '.nc'
+    with open(filename, 'wb') as f:
+        f.write(result.content)
+
+  except:
+    print('requests.get() returned an error code '+str(result.status_code))
+
+xr_df = xr.open_mfdataset('test*.nc')
+
+xr_df.mean(dim = ['lat', 'lon']).to_dataframe().to_csv('results.csv')
+
+```
+In the above snippet, what is interesting is the method `open_mfdataset` which takes in all the `netCDF` files and gives us a nice, compact output from which we can subset and further process our data.
+Here, we take the average of all the values (precipitation) and convert it into a new dataframe. We are ready to export it as CSV.
+
+### Method 2: Using wget to download and then preprocess using xarray
+
+In this method, we download all the netCDF files using `wget`. These files are then read using xarray which makes it really easy to process and get the information we require. 
+
+
+Running the following shell command in Google Colab will download all the data from the text file URLs. Make sure to replace `your_user_name` , `<url text file>` within the command. It will ask for password of your earthdata account on running the cell.
+
+```sh
+! wget --load-cookies /.urs_cookies --save-cookies /root/.urs_cookies --auth-no-challenge=on --user=your_user_name --ask-password --content-disposition -i <url text file>
+```
+
+Once the above shell command is run on Colab, the following 2 lines of code will give a nice dataframe which can be exported to csv for further analysis. 
+
+```python
+import xarray as xr
+import glob
+
+ds = xr.open_mfdataset('test*.nc')
+ds.precipitationCal.mean(dim=('lon', 'lat')).plot() # calculate the average precipitation on a half-hourly basis.
+```
+
+### Final Comments
+
+In this post we looked into how to download and preprocess netCDF data provided by [NASA GES DISC](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGHHL_06/summary).
+We looked at two methods, one with pure Python and the other with wget and xarray. All performed on google Colab. 
+It is to be noted that, there is a significant setup required i.e, to create a new `.netrc` file and store inside the root directory of Colab else it returns an authorisation error. We looked at how easy it is to process netCDF data in xarray and how wget commands can be run on Colab.
+
+Watch the video tutorial [here](https://www.youtube.com/watch?v=T_Us4hJxSeI). The notebook for reference is located [here](https://Colab.research.google.com/drive/1VIKun8K3RT8VvcPJ7DE5uDDC10i10k1T?usp=sharing).
+
+

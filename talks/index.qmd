@@ -1,0 +1,28 @@
+---
+listing:
+  categories: true
+#   contents:
+#   - '*.qmd'
+#   - '*.md'
+  feed: true
+  filter-ui: false
+  sort: date desc
+  sort-ui: false
+  type: default
+page-layout: full
+title: Talks
+title-block-bannerrR: false
+---
+
+## FOSS4G Prizren 2023
+
+<iframe width="514" height="289" src="https://www.youtube.com/embed/Z3aoN3JM-uA?list=PLSeJLsP3KYyuuChdOiRBY-bkmiO2e5-_z" title="2023 | Monitoring Inland water bodies - Aman Bagrecha" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Planetary Computer and STAC API
+
+<iframe width="514" height="289" src="https://www.youtube.com/embed/lUMjcau7JAs" title="#12 Introduction to Planetary Computer and STAC API | Let&#39;s Talk Spatial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+## Geopython
+
+<iframe width="514" height="289" src="https://www.youtube.com/embed/QuxHdKSLLrw" title="IEEE GRSS Bangalore: Geospatial Tech for Sustainable Dev (GTSD) Hackathon: Apr 2023: Part-3 of 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

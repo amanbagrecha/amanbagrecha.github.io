@@ -1,0 +1,161 @@
+{
+  "index.qmd": {
+    "index.html": "f39af1a3"
+  },
+  "about.qmd": {
+    "about.html": "15c43653"
+  },
+  "talks.qmd": {
+    "talks.html": "525520f5"
+  },
+  "posts/test-post/index.qmd": {
+    "index.html": "205518e1"
+  },
+  "posts/index.qmd": {
+    "index.html": "1f52613e"
+  },
+  "posts/first-foss4g/index.qmd": {
+    "index.html": "af0a4e56"
+  },
+  "posts/gpm-imerg-xarray/index.qmd": {
+    "index.html": "561eec93"
+  },
+  "posts/2023-01-26-understanding-jason-3-satellite-data-and-its-applications/index.md": {
+    "index.html": "7d893605"
+  },
+  "posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/index.md": {
+    "index.html": "bf53435e"
+  },
+  "posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/index.md": {
+    "index.html": "dff1739e"
+  },
+  "posts/2022-07-31-merge-rasters-the-modern-way-using-python/index.md": {
+    "index.html": "f0725d82"
+  },
+  "posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/index.md": {
+    "index.html": "7ee8181b"
+  },
+  "posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/index.md": {
+    "index.html": "3841eb22"
+  },
+  "posts/2021-09-19-overlay-cropped-raster-with-vector-layer/index.md": {
+    "index.html": "c97d73e3"
+  },
+  "posts/2021-09-08-smap-time-series/index.md": {
+    "index.html": "a7101151"
+  },
+  "posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/index.md": {
+    "index.html": "1cb6c882"
+  },
+  "posts/2022-07-28-download-modis-data-using-cmr-api-in-python/index.md": {
+    "index.html": "a7dee588"
+  },
+  "posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/index.md": {
+    "index.html": "fad476aa"
+  },
+  "posts/understanding-jason-3-satellite-data-and-its-applications/index.md": {
+    "index.html": "1c294418"
+  },
+  "posts/understanding-jason-3-satellite-data-and-its-applications/index.qmd": {
+    "index.html": "e323c9d2"
+  },
+  "posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.md": {
+    "index.html": "463ce8b5"
+  },
+  "posts/2021-07-16-geoserver-query-builder/index.md": {
+    "index.html": "da291633"
+  },
+  "posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/index.md": {
+    "index.html": "cb558c3b"
+  },
+  "posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/index.md": {
+    "index.html": "355ab7de"
+  },
+  "posts/2021-07-24-contour-maps-in-qgis/index.md": {
+    "index.html": "260ffc2e"
+  },
+  "posts/2021-django-image-upload/index.md": {
+    "index.html": "98f7b2ce"
+  },
+  "posts/2021-06-09-validating-lulc-classes-in-qgis/index.md": {
+    "index.html": "e0f47a8b"
+  },
+  "posts/2021-05-24-pdf-and-email-creation/index.md": {
+    "index.html": "108b8b5c"
+  },
+  "posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.md": {
+    "index.html": "ffb969f6"
+  },
+  "posts/2021-crud-in-django-rest-framework/index.md": {
+    "index.html": "f02a412d"
+  },
+  "talks/index.qmd": {
+    "index.html": "91796375"
+  },
+  "events/index.qmd": {
+    "index.html": "5381c4da"
+  },
+  "disclaimer.qmd": {
+    "disclaimer.html": "d4a687d2"
+  },
+  "disclaimer/index.qmd": {
+    "index.html": "bdf0a862"
+  },
+  "projects/index.qmd": {
+    "index.html": "e5f58af5"
+  },
+  "projects/Atharva/index.md": {
+    "index.html": "c7575176"
+  },
+  "projects/SMAP-soil-moisture/index.md": {
+    "index.html": "aa516bfb"
+  },
+  "projects/internal-project/index.md": {
+    "index.html": "90b7e6ac"
+  },
+  "projects/external-project/index.md": {
+    "index.html": "20cce36f"
+  },
+  "projects/EnrolmentByLevel/index.md": {
+    "index.html": "1b1afaf8"
+  },
+  "projects/store-info-leaflet/index.md": {
+    "index.html": "bf341915"
+  },
+  "projects/mapbox-api/index.md": {
+    "index.html": "3e9a8e42"
+  },
+  "projects/land-surface-temperature/index.md": {
+    "index.html": "27ee24a6"
+  },
+  "projects/Spot-the-Crop-RadiantEarth/index.md": {
+    "index.html": "041981cd"
+  },
+  "projects/geoserver-query/index.md": {
+    "index.html": "0a1113dd"
+  },
+  "projects/spacenet-5-cresi-extract-road-satellite/index.md": {
+    "index.html": "00985a90"
+  },
+  "projects/ML_challenge/index.md": {
+    "index.html": "2be0c1d7"
+  },
+  "projects/drf-userprofile/index.md": {
+    "index.html": "e1edacec"
+  },
+  "projects/ml-challenge/index.md": {
+    "index.html": "88bea2b6"
+  },
+  "projects/spot-the-crop-radiantearth/index.md": {
+    "index.html": "dfab4f48"
+  },
+  "projects/enrolment-by-level/index.md": {
+    "index.html": "02b69655"
+  },
+  "projects/atharva/index.md": {
+    "index.html": "7799e3da"
+  },
+  "projects/smap-soil-moisture/index.md": {
+    "index.html": "bf7b1f8c"
+  }
+}

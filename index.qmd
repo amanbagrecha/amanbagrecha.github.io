@@ -1,0 +1,60 @@
+::: .column-page
+
+---
+title: "Aman Bagrecha"
+about:
+    template: trestles
+    links:
+        - icon: linkedin
+          text: LinkedIn
+          url: https://www.linkedin.com/in/amanbagrecha/
+        - icon: twitter
+          text: Twitter
+          url: https://twitter.com/aman_bagrecha
+        - icon: github
+          text: Github
+          url: https://github.com/amanbagrecha
+        - text: "{{< fa envelope >}} Email"
+          url: mailto:jainaman588@gmail.com
+        - text: "{{< fa brands orcid >}} ORCID"
+          url: https://orcid.org/0000-0003-2931-0777
+        - text: "{{< fa brands google-scholar >}} Google Scholar"
+          url: https://scholar.google.com/citations?user=h0CeG6AAAAAJ
+    # image-width: 15em
+    image-shape: rounded
+
+image: img/profile.jpg
+comments: false
+format:
+  html:
+    page-layout: article
+    grid: 
+      body-width: 1350px
+---
+
+## About
+
+I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. Beyond my professional life, I enjoy jogging and playing badminton.
+
+I graduated from [Rashtreeya Vidyalaya College of Engineering](https://www.rvce.edu.in/) in Civil Engineering where I was the president of [ASCE Student Chapter](https://www.instagram.com/p/B7voXITBJ16), leading the team to [Concrete Canoe Competition](https://www.instagram.com/p/B3kDEZ9Bb--/) among various other activities.
+During college, I was also a Research Intern at Indian Institute of Science working on [non-stationary rainfall intensity surface drainage design](https://www.tandfonline.com/doi/abs/10.1080/1573062X.2023.2287049).
+
+I co-founded [Let's Talk Spatial](https://letstalkspatial.in), a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.
+
+As the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize [various events](https://site.ieee.org/bangalore-grss/events_list/student-yp-events/). I'm also an [OSGeo Charter member](https://www.osgeo.org/member/bagrecha/) since November 2023.
+
+I've spoken at opensource conferences like [FOSS4G Kosovo](https://www.youtube.com/playlist?list=PLSeJLsP3KYyuuChdOiRBY-bkmiO2e5-_z) and [FOSS4G Asia Seoul](https://github.com/amanbagrecha/Foss4gAsia2023), sharing my insights on open-source technologies. 
+
+My publications can be found on [Google Scholar](https://scholar.google.com/citations?user=h0CeG6AAAAAJ).
+
+## Experience
+
+[GalaxEye Space](https://www.galaxeye.space/) | Geospatial Scientist | Sept 2023 – present
+
+[Blue Sky Analytics](https://blueskyhq.io/) | Data Scientist | May 2022 – Sept 2023
+
+[Satyukt Analytics](https://satyukt.com/) | Remote Sensing Engineer | Sept 2021 – Mar 2022
+
+[Rotten Grapes Pvt. Ltd](https://rottengrapes.tech/) | Web GIS Developer | Feb 2021 – May 2021
+
+::: 

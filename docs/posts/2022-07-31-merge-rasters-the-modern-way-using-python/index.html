@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-08-07">
+<meta name="description" content="Use pystac-client to fetch and merge data. Also, understand the merge functionality of rasterio.">
+
+<title>Aman Bagrecha - Merging Rasters using Rasterio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Aman Bagrecha - Merging Rasters using Rasterio">
+<meta property="og:description" content="Use pystac-client to fetch and merge data. Also, understand the merge functionality of rasterio.">
+<meta property="og:image" content="featured.jpg">
+<meta property="og:site-name" content="Aman Bagrecha">
+<meta name="twitter:title" content="Aman Bagrecha - Merging Rasters using Rasterio">
+<meta name="twitter:description" content="Use pystac-client to fetch and merge data. Also, understand the merge functionality of rasterio.">
+<meta name="twitter:image" content="featured.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Aman Bagrecha</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks" rel="" target="">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts" rel="" target="">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events" rel="" target="">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <a href="https://twitter.com/aman_bagrecha" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/amanbagrecha" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">TL;DR</a></li>
+  <li><a href="#problem-at-hand" id="toc-problem-at-hand" class="nav-link" data-scroll-target="#problem-at-hand">Problem at hand</a></li>
+  <li><a href="#custom-combining-strategy-for-overlapping-regions" id="toc-custom-combining-strategy-for-overlapping-regions" class="nav-link" data-scroll-target="#custom-combining-strategy-for-overlapping-regions">Custom combining strategy for overlapping regions</a></li>
+  <li><a href="#endnote" id="toc-endnote" class="nav-link" data-scroll-target="#endnote">Endnote</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Merging Rasters using Rasterio</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Use pystac-client to fetch and merge data. Also, understand the merge functionality of rasterio.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p> </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">7 August 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this blog, we’ll examine how to merge or mosaic rasters using Python, the modern way. Additionally, we would look at a few nuances and internal workings of rasterio’s merge functionality along with saving your rasters in-memory.</p>
+<p>By “modern way”, it is implied that you have an improved workflow and data management. And that you can experiment with various scenarios quickly and efficiently.</p>
+<p>The traditional way to mosaic data is by downloading multiple intersecting tileset in its entirety. Downloading an entire tileset is itself a cost prohibitive task, added to already lost time in searching desired satellite imagery on GUI.</p>
+<p>To overcome these traditional challenges, there has been significant improvement in storing metadata of satellite imagery (namely <a href="https://stacspec.org/en">STAC</a>) which has enabled querying them much smoother and made it imagery-provider agnostic.</p>
+<section id="tldr" class="level3">
+<h3 class="anchored" data-anchor-id="tldr">TL;DR</h3>
+<p>We would perform the following task in this blog — - Use pystac to query items over our AOI - Plot the tiles on map using hvplot - Merge tiles without data download on local machine - Save the merged tile in-memory using rasterio’s MemoryFile - Internals of rasterio’s merge methods</p>
+<hr>
+</section>
+<section id="problem-at-hand" class="level3">
+<h3 class="anchored" data-anchor-id="problem-at-hand">Problem at hand</h3>
+<p>I wish to access sentinel-2 True Color Image for the month of January over my area of interest (AOI), which is a highway network across Karnataka and Andhra Pradesh (Figure 1).</p>
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/76432265/183255775-352d47fb-515c-4d72-ba4e-e32ac5bebf42.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">bokeh_plot</figcaption>
+</figure>
+</div>
+<figcaption align="center" class="figure-caption">
+<b><i>Fig.1 - Highway Network as our Region of Interest&lt;/ href&gt; </i></b>
+</figcaption>
+</figure>
+<p>We start by fetching sentinel-2 tiles over our AOI from <code>sentinel-s2-l2a-cogs</code> STAC catalog using <a href="https://github.com/stac-utils/pystac-client">pystac-client</a>. This library allows us to crawl STAC catalog and enables rapid access to the metadata we need.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STAC API root URL</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Thanks to element84 for hosting the API for sentinel-2 catalog.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">'https://earth-search.aws.element84.com/v0/'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> Client.<span class="bu">open</span>(URL)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>search <span class="op">=</span> client.search(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    max_items <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    collections <span class="op">=</span> <span class="st">"sentinel-s2-l2a-cogs"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    bbox <span class="op">=</span> gdf.total_bounds, <span class="co"># geodataframe for our region of study</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    datetime <span class="op">=</span> <span class="st">'2022-01-01/2022-01-24'</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the above code, we search for 10 sentinel-s2-l2a-cogs over our AOI for the date between January 1 and 24 of 2022.</p>
+<p>Now we need to know which of our 10 queried images covers our area of interest in its entirety. To do that, we can plot all the search results on the map and visually inspect.</p>
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/76432265/183255939-121e585e-79dc-4ceb-b61e-7e08709de926.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">bokeh_plot</figcaption>
+</figure>
+</div>
+<figcaption align="center" class="figure-caption">
+<b><i>Fig.2 - Sentinel-2 tiles overlaid on Region of Interest&lt;/ href&gt; </i></b>
+</figcaption>
+</figure>
+<p>We see that our AOI is not covered by a single tile in entirety, and that there is a need to merge adjacent tiles.</p>
+<blockquote class="blockquote">
+<p>Note that we have so far only queried the metadata of our desired imagery</p>
+</blockquote>
+<p>We use rasterio’s <a href="https://rasterio.readthedocs.io/en/latest/api/rasterio.merge.html">merge</a> functionality, which would enable us to combine all of them seamlessly.</p>
+<p>First, we get all the tiles for a single day and look for True Color Image (TCI) band</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the items as dictionaries, rather than Item objects</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">items</span> = list<span class="er">(</span><span class="fu">search.items_as_dicts()</span><span class="kw">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert found items to a GeoDataFrame</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">items_gdf</span> = items_to_geodataframe<span class="er">(</span><span class="ex">items</span><span class="kw">)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">tiles_single_day</span> = items_gdf.loc[<span class="st">'2022-01-23'</span>, <span class="st">"assets.visual.href"</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># print(tiles_single_day)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> <span class="ex">properties.datetime</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a> <span class="ex">2022-01-23</span> 05:25:14+00:00    https://sentinel-cogs.s3.us-west-2.amazonaws.c...</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a> <span class="ex">2022-01-23</span> 05:25:11+00:00    https://sentinel-cogs.s3.us-west-2.amazonaws.c...</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a> <span class="ex">2022-01-23</span> 05:24:59+00:00    https://sentinel-cogs.s3.us-west-2.amazonaws.c...</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a> <span class="ex">2022-01-23</span> 05:24:56+00:00    https://sentinel-cogs.s3.us-west-2.amazonaws.c...</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a> <span class="ex">Name:</span> assets.visual.href, dtype: object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, read the remote files via the URL in the above output using <code>rasterio.open</code> and save the returned file handlers as a list. This is the first instance where we are dealing with the actual imagery. Although, we are not reading the values stored in the data just yet.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># open images stored on s3</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>file_handler <span class="op">=</span> [rasterio.<span class="bu">open</span>(row) <span class="cf">for</span> row <span class="kw">in</span> tiles_single_day]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally we can merge all of the tiles and get the clipped raster stored in memory.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.io <span class="im">import</span> MemoryFile</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.merge <span class="im">import</span> merge</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>memfile <span class="op">=</span> MemoryFile()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>merge(datasets<span class="op">=</span>file_handler, <span class="co"># list of dataset objects opened in 'r' mode</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    bounds<span class="op">=</span><span class="bu">tuple</span>(gdf.set_crs(<span class="st">"EPSG:4326"</span>).to_crs(file_handler[<span class="dv">0</span>].crs).total_bounds), <span class="co"># tuple</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    nodata<span class="op">=</span><span class="va">None</span>, <span class="co"># float</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    dtype<span class="op">=</span><span class="st">'uint16'</span>, <span class="co"># dtype</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    resampling<span class="op">=</span>Resampling.nearest,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">'first'</span>, <span class="co"># strategy to combine overlapping rasters</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    dst_path<span class="op">=</span>memfile.name, <span class="co"># str or PathLike to save raster</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    dst_kwds<span class="op">=</span>{<span class="st">'blockysize'</span>:<span class="dv">512</span>, <span class="st">'blockxsize'</span>:<span class="dv">512</span>} <span class="co"># Dictionary</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are really interesting things to look at in the above code. Overall, the code above returns a <code>MemoryFile</code> object which contains a <code>uint16</code> raster with bounds of our AOI and blocksize of 512. The attribute <code>dst_path</code> allows us to specify a path to save the output as a raster. What is interesting is we can not only pass a file path to save on local disk but also a virtual path and save the merged raster <strong>in-memory</strong>, avoiding clutter of additional files on disk.</p>
+<p>To define a virtual path, we use rasterio’s <code>MemoryFile</code> class. When we create a <code>MemoryFile</code> object, it has a <code>name</code> attribute which gives us a virtual path, thus treating it as a real file (using GDALs <a href="https://gdal.org/user/virtual_file_systems.html#vsimem-in-memory-files">vsimem</a> internally). This MemoryFile object (<code>memfile</code> here) provides us all the methods and attributes of rasterio’s file handler, which is extremely helpful.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(memfile.<span class="bu">open</span>().profile)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>{<span class="st">'driver'</span>: <span class="st">'GTiff'</span>, <span class="st">'dtype'</span>: <span class="st">'uint16'</span>, <span class="st">'nodata'</span>: <span class="fl">0.0</span>, <span class="st">'width'</span>: <span class="dv">4110</span>, <span class="st">'height'</span>: <span class="dv">3211</span>, <span class="st">'count'</span>: <span class="dv">3</span>, <span class="st">'crs'</span>: CRS.from_epsg(<span class="dv">32643</span>), <span class="st">'transform'</span>: Affine(<span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="fl">788693.4700669964</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.0</span>, <span class="op">-</span><span class="fl">10.0</span>, <span class="fl">1500674.3670768766</span>), <span class="st">'blockxsize'</span>: <span class="dv">512</span>, <span class="st">'blockysize'</span>: <span class="dv">512</span>, <span class="st">'tiled'</span>: <span class="va">True</span>, <span class="st">'compress'</span>: <span class="st">'deflate'</span>, <span class="st">'interleave'</span>: <span class="st">'pixel'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>method='first'</code> tells us the strategy used to determine the value of the pixel where the rasters overlap. In this case, the pixel value from the first imagery of the overlapping region in the list, is used as the value for the output raster.</p>
+<p>The entire algorithm to merge rasters is illustrated in the figure below by taking an example of combining two rasters with <code>method=first</code>.</p>
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/76432265/183279200-05b96cd5-f0a7-48e0-9b37-480792756d16.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">merge-rasterio-with-laberl_merging-rasters</figcaption>
+</figure>
+</div>
+<figcaption align="center" class="figure-caption">
+<b><i>Fig.3 - Internal working of rasterio’s merge functionality. src1 and src2 are two overlapping raster.&lt;/ href&gt; </i></b>
+</figcaption>
+</figure>
+<p>From the above figure, for each raster in the list: - it finds the intersection with the <strong>Output Bounds</strong> (named <code>region</code> in the figure)</p>
+<ul>
+<li><p>next, it gets a boolean mask of invaild pixel over the <code>region</code> (named <code>region_mask</code> in the figure).</p></li>
+<li><p>next, it copies over all the existing values from the raster for the <code>region</code> to an array (named <code>temp</code> in the figure)</p></li>
+<li><p>It gets a boolean mask for the valid pixels in the <code>temp</code> array. (named <code>temp_mask</code> in the figure)</p></li>
+<li><p>With these four arrays, it runs the <code>method=first</code>, which is to</p>
+<ul>
+<li>create the same shaped array as that of <code>region</code> and fill values with negation of <code>region_mask</code> (named <code>A</code> in the figure)</li>
+<li>create a filter by combining <code>region_mask</code> and <code>A</code> with a AND gate (named <code>B</code> in the figure)</li>
+<li>copy over the values from <code>temp</code> to <code>region</code> using <code>B</code> as the filter</li>
+</ul></li>
+</ul>
+<p>These series of steps are performed for all the rasters in the list. Finally, the output at the end of each iteration is combined to produce <code>dest</code> raster.</p>
+<blockquote class="blockquote">
+<p>Notice the dark strip bands for each array which represents the overlapping region. Also notice that values from the dark strip in step <strong><code>1</code></strong> did not change at the end of step <strong><code>2</code></strong></p>
+</blockquote>
+<hr>
+</section>
+<section id="custom-combining-strategy-for-overlapping-regions" class="level3">
+<h3 class="anchored" data-anchor-id="custom-combining-strategy-for-overlapping-regions">Custom combining strategy for overlapping regions</h3>
+<p>We can have arbitrary conditions on how to combine the overlapping region. By default rasterio uses values of the first overlapping raster from the list of Input files as pixel values for the output raster file. It has several other options in its utility such as <code>min</code>, <code>max</code>, <code>sum</code>, <code>count</code>, <code>last</code>.</p>
+<p>To define our custom method, say in this case, I want to take the average of all the pixel values over my overlapping region and copy them to the output file. To do that, we can override the method by defining our custom method. Let us see how —</p>
+<p>We take a look at the source code of built-in methods which make use of two or more rasters to make decisions on the output pixel values. Few such methods which do that are <code>copy_sum</code>, <code>copy_min</code>, <code>copy_max</code>, <code>copy_count</code>.</p>
+<p>Looking at the <a href="https://github.com/rasterio/rasterio/blob/main/rasterio/merge.py#L40">copy_min</a> from source code, we see that it performs two logical operations each before and after the custom logic we wish to apply.</p>
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/76432265/183279064-f2437364-b4bd-4761-8b99-2aa3bc65bc42.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<figcaption align="center" class="figure-caption">
+<b><i>Fig.4 - copy_min function copies minimum value from overlapping region to the output raster&lt;/ href&gt; </i></b>
+</figcaption>
+</figure>
+<p>We would replace our custom logic of averaging with that of <code>minimum</code> in the above code and that is all there is to it. We can now use this function to manipulate the values of overlapping region!</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> custom_method_avg(merged_data, new_data, merged_mask, new_mask, <span class="op">**</span>kwargs):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Returns the average value pixel."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> np.empty_like(merged_mask, dtype<span class="op">=</span><span class="st">"bool"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    np.logical_or(merged_mask, new_mask, out<span class="op">=</span>mask)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    np.logical_not(mask, out<span class="op">=</span>mask)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    np.nanmean([merged_data, new_data], axis<span class="op">=</span><span class="dv">0</span>, out<span class="op">=</span>merged_data, where<span class="op">=</span>mask)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    np.logical_not(new_mask, out<span class="op">=</span>mask)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    np.logical_and(merged_mask, mask, out<span class="op">=</span>mask)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    np.copyto(merged_data, new_data, where<span class="op">=</span>mask, casting<span class="op">=</span><span class="st">"unsafe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="endnote" class="level3">
+<h3 class="anchored" data-anchor-id="endnote">Endnote</h3>
+<p>The modern approach to merge rasters in python is to only stream the data for your region of interest, process and perform analysis on the raster in memory. This would save you a huge cost and time. This is possible because of <a href="https://www.cogeo.org/">COGs</a> and <a href="https://stacspec.org/en">STAC</a>.</p>
+<p>We looked at the merge method in depth and also explored the techniques used to combine the overlapping data. Finally, we created a custom method for merging rasters by modifying the existing code to suit our requirements. The code associated with this post can be found <a href="https://colab.research.google.com/drive/1iMYdNmAEr0JuKzPnDH0qC4rDsYkvwMk0?usp=sharing">here</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">(c) Aman Bagrecha, 2023. <a href="disclaimer">Disclaimer</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

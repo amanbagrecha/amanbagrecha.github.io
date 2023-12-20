@@ -1,0 +1,13 @@
+---
+listing:
+  categories: true
+  contents:
+  - gallery.yaml
+  feed: true
+  sort-ui: false
+  type: grid
+  fields: [image, date, title, author, reading-time]
+page-layout: article
+title: Projects
+title-block-bannerrR: false
+---

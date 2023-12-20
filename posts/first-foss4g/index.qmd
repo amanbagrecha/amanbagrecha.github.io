@@ -1,0 +1,68 @@
+---
+title: My first FOSS4G experience
+date: 2023-07-05
+slug: my-first-foss4g
+categories:
+- foss4g
+tags: [conference, event]
+description: 'I traveled to Prizren, Kosovo to attend the largest geospatial conference in the world. This was my first international travel and conference!'
+draft: false
+image: featured.jpeg
+image-alt: 'A tightly knitted foss4g community @foss4g2023'
+reading-time: yes
+
+---
+
+I embarked on a journey to attend the esteemed geospatial conference, FOSS4G 2023, held in Prizren. As I reflect, it was an event that left a profound impact on me, and I want to treasure these memories forever.
+
+
+![Entering the exhibition center at ITP](first-day.jpeg)
+
+
+
+
+Just a couple of months ago, I had my doubts about attending FOSS4G, as I had never traveled to a foreign country before and the host country was not very well known. The logistics to get visa and planning the round-trip seemed daunting, and I wasn't sure if it would be worth the investment and energy. However, to my delight, I discovered that there were other indians planning their travel too, making the planning process much smoother.
+
+So, there I was, hopping on the plane to Pristina, Kosovo, and thinking to myself, "Did I really make the right call by shelling out a ton of money for this conference?" But, looking back now, I have to say, it was totally worth it! All the energy and effort I put into being a part of this event, it paid off big time. I'm filled with a sense of contentment right now.
+
+
+During my time at foss4g, I got to hang out with the cool, nerdy core developers, authors, organizers, professors, and users of geospatial technology.  I made some awesome new friends and dove headfirst into the wild nightlife of that stunning city. The experience was overwhelming, and it demanded an extra surge of energy.
+
+With dense knowledge delivered within every conference room, I had to decide to let go one talk over another. Thankfully the talks are recorded, and will be shared freely and openly, adhering the spirit of foss4g! 
+
+
+![Day5: Presenting my work to a room full of geonerds](geonerds.jpeg)
+
+
+Not only was this my first foss4g, but also the first time I presented my work. I was thrilled to receive positive feedback after my talk and to connect with individuals who shared my passion and interests. It was like finding my tribe!
+
+These ten days in Kosovo were one of the most remarkable days of my life. The local people I met, both from Kosovo and Albania, made me feel right at home and added to the incredible experience. I'm back home, with a fresh perspective on life, a bunch of goals to accomplish, and a trove of memories that I will cherish forever. 
+
+
+![Random day: City tour with friends](friends-day-out.jpeg)
+
+
+
+
+Little did I know, a "mere" conference could dive deep into technical know-how, forge bonds for a lifetime, question my views on status quo, understand cultural differences, and also make me feel blessed to be part of this community! 
+
+
+I cannot fathom the sheer knowledge I gained during these 10 days! From learning about state of the art innovation in geospatial, to learning life lessons to think beyond technology! I hope to have the opportunity to attend again next year and reunite with the friends I made along the way.
+
+Thank you foss4g community, the people of Kosovo and to the organizers who made this extraordinary event possible!
+
+Fingers crossed, hope to meet again next year in Brazil!
+
+*PS: This post is a glimpse of what transpired during the conference! Highly encourage everybody to attend this event and experience it yourself!*
+
+
+
+![Everyday visit: Stunning landscape of Prizren city, Kosovo](prizren.jpeg)
+
+
+![Saving some stickers for Lets Talk Spatial community! Grab them at next meetup :)](stickers.png)
+
+
+
+
+

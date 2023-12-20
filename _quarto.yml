@@ -1,0 +1,49 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Aman Bagrecha"
+  description: "Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial"
+  navbar:
+    # background: secondary
+    # foreground: light
+    search: true
+    tools:
+      - icon: twitter
+        href: https://twitter.com/aman_bagrecha
+      - icon: github
+        href: https://github.com/amanbagrecha
+    pinned: true
+    logo: img/AB.png
+    left:
+      - text: "Home"
+        file: index.qmd
+      - href: talks
+        text: Talks
+      - href: posts
+        text: Posts
+      - href: events
+        text: Events
+      - href: projects
+        text: Projects
+  page-footer:
+    left: "(c) Aman Bagrecha, 2023. [Disclaimer](disclaimer)"
+  twitter-card: true
+  open-graph: true
+
+format:
+  html:
+    theme: [sandstone, _variables.scss]
+    page-layout: article
+    css: styles.css
+    # grid: 
+      # body-width: 1250px
+    toc: true
+    fontsize: 1.1em
+    linestretch: 1.7
+    fontcolor: black
+    # linkcolor: hsl(210deg 60% 40%)
+
+# spacelab, superhero, simplex, sandstone, flatly
+
