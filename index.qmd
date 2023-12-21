@@ -23,7 +23,7 @@ about:
     # image-width: 15em
     image-shape: rounded
 
-image: img/profile.jpg
+image: img/profile.jpeg
 comments: false
 format:
   html:
