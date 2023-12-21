@@ -1,6 +1,6 @@
 ---
 listing:
-  categories: true
+  categories: false
 #   contents:
 #   - '*.qmd'
 #   - '*.md'

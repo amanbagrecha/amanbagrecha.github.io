@@ -34,9 +34,10 @@ website:
 
 format:
   html:
-    theme: [sandstone, _variables.scss]
+    theme: [sandstone,]
+    #_variables.scss
     page-layout: article
-    css: styles.css
+    css: _variables.scss
     # grid: 
       # body-width: 1250px
     toc: true
