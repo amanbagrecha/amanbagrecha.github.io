@@ -19,8 +19,8 @@ website:
     left:
       - text: "Home"
         file: index.qmd
-      - href: talks
-        text: Talks
+      - text: Talks
+        file: talks/index.qmd
       - href: posts
         text: Posts
       - href: events
