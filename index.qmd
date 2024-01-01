@@ -3,7 +3,7 @@
 ---
 title: "Aman Bagrecha"
 about:
-    template: trestles
+    template: solana
     links:
         - icon: linkedin
           text: LinkedIn
@@ -20,7 +20,7 @@ about:
           url: https://orcid.org/0000-0003-2931-0777
         - text: "{{< fa brands google-scholar >}} Google Scholar"
           url: https://scholar.google.com/citations?user=h0CeG6AAAAAJ
-    # image-width: 15em
+    image-width: 15em
     image-shape: rounded
 
 image: img/profile.jpeg
