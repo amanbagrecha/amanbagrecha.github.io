@@ -6,8 +6,6 @@ website:
   title: "Aman Bagrecha"
   description: "Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial"
   navbar:
-    # background: secondary
-    # foreground: light
     search: true
     tools:
       - icon: twitter
@@ -34,11 +32,13 @@ website:
 
 format:
   html:
-    theme: [sandstone, _variables.scss]
+    theme: 
+      - sandstone
+      - _variables.scss
     page-layout: article
     css: styles.css
     # grid: 
-      # body-width: 1250px
+    #   body-width: 150px
     toc: true
     fontsize: 1.1em
     linestretch: 1.7

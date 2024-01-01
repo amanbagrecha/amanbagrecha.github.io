@@ -1,4 +1,5 @@
-::: .column-page
+::: .column-screen-left
+
 
 ---
 title: "Aman Bagrecha"
@@ -29,7 +30,7 @@ format:
   html:
     page-layout: article
     grid: 
-      body-width: 1350px
+      body-width: 1150px
 ---
 
 ## About
