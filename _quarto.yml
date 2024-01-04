@@ -34,7 +34,7 @@ format:
   html:
     theme: 
       - sandstone
-      - _variables.scss
+      - custom.scss
     page-layout: article
     css: styles.css
     # grid: 
