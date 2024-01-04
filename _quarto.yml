@@ -33,15 +33,15 @@ website:
 format:
   html:
     theme: 
-      - sandstone
+      # - sandstone
       - custom.scss
-    page-layout: article
+    page-layout: full
     css: styles.css
     # grid: 
     #   body-width: 150px
     toc: true
     fontsize: 1.1em
-    linestretch: 1.7
+    linestretch: 1.8
     fontcolor: black
     # linkcolor: hsl(210deg 60% 40%)
 
