@@ -35,7 +35,7 @@ format:
     theme: 
       # - sandstone
       - custom.scss
-    page-layout: full
+    page-layout: article
     css: styles.css
     # grid: 
     #   body-width: 150px
