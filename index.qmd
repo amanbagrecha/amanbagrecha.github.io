@@ -28,9 +28,9 @@ image: img/profile.jpeg
 comments: false
 format:
   html:
-    page-layout: article
+    page-layout: full
     grid: 
-      body-width: 1150px
+      body-width: 850px
 ---
 
 ## About
