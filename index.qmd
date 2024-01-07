@@ -42,7 +42,7 @@ During college, I was also a Research Intern at Indian Institute of Science work
 
 I co-founded [Let's Talk Spatial](https://letstalkspatial.in), a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.
 
-As the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize [various events](https://site.ieee.org/bangalore-grss/events_list/student-yp-events/). I'm also an [OSGeo Charter member](https://www.osgeo.org/member/bagrecha/) since November 2023.
+As the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize [various events](https://site.ieee.org/bangalore-grss/events_list/student-yp-events/).
 
 I've spoken at opensource conferences like [FOSS4G Kosovo](https://www.youtube.com/playlist?list=PLSeJLsP3KYyuuChdOiRBY-bkmiO2e5-_z) and [FOSS4G Asia Seoul](https://github.com/amanbagrecha/Foss4gAsia2023), sharing my insights on open-source technologies. 
 
