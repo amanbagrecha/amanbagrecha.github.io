@@ -35,7 +35,7 @@ format:
 
 ## About
 
-I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. Beyond my professional life, I enjoy jogging and playing badminton.
+I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few. Beyond my professional life, I enjoy jogging and playing badminton.
 
 I graduated from [Rashtreeya Vidyalaya College of Engineering](https://www.rvce.edu.in/) in Civil Engineering where I was the president of [ASCE Student Chapter](https://www.instagram.com/p/B7voXITBJ16), leading the team to [Concrete Canoe Competition](https://www.instagram.com/p/B3kDEZ9Bb--/) among various other activities.
 During college, I was also a Research Intern at Indian Institute of Science working on [non-stationary rainfall intensity surface drainage design](https://www.tandfonline.com/doi/abs/10.1080/1573062X.2023.2287049).

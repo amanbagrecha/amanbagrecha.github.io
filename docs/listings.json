@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
     "listing": "/posts/index.html",
     "items": [
       "/posts/first-foss4g/index.html",
@@ -26,10 +30,6 @@
       "/posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html",
       "/posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html"
     ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": []
   },
   {
     "listing": "/talks/index.html",
