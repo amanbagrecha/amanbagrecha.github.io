@@ -7,13 +7,13 @@ description: |
 ## April 2024
 I found my life partner in my best friend and travel buddy - I am engaged!
 
-Hosted a hackathon in collaboration with SkyServe. A good number of participants from across the country took the challenge to create AI models for the Edge! Details here https://www.linkedin.com/feed/update/urn:li:activity:7189333318394429441. The webinar can be found here - https://www.youtube.com/live/9B4UNJqKos4?si=moId51V3LvcfBLeV
+Hosted a hackathon in collaboration with SkyServe. A good number of participants from across the country took the challenge to create AI models for the Edge! Details [here](https://www.linkedin.com/feed/update/urn:li:activity:7189333318394429441). The webinar can be found [here](https://www.youtube.com/live/9B4UNJqKos4?si=moId51V3LvcfBLeV)
 
 
 ## March 2024
 Took a small vacation with Family to beat the Bangalore heat, off to Goa! 
 
-Hosted a meetup in collobration with (Proto)[https://www.proto-geo.xyz/]. The event revolved around maps and content. Super fun audience and speakers. The live stream can be watched here https://youtube.com/live/YnJ3FHUXhv4
+Hosted a meetup in collobration with [Proto](https://www.proto-geo.xyz/). The event revolved around maps and content. Super fun audience and speakers. The live stream can be watched [here](https://youtube.com/live/YnJ3FHUXhv4)
 
 ## Febuary 2024
 I conducted a [workshop](https://www.linkedin.com/posts/amanbagrecha_wrapping-up-last-two-eventful-days-first-activity-7164916975444447232-f-UN) on [Google Earth Engine](https://earthengine.google.com/) at The National Institute of Engineering, Mysore. Also attended AGM of (IEEE GRSS Bangalore Section](https://site.ieee.org/bangalore-grss/) at Manipal Institute of Management, MAHE, Bangalore.
