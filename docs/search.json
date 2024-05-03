@@ -287,6 +287,55 @@
     "text": "Oftentimes you are required to download satellite images for your Area of Interest (AOI) and Google Earth Engine is probably a good place to avail processed satellite images for free and more importantly, only for the area you need.\nOne hindrance when you download from earth engine is that the images get saved in google drive, which can fill up fast for large numbers of downloads. To avoid this additional step, there is a hacky trick to download images directly.\nNote: Earth Engine does provide getDownloadURL option, but is limited in the size of download and thus not feasible in this case. Pixel grid dimensions for getDownloadURL must be less than or equal to 10000 i.e, you can have a maximum of 100 x 100 pixel size images.\nIn this post I show a trick which can let you download upto 100 times larger size images, directly to your local machine. Spoiler: getRegion method plays a significant role to help accomplish this task. Added to that, creating a gridded bounding box for our AOI, with spacing equivalent to the pixel size will aid in our task.\nWe will utilize earth engine python client so that all the geopython goodies can be simultaneously utilised.\nTo begin with, I have a geopackage containing a polygon, which is our AOI. We aim to download sentinel-2 B4 band for the region. The ideal way would be to use the in-built Export option, but in our case we would use the getRegion method along with creating a point grid over our AOI with spacing equivalent to the pixel size.\n\n\n\nFig.1 -Left: Our Area of Interest over which to download satellite data. Right: Grid points over AOI bounding box at pixel spacing\n\n\nTo accomplish creation of points at spacing equal to pixel width and height, we use the following function\n# generate points\ndef xcor(y_pt, crs):\n    def wrap(x_each):\n        feat = ee.FeatureCollection(y_pt.map(lambda y_each: ee.Feature(\n            ee.Geometry.Point([x_each, y_each], ee.Projection(crs)))))\n        return feat\n    return wrap\nThe above code can be interpreted as a nested loop.\n# Pseudo code\nfor each_x in x_pt:\n    for each_y in y_pt:\n        create_Point(each_x, each_y)\nx_pt and y_pt are generated from the geopackage (AOI) using GeoPandas library as follows\ndef generatePoints(file_name, pixel_size):\n\n    # read the farm and convert to geojson\n    feature = gpd.read_file(file_name).__geo_interface__\n    # extract bounds\n    minx, miny, maxx, maxy = feature['bbox']\n    # create a list with spacing equal to pixel_size\n    x_pt = ee.List.sequence(minx, maxx, pixel_size)\n    y_pt = ee.List.sequence(miny, maxy, pixel_size)\n   \n    return x_pt, y_pt, minx, maxy\nHere we are basically creating a new Point feature for each x and y point.\nOnce we have the grid over our AOI, we can go ahead and call getRegion method\nThe documentation does a good job in explaining what getRegion is all about\n\nOutput an array of values for each [pixel, band, image] tuple in an ImageCollection. The output contains rows of id, lon, lat, time, and all bands for each image that intersects each pixel in the given region. Attempting to extract more than 1048576 values will result in an error.\n\nThe limit 1048576 results in a max tile width and height of 1024 x 1024 pixels. By combining the previously created grid and getRegion, we could potentially get 100 times more pixels than getDownloadURL. Let us do that!\nlen_y = len(y_pt.getInfo())\nlen_x = len(x_pt.getInfo())\n\nimgCollection = ee.ImageCollection(\"COPERNICUS/S2_SR\").filters(filters_to_add)\ngeometry = ee.FeatureCollection(x_pt.map(xcor(y_pt, CRS))).flatten()\ninput_bands = \"B4\"\npixel_size = 10\n\ndf = get_dataframe(imgCollection, geometry, input_bands, CRS )\ndata_matrix = df[input_bands].values.reshape(len_y, len_x)\ndata_matrix = np.flip(data_matrix, axis = 0)\ntransform = rasterio.transform.from_origin(minx, maxy, pixel_size, pixel_size)\nsave_tiff(\"output.tif\", data_matrix, transform, CRS)\nThe above code first gets the count of points in each of the 2-dimensions followed by fetching the dataframe which contains the lat, lon and pixel value as shown in the image.\n\n\n\nFig.2 -Output of getRegion results in lat, lon, pixel value in sequential order\n\n\nNow we reshape the dataframe and flip it to make the pixel arrange in image format. Lastly, we save the image by passing the transformation of the image. Make sure to have an imageCollection for the getRegion method to work. Currently, the above code can only download 1 band at a time, but with simple modification to the getDataframe function, that too can be changed.\ndef getDataframe(img_col, feature, input_band, crs):\n   \n    imgcol = ee.ImageCollection(img_col).select(input_band)\n    df = pd.DataFrame(imgcol.getRegion(feature.geometry(), 10, crs).getInfo())\n    df, df.columns = df[1:], df.iloc[0]\n    df = df.drop([\"id\", \"time\"], axis=1)\n\n    return df\n\ndef saveTiff(output_name, data_array, transform, crs):\n\n    options = {\n        \"driver\": \"Gtiff\",\n        \"height\": data_array.shape[0],\n        \"width\": data_array.shape[1],\n        \"count\": 1,\n        \"dtype\": np.float32,\n        \"crs\": crs,\n        \"transform\": transform\n    }\n\n    with rs.open(output_name, 'w', **options) as src:\n        src.write(data_array, 1)\n\n    return None\nThe output of the exercise is that you have a raster directly downloaded to your local machine, without google drive/ cloud intermediaries. One thing worth pointing out, is for extremely large images, you are better off downloading via the specified steps in docs. This hacky way is to simplify things and avoid google drive (which is never empty for me).\n\nThe full code can be accessed here"
   },
   {
+    "objectID": "presentations/design_of_surface_drainage_2021/index.html",
+    "href": "presentations/design_of_surface_drainage_2021/index.html",
+    "title": "Structural Modelling and analysis of concrete canoe hull",
+    "section": "",
+    "text": "Hello hello world"
+  },
+  {
+    "objectID": "presentations/index.html",
+    "href": "presentations/index.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n\n\n\n\n  \n\n\n\n\nFeasibility Study of Floating Solar Panels over Lakes in Bengaluru City\n\n\n\n\n\n\n\n\n\nJul 28, 2019\n\n\n\n\n\n\n  \n\n\n\n\nMechanistic Approach for the Design of Surface Drainage System of Roads\n\n\n\n\n\n\n\n\n\nSep 8, 2021\n\n\n\n\n\n\n  \n\n\n\n\nData Jam Presentation organised by WRI and opencity\n\n\n\n\n\n\n\n\n\nJun 10, 2023\n\n\n\n\n\n\n  \n\n\n\n\nSentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling\n\n\n\n\n\n\n\n\n\nNov 30, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "presentations/datajam_2023/index.html",
+    "href": "presentations/datajam_2023/index.html",
+    "title": "Structural Modelling and analysis of concrete canoe hull",
+    "section": "",
+    "text": "Hello hello world"
+  },
+  {
+    "objectID": "talks.html",
+    "href": "talks.html",
+    "title": "Talks",
+    "section": "",
+    "text": "Talks conducted"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Aman Bagrecha",
+    "section": "",
+    "text": "I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few. Beyond my professional life, I enjoy jogging and playing badminton.\nI graduated from Rashtreeya Vidyalaya College of Engineering in Civil Engineering where I was the president of ASCE Student Chapter, leading the team to Concrete Canoe Competition among various other activities. During college, I was also a Research Intern at Indian Institute of Science working on non-stationary rainfall intensity surface drainage design.\nI co-founded Let’s Talk Spatial, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.\nAs the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize various events.\nI’ve spoken at opensource conferences like FOSS4G Kosovo and FOSS4G Asia Seoul, sharing my insights on open-source technologies.\nMy publications can be found on Google Scholar.\n\n\n\nGalaxEye Space | Geospatial Scientist | Sept 2023 – present\nBlue Sky Analytics | Data Scientist | May 2022 – Sept 2023\nSatyukt Analytics | Remote Sensing Engineer | Sept 2021 – Mar 2022\nRotten Grapes Pvt. Ltd | Web GIS Developer | Feb 2021 – May 2021"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Aman Bagrecha",
+    "section": "",
+    "text": "I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few. Beyond my professional life, I enjoy jogging and playing badminton.\nI graduated from Rashtreeya Vidyalaya College of Engineering in Civil Engineering where I was the president of ASCE Student Chapter, leading the team to Concrete Canoe Competition among various other activities. During college, I was also a Research Intern at Indian Institute of Science working on non-stationary rainfall intensity surface drainage design.\nI co-founded Let’s Talk Spatial, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.\nAs the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize various events.\nI’ve spoken at opensource conferences like FOSS4G Kosovo and FOSS4G Asia Seoul, sharing my insights on open-source technologies.\nMy publications can be found on Google Scholar."
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Aman Bagrecha",
+    "section": "",
+    "text": "GalaxEye Space | Geospatial Scientist | Sept 2023 – present\nBlue Sky Analytics | Data Scientist | May 2022 – Sept 2023\nSatyukt Analytics | Remote Sensing Engineer | Sept 2021 – Mar 2022\nRotten Grapes Pvt. Ltd | Web GIS Developer | Feb 2021 – May 2021"
+  },
+  {
     "objectID": "events/index.html",
     "href": "events/index.html",
     "title": "Events",
@@ -357,32 +406,18 @@
     "text": "June - July 2023\nI attended FOSS4G for the very first time and gave two talks. I had the most memorable experience in Prizren. Read in-depth blog here."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Aman Bagrecha",
+    "objectID": "presentations/asce_conference_2019/index.html",
+    "href": "presentations/asce_conference_2019/index.html",
+    "title": "Structural Modelling and analysis of concrete canoe hull",
     "section": "",
-    "text": "I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few. Beyond my professional life, I enjoy jogging and playing badminton.\nI graduated from Rashtreeya Vidyalaya College of Engineering in Civil Engineering where I was the president of ASCE Student Chapter, leading the team to Concrete Canoe Competition among various other activities. During college, I was also a Research Intern at Indian Institute of Science working on non-stationary rainfall intensity surface drainage design.\nI co-founded Let’s Talk Spatial, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.\nAs the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize various events.\nI’ve spoken at opensource conferences like FOSS4G Kosovo and FOSS4G Asia Seoul, sharing my insights on open-source technologies.\nMy publications can be found on Google Scholar.\n\n\n\nGalaxEye Space | Geospatial Scientist | Sept 2023 – present\nBlue Sky Analytics | Data Scientist | May 2022 – Sept 2023\nSatyukt Analytics | Remote Sensing Engineer | Sept 2021 – Mar 2022\nRotten Grapes Pvt. Ltd | Web GIS Developer | Feb 2021 – May 2021"
+    "text": "Hello hello world"
   },
   {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Aman Bagrecha",
+    "objectID": "presentations/foss4g_asia_2023/index.html",
+    "href": "presentations/foss4g_asia_2023/index.html",
+    "title": "Sentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling",
     "section": "",
-    "text": "I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few. Beyond my professional life, I enjoy jogging and playing badminton.\nI graduated from Rashtreeya Vidyalaya College of Engineering in Civil Engineering where I was the president of ASCE Student Chapter, leading the team to Concrete Canoe Competition among various other activities. During college, I was also a Research Intern at Indian Institute of Science working on non-stationary rainfall intensity surface drainage design.\nI co-founded Let’s Talk Spatial, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.\nAs the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize various events.\nI’ve spoken at opensource conferences like FOSS4G Kosovo and FOSS4G Asia Seoul, sharing my insights on open-source technologies.\nMy publications can be found on Google Scholar."
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Aman Bagrecha",
-    "section": "",
-    "text": "GalaxEye Space | Geospatial Scientist | Sept 2023 – present\nBlue Sky Analytics | Data Scientist | May 2022 – Sept 2023\nSatyukt Analytics | Remote Sensing Engineer | Sept 2021 – Mar 2022\nRotten Grapes Pvt. Ltd | Web GIS Developer | Feb 2021 – May 2021"
-  },
-  {
-    "objectID": "talks.html",
-    "href": "talks.html",
-    "title": "Talks",
-    "section": "",
-    "text": "Talks conducted"
+    "text": "Hello hello world"
   },
   {
     "objectID": "posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html",

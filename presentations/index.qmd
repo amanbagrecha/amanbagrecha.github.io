@@ -1,0 +1,13 @@
+---
+listing:
+  categories: true
+  contents:
+  - gallery.yaml
+  feed: true
+  sort-ui: true
+  type: default
+  fields: [image, date, title, author,]
+page-layout: article
+title: Presentations
+title-block-bannerrR: true
+---

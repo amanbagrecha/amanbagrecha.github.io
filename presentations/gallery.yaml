@@ -1,0 +1,24 @@
+- path: https://docs.google.com/presentation/d/e/2PACX-1vTZG4XB8A3OpMrW4kSEL6zq5XqGdPC1gG9Ky5QzYU6d_HT5p2FSvuafWkt5QBdcfA/pub?start=false&loop=false&delayms=60000
+  image: asce_conference_2019/featured.png
+  title: "Feasibility Study of Floating Solar Panels over Lakes in Bengaluru City"
+  description: "ASCE India Conference 2019"
+  date: 2019-07-28
+  categories: [Data Analysis, Python]
+- path: https://docs.google.com/presentation/d/e/2PACX-1vTl2SH3JuxFBZr9SfTWt486NVlipedfULwCNEr-oYg95VLsPTKWFwFyXqYZMOyqeA/pub?start=false&loop=false&delayms=60000
+  image: design_of_surface_drainage_2021/featured.png
+  title: "Mechanistic Approach for the Design of  Surface Drainage System of Roads"
+  description: "This script downloads SMAP L3 data and computes the soil moisture time series for specified region."
+  date: 2021-09-08
+  categories: [Remote Sensing, Python, QGIS]
+- path: https://docs.google.com/presentation/d/e/2PACX-1vTDlxIe6GUjdoFIQtYxv36nNq6JeKvCgbvSz63my6WrlnhYH1I18JOHHT1YKGKEMQREJ7JRVOEzwysv/pub?start=false&loop=false&delayms=60000
+  image: datajam_2023/featured.png
+  title: "Data Jam Presentation organised by WRI and opencity"
+  description: ""
+  date: 2023-06-10
+  categories: [google earth]
+- path: https://docs.google.com/presentation/d/e/2PACX-1vQaP1rqI_Aj5rb3q0t6dWjN4brQs1rCqTVkY8oD7oezQDZYUi-RobhsExvjDe_qc1SeujMbsGNsFwKp/pub?start=false&loop=false&delayms=60000
+  image: foss4g_asia_2023/featured.png
+  title: "Sentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling"
+  description: ""
+  date: 2023-11-30
+  categories: [deep learning, SAR, python]

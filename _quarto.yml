@@ -25,6 +25,8 @@ website:
         text: Events
       - href: projects
         text: Projects
+      - href: presentations
+        text: Presentations
   page-footer:
     left: "(c) Aman Bagrecha, 2023. [Disclaimer](disclaimer)"
   twitter-card: true
