@@ -340,14 +340,21 @@
     "href": "events/index.html",
     "title": "Events",
     "section": "",
-    "text": "Met with an accident on two-wheeler while driving back home! Broke my leg, WFH for atleast a week!\nConducted (online) workshop on QGIS for ACIWRM. First time an online workshop - was super helpful for me to revise all the important concepts. The team loved it! Email me at amanbagrecha.blr@gmail.com if you’d like to conduct such workshops!\nGot Selected for IADF School happening in Italy! Fingers crossed - hopefully my visa gets accepted!"
+    "text": "Conducted a workshop on QGIS for Let’s Talk Spatial. You can watch it here"
+  },
+  {
+    "objectID": "events/index.html#august-2024",
+    "href": "events/index.html#august-2024",
+    "title": "Events",
+    "section": "",
+    "text": "Conducted a workshop on QGIS for Let’s Talk Spatial. You can watch it here"
   },
   {
     "objectID": "events/index.html#july-2024",
     "href": "events/index.html#july-2024",
     "title": "Events",
-    "section": "",
-    "text": "Met with an accident on two-wheeler while driving back home! Broke my leg, WFH for atleast a week!\nConducted (online) workshop on QGIS for ACIWRM. First time an online workshop - was super helpful for me to revise all the important concepts. The team loved it! Email me at amanbagrecha.blr@gmail.com if you’d like to conduct such workshops!\nGot Selected for IADF School happening in Italy! Fingers crossed - hopefully my visa gets accepted!"
+    "section": "July 2024",
+    "text": "July 2024\nMet with an accident on two-wheeler while driving back home! Broke my leg, WFH for atleast a week!\nConducted (online) workshop on QGIS for ACIWRM. First time an online workshop - was super helpful for me to revise all the important concepts. The team loved it! Email me at amanbagrecha.blr@gmail.com if you’d like to conduct such workshops!\nGot Selected for IADF School happening in Italy! Fingers crossed - hopefully my visa gets accepted!"
   },
   {
     "objectID": "events/index.html#june-2024",
@@ -705,5 +712,12 @@
     "title": "Talks",
     "section": "Event Moderation and Hosting",
     "text": "Event Moderation and Hosting"
+  },
+  {
+    "objectID": "talks/index.html#qgis",
+    "href": "talks/index.html#qgis",
+    "title": "Talks",
+    "section": "QGIS",
+    "text": "QGIS"
   }
 ]

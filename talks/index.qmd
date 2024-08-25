@@ -30,3 +30,8 @@ title-block-bannerrR: false
 ## Event Moderation and Hosting
 
 <iframe width="514" height="289" src="https://www.youtube.com/embed/videoseries?si=GegFtMP3HwdoIvmW&amp;list=PLSeJLsP3KYyut9_GoACZFgQCQdJTQXcfU" title="Volunteering and Host at Events" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+## QGIS
+
+<iframe width="514" height="289" src="https://www.youtube.com/embed/07rbTdK8huw?si=3ehjoCrBzCqBf8VM" title="QGIS for Dummies | Let's Talk Spatial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
