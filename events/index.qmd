@@ -4,6 +4,12 @@ description: |
   News and Professional Journal - Updated once a month!
 ---
 
+## September 2024
+
+Attended SAC event on the occasion of National Space Day! The excitement was palpable, as it was the first time private industry was invited inside SAC.
+
+Friends (and colleagues) went on a vacation to Puducherry! Maybe the last one before my marriage.
+
 ## August 2024
 
 Conducted a workshop on QGIS for Let's Talk Spatial. You can watch it [here](https://www.youtube.com/live/07rbTdK8huw)
