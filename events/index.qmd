@@ -7,7 +7,9 @@ description: |
 
 ## December 2024
 
-Wedding preparation is in beast MODE. Too less of a time remaining
+Wedding preparation is in beast MODE. Too less of a time remaining.
+
+I got to deliver a talk on GeoPython at NMIT. As IEEE GRSS Young Professional Chair of Bangalore Section, I got to engage with the NMIT chapter and help them understand why this is the best time to be in Geospatial Industry
 
 ## November 2024
 
