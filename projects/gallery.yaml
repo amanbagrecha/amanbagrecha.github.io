@@ -64,3 +64,9 @@
   description: "Create API end points for DRF-CRUD and add security layer using Token Authentication."
   date: 2021-07-12
   categories: [Django, Python]
+- path: https://github.com/amanbagrecha/surface_water_extent
+  image: surface-water-extent/featured.png
+  title: "Surface Water Extent using Sentinel-2 Imagery"
+  description: "It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery."
+  date: 2024-04-25
+  categories: [Javascript, GEE]
