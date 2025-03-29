@@ -4,6 +4,12 @@ description: |
   News and Professional Journal - Updated once a month!
 ---
 
+## March 2025
+
+We had our 19th meetup at Varaha. It was good to be back organising meetups! And it was really good :) You can check out the video [here](https://www.youtube.com/live/kktb1KcIlOc?si=5tnZUN0YPZJqF9RA)
+
+Conducted a hands-on workshop on Earth engine for climate at [BNMIT](https://youtu.be/vJa_6E5ArVw)
+
 ## Febuary 2025
 
 Back to work. A lot of progress made thus far, but a long way to go. Let's Talk Spatial meetup has been in hibernation for some time and we are starting it next month.
