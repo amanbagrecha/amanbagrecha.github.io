@@ -70,3 +70,9 @@
   description: "It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery."
   date: 2024-04-25
   categories: [Javascript, GEE]
+- path: nlm/nl-means-viz-enhanced.html
+  image: surface-water-extent/featured.png
+  title: "Non Local Means Visualisation"
+  description: "It allows the user to visualise the inner workings of the NL-means algorithm."
+  date: 2024-04-25
+  categories: [Javascript, GEE]
