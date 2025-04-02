@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Local Means Denoising Visualization</title>
+    <!-- Make sure to load Chart.js before any code that uses it -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f9fc;
+        }
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-display {
+            position: relative;
+            margin-bottom: 15px;
+            user-select: none;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #ddd;
+        }
+        .overlay-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .patch-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .patch-canvas {
+            border: 1px solid #ddd;
+        }
+        .controls {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .slider-container {
+            margin-bottom: 15px;
+        }
+        .slider-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .slider-container input {
+            width: 100%;
+        }
+        .slider-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+        .parameter-value {
+            font-weight: bold;
+            text-align: right;
+            margin-left: 10px;
+            color: #2980b9;
+        }
+        .file-input {
+            margin-bottom: 20px;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .explanation {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .weights-visualization {
+            margin-top: 15px;
+            height: 200px;
+            width: 100%;
+        }
+        .selected-pixel-info {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .colorscale {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .colorbar {
+            flex-grow: 1;
+            height: 20px;
+            background: linear-gradient(to right, #fee5d9, #fcae91, #fb6a4a, #de2d26, #a50f15);
+            margin: 0 10px;
+            border-radius: 2px;
+        }
+        .colorbar-label {
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab.active {
+            background-color: white;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .profile-canvas {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        .visualization-options {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .result-image {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .result-container {
+            text-align: center;
+        }
+        .image-label {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .metrics {
+            margin-top: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+        .metrics-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .metrics-label {
+            font-weight: bold;
+        }
+        .noise-controls {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Non-Local Means Denoising Visualization</h1>
+        <p>An interactive tool to visualize the inner workings of the NL-means algorithm</p>
+    </header>
+
+    <div class="container">
+        <div class="file-input">
+            <label for="imageUpload"><strong>Upload an image:</strong></label>
+            <input type="file" id="imageUpload" accept="image/*" onchange="handleImageUpload(event)">
+            <button onclick="createSampleImage('lena')">Load Lena</button>
+            <button onclick="createSampleImage('building')">Load Building</button>
+            <button onclick="createSampleImage('pattern')">Load Pattern</button>
+        </div>
+        
+        <div class="noise-controls">
+            <h3>Add Noise</h3>
+            <div class="slider-container">
+                <label for="noiseSlider">Noise Level: <span id="noiseValue" class="parameter-value">25</span></label>
+                <input type="range" id="noiseSlider" min="0" max="100" step="5" value="25" oninput="updateNoiseLevel(this.value)">
+                <div class="slider-values">
+                    <span>0</span>
+                    <span>100</span>
+                </div>
+            </div>
+            <div class="button-group">
+                <button onclick="addNoise('gaussian')">Add Gaussian Noise</button>
+                <button onclick="addNoise('salt_pepper')">Add Salt & Pepper Noise</button>
+                <button onclick="resetImage()">Reset Image</button>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="card">
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab('image-tab', this)">Image View</div>
+                    <div class="tab" onclick="switchTab('results-tab', this)">Denoising Results</div>
+                    <div class="tab" onclick="switchTab('profile-tab', this)">Intensity Profiles</div>
+                </div>
+                
+                <div id="image-tab" class="tab-content active">
+                    <div class="image-display">
+                        <canvas id="imageCanvas"></canvas>
+                        <canvas id="overlayCanvas" class="overlay-canvas"></canvas>
+                    </div>
+                    <div class="selected-pixel-info" id="pixelInfo">
+                        Click on the image to select a pixel
+                    </div>
+                    <div class="colorscale">
+                        <span class="colorbar-label">Low</span>
+                        <div class="colorbar"></div>
+                        <span class="colorbar-label">High</span>
+                    </div>
+                    <p><small>Green square: Reference patch | Blue square: Search region | Red heatmap: Patch weights</small></p>
+                    
+                    <div class="visualization-options">
+                        <h3>Visualization Options</h3>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="showRefPatch" checked onchange="updateVisOptions()">
+                                <label for="showRefPatch">Reference Patch</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="showSearchRegion" checked onchange="updateVisOptions()">
+                                <label for="showSearchRegion">Search Region</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="showWeightHeatmap" checked onchange="updateVisOptions()">
+                                <label for="showWeightHeatmap">Weight Heatmap</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="showPixelMarker" checked onchange="updateVisOptions()">
+                                <label for="showPixelMarker">Pixel Marker</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="results-tab" class="tab-content">
+                    <h3>Denoising Results</h3>
+                    <button onclick="runDenoising()">Run NL-Means Denoising</button>
+                    <div class="result-image">
+                        <div class="result-container">
+                            <canvas id="originalCanvas" width="200" height="200"></canvas>
+                            <div class="image-label">Original</div>
+                        </div>
+                        <div class="result-container">
+                            <canvas id="denoisedCanvas" width="200" height="200"></canvas>
+                            <div class="image-label">Denoised</div>
+                        </div>
+                    </div>
+                    <div class="metrics" id="denoisingMetrics">
+                        <h4>Quality Metrics</h4>
+                        <div class="metrics-row">
+                            <span class="metrics-label">PSNR:</span>
+                            <span>N/A</span>
+                        </div>
+                        <div class="metrics-row">
+                            <span class="metrics-label">SSIM:</span>
+                            <span>N/A</span>
+                        </div>
+                        <div class="metrics-row">
+                            <span class="metrics-label">Processing Time:</span>
+                            <span>N/A</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="profile-tab" class="tab-content">
+                    <h3>Pixel Intensity Profiles</h3>
+                    <p>Shows pixel intensities along horizontal and vertical lines through the selected pixel.</p>
+                    <canvas id="profileCanvas" class="profile-canvas"></canvas>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="showHorizontal" checked onchange="updateProfiles()">
+                            <label for="showHorizontal">Horizontal Profile</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="showVertical" checked onchange="updateProfiles()">
+                            <label for="showVertical">Vertical Profile</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Patch Analysis</h2>
+                <div class="patch-display">
+                    <div>
+                        <p>Reference Patch</p>
+                        <canvas id="refPatchCanvas" class="patch-canvas" width="100" height="100"></canvas>
+                    </div>
+                    <div>
+                        <p>Gaussian Kernel</p>
+                        <canvas id="kernelCanvas" class="patch-canvas" width="100" height="100"></canvas>
+                    </div>
+                </div>
+                <div class="weights-visualization">
+                    <h3>Similarity Weights</h3>
+                    <canvas id="weightsChart"></canvas>
+                </div>
+                
+                <div class="top-patches">
+                    <h3>Top 5 Most Similar Patches</h3>
+                    <div id="topPatchesContainer" style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px;"></div>
+                </div>
+                
+                <table id="patchTable">
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Weight</th>
+                            <th>Distance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patchTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <h2>Algorithm Parameters</h2>
+            
+            <div class="slider-container">
+                <label for="patchSizeSlider">Patch Size (s): <span id="patchSizeValue" class="parameter-value">7</span></label>
+                <input type="range" id="patchSizeSlider" min="3" max="15" step="2" value="7" oninput="updatePatchSize(this.value)">
+                <div class="slider-values">
+                    <span>3</span>
+                    <span>15</span>
+                </div>
+            </div>
+            
+            <div class="slider-container">
+                <label for="searchDistSlider">Search Distance (d): <span id="searchDistValue" class="parameter-value">10</span></label>
+                <input type="range" id="searchDistSlider" min="5" max="25" step="1" value="10" oninput="updateSearchDist(this.value)">
+                <div class="slider-values">
+                    <span>5</span>
+                    <span>25</span>
+                </div>
+            </div>
+            
+            <div class="slider-container">
+                <label for="hParamSlider">Filter Parameter (h): <span id="hParamValue" class="parameter-value">0.10</span></label>
+                <input type="range" id="hParamSlider" min="0.01" max="0.5" step="0.01" value="0.1" oninput="updateHParam(this.value)">
+                <div class="slider-values">
+                    <span>0.01</span>
+                    <span>0.5</span>
+                </div>
+            </div>
+            
+            <div class="slider-container">
+                <label for="varParamSlider">Variance (var): <span id="varParamValue" class="parameter-value">0.010</span></label>
+                <input type="range" id="varParamSlider" min="0.001" max="0.1" step="0.001" value="0.01" oninput="updateVarParam(this.value)">
+                <div class="slider-values">
+                    <span>0.001</span>
+                    <span>0.1</span>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button onclick="applyToPixel()">Apply to Current Pixel</button>
+                <button onclick="runDenoising()">Run Full Denoising</button>
+            </div>
+        </div>
+        
+        <div class="explanation">
+            <h2>How Non-Local Means Works</h2>
+            <p>Non-local means denoising is a powerful image denoising algorithm that leverages self-similarity within images. Here's what's happening in the visualization:</p>
+            <ol>
+                <li><strong>Reference Patch:</strong> For each pixel (x,y) in the image, a patch centered at that pixel is extracted (green square).</li>
+                <li><strong>Search Region:</strong> The algorithm searches within a neighborhood around the pixel (blue square).</li>
+                <li><strong>Patch Comparison:</strong> Each patch in the search region is compared to the reference patch.</li>
+                <li><strong>Similarity Weights:</strong> Weights are assigned based on patch similarity, with more similar patches receiving higher weights.</li>
+                <li><strong>Weighted Average:</strong> The final denoised value for the pixel is a weighted average of all center pixels from the compared patches.</li>
+            </ol>
+            <p>The sliders control:</p>
+            <ul>
+                <li><strong>Patch Size (s):</strong> The size of square patches to compare (larger patches capture more structure but may blur details).</li>
+                <li><strong>Search Distance (d):</strong> How far from the current pixel to search for similar patches.</li>
+                <li><strong>Filter Parameter (h):</strong> Controls the decay of the weighting function (smaller values preserve more detail but may retain noise).</li>
+                <li><strong>Variance (var):</strong> Related to the expected noise level in the image (higher values for noisier images).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="loadingIndicator" class="loading" style="display: none;">
+        Processing...
+    </div>
+
+    <script>
+        // Global variables
+        let originalImage = null;
+        let cleanImage = null;
+        let imageData = null;
+        let selectedRow = -1;
+        let selectedCol = -1;
+        let patchSize = 7;
+        let searchDist = 10;
+        let hParam = 0.1;
+        let varParam = 0.01;
+        let noiseLevel = 25;
+        let weightsChart = null;
+        let searchRegionWeights = [];
+        let referencePatch = null;
+        let gaussianKernel = null;
+        let visOptions = {
+            showRefPatch: true,
+            showSearchRegion: true,
+            showWeightHeatmap: true,
+            showPixelMarker: true
+        };
+        
+        // DOM elements
+        const imageCanvas = document.getElementById('imageCanvas');
+        const overlayCanvas = document.getElementById('overlayCanvas');
+        const refPatchCanvas = document.getElementById('refPatchCanvas');
+        const kernelCanvas = document.getElementById('kernelCanvas');
+        const pixelInfoElement = document.getElementById('pixelInfo');
+        const profileCanvas = document.getElementById('profileCanvas');
+        const originalCanvas = document.getElementById('originalCanvas');
+        const denoisedCanvas = document.getElementById('denoisedCanvas');
+        
+        // Initialize the visualization
+        function init() {
+            // Set up image canvas click handler
+            imageCanvas.addEventListener('click', handleCanvasClick);
+            
+            // Set up chart
+            initWeightsChart();
+        }
+        
+        // Function to switch tabs
+        function switchTab(tabId, tabElement) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate the selected tab
+            document.getElementById(tabId).classList.add('active');
+            tabElement.classList.add('active');
+            
+            // Update specific tab content if needed
+            if (tabId === 'profile-tab') {
+                updateProfiles();
+            } else if (tabId === 'results-tab') {
+                updateResultsView();
+            }
+        }
+        
+        // Create a sample image
+        function createSampleImage(type) {
+            const width = 320;
+            const height = 320;
+            
+            // Create a canvas to generate the sample image
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = width;
+            tempCanvas.height = height;
+            const ctx = tempCanvas.getContext('2d');
+            
+            if (type === 'lena') {
+                // Create a simple gradient for "Lena" substitute
+                const gradient = ctx.createRadialGradient(width/2, height/2, 10, width/2, height/2, width/2);
+                gradient.addColorStop(0, '#ffccaa');
+                gradient.addColorStop(0.6, '#aa6644');
+                gradient.addColorStop(1, '#442211');
+                
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, width, height);
+                
+                // Add some features to make it interesting
+                ctx.fillStyle = '#000';
+                ctx.beginPath();
+                ctx.arc(width*0.35, height*0.4, width*0.05, 0, Math.PI*2);
+                ctx.fill();
+                
+                ctx.beginPath();
+                ctx.arc(width*0.65, height*0.4, width*0.05, 0, Math.PI*2);
+                ctx.fill();
+                
+                ctx.beginPath();
+                ctx.moveTo(width*0.3, height*0.7);
+                ctx.quadraticCurveTo(width*0.5, height*0.8, width*0.7, height*0.7);
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            } else if (type === 'building') {
+                // Create a building-like structure
+                ctx.fillStyle = '#87CEEB'; // Sky
+                ctx.fillRect(0, 0, width, height);
+                
+                // Ground
+                ctx.fillStyle = '#8B4513';
+                ctx.fillRect(0, height*0.8, width, height*0.2);
+                
+                // Building
+                ctx.fillStyle = '#D3D3D3';
+                ctx.fillRect(width*0.2, height*0.3, width*0.6, height*0.5);
+                
+                // Windows
+                ctx.fillStyle = '#4682B4';
+                for (let row = 0; row < 5; row++) {
+                    for (let col = 0; col < 6; col++) {
+                        ctx.fillRect(
+                            width*0.25 + col * width*0.08, 
+                            height*0.35 + row * height*0.08, 
+                            width*0.06, 
+                            height*0.06
+                        );
+                    }
+                }
+                
+                // Door
+                ctx.fillStyle = '#8B4513';
+                ctx.fillRect(width*0.45, height*0.65, width*0.1, height*0.15);
+            } else if (type === 'pattern') {
+                // Create a checkerboard pattern
+                const cellSize = 20;
+                for (let row = 0; row < height/cellSize; row++) {
+                    for (let col = 0; col < width/cellSize; col++) {
+                        if ((row + col) % 2 === 0) {
+                            ctx.fillStyle = '#000';
+                        } else {
+                            ctx.fillStyle = '#fff';
+                        }
+                        ctx.fillRect(col*cellSize, row*cellSize, cellSize, cellSize);
+                    }
+                }
+                
+                // Add some circles
+                ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+                ctx.beginPath();
+                ctx.arc(width*0.3, height*0.3, width*0.2, 0, Math.PI*2);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(0, 0, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(width*0.7, height*0.7, width*0.2, 0, Math.PI*2);
+                ctx.fill();
+            }
+            
+            // Create an image from the canvas
+            const img = new Image();
+            img.onload = function() {
+                // Store the clean image for reference
+                cleanImage = img;
+                processImage(img);
+            };
+            img.src = tempCanvas.toDataURL();
+        }
+        
+        // Add noise to the image
+        function addNoise(noiseType) {
+            if (!cleanImage) return;
+            
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = cleanImage.width;
+            tempCanvas.height = cleanImage.height;
+            const ctx = tempCanvas.getContext('2d');
+            ctx.drawImage(cleanImage, 0, 0);
+            
+            // Get image data
+            const imgData = ctx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+            
+            if (noiseType === 'gaussian') {
+                // Add Gaussian noise
+                for (let i = 0; i < imgData.data.length; i += 4) {
+                    // Add random noise to each channel using Box-Muller transform for Gaussian
+                    for (let c = 0; c < 3; c++) {
+                        let u1 = Math.random();
+                        let u2 = Math.random();
+                        let z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+                        
+                        // Scale noise by noise level
+                        imgData.data[i+c] = Math.min(255, Math.max(0, 
+                            imgData.data[i+c] + z0 * (noiseLevel / 100 * 50)
+                        ));
+                    }
+                }
+            } else if (noiseType === 'salt_pepper') {
+                // Add salt and pepper noise
+                const threshold = noiseLevel / 100;
+                for (let i = 0; i < imgData.data.length; i += 4) {
+                    const rand = Math.random();
+                    if (rand < threshold/2) {
+                        // Salt (white)
+                        imgData.data[i] = 255;
+                        imgData.data[i+1] = 255;
+                        imgData.data[i+2] = 255;
+                    } else if (rand < threshold) {
+                        // Pepper (black)
+                        imgData.data[i] = 0;
+                        imgData.data[i+1] = 0;
+                        imgData.data[i+2] = 0;
+                    }
+                }
+            }
+            
+            // Put the noisy image data back
+            ctx.putImageData(imgData, 0, 0);
+            
+            // Create a new image from the noisy canvas
+            const noisyImage = new Image();
+            noisyImage.onload = function() {
+                processImage(noisyImage);
+            };
+            noisyImage.src = tempCanvas.toDataURL();
+        }
+        
+        // Update noise level
+        function updateNoiseLevel(value) {
+            noiseLevel = parseInt(value);
+            document.getElementById('noiseValue').textContent = noiseLevel;
+        }
+        
+        // Reset image to clean state
+        function resetImage() {
+            if (cleanImage) {
+                processImage(cleanImage);
+            }
+        }
+        
+        // Handle image upload
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        cleanImage = img;
+                        processImage(img);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        // Process the uploaded image
+        function processImage(img) {
+            // Resize if the image is too large
+            let width = img.width;
+            let height = img.height;
+            
+            const maxDimension = 500;
+            if (width > maxDimension || height > maxDimension) {
+                if (width > height) {
+                    height = height * (maxDimension / width);
+                    width = maxDimension;
+                } else {
+                    width = width * (maxDimension / height);
+                    height = maxDimension;
+                }
+            }
+            
+            // Set canvas dimensions
+            imageCanvas.width = width;
+            imageCanvas.height = height;
+            overlayCanvas.width = width;
+            overlayCanvas.height = height;
+            
+            // Draw image on canvas
+            const ctx = imageCanvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            // Store the original image
+            originalImage = img;
+            
+            // Get image data
+            imageData = ctx.getImageData(0, 0, width, height);
+            
+            // Reset selected pixel
+            selectedRow = Math.floor(height / 2);
+            selectedCol = Math.floor(width / 2);
+            
+            // Update UI
+            updateVisualization();
+            updateResultsView();
+        }
+        
+        // Handle canvas click
+        function handleCanvasClick(event) {
+            if (!imageData) return;
+            
+            // Get click coordinates relative to canvas
+            const rect = imageCanvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            // Convert to integer coordinates
+            const canvasWidth = imageCanvas.width;
+            const canvasHeight = imageCanvas.height;
+            
+            // Scale coordinates if canvas is displayed at a different size
+            const scaleX = canvasWidth / imageCanvas.offsetWidth;
+            const scaleY = canvasHeight / imageCanvas.offsetHeight;
+            
+            selectedCol = Math.floor(x * scaleX);
+            selectedRow = Math.floor(y * scaleY);
+            
+            // Ensure within bounds
+            selectedCol = Math.max(0, Math.min(selectedCol, canvasWidth - 1));
+            selectedRow = Math.max(0, Math.min(selectedRow, canvasHeight - 1));
+            
+            // Update visualization
+            updateVisualization();
+        }
+        
+        // Update visualization options
+        function updateVisOptions() {
+            visOptions.showRefPatch = document.getElementById('showRefPatch').checked;
+            visOptions.showSearchRegion = document.getElementById('showSearchRegion').checked;
+            visOptions.showWeightHeatmap = document.getElementById('showWeightHeatmap').checked;
+            visOptions.showPixelMarker = document.getElementById('showPixelMarker').checked;
+            
+            updateOverlay();
+        }
+        
+        // Update the visualization after parameter changes
+        function updateVisualization() {
+            if (!imageData || selectedRow < 0 || selectedCol < 0) return;
+            
+            showLoading();
+            
+            // Use setTimeout to give the UI time to update
+            setTimeout(() => {
+                // Update overlays
+                updateOverlay();
+                
+                // Update patch displays
+                updateReferencePatch();
+                updateGaussianKernel();
+                
+                // Update weights visualization
+                updateWeightsVisualization();
+                
+                // Update pixel info
+                updateSelectedPixelInfo();
+                
+                // Update profiles
+                updateProfiles();
+                
+                // Update top patches
+                updateTopPatches();
+                
+                hideLoading();
+            }, 50);
+        }
+        
+        // Update the overlay showing the search region and reference patch
+        function updateOverlay() {
+            if (!imageData) return;
+            
+            const ctx = overlayCanvas.getContext('2d');
+            ctx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+            
+            if (selectedRow < 0 || selectedCol < 0) return;
+            
+            const nr = imageData.height;
+            const nc = imageData.width;
+            
+            // Calculate the half-size of the patch
+            const o = Math.floor(patchSize / 2);
+            
+            // Calculate search region boundaries
+            const i1 = Math.max(0, selectedRow - Math.min(searchDist, selectedRow));
+            const i2 = Math.min(nr, selectedRow + Math.min(searchDist + 1, nr - selectedRow));
+            const j1 = Math.max(0, selectedCol - Math.min(searchDist, selectedCol));
+            const j2 = Math.min(nc, selectedCol + Math.min(searchDist + 1, nc - selectedCol));
+            
+            // Draw search region if enabled
+            if (visOptions.showSearchRegion) {
+                ctx.strokeStyle = 'blue';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(j1, i1, j2 - j1, i2 - i1);
+            }
+            
+            // Draw reference patch if enabled
+            if (visOptions.showRefPatch) {
+                ctx.strokeStyle = 'green';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(selectedCol - o, selectedRow - o, patchSize, patchSize);
+            }
+            
+            // Draw selected pixel if enabled
+            if (visOptions.showPixelMarker) {
+                ctx.fillStyle = 'red';
+                ctx.beginPath();
+                ctx.arc(selectedCol, selectedRow, 3, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+            
+            // Draw weights overlay if we've computed them and it's enabled
+            if (visOptions.showWeightHeatmap && searchRegionWeights && searchRegionWeights.length > 0) {
+                // Create a heatmap for weights
+                const heatmapCanvas = document.createElement('canvas');
+                heatmapCanvas.width = j2 - j1;
+                heatmapCanvas.height = i2 - i1;
+                const heatCtx = heatmapCanvas.getContext('2d');
+                
+                // Find max weight for normalization
+                let maxWeight = 0;
+                for (let i = 0; i < searchRegionWeights.length; i++) {
+                    for (let j = 0; j < searchRegionWeights[i].length; j++) {
+                        maxWeight = Math.max(maxWeight, searchRegionWeights[i][j]);
+                    }
+                }
+                
+                // Create the heatmap
+                const imgData = heatCtx.createImageData(heatmapCanvas.width, heatmapCanvas.height);
+                for (let i = 0; i < searchRegionWeights.length; i++) {
+                    for (let j = 0; j < searchRegionWeights[i].length; j++) {
+                        const normalizedWeight = searchRegionWeights[i][j] / maxWeight;
+                        
+                        // Apply a red gradient with alpha based on weight
+                        const idx = (i * heatmapCanvas.width + j) * 4;
+                        
+                        // Red color gradient based on weight (from light to dark red)
+                        if (normalizedWeight > 0.8) {
+                            imgData.data[idx] = 165; // R
+                            imgData.data[idx+1] = 15; // G
+                            imgData.data[idx+2] = 21; // B
+                        } else if (normalizedWeight > 0.6) {
+                            imgData.data[idx] = 222; // R
+                            imgData.data[idx+1] = 45; // G
+                            imgData.data[idx+2] = 38; // B
+                        } else if (normalizedWeight > 0.4) {
+                            imgData.data[idx] = 251; // R
+                            imgData.data[idx+1] = 106; // G
+                            imgData.data[idx+2] = 74; // B
+                        } else if (normalizedWeight > 0.2) {
+                            imgData.data[idx] = 252; // R
+                            imgData.data[idx+1] = 174; // G
+                            imgData.data[idx+2] = 145; // B
+                        } else {
+                            imgData.data[idx] = 254; // R
+                            imgData.data[idx+1] = 229; // G
+                            imgData.data[idx+2] = 217; // B
+                        }
+                        
+                        // Alpha based on weight (with a minimum to ensure visibility)
+                        imgData.data[idx+3] = Math.max(50, normalizedWeight * 180);
+                    }
+                }
+                
+                heatCtx.putImageData(imgData, 0, 0);
+                
+                // Draw the heatmap on the overlay
+                ctx.drawImage(heatmapCanvas, j1, i1);
+            }
+        }
+        
+        // Update the reference patch display
+        function updateReferencePatch() {
+            if (!imageData || selectedRow < 0 || selectedCol < 0) return;
+            
+            const ctx = refPatchCanvas.getContext('2d');
+            ctx.clearRect(0, 0, refPatchCanvas.width, refPatchCanvas.height);
+            
+            // Calculate the half-size of the patch
+            const o = Math.floor(patchSize / 2);
+            
+            // Calculate the boundaries of the reference patch
+            const startRow = Math.max(0, selectedRow - o);
+            const endRow = Math.min(imageData.height, selectedRow + o + 1);
+            const startCol = Math.max(0, selectedCol - o);
+            const endCol = Math.min(imageData.width, selectedCol + o + 1);
+            
+            // Extract the patch
+            const patchWidth = endCol - startCol;
+            const patchHeight = endRow - startRow;
+            
+            // Scale the patch to fit the canvas
+            const scaleX = refPatchCanvas.width / patchWidth;
+            const scaleY = refPatchCanvas.height / patchHeight;
+            
+            // Create a temporary canvas to extract the patch
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = patchWidth;
+            tempCanvas.height = patchHeight;
+            const tempCtx = tempCanvas.getContext('2d');
+            
+            // Extract patch from original image
+            const tempImageData = new ImageData(
+                new Uint8ClampedArray(imageData.data.buffer),
+                imageData.width,
+                imageData.height
+            );
+            tempCtx.putImageData(tempImageData, -startCol, -startRow);
+            
+            // Draw the patch on the reference patch canvas
+            ctx.drawImage(tempCanvas, 0, 0, refPatchCanvas.width, refPatchCanvas.height);
+            
+            // Store the reference patch
+            referencePatch = extractPatch(selectedRow, selectedCol);
+        }
+        
+        // Extract a patch from the image
+        function extractPatch(row, col) {
+            if (!imageData) return null;
+            
+            const o = Math.floor(patchSize / 2);
+            const startRow = Math.max(0, row - o);
+            const endRow = Math.min(imageData.height, row + o + 1);
+            const startCol = Math.max(0, col - o);
+            const endCol = Math.min(imageData.width, col + o + 1);
+            
+            const patch = [];
+            for (let i = startRow; i < endRow; i++) {
+                const row = [];
+                for (let j = startCol; j < endCol; j++) {
+                    // Get pixel at (i, j)
+                    const idx = (i * imageData.width + j) * 4;
+                    row.push([
+                        imageData.data[idx],
+                        imageData.data[idx + 1],
+                        imageData.data[idx + 2]
+                    ]);
+                }
+                patch.push(row);
+            }
+            
+            return patch;
+        }
+        
+        // Compute patch distance (simplified version)
+        function computePatchDistance(p1, p2, kernel) {
+            let dist = 0;
+            
+            // Normalize patch dimensions
+            const minRows = Math.min(p1.length, p2.length);
+            const minCols = Math.min(p1[0].length, p2[0].length);
+            
+            for (let i = 0; i < minRows; i++) {
+                for (let j = 0; j < minCols; j++) {
+                    // For each color channel
+                    for (let c = 0; c < 3; c++) {
+                        const diff = (p1[i][j][c] - p2[i][j][c]) / 255;
+                        dist += diff * diff * kernel[i][j];
+                    }
+                }
+            }
+            
+            return Math.exp(-dist / (varParam * 2));
+        }
+        
+        // Update the Gaussian kernel display
+        function updateGaussianKernel() {
+            const ctx = kernelCanvas.getContext('2d');
+            ctx.clearRect(0, 0, kernelCanvas.width, kernelCanvas.height);
+            
+            // Calculate the Gaussian kernel
+            const o = Math.floor(patchSize / 2);
+            const A = (patchSize - 1) / 4;
+            
+            // Create kernel
+            const kernel = [];
+            let maxKernelValue = 0;
+            
+            for (let i = -o; i <= o; i++) {
+                const row = [];
+                for (let j = -o; j <= o; j++) {
+                    const val = Math.exp(-(i*i + j*j) / (2 * A * A));
+                    row.push(val);
+                    maxKernelValue = Math.max(maxKernelValue, val);
+                }
+                kernel.push(row);
+            }
+            
+            // Normalize the kernel
+            const totalWeight = kernel.flat().reduce((sum, val) => sum + val, 0);
+            for (let i = 0; i < kernel.length; i++) {
+                for (let j = 0; j < kernel[i].length; j++) {
+                    kernel[i][j] = kernel[i][j] / (3 * totalWeight * hParam * hParam);
+                }
+            }
+            
+            // Draw the kernel as a heatmap
+            const cellSize = kernelCanvas.width / patchSize;
+            
+            for (let i = 0; i < kernel.length; i++) {
+                for (let j = 0; j < kernel[i].length; j++) {
+                    const normalizedValue = kernel[i][j] / maxKernelValue;
+                    
+                    // Blue gradient for kernel
+                    const intensity = Math.floor(255 * normalizedValue);
+                    ctx.fillStyle = `rgb(${255-intensity}, ${255-intensity}, 255)`;
+                    ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
+                }
+            }
+            
+            // Store the kernel for weight computation
+            gaussianKernel = kernel;
+        }
+        
+        // Update the weights visualization
+        function updateWeightsVisualization() {
+            if (!imageData || selectedRow < 0 || selectedCol < 0 || !referencePatch || !gaussianKernel) return;
+            
+            const nr = imageData.height;
+            const nc = imageData.width;
+            
+            // Calculate search region boundaries
+            const i1 = Math.max(0, selectedRow - Math.min(searchDist, selectedRow));
+            const i2 = Math.min(nr, selectedRow + Math.min(searchDist + 1, nr - selectedRow));
+            const j1 = Math.max(0, selectedCol - Math.min(searchDist, selectedCol));
+            const j2 = Math.min(nc, selectedCol + Math.min(searchDist + 1, nc - selectedCol));
+            
+            // Reset weights
+            searchRegionWeights = [];
+            const weights = [];
+            const labels = [];
+            const patchInfo = []; // For table display
+            
+            // Compute weights for each patch in the search region
+            for (let i = i1; i < i2; i++) {
+                const weightRow = [];
+                for (let j = j1; j < j2; j++) {
+                    const currentPatch = extractPatch(i, j);
+                    if (currentPatch) {
+                        const wt = computePatchDistance(referencePatch, currentPatch, gaussianKernel);
+                        weightRow.push(wt);
+                        
+                        // Calculate "raw" distance for display purposes
+                        let rawDist = 0;
+                        for (let pi = 0; pi < referencePatch.length; pi++) {
+                            for (let pj = 0; pj < referencePatch[0].length; pj++) {
+                                for (let c = 0; c < 3; c++) {
+                                    const diff = (referencePatch[pi][pj][c] - currentPatch[pi][pj][c]) / 255;
+                                    rawDist += diff * diff;
+                                }
+                            }
+                        }
+                        
+                        // Add to the chart data and patch info
+                        weights.push(wt);
+                        labels.push(`(${j-j1},${i-i1})`);
+                        patchInfo.push({
+                            row: i,
+                            col: j,
+                            weight: wt,
+                            distance: rawDist,
+                            patch: currentPatch
+                        });
+                    } else {
+                        weightRow.push(0);
+                    }
+                }
+                searchRegionWeights.push(weightRow);
+            }
+            
+            // Sort patch info by weight (descending)
+            patchInfo.sort((a, b) => b.weight - a.weight);
+            
+            // Store top patches for display
+            topPatches = patchInfo.slice(0, 5);
+            
+            // Update the patch table
+            updatePatchTable(patchInfo);
+            
+            // Update the chart
+            updateWeightsChart(weights, labels);
+            
+            // Update the overlay to show the weights
+            updateOverlay();
+        }
+        
+        // Store top patches
+        let topPatches = [];
+        
+        // Update top patches display
+        function updateTopPatches() {
+            const container = document.getElementById('topPatchesContainer');
+            container.innerHTML = '';
+            
+            // If no top patches, return
+            if (!topPatches || topPatches.length === 0) return;
+            
+            // Create canvas for each top patch
+            for (let i = 0; i < topPatches.length; i++) {
+                const patchInfo = topPatches[i];
+                
+                // Create container for this patch
+                const patchContainer = document.createElement('div');
+                patchContainer.style.textAlign = 'center';
+                
+                // Create canvas
+                const canvas = document.createElement('canvas');
+                canvas.width = 50;
+                canvas.height = 50;
+                canvas.style.border = '1px solid #ddd';
+                
+                // Draw patch on canvas
+                const ctx = canvas.getContext('2d');
+                
+                // Calculate patch position
+                const o = Math.floor(patchSize / 2);
+                const startRow = Math.max(0, patchInfo.row - o);
+                const endRow = Math.min(imageData.height, patchInfo.row + o + 1);
+                const startCol = Math.max(0, patchInfo.col - o);
+                const endCol = Math.min(imageData.width, patchInfo.col + o + 1);
+                
+                // Extract the patch
+                const patchWidth = endCol - startCol;
+                const patchHeight = endRow - startRow;
+                
+                // Create a temporary canvas to extract the patch
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = patchWidth;
+                tempCanvas.height = patchHeight;
+                const tempCtx = tempCanvas.getContext('2d');
+                
+                // Extract patch from original image
+                const tempImageData = new ImageData(
+                    new Uint8ClampedArray(imageData.data.buffer),
+                    imageData.width,
+                    imageData.height
+                );
+                tempCtx.putImageData(tempImageData, -startCol, -startRow);
+                
+                // Draw the patch on the canvas
+                ctx.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
+                
+                // Add weight label
+                const weightLabel = document.createElement('div');
+                weightLabel.textContent = `Weight: ${patchInfo.weight.toFixed(4)}`;
+                weightLabel.style.fontSize = '0.8em';
+                
+                // Add to container
+                patchContainer.appendChild(canvas);
+                patchContainer.appendChild(weightLabel);
+                container.appendChild(patchContainer);
+            }
+        }
+        
+        // Update the patch table
+        function updatePatchTable(patchInfo) {
+            const tableBody = document.getElementById('patchTableBody');
+            tableBody.innerHTML = '';
+            
+            // Sort by weight (descending)
+            patchInfo.sort((a, b) => b.weight - a.weight);
+            
+            // Take top 10 for table
+            const topPatches = patchInfo.slice(0, 10);
+            
+            // Create table rows
+            for (let i = 0; i < topPatches.length; i++) {
+                const info = topPatches[i];
+                const row = document.createElement('tr');
+                
+                // Position cell
+                const posCell = document.createElement('td');
+                posCell.textContent = `(${info.col}, ${info.row})`;
+                row.appendChild(posCell);
+                
+                // Weight cell
+                const weightCell = document.createElement('td');
+                weightCell.textContent = info.weight.toFixed(4);
+                row.appendChild(weightCell);
+                
+                // Distance cell
+                const distCell = document.createElement('td');
+                distCell.textContent = info.distance.toFixed(2);
+                row.appendChild(distCell);
+                
+                tableBody.appendChild(row);
+            }
+        }
+        
+        // Update intensity profiles
+        function updateProfiles() {
+            if (!imageData || selectedRow < 0 || selectedCol < 0 || document.getElementById('profile-tab').classList.contains('active') === false) return;
+            
+            const ctx = profileCanvas.getContext('2d');
+            ctx.clearRect(0, 0, profileCanvas.width, profileCanvas.height);
+            
+            const showHorizontal = document.getElementById('showHorizontal').checked;
+            const showVertical = document.getElementById('showVertical').checked;
+            
+            // Get image dimensions
+            const width = imageData.width;
+            const height = imageData.height;
+            
+            // Set up the chart
+            ctx.strokeStyle = '#ddd';
+            ctx.beginPath();
+            ctx.moveTo(0, profileCanvas.height - 20);
+            ctx.lineTo(profileCanvas.width, profileCanvas.height - 20);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(20, 0);
+            ctx.lineTo(20, profileCanvas.height);
+            ctx.stroke();
+            
+            // Add labels
+            ctx.fillStyle = '#333';
+            ctx.font = '10px Arial';
+            ctx.fillText('255', 2, 10);
+            ctx.fillText('0', 2, profileCanvas.height - 10);
+            ctx.fillText('Position', profileCanvas.width / 2, profileCanvas.height - 5);
+            
+            // Draw horizontal profile
+            if (showHorizontal) {
+                ctx.strokeStyle = 'red';
+                ctx.beginPath();
+                
+                for (let x = 0; x < width; x++) {
+                    const idx = (selectedRow * width + x) * 4;
+                    
+                    // Average the RGB values
+                    const avg = (imageData.data[idx] + imageData.data[idx+1] + imageData.data[idx+2]) / 3;
+                    
+                    // Scale to canvas
+                    const scaledX = 20 + (x / width) * (profileCanvas.width - 40);
+                    const scaledY = profileCanvas.height - 20 - (avg / 255) * (profileCanvas.height - 40);
+                    
+                    if (x === 0) {
+                        ctx.moveTo(scaledX, scaledY);
+                    } else {
+                        ctx.lineTo(scaledX, scaledY);
+                    }
+                }
+                
+                ctx.stroke();
+            }
+            
+            // Draw vertical profile
+            if (showVertical) {
+                ctx.strokeStyle = 'blue';
+                ctx.beginPath();
+                
+                for (let y = 0; y < height; y++) {
+                    const idx = (y * width + selectedCol) * 4;
+                    
+                    // Average the RGB values
+                    const avg = (imageData.data[idx] + imageData.data[idx+1] + imageData.data[idx+2]) / 3;
+                    
+                    // Scale to canvas
+                    const scaledX = 20 + (y / height) * (profileCanvas.width - 40);
+                    const scaledY = profileCanvas.height - 20 - (avg / 255) * (profileCanvas.height - 40);
+                    
+                    if (y === 0) {
+                        ctx.moveTo(scaledX, scaledY);
+                    } else {
+                        ctx.lineTo(scaledX, scaledY);
+                    }
+                }
+                
+                ctx.stroke();
+            }
+            
+            // Add legend
+            ctx.fillStyle = 'red';
+            ctx.fillRect(profileCanvas.width - 80, 10, 15, 10);
+            ctx.fillStyle = '#333';
+            ctx.fillText('Horizontal', profileCanvas.width - 60, 18);
+            
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(profileCanvas.width - 80, 30, 15, 10);
+            ctx.fillStyle = '#333';
+            ctx.fillText('Vertical', profileCanvas.width - 60, 38);
+        }
+        
+        // Update results view
+        function updateResultsView() {
+            if (!imageData) return;
+            
+            // Draw original image in the results tab
+            const origCtx = originalCanvas.getContext('2d');
+            origCtx.clearRect(0, 0, originalCanvas.width, originalCanvas.height);
+            origCtx.drawImage(imageCanvas, 0, 0, originalCanvas.width, originalCanvas.height);
+        }
+        
+        // Run denoising on a single pixel
+        function applyToPixel() {
+            if (!imageData || selectedRow < 0 || selectedCol < 0 || !referencePatch || !gaussianKernel) return;
+            
+            showLoading();
+            
+            setTimeout(() => {
+                const nr = imageData.height;
+                const nc = imageData.width;
+                
+                // Calculate search region boundaries
+                const i1 = Math.max(0, selectedRow - Math.min(searchDist, selectedRow));
+                const i2 = Math.min(nr, selectedRow + Math.min(searchDist + 1, nr - selectedRow));
+                const j1 = Math.max(0, selectedCol - Math.min(searchDist, selectedCol));
+                const j2 = Math.min(nc, selectedCol + Math.min(searchDist + 1, nc - selectedCol));
+                
+                // Initialize weights sum and weighted color sums
+                let weightSum = 0;
+                let rSum = 0, gSum = 0, bSum = 0;
+                
+                // Compute weighted average for the pixel
+                for (let i = i1; i < i2; i++) {
+                    for (let j = j1; j < j2; j++) {
+                        const currentPatch = extractPatch(i, j);
+                        if (currentPatch) {
+                            const weight = computePatchDistance(referencePatch, currentPatch, gaussianKernel);
+                            weightSum += weight;
+                            
+                            // Get center pixel of the current patch
+                            const idx = (i * nc + j) * 4;
+                            rSum += weight * imageData.data[idx];
+                            gSum += weight * imageData.data[idx + 1];
+                            bSum += weight * imageData.data[idx + 2];
+                        }
+                    }
+                }
+                
+                // Set denoised pixel value
+                const idx = (selectedRow * nc + selectedCol) * 4;
+                const denoisedImageData = new ImageData(
+                    new Uint8ClampedArray(imageData.data),
+                    nc,
+                    nr
+                );
+                
+                denoisedImageData.data[idx] = rSum / weightSum;
+                denoisedImageData.data[idx + 1] = gSum / weightSum;
+                denoisedImageData.data[idx + 2] = bSum / weightSum;
+                
+                // Display denoised image
+                updateDenoisedImage(denoisedImageData);
+                
+                // Update metrics (PSNR not applicable for single pixel)
+                updateMetrics(0, 0, 0);
+                
+                hideLoading();
+            }, 50);
+        }
+        
+        // Run denoising on the entire image
+        function runDenoising() {
+            if (!imageData) return;
+            
+            showLoading();
+            
+            setTimeout(() => {
+                const nr = imageData.height;
+                const nc = imageData.width;
+                
+                // Create a new image data for denoised result
+                const denoisedImageData = new ImageData(
+                    new Uint8ClampedArray(imageData.data),
+                    nc,
+                    nr
+                );
+                
+                const startTime = performance.now();
+                
+                // For performance, process a subset of pixels
+                const step = Math.max(1, Math.floor(Math.sqrt(nr * nc) / 30));
+                
+                for (let row = 0; row < nr; row += step) {
+                    for (let col = 0; col < nc; col += step) {
+                        // Get reference patch
+                        const refPatch = extractPatch(row, col);
+                        if (!refPatch) continue;
+                        
+                        // Calculate search region boundaries
+                        const i1 = Math.max(0, row - Math.min(searchDist, row));
+                        const i2 = Math.min(nr, row + Math.min(searchDist + 1, nr - row));
+                        const j1 = Math.max(0, col - Math.min(searchDist, col));
+                        const j2 = Math.min(nc, col + Math.min(searchDist + 1, nc - col));
+                        
+                        // Initialize weights sum and weighted color sums
+                        let weightSum = 0;
+                        let rSum = 0, gSum = 0, bSum = 0;
+                        
+                        // Compute weighted average for the pixel
+                        for (let i = i1; i < i2; i += step) {
+                            for (let j = j1; j < j2; j += step) {
+                                const currentPatch = extractPatch(i, j);
+                                if (currentPatch) {
+                                    const weight = computePatchDistance(refPatch, currentPatch, gaussianKernel);
+                                    weightSum += weight;
+                                    
+                                    // Get center pixel of the current patch
+                                    const idx = (i * nc + j) * 4;
+                                    rSum += weight * imageData.data[idx];
+                                    gSum += weight * imageData.data[idx + 1];
+                                    bSum += weight * imageData.data[idx + 2];
+                                }
+                            }
+                        }
+                        
+                        // Set denoised pixel value
+                        const idx = (row * nc + col) * 4;
+                        
+                        if (weightSum > 0) {
+                            // For every pixel we processed, apply the denoising in a block
+                            for (let br = 0; br < step && row + br < nr; br++) {
+                                for (let bc = 0; bc < step && col + bc < nc; bc++) {
+                                    const blockIdx = ((row + br) * nc + (col + bc)) * 4;
+                                    denoisedImageData.data[blockIdx] = rSum / weightSum;
+                                    denoisedImageData.data[blockIdx + 1] = gSum / weightSum;
+                                    denoisedImageData.data[blockIdx + 2] = bSum / weightSum;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                const endTime = performance.now();
+                const processingTime = (endTime - startTime) / 1000; // in seconds
+                
+                // Calculate PSNR if clean image is available
+                let psnr = 0;
+                let ssim = 0;
+                
+                if (cleanImage) {
+                    // Calculate PSNR between denoised and clean image
+                    const cleanCanvas = document.createElement('canvas');
+                    cleanCanvas.width = nc;
+                    cleanCanvas.height = nr;
+                    const cleanCtx = cleanCanvas.getContext('2d');
+                    cleanCtx.drawImage(cleanImage, 0, 0, nc, nr);
+                    const cleanImageData = cleanCtx.getImageData(0, 0, nc, nr);
+                    
+                    psnr = calculatePSNR(cleanImageData, denoisedImageData);
+                    ssim = calculateSSIM(cleanImageData, denoisedImageData);
+                }
+                
+                // Display denoised image
+                updateDenoisedImage(denoisedImageData);
+                
+                // Update metrics
+                updateMetrics(psnr, ssim, processingTime);
+                
+                hideLoading();
+            }, 50);
+        }
+        
+        // Update denoised image display
+        function updateDenoisedImage(denoisedImageData) {
+            const denoisedCtx = denoisedCanvas.getContext('2d');
+            denoisedCtx.putImageData(denoisedImageData, 0, 0);
+            
+            // Switch to results tab if not already there
+            const resultsTab = document.querySelector('.tab:nth-child(2)');
+            switchTab('results-tab', resultsTab);
+        }
+        
+        // Update metrics display
+        function updateMetrics(psnr, ssim, time) {
+            const metricsDiv = document.getElementById('denoisingMetrics');
+            
+            // Create metrics HTML
+            let html = '<h4>Quality Metrics</h4>';
+            
+            if (psnr > 0) {
+                html += `
+                <div class="metrics-row">
+                    <span class="metrics-label">PSNR:</span>
+                    <span>${psnr.toFixed(2)} dB</span>
+                </div>
+                <div class="metrics-row">
+                    <span class="metrics-label">SSIM:</span>
+                    <span>${ssim.toFixed(4)}</span>
+                </div>`;
+            } else {
+                html += `
+                <div class="metrics-row">
+                    <span class="metrics-label">PSNR:</span>
+                    <span>N/A (original image not available)</span>
+                </div>
+                <div class="metrics-row">
+                    <span class="metrics-label">SSIM:</span>
+                    <span>N/A (original image not available)</span>
+                </div>`;
+            }
+            
+            html += `
+            <div class="metrics-row">
+                <span class="metrics-label">Processing Time:</span>
+                <span>${time.toFixed(2)} seconds</span>
+            </div>
+            <div class="metrics-row">
+                <span class="metrics-label">Parameters:</span>
+                <span>s=${patchSize}, d=${searchDist}, h=${hParam.toFixed(2)}, var=${varParam.toFixed(3)}</span>
+            </div>`;
+            
+            metricsDiv.innerHTML = html;
+        }
+        
+        // Calculate PSNR between two image data objects
+        function calculatePSNR(originalData, denoisedData) {
+            let mse = 0;
+            const pixelCount = originalData.width * originalData.height;
+            
+            for (let i = 0; i < originalData.data.length; i += 4) {
+                const originalR = originalData.data[i];
+                const originalG = originalData.data[i + 1];
+                const originalB = originalData.data[i + 2];
+                
+                const denoisedR = denoisedData.data[i];
+                const denoisedG = denoisedData.data[i + 1];
+                const denoisedB = denoisedData.data[i + 2];
+                
+                mse += (originalR - denoisedR) ** 2 + 
+                       (originalG - denoisedG) ** 2 + 
+                       (originalB - denoisedB) ** 2;
+            }
+            
+            mse /= (pixelCount * 3);
+            
+            if (mse === 0) return 100; // Perfect match
+            
+            return 10 * Math.log10(255 * 255 / mse);
+        }
+        
+        // Calculate SSIM (simplified)
+        function calculateSSIM(originalData, denoisedData) {
+            // Constants for SSIM
+            const k1 = 0.01;
+            const k2 = 0.03;
+            const L = 255;
+            const c1 = (k1 * L) ** 2;
+            const c2 = (k2 * L) ** 2;
+            
+            // Calculate using small windows to save time
+            const windowSize = 8;
+            const stride = 8;
+            let ssimSum = 0;
+            let windowCount = 0;
+            
+            for (let y = 0; y < originalData.height - windowSize; y += stride) {
+                for (let x = 0; x < originalData.width - windowSize; x += stride) {
+                    let meanOrig = 0, meanDen = 0;
+                    let varOrig = 0, varDen = 0;
+                    let covar = 0;
+                    
+                    // Calculate means
+                    for (let wy = 0; wy < windowSize; wy++) {
+                        for (let wx = 0; wx < windowSize; wx++) {
+                            const idx = ((y + wy) * originalData.width + (x + wx)) * 4;
+                            
+                            // Use average of RGB as the value
+                            const origVal = (originalData.data[idx] + originalData.data[idx + 1] + originalData.data[idx + 2]) / 3;
+                            const denVal = (denoisedData.data[idx] + denoisedData.data[idx + 1] + denoisedData.data[idx + 2]) / 3;
+                            
+                            meanOrig += origVal;
+                            meanDen += denVal;
+                        }
+                    }
+                    
+                    meanOrig /= (windowSize * windowSize);
+                    meanDen /= (windowSize * windowSize);
+                    
+                    // Calculate variances and covariance
+                    for (let wy = 0; wy < windowSize; wy++) {
+                        for (let wx = 0; wx < windowSize; wx++) {
+                            const idx = ((y + wy) * originalData.width + (x + wx)) * 4;
+                            
+                            // Use average of RGB as the value
+                            const origVal = (originalData.data[idx] + originalData.data[idx + 1] + originalData.data[idx + 2]) / 3;
+                            const denVal = (denoisedData.data[idx] + denoisedData.data[idx + 1] + denoisedData.data[idx + 2]) / 3;
+                            
+                            varOrig += (origVal - meanOrig) ** 2;
+                            varDen += (denVal - meanDen) ** 2;
+                            covar += (origVal - meanOrig) * (denVal - meanDen);
+                        }
+                    }
+                    
+                    varOrig /= (windowSize * windowSize - 1);
+                    varDen /= (windowSize * windowSize - 1);
+                    covar /= (windowSize * windowSize - 1);
+                    
+                    // Calculate SSIM
+                    const numerator = (2 * meanOrig * meanDen + c1) * (2 * covar + c2);
+                    const denominator = (meanOrig ** 2 + meanDen ** 2 + c1) * (varOrig + varDen + c2);
+                    
+                    const ssim = numerator / denominator;
+                    ssimSum += ssim;
+                    windowCount++;
+                }
+            }
+            
+            return ssimSum / windowCount;
+        }
+        
+        // Initialize the weights chart
+        function initWeightsChart() {
+            const ctx = document.getElementById('weightsChart');
+            
+            if (!ctx) {
+                console.error("Can't find weights chart canvas element");
+                return;
+            }
+            
+            if (window.Chart) {
+                weightsChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            label: 'Patch Similarity',
+                            data: [],
+                            backgroundColor: function(context) {
+                                if (!context.raw) return '#fee5d9';
+                                
+                                const value = context.raw;
+                                // Create a color gradient from light to dark red based on value
+                                const normalizedValue = context.dataset.data.length > 0 ? 
+                                    value / Math.max(...context.dataset.data) : 0;
+                                
+                                if (normalizedValue > 0.8) {
+                                    return '#a50f15';
+                                } else if (normalizedValue > 0.6) {
+                                    return '#de2d26';
+                                } else if (normalizedValue > 0.4) {
+                                    return '#fb6a4a';
+                                } else if (normalizedValue > 0.2) {
+                                    return '#fcae91';
+                                } else {
+                                    return '#fee5d9';
+                                }
+                            },
+                            borderColor: 'rgba(0, 0, 0, 0.1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `Weight: ${context.raw.toFixed(4)}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Weight'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Patch Position (x,y)'
+                                },
+                                ticks: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            } else {
+                console.error("Chart.js is not loaded properly");
+                
+                // Create a fallback representation of the weights
+                ctx.height = 150;
+                const ctxObj = ctx.getContext('2d');
+                ctxObj.fillStyle = '#f0f0f0';
+                ctxObj.fillRect(0, 0, ctx.width, ctx.height);
+                ctxObj.fillStyle = '#333';
+                ctxObj.font = '12px Arial';
+                ctxObj.textAlign = 'center';
+                ctxObj.fillText('Chart.js not loaded - weights visualization unavailable', ctx.width/2, ctx.height/2);
+            }
+        }
+        
+        // Update the weights chart with new data
+        function updateWeightsChart(weights, labels) {
+            if (!weightsChart) {
+                // Try to initialize the chart again
+                initWeightsChart();
+                if (!weightsChart) return;
+            }
+            
+            // Update chart data
+            weightsChart.data.labels = labels;
+            weightsChart.data.datasets[0].data = weights;
+            
+            // Update chart
+            weightsChart.update();
+        }
+        
+        // Update the selected pixel info
+        function updateSelectedPixelInfo() {
+            if (selectedRow < 0 || selectedCol < 0) {
+                pixelInfoElement.textContent = 'Click on the image to select a pixel';
+                return;
+            }
+            
+            const idx = (selectedRow * imageData.width + selectedCol) * 4;
+            const r = imageData.data[idx];
+            const g = imageData.data[idx + 1];
+            const b = imageData.data[idx + 2];
+            
+            pixelInfoElement.textContent = `Selected Pixel: (${selectedCol}, ${selectedRow}) - RGB: (${r}, ${g}, ${b})`;
+        }
+        
+        // Update functions for sliders
+        function updatePatchSize(value) {
+            patchSize = parseInt(value);
+            document.getElementById('patchSizeValue').textContent = patchSize;
+            updateVisualization();
+        }
+        
+        function updateSearchDist(value) {
+            searchDist = parseInt(value);
+            document.getElementById('searchDistValue').textContent = searchDist;
+            updateVisualization();
+        }
+        
+        function updateHParam(value) {
+            hParam = parseFloat(value);
+            document.getElementById('hParamValue').textContent = hParam.toFixed(2);
+            updateVisualization();
+        }
+        
+        function updateVarParam(value) {
+            varParam = parseFloat(value);
+            document.getElementById('varParamValue').textContent = varParam.toFixed(3);
+            updateVisualization();
+        }
+        
+        // Show/hide loading indicator
+        function showLoading() {
+            document.getElementById('loadingIndicator').style.display = 'flex';
+        }
+        
+        function hideLoading() {
+            document.getElementById('loadingIndicator').style.display = 'none';
+        }
+        
+        // Initialize on page load
+        window.onload = function() {
+            try {
+                init();
+                // Load a sample image to start
+                createSampleImage('pattern');
+            } catch (e) {
+                console.error("Error during initialization:", e);
+                alert("There was an error initializing the visualization. Please check the console for details.");
+            }
+        };
+    </script>
+</body>
+</html>
