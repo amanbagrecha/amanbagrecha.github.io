@@ -140,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#june" id="toc-june" class="nav-link active" data-scroll-target="#june">June</a></li>
+  <li><a href="#june-2025" id="toc-june-2025" class="nav-link active" data-scroll-target="#june-2025">June 2025</a></li>
   <li><a href="#may-2025" id="toc-may-2025" class="nav-link" data-scroll-target="#may-2025">May 2025</a></li>
   <li><a href="#april-2025" id="toc-april-2025" class="nav-link" data-scroll-target="#april-2025">April 2025</a></li>
   <li><a href="#march-2025" id="toc-march-2025" class="nav-link" data-scroll-target="#march-2025">March 2025</a></li>
@@ -193,8 +193,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="june" class="level2">
-<h2 class="anchored" data-anchor-id="june">June</h2>
+<section id="june-2025" class="level2">
+<h2 class="anchored" data-anchor-id="june-2025">June 2025</h2>
 <p>Visited varkala for the first time. An absolute delight to be at south/north cliff with an amazing company.</p>
 </section>
 <section id="may-2025" class="level2">
@@ -376,7 +376,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

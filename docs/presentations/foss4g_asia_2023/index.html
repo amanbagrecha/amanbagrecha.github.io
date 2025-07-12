@@ -72,11 +72,15 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Sentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling – Aman Bagrecha">
 <meta property="og:description" content="Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial">
-<meta property="og:image" content="featured.png">
+<meta property="og:image" content="https://amanbagrecha.github.io/presentations/foss4g_asia_2023/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
+<meta property="og:image:height" content="530">
+<meta property="og:image:width" content="1103">
 <meta name="twitter:title" content="Sentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling – Aman Bagrecha">
 <meta name="twitter:description" content="Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial">
-<meta name="twitter:image" content="featured.png">
+<meta name="twitter:image" content="https://amanbagrecha.github.io/presentations/foss4g_asia_2023/featured.png">
+<meta name="twitter:image-height" content="530">
+<meta name="twitter:image-width" content="1103">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -248,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

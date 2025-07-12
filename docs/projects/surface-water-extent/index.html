@@ -73,11 +73,11 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Surface Water Extent using Sentinel-2 Imagery – Aman Bagrecha">
 <meta property="og:description" content="It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery.">
-<meta property="og:image" content="feature.png">
+<meta property="og:image" content="https://amanbagrecha.github.io/projects/surface-water-extent/feature.png">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta name="twitter:title" content="Surface Water Extent using Sentinel-2 Imagery – Aman Bagrecha">
 <meta name="twitter:description" content="It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery.">
-<meta name="twitter:image" content="feature.png">
+<meta name="twitter:image" content="https://amanbagrecha.github.io/projects/surface-water-extent/feature.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -250,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

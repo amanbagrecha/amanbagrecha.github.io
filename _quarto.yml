@@ -1,11 +1,11 @@
 project:
   type: website
   output-dir: docs
-site-url: https://amanbagrecha.github.io  
 
 website:
   title: "Aman Bagrecha"
   description: "Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial"
+  site-url: https://amanbagrecha.github.io
   navbar:
     search: true
     tools:

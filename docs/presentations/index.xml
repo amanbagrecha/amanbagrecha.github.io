@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Aman Bagrecha</title>
+<link>https://amanbagrecha.github.io/presentations/</link>
+<atom:link href="https://amanbagrecha.github.io/presentations/index.xml" rel="self" type="application/rss+xml"/>
+<description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
+<generator>quarto-1.7.32</generator>
+<lastBuildDate>Wed, 29 Nov 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Sentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description></description>
+  <category>deep learning</category>
+  <category>SAR</category>
+  <category>python</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Wed, 29 Nov 2023 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/foss4g_asia_2023/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Data Jam Presentation organised by WRI and opencity</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description></description>
+  <category>google earth</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Fri, 09 Jun 2023 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/datajam_2023/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Mechanistic Approach for the Design of  Surface Drainage System of Roads</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>This script downloads SMAP L3 data and computes the soil moisture time series for specified region.</description>
+  <category>Remote Sensing</category>
+  <category>Python</category>
+  <category>QGIS</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Tue, 07 Sep 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/design_of_surface_drainage_2021/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Feasibility Study of Floating Solar Panels over Lakes in Bengaluru City</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>ASCE India Conference 2019</description>
+  <category>Data Analysis</category>
+  <category>Python</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Sat, 27 Jul 2019 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/asce_conference_2019/featured.png" medium="image" type="image/png"/>
+</item>
+</channel>
+</rss>

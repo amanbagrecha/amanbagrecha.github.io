@@ -73,11 +73,11 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Web application to access store information on click of marker! – Aman Bagrecha">
 <meta property="og:description" content="store-info is developed to let users access the whereabouts of store using Leaflet.">
-<meta property="og:image" content="feature.png">
+<meta property="og:image" content="https://amanbagrecha.github.io/projects/store-info-leaflet/feature.png">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta name="twitter:title" content="Web application to access store information on click of marker! – Aman Bagrecha">
 <meta name="twitter:description" content="store-info is developed to let users access the whereabouts of store using Leaflet.">
-<meta name="twitter:image" content="feature.png">
+<meta name="twitter:image" content="https://amanbagrecha.github.io/projects/store-info-leaflet/feature.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -250,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

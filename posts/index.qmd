@@ -12,5 +12,5 @@ listing:
   page-size: 10
 page-layout: article
 title: Blog
-title-block-bannerrR: false
+title-block-banner: false
 ---

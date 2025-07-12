@@ -109,11 +109,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="How to save Earth Engine Image directly to your local machine – Aman Bagrecha">
 <meta property="og:description" content="In this post I show a trick which can let you download upto 100 times larger size images, directly to your local machine. Spoiler: getRegion method plays a significant role to help accomplish this task.">
-<meta property="og:image" content="featured.png">
+<meta property="og:image" content="https://amanbagrecha.github.io/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
+<meta property="og:image:height" content="3426">
+<meta property="og:image:width" content="7677">
 <meta name="twitter:title" content="How to save Earth Engine Image directly to your local machine – Aman Bagrecha">
 <meta name="twitter:description" content="In this post I show a trick which can let you download upto 100 times larger size images, directly to your local machine. Spoiler: getRegion method plays a significant role to help accomplish this task.">
-<meta name="twitter:image" content="featured.png">
+<meta name="twitter:image" content="https://amanbagrecha.github.io/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png">
+<meta name="twitter:image-height" content="3426">
+<meta name="twitter:image-width" content="7677">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -388,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

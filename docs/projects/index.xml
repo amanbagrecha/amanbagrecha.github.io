@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Aman Bagrecha</title>
+<link>https://amanbagrecha.github.io/projects/</link>
+<atom:link href="https://amanbagrecha.github.io/projects/index.xml" rel="self" type="application/rss+xml"/>
+<description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
+<generator>quarto-1.7.32</generator>
+<lastBuildDate>Wed, 24 Apr 2024 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Surface Water Extent using Sentinel-2 Imagery</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery.</description>
+  <category>Javascript</category>
+  <category>GEE</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Wed, 24 Apr 2024 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/surface-water-extent/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Non Local Means Visualisation</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>It allows the user to visualise the inner workings of the NL-means algorithm.</description>
+  <category>Javascript</category>
+  <category>GEE</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Wed, 24 Apr 2024 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/surface-water-extent/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Train 1Spacenet 5 CRESI Algorithm to extract road network from Satellite Imagery.</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>Extract Road Network from Satellite Imagery</description>
+  <category>Python</category>
+  <category>Docker</category>
+  <category>Deep Learning</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Wed, 27 Jul 2022 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/spacenet-5-cresi-extract-road-satellite/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>SMAP Soil Moisture Time Series Analysis</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>This script downloads SMAP L3 data and computes the soil moisture time series for specified region.</description>
+  <category>Remote Sensing</category>
+  <category>Python</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Tue, 07 Sep 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/smap-soil-moisture/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Openlayers Query via Geoserver</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>This application demonstrates how to display and query all geoserver layers or from a workspace using geoserver REST API. CQL (Common Query Language) filter provided by geoserver is used to query the layer.</description>
+  <category>Geoserver</category>
+  <category>OpenLayers</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Mon, 09 Aug 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/geoserver-query/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Predicting Age group of Social Media Application users</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>The task at hand is to predict the age group of social media (app) users. Given the data of their users ranging from number of followers they have to hours they spend on the app, we are on the quest to solve what is the demography of the app.</description>
+  <category>Python</category>
+  <category>Machine Learning</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Fri, 23 Jul 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/ml-challenge/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Structural Modelling and analysis of concrete canoe hull</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>As part of concrete canoe competition representing team ASCE RVCE, the canoe hull was designed and analysed using SAP2000 and maxsurf</description>
+  <category>Structures</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/atharva/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Analyse professional degree student enrolment v/s university count</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>To evaluate the trend in higher education over the years based on gender, state, and degree program.</description>
+  <category>Python</category>
+  <category>Machine Learning</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/enrolment-by-level/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Land Surface Temperature</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>Determining Land Surface Temperature of Bengaluru in ArcGIS using Landsat 8 product.</description>
+  <category>Python</category>
+  <category>Remote Sensing</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/land-surface-temperature/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Radiant Earth Spot the Crop Hackathon</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>Hackathon to classify crop type in south africa Based on time-series of Sentinel-1 satellite images. Stood at 5th place on public leaderboard.</description>
+  <category>Python</category>
+  <category>Machine Learning</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/spot-the-crop-radiantearth/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Web application to access store information on click of marker!</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>store-info is developed to let users access the whereabouts of store using Leaflet.</description>
+  <category>Javascript</category>
+  <category>Leaflet</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/store-info-leaflet/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Django-rest-framework CRUD Token Authetication Application</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>Create API end points for DRF-CRUD and add security layer using Token Authentication.</description>
+  <category>Django</category>
+  <category>Python</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/drf-userprofile/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Geocoding using Mapbox API</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>This Application demonstrates how to geocode an address using mapbox api implemented in openlayers v6. Additionally, on-click of search, the map gets zoomed to the location of Interest.</description>
+  <category>Geocoding</category>
+  <category>Javascript</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Wed, 07 Jul 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/mapbox-api/featured.png" medium="image" type="image/png"/>
+</item>
+</channel>
+</rss>

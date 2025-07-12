@@ -73,11 +73,15 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Openlayers Query via Geoserver – Aman Bagrecha">
 <meta property="og:description" content="This application demonstrates how to display and query all geoserver layers or from a workspace using geoserver REST API. CQL (Common Query Language) filter provided by geoserver is used to query the layer.">
-<meta property="og:image" content="featured.png">
+<meta property="og:image" content="https://amanbagrecha.github.io/projects/geoserver-query/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
+<meta property="og:image:height" content="2250">
+<meta property="og:image:width" content="4000">
 <meta name="twitter:title" content="Openlayers Query via Geoserver – Aman Bagrecha">
 <meta name="twitter:description" content="This application demonstrates how to display and query all geoserver layers or from a workspace using geoserver REST API. CQL (Common Query Language) filter provided by geoserver is used to query the layer.">
-<meta name="twitter:image" content="featured.png">
+<meta name="twitter:image" content="https://amanbagrecha.github.io/projects/geoserver-query/featured.png">
+<meta name="twitter:image-height" content="2250">
+<meta name="twitter:image-width" content="4000">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -254,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
