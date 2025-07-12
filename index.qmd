@@ -15,11 +15,11 @@ about:
         - icon: github
           text: Github
           url: https://github.com/amanbagrecha
-        - text: "{{< fa envelope >}} Email"
+        - text: '{{< fa envelope >}} Email'
           url: mailto:jainaman588@gmail.com
-        - text: "{{< fa brands orcid >}} ORCID"
+        - text: '{{< fa brands orcid >}} ORCID'
           url: https://orcid.org/0000-0003-2931-0777
-        - text: "{{< fa brands google-scholar >}} Google Scholar"
+        - text: '{{< fa brands google-scholar >}} Google Scholar'
           url: https://scholar.google.com/citations?user=h0CeG6AAAAAJ
     image-width: 15em
     image-shape: rounded

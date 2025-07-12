@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: docs
+site-url: https://amanbagrecha.github.io  
 
 website:
   title: "Aman Bagrecha"

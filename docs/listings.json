@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
     "listing": "/posts/index.html",
     "items": [
       "/posts/first-foss4g/index.html",
@@ -29,10 +33,6 @@
   },
   {
     "listing": "/presentations/index.html",
-    "items": []
-  },
-  {
-    "listing": "/projects/index.html",
     "items": []
   },
   {

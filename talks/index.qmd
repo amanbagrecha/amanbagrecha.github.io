@@ -1,17 +1,16 @@
 ---
+title: Talks
+page-layout: full
+title-block-banner: false
+
 listing:
   categories: false
-#   contents:
-#   - '*.qmd'
-#   - '*.md'
+
   feed: true
   filter-ui: false
   sort: date desc
   sort-ui: false
   type: default
-page-layout: full
-title: Talks
-title-block-bannerrR: false
 ---
 
 ## FOSS4G Prizren 2023
