@@ -4,6 +4,9 @@ description: |
   News and Professional Journal - Updated once a month!
 ---
 
+## August 2025
+
+Had a workshop session for NITK on python data handling and mining. You can find the slides [here](https://docs.google.com/presentation/d/e/2PACX-1vTjbLuh63tgTX_BntnY9dwdtgTeZY3ZShuUN-AvQBnXGDtMy9OZ3CSo3VjBkTxs3eK_6LmD7EDIzpgx/pub?start=false&loop=false&delayms=3000). The associated github code is [here](https://github.com/amanbagrecha/nitk-workshop)
 
 ## June 2025
 
