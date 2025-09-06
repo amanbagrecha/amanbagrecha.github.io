@@ -242,7 +242,7 @@
     "href": "events/index.html",
     "title": "Events",
     "section": "",
-    "text": "Visited varkala for the first time. An absolute delight to be at south/north cliff with an amazing company."
+    "text": "Had a workshop session for NITK on python data handling and mining. You can find the slides here. The associated github code is here"
   },
   {
     "objectID": "events/index.html#june",
@@ -801,7 +801,14 @@
     "objectID": "events/index.html#june-2025",
     "href": "events/index.html#june-2025",
     "title": "Events",
+    "section": "June 2025",
+    "text": "June 2025\nVisited varkala for the first time. An absolute delight to be at south/north cliff with an amazing company."
+  },
+  {
+    "objectID": "events/index.html#august-2025",
+    "href": "events/index.html#august-2025",
+    "title": "Events",
     "section": "",
-    "text": "Visited varkala for the first time. An absolute delight to be at south/north cliff with an amazing company."
+    "text": "Had a workshop session for NITK on python data handling and mining. You can find the slides here. The associated github code is here"
   }
 ]
