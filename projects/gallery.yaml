@@ -68,11 +68,17 @@
   image: surface-water-extent/featured.png
   title: "Surface Water Extent using Sentinel-2 Imagery"
   description: "It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery."
-  date: 2024-04-25
+  date: 2025-02-25
   categories: [Javascript, GEE]
+- path: https://github.com/amanbagrecha/streetview-alike
+  image: image-viewer/featured.png
+  title: "Image Viewer (Streetview-Alike)"
+  description: "A web-based image viewer with tiling capabilities for large image collections, designed to handle large panoramic images including 360-degree camera images."
+  date: 2025-09-06
+  categories: [Python, Javascript, Image Processing]
 - path: nlm/nl-means-viz-enhanced.html
-  image: surface-water-extent/featured.png
+  image: nlm/featured.png
   title: "Non Local Means Visualisation"
   description: "It allows the user to visualise the inner workings of the NL-means algorithm."
-  date: 2024-04-25
+  date: 2025-04-18
   categories: [Javascript, GEE]

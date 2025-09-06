@@ -4,6 +4,7 @@ listing:
   contents:
   - gallery.yaml
   feed: true
+  sort: "date desc"
   sort-ui: false
   type: grid
   fields: [image, date, title, author, reading-time]

@@ -10,16 +10,17 @@
 <atom:link href="https://amanbagrecha.github.io/projects/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Wed, 24 Apr 2024 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 05 Sep 2025 18:30:00 GMT</lastBuildDate>
 <item>
-  <title>Surface Water Extent using Sentinel-2 Imagery</title>
+  <title>Image Viewer (Streetview-Alike)</title>
   <link>https://amanbagrecha.github.io/</link>
-  <description>It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery.</description>
+  <description>A web-based image viewer with tiling capabilities for large image collections, designed to handle large panoramic images including 360-degree camera images.</description>
+  <category>Python</category>
   <category>Javascript</category>
-  <category>GEE</category>
+  <category>Image Processing</category>
   <guid>https://amanbagrecha.github.io/</guid>
-  <pubDate>Wed, 24 Apr 2024 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/surface-water-extent/featured.png" medium="image" type="image/png"/>
+  <pubDate>Fri, 05 Sep 2025 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/image-viewer/featured.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Non Local Means Visualisation</title>
@@ -28,7 +29,17 @@
   <category>Javascript</category>
   <category>GEE</category>
   <guid>https://amanbagrecha.github.io/</guid>
-  <pubDate>Wed, 24 Apr 2024 18:30:00 GMT</pubDate>
+  <pubDate>Thu, 17 Apr 2025 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/nlm/featured.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Surface Water Extent using Sentinel-2 Imagery</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery.</description>
+  <category>Javascript</category>
+  <category>GEE</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Mon, 24 Feb 2025 18:30:00 GMT</pubDate>
   <media:content url="https://amanbagrecha.github.io/surface-water-extent/featured.png" medium="image" type="image/png"/>
 </item>
 <item>
