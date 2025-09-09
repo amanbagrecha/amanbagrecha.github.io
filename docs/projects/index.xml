@@ -10,7 +10,18 @@
 <atom:link href="https://amanbagrecha.github.io/projects/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Fri, 05 Sep 2025 18:30:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 08 Sep 2025 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Brush Selection Tool for QGIS</title>
+  <link>https://amanbagrecha.github.io/</link>
+  <description>A QGIS plugin that provides an intuitive &#39;painting&#39; interface for selecting polygon features by dragging a circular brush across the map canvas</description>
+  <category>Python</category>
+  <category>QGIS</category>
+  <category>Plugin</category>
+  <guid>https://amanbagrecha.github.io/</guid>
+  <pubDate>Mon, 08 Sep 2025 18:30:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.github.io/brush-tool-selection/featured.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title>Image Viewer (Streetview-Alike)</title>
   <link>https://amanbagrecha.github.io/</link>

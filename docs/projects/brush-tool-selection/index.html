@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-09-09">
+<meta name="description" content="A QGIS plugin that provides an intuitive “painting” interface for selecting polygon features by dragging a circular brush across the map canvas">
 
-<title>Projects – Aman Bagrecha</title>
+<title>Brush Selection Tool for QGIS – Aman Bagrecha</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d50b1ffeecd4d0d7537121f5bd940e38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d50b1ffeecd4d0d7537121f5bd940e38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,73 +68,17 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-image","listing-title","listing-description","listing-date","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Aman Bagrecha" href="index.xml" data-external="1"><meta property="og:title" content="Projects – Aman Bagrecha">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Brush Selection Tool for QGIS – Aman Bagrecha">
+<meta property="og:description" content="A QGIS plugin that provides an intuitive “painting” interface for selecting polygon features by dragging a circular brush across the map canvas">
 <meta property="og:image" content="https://amanbagrecha.github.io/projects/brush-tool-selection/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta property="og:image:height" content="606">
 <meta property="og:image:width" content="1116">
-<meta name="twitter:title" content="Projects – Aman Bagrecha">
+<meta name="twitter:title" content="Brush Selection Tool for QGIS – Aman Bagrecha">
+<meta name="twitter:description" content="A QGIS plugin that provides an intuitive “painting” interface for selecting polygon features by dragging a circular brush across the map canvas">
 <meta name="twitter:image" content="https://amanbagrecha.github.io/projects/brush-tool-selection/featured.png">
 <meta name="twitter:image-height" content="606">
 <meta name="twitter:image-width" content="1116">
@@ -148,10 +92,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/AB.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
     </a>
   </div>
@@ -162,27 +106,27 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../talks/index.html"> 
+    <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts"> 
+    <a class="nav-link" href="../../posts"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../events"> 
+    <a class="nav-link" href="../../events"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects"> 
+    <a class="nav-link" href="../../projects"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../presentations"> 
+    <a class="nav-link" href="../../presentations"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
 </ul>
@@ -198,22 +142,38 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="RGVlcCUyMExlYXJuaW5n">Deep Learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGphbmdv">Django <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RG9ja2Vy">Docker <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R0VF">GEE <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R2VvY29kaW5n">Geocoding <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2Vvc2VydmVy">Geoserver <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW1hZ2UlMjBQcm9jZXNzaW5n">Image Processing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YXNjcmlwdA==">Javascript <span class="quarto-category-count">(5)</span></div><div class="category" data-category="TGVhZmxldA==">Leaflet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(3)</span></div><div class="category" data-category="T3BlbkxheWVycw==">OpenLayers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGx1Z2lu">Plugin <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(9)</span></div><div class="category" data-category="UUdJUw==">QGIS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVtb3RlJTIwU2Vuc2luZw==">Remote Sensing <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3RydWN0dXJlcw==">Structures <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
-</div>
+<h1 class="title">Brush Selection Tool for QGIS</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">QGIS</div>
+    <div class="quarto-category">Plugin</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    A QGIS plugin that provides an intuitive “painting” interface for selecting polygon features by dragging a circular brush across the map canvas
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 9, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -226,282 +186,7 @@ window.Quarto = {
 
 
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UHl0aG9uJTJDUUdJUyUyQ1BsdWdpbg==" data-listing-date-sort="1757356200000">
-<a href="https://github.com/amanbagrecha/brush-tool-selection" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="brush-tool-selection/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Brush Selection Tool for QGIS
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 9, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="UHl0aG9uJTJDSmF2YXNjcmlwdCUyQ0ltYWdlJTIwUHJvY2Vzc2luZw==" data-listing-date-sort="1757097000000">
-<a href="https://github.com/amanbagrecha/streetview-alike" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="image-viewer/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Image Viewer (Streetview-Alike)
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 6, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="SmF2YXNjcmlwdCUyQ0dFRQ==" data-listing-date-sort="1744914600000">
-<a href="nlm/nl-means-viz-enhanced.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="nlm/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Non Local Means Visualisation
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 18, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="SmF2YXNjcmlwdCUyQ0dFRQ==" data-listing-date-sort="1740421800000">
-<a href="https://github.com/amanbagrecha/surface_water_extent" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="surface-water-extent/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Surface Water Extent using Sentinel-2 Imagery
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Feb 25, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="UHl0aG9uJTJDRG9ja2VyJTJDRGVlcCUyMExlYXJuaW5n" data-listing-date-sort="1658946600000">
-<a href="https://github.com/amanbagrecha/cresi-modified" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="spacenet-5-cresi-extract-road-satellite/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Train 1Spacenet 5 CRESI Algorithm to extract road network from Satellite Imagery.
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 28, 2022
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="UmVtb3RlJTIwU2Vuc2luZyUyQ1B5dGhvbg==" data-listing-date-sort="1631039400000">
-<a href="https://github.com/amanbagrecha/smap_time_series_analysis" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="smap-soil-moisture/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-SMAP Soil Moisture Time Series Analysis
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 8, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="R2Vvc2VydmVyJTJDT3BlbkxheWVycw==" data-listing-date-sort="1628533800000">
-<a href="https://github.com/amanbagrecha/openlayers-geoserver-query" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="geoserver-query/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Openlayers Query via Geoserver
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Aug 10, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="7" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1627065000000">
-<a href="https://github.com/amanbagrecha/datascience_project/blob/master/ML_socialMediaAnalysis/dphi_Prediction_model.ipynb" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="ml-challenge/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Predicting Age group of Social Media Application users
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 24, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="8" data-categories="U3RydWN0dXJlcw==" data-listing-date-sort="1626028200000">
-<a href="https://github.com/amanbagrecha/MyProjects/tree/master/Avyaan" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="atharva/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Structural Modelling and analysis of concrete canoe hull
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 12, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="9" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1626028200000">
-<a href="https://github.com/amanbagrecha/datascience_project/tree/master/enrolmentByLevel" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="enrolment-by-level/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Analyse professional degree student enrolment v/s university count
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 12, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="10" data-categories="UHl0aG9uJTJDUmVtb3RlJTIwU2Vuc2luZw==" data-listing-date-sort="1626028200000">
-<a href="https://github.com/amanbagrecha/MyProjects/tree/master/LST" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="land-surface-temperature/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Land Surface Temperature
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 12, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="11" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1626028200000">
-<a href="https://github.com/amanbagrecha/datascience_project/blob/master/Spot%20the%20Crop%20Hackathon/ZINDI_SPOT_THE_CROP_CHALLENGE.ipynb" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="spot-the-crop-radiantearth/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Radiant Earth Spot the Crop Hackathon
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 12, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="12" data-categories="SmF2YXNjcmlwdCUyQ0xlYWZsZXQ=" data-listing-date-sort="1626028200000">
-<a href="https://amanbagrecha.github.io/store-info/" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="store-info-leaflet/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Web application to access store information on click of marker!
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 12, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="13" data-categories="RGphbmdvJTJDUHl0aG9u" data-listing-date-sort="1626028200000">
-<a href="https://github.com/amanbagrecha/drf_userprofile" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="drf-userprofile/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Django-rest-framework CRUD Token Authetication Application
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 12, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="14" data-categories="R2VvY29kaW5nJTJDSmF2YXNjcmlwdA==" data-listing-date-sort="1625682600000">
-<a href="https://amanbagrecha.github.io/mapbox-search-functionality/" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="mapbox-api/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Geocoding using Mapbox API
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 8, 2021
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

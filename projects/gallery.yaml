@@ -1,3 +1,9 @@
+- path: https://github.com/amanbagrecha/brush-tool-selection
+  image: brush-tool-selection/featured.png
+  title: "Brush Selection Tool for QGIS"
+  description: "A QGIS plugin that provides an intuitive 'painting' interface for selecting polygon features by dragging a circular brush across the map canvas"
+  date: 2025-09-09
+  categories: [Python, QGIS, Plugin]
 - path: https://github.com/amanbagrecha/cresi-modified
   image: spacenet-5-cresi-extract-road-satellite/featured.png
   title: "Train 1Spacenet 5 CRESI Algorithm to extract road network from Satellite Imagery."
