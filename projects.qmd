@@ -1,0 +1,11 @@
+---
+title: Redirecting…
+format: html
+---
+
+<!-- Ensure /projects (no trailing slash) resolves -->
+<meta http-equiv="refresh" content="0; url=/projects/" />
+<link rel="canonical" href="/projects/" />
+<script>window.location.replace('/projects/');</script>
+<p>If you are not redirected, <a href="/projects/">click here</a>.</p>
+

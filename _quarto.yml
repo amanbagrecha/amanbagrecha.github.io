@@ -29,7 +29,7 @@ website:
       - href: presentations
         text: Presentations
   page-footer:
-    left: "(c) Aman Bagrecha, 2023. [Disclaimer](disclaimer)"
+    left: "Copyright © Aman Bagrecha, 2025. [Disclaimer](disclaimer)"
   twitter-card: true
   open-graph: true
 

@@ -1,0 +1,11 @@
+---
+title: Redirecting…
+format: html
+---
+
+<!-- Ensure /posts (no trailing slash) resolves -->
+<meta http-equiv="refresh" content="0; url=/posts/" />
+<link rel="canonical" href="/posts/" />
+<script>window.location.replace('/posts/');</script>
+<p>If you are not redirected, <a href="/posts/">click here</a>.</p>
+

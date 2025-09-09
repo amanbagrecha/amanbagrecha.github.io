@@ -20,7 +20,7 @@
   <category>Plugin</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Mon, 08 Sep 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/brush-tool-selection/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/brush-tool-selection/featured.png" medium="image" type="image/png" height="78" width="144"/>
 </item>
 <item>
   <title>Image Viewer (Streetview-Alike)</title>
@@ -31,7 +31,7 @@
   <category>Image Processing</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Fri, 05 Sep 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/image-viewer/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/image-viewer/featured.png" medium="image" type="image/png" height="84" width="144"/>
 </item>
 <item>
   <title>Non Local Means Visualisation</title>
@@ -41,7 +41,7 @@
   <category>GEE</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Thu, 17 Apr 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/nlm/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/nlm/featured.png" medium="image" type="image/png" height="95" width="144"/>
 </item>
 <item>
   <title>Surface Water Extent using Sentinel-2 Imagery</title>
@@ -62,7 +62,7 @@
   <category>Deep Learning</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Wed, 27 Jul 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/spacenet-5-cresi-extract-road-satellite/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/spacenet-5-cresi-extract-road-satellite/featured.png" medium="image" type="image/png" height="136" width="144"/>
 </item>
 <item>
   <title>SMAP Soil Moisture Time Series Analysis</title>
@@ -72,7 +72,7 @@
   <category>Python</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Tue, 07 Sep 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/smap-soil-moisture/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/smap-soil-moisture/featured.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
   <title>Openlayers Query via Geoserver</title>
@@ -82,7 +82,7 @@
   <category>OpenLayers</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Mon, 09 Aug 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/geoserver-query/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/geoserver-query/featured.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Predicting Age group of Social Media Application users</title>
@@ -92,7 +92,7 @@
   <category>Machine Learning</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Fri, 23 Jul 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/ml-challenge/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/ml-challenge/featured.png" medium="image" type="image/png" height="125" width="144"/>
 </item>
 <item>
   <title>Structural Modelling and analysis of concrete canoe hull</title>
@@ -101,7 +101,7 @@
   <category>Structures</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/atharva/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/atharva/featured.png" medium="image" type="image/png" height="53" width="144"/>
 </item>
 <item>
   <title>Analyse professional degree student enrolment v/s university count</title>
@@ -111,7 +111,7 @@
   <category>Machine Learning</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/enrolment-by-level/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/enrolment-by-level/featured.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Land Surface Temperature</title>
@@ -121,7 +121,7 @@
   <category>Remote Sensing</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/land-surface-temperature/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/land-surface-temperature/featured.png" medium="image" type="image/png" height="92" width="144"/>
 </item>
 <item>
   <title>Radiant Earth Spot the Crop Hackathon</title>
@@ -161,7 +161,7 @@
   <category>Javascript</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Wed, 07 Jul 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/mapbox-api/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/mapbox-api/featured.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

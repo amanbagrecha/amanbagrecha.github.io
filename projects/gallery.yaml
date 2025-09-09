@@ -1,89 +1,89 @@
 - path: https://github.com/amanbagrecha/brush-tool-selection
-  image: brush-tool-selection/featured.png
+  image: /projects/brush-tool-selection/featured.png
   title: "Brush Selection Tool for QGIS"
   description: "A QGIS plugin that provides an intuitive 'painting' interface for selecting polygon features by dragging a circular brush across the map canvas"
   date: 2025-09-09
   categories: [Python, QGIS, Plugin]
 - path: https://github.com/amanbagrecha/cresi-modified
-  image: spacenet-5-cresi-extract-road-satellite/featured.png
+  image: /projects/spacenet-5-cresi-extract-road-satellite/featured.png
   title: "Train 1Spacenet 5 CRESI Algorithm to extract road network from Satellite Imagery."
   description: "Extract Road Network from Satellite Imagery"
   date: 2022-07-28
   categories: [Python, Docker, Deep Learning]
 - path: https://github.com/amanbagrecha/smap_time_series_analysis
-  image: smap-soil-moisture/featured.png
+  image: /projects/smap-soil-moisture/featured.png
   title: "SMAP Soil Moisture Time Series Analysis"
   description: "This script downloads SMAP L3 data and computes the soil moisture time series for specified region."
   date: 2021-09-08
   categories: [Remote Sensing, Python]
 - path: https://github.com/amanbagrecha/openlayers-geoserver-query
-  image: geoserver-query/featured.png
+  image: /projects/geoserver-query/featured.png
   title: "Openlayers Query via Geoserver"
   description: "This application demonstrates how to display and query all geoserver layers or from a workspace using geoserver REST API. CQL (Common Query Language) filter provided by geoserver is used to query the layer."
   date: 2021-08-10
   categories: [Geoserver, OpenLayers]
 - path: https://github.com/amanbagrecha/MyProjects/tree/master/Avyaan
-  image: atharva/featured.png
+  image: /projects/atharva/featured.png
   title: "Structural Modelling and analysis of concrete canoe hull"
   description: "As part of concrete canoe competition representing team ASCE RVCE, the canoe hull was designed and analysed using SAP2000 and maxsurf"
   date: 2021-07-12
   categories: [Structures]
 - path: https://github.com/amanbagrecha/datascience_project/blob/master/ML_socialMediaAnalysis/dphi_Prediction_model.ipynb
-  image: ml-challenge/featured.png
+  image: /projects/ml-challenge/featured.png
   title: "Predicting Age group of Social Media Application users"
   description: "The task at hand is to predict the age group of social media (app) users. Given the data of their users ranging from number of followers they have to hours they spend on the app, we are on the quest to solve what is the demography of the app."
   date: 2021-07-24
   categories: [Python, Machine Learning]
 - path: https://github.com/amanbagrecha/datascience_project/tree/master/enrolmentByLevel
-  image: enrolment-by-level/featured.png
+  image: /projects/enrolment-by-level/featured.png
   title: "Analyse professional degree student enrolment v/s university count"
   description: "To evaluate the trend in higher education over the years based on gender, state, and degree program."
   date: 2021-07-12
   categories: [Python, Machine Learning]
 - path: https://github.com/amanbagrecha/MyProjects/tree/master/LST
-  image: land-surface-temperature/featured.png
+  image: /projects/land-surface-temperature/featured.png
   title: "Land Surface Temperature"
   description: "Determining Land Surface Temperature of Bengaluru in ArcGIS using Landsat 8 product."
   date: 2021-07-12
   categories: [Python, Remote Sensing]
 - path: https://amanbagrecha.github.io/mapbox-search-functionality/
-  image: mapbox-api/featured.png
+  image: /projects/mapbox-api/featured.png
   title: "Geocoding using Mapbox API"
   description: "This Application demonstrates how to geocode an address using mapbox api implemented in openlayers v6. Additionally, on-click of search, the map gets zoomed to the location of Interest."
   date: 2021-07-08
   categories: [Geocoding, Javascript]
 - path: https://github.com/amanbagrecha/datascience_project/blob/master/Spot%20the%20Crop%20Hackathon/ZINDI_SPOT_THE_CROP_CHALLENGE.ipynb
-  image: spot-the-crop-radiantearth/featured.png
+  image: /projects/spot-the-crop-radiantearth/featured.png
   title: "Radiant Earth Spot the Crop Hackathon"
   description: "Hackathon to classify crop type in south africa Based on time-series of Sentinel-1 satellite images. Stood at 5th place on public leaderboard."
   date: 2021-07-12
   categories: [Python, Machine Learning]
 - path: https://amanbagrecha.github.io/store-info/
-  image: store-info-leaflet/featured.png
+  image: /projects/store-info-leaflet/featured.png
   title: "Web application to access store information on click of marker!"
   description: "store-info is developed to let users access the whereabouts of store using Leaflet."
   date: 2021-07-12
   categories: [Javascript, Leaflet]
 - path: https://github.com/amanbagrecha/drf_userprofile
-  image: drf-userprofile/featured.png
+  image: /projects/drf-userprofile/featured.png
   title: "Django-rest-framework CRUD Token Authetication Application"
   description: "Create API end points for DRF-CRUD and add security layer using Token Authentication."
   date: 2021-07-12
   categories: [Django, Python]
 - path: https://github.com/amanbagrecha/surface_water_extent
-  image: surface-water-extent/featured.png
+  image: /projects/surface-water-extent/featured.png
   title: "Surface Water Extent using Sentinel-2 Imagery"
   description: "It allows the user to select a reservoir—either by entering its objectid or by clicking on the map—and then analyzes the reservoir’s water extent over time using Sentinel‐2 imagery."
   date: 2025-02-25
   categories: [Javascript, GEE]
 - path: https://github.com/amanbagrecha/streetview-alike
-  image: image-viewer/featured.png
+  image: /projects/image-viewer/featured.png
   title: "Image Viewer (Streetview-Alike)"
   description: "A web-based image viewer with tiling capabilities for large image collections, designed to handle large panoramic images including 360-degree camera images."
   date: 2025-09-06
   categories: [Python, Javascript, Image Processing]
 - path: nlm/nl-means-viz-enhanced.html
-  image: nlm/featured.png
+  image: /projects/nlm/featured.png
   title: "Non Local Means Visualisation"
   description: "It allows the user to visualise the inner workings of the NL-means algorithm."
   date: 2025-04-18

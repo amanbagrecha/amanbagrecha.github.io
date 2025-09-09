@@ -31,31 +31,65 @@ format:
     page-layout: full
     grid: 
       body-width: 850px
+listing:
+  - id: featured-projects
+    contents: "projects/gallery.yaml"
+    type: default
+    max-items: 3
+    sort: "date desc"
+    fields: [image, title, description]
 ---
 
 ## About
 
-I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few. Beyond my professional life, I enjoy jogging and playing badminton.
+I am a **geospatial scientist** working at the intersection of GIS, remote sensing, and deep‑learning computer vision. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few.
 
-I graduated from [Rashtreeya Vidyalaya College of Engineering](https://www.rvce.edu.in/) in Civil Engineering where I was the president of [ASCE Student Chapter](https://www.instagram.com/p/B7voXITBJ16), leading the team to [Concrete Canoe Competition](https://www.instagram.com/p/B3kDEZ9Bb--/) among various other activities.
-During college, I was also a Research Intern at Indian Institute of Science working on [non-stationary rainfall intensity surface drainage design](https://www.tandfonline.com/doi/abs/10.1080/1573062X.2023.2287049).
-
-I co-founded [Let's Talk Spatial](https://letstalkspatial.in), a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.
-
-As the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize [various events](https://site.ieee.org/bangalore-grss/events_list/student-yp-events/).
-
-I've spoken at opensource conferences like [FOSS4G Kosovo](https://www.youtube.com/playlist?list=PLSeJLsP3KYyuuChdOiRBY-bkmiO2e5-_z) and [FOSS4G Asia Seoul](https://github.com/amanbagrecha/Foss4gAsia2023), sharing my insights on open-source technologies. 
-
-My publications can be found on [Google Scholar](https://scholar.google.com/citations?user=h0CeG6AAAAAJ).
 
 ## Experience
 
-[GalaxEye Space](https://www.galaxeye.space/) | Geospatial Scientist | Sept 2023 – present
+**[GalaxEye Space](https://www.galaxeye.space/)** | Geospatial Scientist | Sept 2023 – present
 
-[Blue Sky Analytics](https://blueskyhq.io/) | Data Scientist | May 2022 – Sept 2023
+**[Blue Sky Analytics](https://blueskyhq.io/)** | Data Scientist | May 2022 – Sept 2023
 
-[Satyukt Analytics](https://satyukt.com/) | Remote Sensing Engineer | Sept 2021 – Mar 2022
+**[Satyukt Analytics](https://satyukt.com/)** | Remote Sensing Engineer | Sept 2021 – Mar 2022
 
-[Rotten Grapes Pvt. Ltd](https://rottengrapes.tech/) | Web GIS Developer | Feb 2021 – May 2021
+**[Rotten Grapes Pvt. Ltd](https://rottengrapes.tech/)** | Web GIS Developer | Feb 2021 – May 2021
+
+
+
+**Past work, current focus and interests:**
+
+- **Computer vision**: deep learning for segmentation and object detection; current focus on *self‑supervised learning*.
+- **Sensors and data**: SAR and optical VHR data with spatial resolution down to 0.5 m apart from open‑source datasets; experience with datasets from Umbra, Capella, Maxar, SkySat, ICEYE, and Synspective.
+- **MLOps**: **DVC** and **MLflow**; designed and deployed end‑to‑end experiment tracking, data versioning, and reproducible training/inference pipelines in production.
+- **Performance**: GPU optimization and profiling; Python packaging and environment management for reliable builds.
+- **Workflows**: **STAC** experience including operating a STAC API server.
+- **Tooling**: developed **QGIS** plugins; built an active‑learning pipeline using a **Random Forest** predictor and **QGIS** as the labeling tool.
+
+I co‑founded **[Let's Talk Spatial](https://letstalkspatial.in)**, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open‑source projects and share my knowledge through blogs, videos, and workshops.
+
+As the *Young Professional Chair* of **IEEE GRSS Bangalore** chapter, I co‑organize [various events](https://site.ieee.org/bangalore-grss/events_list/student-yp-events/).
+
+I've spoken at open‑source conferences like **[FOSS4G Kosovo](https://www.youtube.com/playlist?list=PLSeJLsP3KYyuuChdOiRBY-bkmiO2e5-_z)** and **[FOSS4G Asia Seoul](https://github.com/amanbagrecha/Foss4gAsia2023)**, sharing my insights on open‑source technologies. 
+
+My publications can be found on **[Google Scholar](https://scholar.google.com/citations?user=h0CeG6AAAAAJ)**.
+
+
+
+
+I graduated from **[Rashtreeya Vidyalaya College of Engineering](https://www.rvce.edu.in/)** in Civil Engineering where I was the president of the **[ASCE Student Chapter](https://www.instagram.com/p/B7voXITBJ16)**, leading the team to the **[Concrete Canoe Competition](https://www.instagram.com/p/B3kDEZ9Bb--/)** among various other activities. During college, I was also a Research Intern at the **Indian Institute of Science**, working on *non‑stationary rainfall intensity surface drainage design*.
+
+Beyond work, I enjoy jogging and playing badminton.
+
+## Featured Projects
+
+::: {#featured-projects}
+:::
+
+```{=html}
+<div style="text-align: center; margin-top: 1rem;">
+<a href="projects/" class="btn btn-primary">View All Projects</a>
+</div>
+```
 
 ::: 

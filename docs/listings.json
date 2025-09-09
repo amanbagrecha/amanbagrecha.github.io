@@ -38,5 +38,9 @@
   {
     "listing": "/talks/index.html",
     "items": []
+  },
+  {
+    "listing": "/index.html",
+    "items": []
   }
 ]

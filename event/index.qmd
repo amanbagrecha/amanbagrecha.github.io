@@ -1,0 +1,11 @@
+---
+title: Redirecting…
+format: html
+---
+
+<!-- Simple redirect to the events listing -->
+<meta http-equiv="refresh" content="0; url=/events/" />
+<link rel="canonical" href="/events/" />
+<script>window.location.replace('/events/');</script>
+<p>If you are not redirected, <a href="/events/">click here</a>.</p>
+
