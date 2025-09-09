@@ -859,5 +859,33 @@
     "title": "Aman Bagrecha",
     "section": "",
     "text": "A QGIS plugin that provides an intuitive ‘painting’ interface for selecting polygon features by dragging a circular brush across the map canvas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA web-based image viewer with tiling capabilities for large image collections, designed to handle large panoramic images including 360-degree camera images.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt allows the user to visualise the inner workings of the NL-means algorithm.\n\n\n\n\n\n\n\n\nNo matching items\n\n\nView All Projects"
+  },
+  {
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
+    "title": "Videos",
+    "section": "",
+    "text": "A collection of conference presentations, technical talks, and educational content."
+  },
+  {
+    "objectID": "talks/index.html#conference-presentations",
+    "href": "talks/index.html#conference-presentations",
+    "title": "Videos",
+    "section": "Conference Presentations",
+    "text": "Conference Presentations\n\nFOSS4G Prizren 2023\n\n\n\n\nGeoPython Workshop"
+  },
+  {
+    "objectID": "talks/index.html#lets-talk-spatial-content",
+    "href": "talks/index.html#lets-talk-spatial-content",
+    "title": "Videos",
+    "section": "Let’s Talk Spatial Content",
+    "text": "Let’s Talk Spatial Content\n\nIntroduction to Planetary Computer and STAC API\n\n\n\n\nQGIS for Beginners"
+  },
+  {
+    "objectID": "talks/index.html#event-hosting-moderation",
+    "href": "talks/index.html#event-hosting-moderation",
+    "title": "Videos",
+    "section": "Event Hosting & Moderation",
+    "text": "Event Hosting & Moderation"
   }
 ]

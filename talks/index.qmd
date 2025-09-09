@@ -1,5 +1,5 @@
 ---
-title: Talks
+title: Videos
 page-layout: full
 title-block-banner: false
 
@@ -13,24 +13,36 @@ listing:
   type: default
 ---
 
-## FOSS4G Prizren 2023
+A collection of conference presentations, technical talks, and educational content.
+
+```{=html}
+<div style="text-align: center; margin: 2rem 0;">
+<a href="https://www.youtube.com/@amanbagrecha/videos" class="btn btn-outline-primary" target="_blank">
+View YouTube Channel
+</a>
+</div>
+```
+
+## Conference Presentations
+
+### FOSS4G Prizren 2023
 
 <iframe width="514" height="289" src="https://www.youtube.com/embed/Z3aoN3JM-uA?list=PLSeJLsP3KYyuuChdOiRBY-bkmiO2e5-_z" title="2023 | Monitoring Inland water bodies - Aman Bagrecha" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Planetary Computer and STAC API
-
-<iframe width="514" height="289" src="https://www.youtube.com/embed/lUMjcau7JAs" title="#12 Introduction to Planetary Computer and STAC API | Let&#39;s Talk Spatial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
-## Geopython
+### GeoPython Workshop
 
 <iframe width="514" height="289" src="https://www.youtube.com/embed/QuxHdKSLLrw" title="IEEE GRSS Bangalore: Geospatial Tech for Sustainable Dev (GTSD) Hackathon: Apr 2023: Part-3 of 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Event Moderation and Hosting
+## Let's Talk Spatial Content
 
-<iframe width="514" height="289" src="https://www.youtube.com/embed/videoseries?si=GegFtMP3HwdoIvmW&amp;list=PLSeJLsP3KYyut9_GoACZFgQCQdJTQXcfU" title="Volunteering and Host at Events" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+### Introduction to Planetary Computer and STAC API
 
+<iframe width="514" height="289" src="https://www.youtube.com/embed/lUMjcau7JAs" title="#12 Introduction to Planetary Computer and STAC API | Let&#39;s Talk Spatial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## QGIS
+### QGIS for Beginners
 
 <iframe width="514" height="289" src="https://www.youtube.com/embed/07rbTdK8huw?si=3ehjoCrBzCqBf8VM" title="QGIS for Dummies | Let's Talk Spatial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Event Hosting & Moderation
+
+<iframe width="514" height="289" src="https://www.youtube.com/embed/videoseries?si=GegFtMP3HwdoIvmW&amp;list=PLSeJLsP3KYyut9_GoACZFgQCQdJTQXcfU" title="Event Hosting and Moderation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

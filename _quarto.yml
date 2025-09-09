@@ -13,12 +13,14 @@ website:
         href: https://twitter.com/aman_bagrecha
       - icon: github
         href: https://github.com/amanbagrecha
+      - icon: youtube
+        href: https://www.youtube.com/@amanbagrecha/videos
     pinned: true
     logo: img/AB.png
     left:
       - text: "Home"
         file: index.qmd
-      - text: Talks
+      - text: Videos
         file: talks/index.qmd
       - href: posts
         text: Posts

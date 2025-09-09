@@ -21,6 +21,8 @@ about:
           url: https://orcid.org/0000-0003-2931-0777
         - text: '{{< fa brands google-scholar >}} Google Scholar'
           url: https://scholar.google.com/citations?user=h0CeG6AAAAAJ
+        - text: '{{< fa brands youtube >}} YouTube'
+          url: https://www.youtube.com/@amanbagrecha/videos
     image-width: 15em
     image-shape: rounded
 

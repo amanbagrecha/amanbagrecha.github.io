@@ -82,9 +82,9 @@
   description: "A web-based image viewer with tiling capabilities for large image collections, designed to handle large panoramic images including 360-degree camera images."
   date: 2025-09-06
   categories: [Python, Javascript, Image Processing]
-- path: nlm/nl-means-viz-enhanced.html
+- path: /projects/nlm/nl-means-viz-enhanced.html
   image: /projects/nlm/featured.png
   title: "Non Local Means Visualisation"
   description: "It allows the user to visualise the inner workings of the NL-means algorithm."
   date: 2025-04-18
-  categories: [Javascript, GEE]
+  categories: [Javascript, Computer Vision]
