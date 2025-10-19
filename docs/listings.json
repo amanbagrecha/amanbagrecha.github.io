@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/projects/index.html",
+    "listing": "/index.html",
     "items": []
   },
   {
@@ -36,11 +36,11 @@
     "items": []
   },
   {
-    "listing": "/talks/index.html",
+    "listing": "/projects/index.html",
     "items": []
   },
   {
-    "listing": "/index.html",
+    "listing": "/talks/index.html",
     "items": []
   }
 ]

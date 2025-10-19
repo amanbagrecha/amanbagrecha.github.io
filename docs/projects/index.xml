@@ -38,7 +38,7 @@
   <link>https://amanbagrecha.github.io/</link>
   <description>It allows the user to visualise the inner workings of the NL-means algorithm.</description>
   <category>Javascript</category>
-  <category>GEE</category>
+  <category>Computer Vision</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Thu, 17 Apr 2025 18:30:00 GMT</pubDate>
   <media:content url="https://amanbagrecha.github.io/projects/nlm/featured.png" medium="image" type="image/png" height="95" width="144"/>
@@ -51,7 +51,7 @@
   <category>GEE</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Mon, 24 Feb 2025 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/surface-water-extent/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/surface-water-extent/featured.png" medium="image" type="image/png" height="87" width="144"/>
 </item>
 <item>
   <title>Train 1Spacenet 5 CRESI Algorithm to extract road network from Satellite Imagery.</title>
@@ -131,7 +131,7 @@
   <category>Machine Learning</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/spot-the-crop-radiantearth/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/spot-the-crop-radiantearth/featured.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Web application to access store information on click of marker!</title>
@@ -141,7 +141,7 @@
   <category>Leaflet</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/store-info-leaflet/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/store-info-leaflet/featured.png" medium="image" type="image/png" height="80" width="144"/>
 </item>
 <item>
   <title>Django-rest-framework CRUD Token Authetication Application</title>
@@ -151,7 +151,7 @@
   <category>Python</category>
   <guid>https://amanbagrecha.github.io/</guid>
   <pubDate>Sun, 11 Jul 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/drf-userprofile/featured.png" medium="image" type="image/png"/>
+  <media:content url="https://amanbagrecha.github.io/projects/drf-userprofile/featured.png" medium="image" type="image/png" height="64" width="144"/>
 </item>
 <item>
   <title>Geocoding using Mapbox API</title>

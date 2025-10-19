@@ -4,6 +4,11 @@ description: |
   News and Professional Journal - Updated once a month!
 ---
 
+## September 2025
+
+Gave a talk at BNMIT on Machine Learning for Climate science. You can find the slides [here](https://docs.google.com/presentation/d/19nyQz7SP90Pbh8Hc4moZbOOiALh746BYdWCQDDb5xfs/edit?usp=sharing). I built a [brush selection tool](https://plugins.qgis.org/plugins/BrushSelectionTool/) for qgis. I use it daily for my usecase. 
+
+
 ## August 2025
 
 Had a workshop session for NITK on python data handling and mining. You can find the slides [here](https://docs.google.com/presentation/d/e/2PACX-1vTjbLuh63tgTX_BntnY9dwdtgTeZY3ZShuUN-AvQBnXGDtMy9OZ3CSo3VjBkTxs3eK_6LmD7EDIzpgx/pub?start=false&loop=false&delayms=3000). The associated github code is [here](https://github.com/amanbagrecha/nitk-workshop)
