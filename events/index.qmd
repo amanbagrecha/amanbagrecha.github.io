@@ -4,6 +4,10 @@ description: |
   News and Professional Journal - Updated once a month!
 ---
 
+## October 2025
+
+This was my last month at Galaxeye. Enjoyed every part of seeing the product built from scratch.
+
 ## September 2025
 
 Gave a talk at BNMIT on Machine Learning for Climate science. You can find the slides [here](https://docs.google.com/presentation/d/19nyQz7SP90Pbh8Hc4moZbOOiALh746BYdWCQDDb5xfs/edit?usp=sharing). I built a [brush selection tool](https://plugins.qgis.org/plugins/BrushSelectionTool/) for qgis. I use it daily for my usecase. 
