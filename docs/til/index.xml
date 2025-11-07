@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Aman Bagrecha</title>
+<link>https://amanbagrecha.github.io/til/</link>
+<atom:link href="https://amanbagrecha.github.io/til/index.xml" rel="self" type="application/rss+xml"/>
+<description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
+<generator>quarto-1.7.32</generator>
+<lastBuildDate>Thu, 06 Nov 2025 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Min-Max Normalization</title>
+  <link>https://amanbagrecha.github.io/til/gee-mosaic.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>TIL that when we download large tiles from google earth engine, it shards it into multiple images and each image has its own min-max, and it streches it to that min-max and then lets us download.</p>
+<p>The result is visible discontinuities when visualizing the mosaicked image, even though the underlying data is spatially continuous.</p>
+<p>We can get back the seemless-mosaic by simply normalising using global min-max.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> rasterio</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> rasterio.merge <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> merge</span>
+<span id="cb1-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pathlib <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Path</span>
+<span id="cb1-5"></span>
+<span id="cb1-6">shard_files <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'file1.tif'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'file2.tif'</span>]</span>
+<span id="cb1-7"></span>
+<span id="cb1-8">datasets <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [rasterio.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">open</span>(f) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> f <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> shard_files]</span>
+<span id="cb1-9">mosaic, transform <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> merge(datasets)</span>
+<span id="cb1-10"></span>
+<span id="cb1-11">global_min <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.nanmin(mosaic)</span>
+<span id="cb1-12">global_max <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.nanmax(mosaic)</span>
+<span id="cb1-13"></span>
+<span id="cb1-14">normalized <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (mosaic <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> global_min) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (global_max <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> global_min)</span>
+<span id="cb1-15"></span>
+<span id="cb1-16">profile <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> datasets[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].profile.copy()</span>
+<span id="cb1-17">profile.update({</span>
+<span id="cb1-18">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'dtype'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'float32'</span>,</span>
+<span id="cb1-19">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'height'</span>: normalized.shape[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>],</span>
+<span id="cb1-20">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'width'</span>: normalized.shape[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>],</span>
+<span id="cb1-21">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'transform'</span>: transform,</span>
+<span id="cb1-22">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'driver'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'COG'</span></span>
+<span id="cb1-23">})</span>
+<span id="cb1-24"></span>
+<span id="cb1-25"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">with</span> rasterio.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">open</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'normalized_mosaic.tif'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'w'</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span>profile) <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> dst:</span>
+<span id="cb1-26">    dst.write(normalized)</span>
+<span id="cb1-27"></span>
+<span id="cb1-28">[d.close() <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> d <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> datasets]</span></code></pre></div>
+<p>Similar to this issue mentioned in <a href="https://gis.stackexchange.com/questions/490449/why-is-there-a-color-difference-problem-in-the-mosaic-of-sentinel-2-images-from">stackoverflow</a></p>
+
+
+
+ ]]></description>
+  <category>gee</category>
+  <category>image-processing</category>
+  <guid>https://amanbagrecha.github.io/til/gee-mosaic.html</guid>
+  <pubDate>Thu, 06 Nov 2025 18:30:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

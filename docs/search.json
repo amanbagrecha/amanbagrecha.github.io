@@ -866,5 +866,19 @@
     "title": "Videos",
     "section": "Event Hosting & Moderation",
     "text": "Event Hosting & Moderation"
+  },
+  {
+    "objectID": "til/index.html",
+    "href": "til/index.html",
+    "title": "TIL (Today I Learnt)",
+    "section": "",
+    "text": "Min-Max Normalization\n\n\n\ngee\n\nimage-processing\n\n\n\n\n\n\n\n\n\nNov 7, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "til/gee-mosaic.html",
+    "href": "til/gee-mosaic.html",
+    "title": "Min-Max Normalization",
+    "section": "",
+    "text": "TIL that when we download large tiles from google earth engine, it shards it into multiple images and each image has its own min-max, and it streches it to that min-max and then lets us download.\nThe result is visible discontinuities when visualizing the mosaicked image, even though the underlying data is spatially continuous.\nWe can get back the seemless-mosaic by simply normalising using global min-max.\nimport numpy as np\nimport rasterio\nfrom rasterio.merge import merge\nfrom pathlib import Path\n\nshard_files = ['file1.tif', 'file2.tif']\n\ndatasets = [rasterio.open(f) for f in shard_files]\nmosaic, transform = merge(datasets)\n\nglobal_min = np.nanmin(mosaic)\nglobal_max = np.nanmax(mosaic)\n\nnormalized = (mosaic - global_min) / (global_max - global_min)\n\nprofile = datasets[0].profile.copy()\nprofile.update({\n    'dtype': 'float32',\n    'height': normalized.shape[1],\n    'width': normalized.shape[2],\n    'transform': transform,\n    'driver': 'COG'\n})\n\nwith rasterio.open('normalized_mosaic.tif', 'w', **profile) as dst:\n    dst.write(normalized)\n\n[d.close() for d in datasets]\nSimilar to this issue mentioned in stackoverflow\nI also experimented with if we should use local min-max normalisation or global, and for this use case a global normalisation makes sense since it was originally part of one tile.\nYou can check out the artifact here"
   }
 ]
