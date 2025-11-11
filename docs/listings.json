@@ -4,6 +4,10 @@
     "items": []
   },
   {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
     "listing": "/presentations/index.html",
     "items": []
   },
@@ -36,7 +40,13 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
+    "listing": "/index.html",
     "items": []
+  },
+  {
+    "listing": "/til/index.html",
+    "items": [
+      "/til/gee-mosaic.html"
+    ]
   }
 ]

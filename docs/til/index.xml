@@ -136,6 +136,8 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> datasets]</span></code></pre></div>
 <p>Similar to this issue mentioned in <a href="https://gis.stackexchange.com/questions/490449/why-is-there-a-color-difference-problem-in-the-mosaic-of-sentinel-2-images-from">stackoverflow</a></p>
+<p>I also experimented with if we should use local min-max normalisation or global, and for this use case a global normalisation makes sense since it was originally part of one tile.</p>
+<p>You can check out the artifact <a href="https://claude.ai/public/artifacts/76501e96-a650-4a23-867f-2e531ac05902">here</a></p>
 
 
 

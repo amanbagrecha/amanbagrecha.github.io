@@ -1,0 +1,156 @@
+---
+title: "Travel Map"
+format:
+  html:
+    page-layout: full
+---
+
+Explore the places I've visited around the world. Click on markers to see details about each location.
+
+```{ojs}
+//| echo: false
+
+// Load MapLibre GL JS library and CSS
+maplibregl = require('maplibre-gl@4.7.1/dist/maplibre-gl.js')
+
+html`<link href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' rel='stylesheet' />`
+```
+
+```{ojs}
+//| echo: false
+
+// Load the GeoJSON data
+travelData = FileAttachment("places.geojson").json()
+```
+
+```{ojs}
+//| echo: false
+
+// Create map container
+map = {
+  // Create a container div for the map
+  const container = html`<div style="height: 600px; width: 100%;"></div>`;
+
+  // Wait for the container to be added to the DOM
+  yield container;
+
+  // Initialize the map with OSM India style (shows correct India borders)
+  const mapInstance = new maplibregl.Map({
+    container: container,
+    style: 'https://cdn.jsdelivr.net/gh/osm-in/mapbox-gl-styles@master/osm-mapnik-india-v8.json',
+    center: [78.0, 20.0], // Center of India
+    zoom: 4
+  });
+
+  // Wait for map to load
+  mapInstance.on('load', () => {
+    // Add the GeoJSON source
+    mapInstance.addSource('travel-data', {
+      type: 'geojson',
+      data: travelData
+    });
+
+    // Add route lines layer
+    mapInstance.addLayer({
+      id: 'routes',
+      type: 'line',
+      source: 'travel-data',
+      filter: ['==', ['get', 'type'], 'route'],
+      paint: {
+        'line-color': '#3b82f6',
+        'line-width': 2,
+        'line-opacity': 0.6,
+        'line-dasharray': [2, 2]
+      }
+    });
+
+    // Add places circles layer
+    mapInstance.addLayer({
+      id: 'places-circle',
+      type: 'circle',
+      source: 'travel-data',
+      filter: ['==', ['get', 'type'], 'place'],
+      paint: {
+        'circle-radius': 8,
+        'circle-color': '#ef4444',
+        'circle-stroke-width': 2,
+        'circle-stroke-color': '#ffffff'
+      }
+    });
+
+    // Add popups on click
+    mapInstance.on('click', 'places-circle', (e) => {
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const props = e.features[0].properties;
+
+      const popupContent = `
+        <div style="padding: 8px;">
+          <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: bold;">${props.name}</h3>
+          <p style="margin: 4px 0;"><strong>Country:</strong> ${props.country}</p>
+          <p style="margin: 4px 0;"><strong>Visited:</strong> ${props.visited}</p>
+          <p style="margin: 4px 0;">${props.notes}</p>
+        </div>
+      `;
+
+      new maplibregl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(popupContent)
+        .addTo(mapInstance);
+    });
+
+    // Change cursor on hover
+    mapInstance.on('mouseenter', 'places-circle', () => {
+      mapInstance.getCanvas().style.cursor = 'pointer';
+    });
+
+    mapInstance.on('mouseleave', 'places-circle', () => {
+      mapInstance.getCanvas().style.cursor = '';
+    });
+
+    // Fit map to show all places
+    const places = travelData.features.filter(f => f.properties.type === 'place');
+    if (places.length > 0) {
+      const bounds = new maplibregl.LngLatBounds();
+      places.forEach(place => {
+        bounds.extend(place.geometry.coordinates);
+      });
+      mapInstance.fitBounds(bounds, { padding: 50 });
+    }
+  });
+
+  // Add navigation controls
+  mapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+  return mapInstance;
+}
+```
+
+## How to Update
+
+To add your own travel locations:
+
+1. Edit the `places.geojson` file in the `travel` folder
+2. Add Point features for places you've visited:
+   - Set coordinates as `[longitude, latitude]`
+   - Include properties: name, country, visited date, notes
+3. Add LineString features for travel routes connecting places
+4. The map will automatically update when you rebuild the site
+
+### GeoJSON Structure Example
+
+```json
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [longitude, latitude]
+  },
+  "properties": {
+    "name": "City Name",
+    "country": "Country",
+    "visited": "2024-01",
+    "notes": "Your notes here",
+    "type": "place"
+  }
+}
+```

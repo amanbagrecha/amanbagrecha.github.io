@@ -1,0 +1,106 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.2090, 28.6139]
+      },
+      "properties": {
+        "name": "Delhi",
+        "country": "India",
+        "visited": "2023-01",
+        "notes": "Capital city",
+        "type": "place"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [72.8777, 19.0760]
+      },
+      "properties": {
+        "name": "Mumbai",
+        "country": "India",
+        "visited": "2023-03",
+        "notes": "Financial capital",
+        "type": "place"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.5946, 12.9716]
+      },
+      "properties": {
+        "name": "Bangalore",
+        "country": "India",
+        "visited": "2023-06",
+        "notes": "Tech hub",
+        "type": "place"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [78.4867, 17.3850]
+      },
+      "properties": {
+        "name": "Hyderabad",
+        "country": "India",
+        "visited": "2023-08",
+        "notes": "City of pearls",
+        "type": "place"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.2090, 28.6139],
+          [72.8777, 19.0760]
+        ]
+      },
+      "properties": {
+        "name": "Delhi to Mumbai",
+        "type": "route",
+        "date": "2023-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [72.8777, 19.0760],
+          [77.5946, 12.9716]
+        ]
+      },
+      "properties": {
+        "name": "Mumbai to Bangalore",
+        "type": "route",
+        "date": "2023-06"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.5946, 12.9716],
+          [78.4867, 17.3850]
+        ]
+      },
+      "properties": {
+        "name": "Bangalore to Hyderabad",
+        "type": "route",
+        "date": "2023-08"
+      }
+    }
+  ]
+}
