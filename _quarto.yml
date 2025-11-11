@@ -26,6 +26,8 @@ website:
         text: Posts
       - href: events
         text: Events
+      - href: travel
+        text: Travel
       - href: projects
         text: Projects
       - href: presentations

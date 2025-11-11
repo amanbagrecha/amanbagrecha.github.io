@@ -1,45 +1,66 @@
 [
   {
-    "objectID": "talks.html",
-    "href": "talks.html",
+    "objectID": "travel/index.html",
+    "href": "travel/index.html",
+    "title": "Travel Map",
+    "section": "",
+    "text": "Explore the places I’ve visited around the world. Click on markers to see details about each location.\nmaplibregl = require('maplibre-gl@4.7.1/dist/maplibre-gl.js')\n\nhtml`&lt;link href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' rel='stylesheet' /&gt;`\n// Load the GeoJSON data\ntravelData = FileAttachment(\"places.geojson\").json()\n// Create map container\nmap = {\n  // Create a container div for the map\n  const container = html`&lt;div style=\"height: 600px; width: 100%;\"&gt;&lt;/div&gt;`;\n\n  // Wait for the container to be added to the DOM\n  yield container;\n\n  // Initialize the map\n  const mapInstance = new maplibregl.Map({\n    container: container,\n    style: {\n      version: 8,\n      sources: {\n        'osm': {\n          type: 'raster',\n          tiles: [\n            'https://tile.openstreetmap.org/{z}/{x}/{y}.png'\n          ],\n          tileSize: 256,\n          attribution: '&copy; &lt;a href=\"https://www.openstreetmap.org/copyright\"&gt;OpenStreetMap&lt;/a&gt; contributors'\n        }\n      },\n      layers: [\n        {\n          id: 'osm-tiles',\n          type: 'raster',\n          source: 'osm',\n          minzoom: 0,\n          maxzoom: 19\n        }\n      ]\n    },\n    center: [78.0, 20.0], // Center of India\n    zoom: 4\n  });\n\n  // Wait for map to load\n  mapInstance.on('load', () =&gt; {\n    // Add the GeoJSON source\n    mapInstance.addSource('travel-data', {\n      type: 'geojson',\n      data: travelData\n    });\n\n    // Add route lines layer\n    mapInstance.addLayer({\n      id: 'routes',\n      type: 'line',\n      source: 'travel-data',\n      filter: ['==', ['get', 'type'], 'route'],\n      paint: {\n        'line-color': '#3b82f6',\n        'line-width': 2,\n        'line-opacity': 0.6,\n        'line-dasharray': [2, 2]\n      }\n    });\n\n    // Add places circles layer\n    mapInstance.addLayer({\n      id: 'places-circle',\n      type: 'circle',\n      source: 'travel-data',\n      filter: ['==', ['get', 'type'], 'place'],\n      paint: {\n        'circle-radius': 8,\n        'circle-color': '#ef4444',\n        'circle-stroke-width': 2,\n        'circle-stroke-color': '#ffffff'\n      }\n    });\n\n    // Add popups on click\n    mapInstance.on('click', 'places-circle', (e) =&gt; {\n      const coordinates = e.features[0].geometry.coordinates.slice();\n      const props = e.features[0].properties;\n\n      const popupContent = `\n        &lt;div style=\"padding: 8px;\"&gt;\n          &lt;h3 style=\"margin: 0 0 8px 0; font-size: 16px; font-weight: bold;\"&gt;${props.name}&lt;/h3&gt;\n          &lt;p style=\"margin: 4px 0;\"&gt;&lt;strong&gt;Country:&lt;/strong&gt; ${props.country}&lt;/p&gt;\n          &lt;p style=\"margin: 4px 0;\"&gt;&lt;strong&gt;Visited:&lt;/strong&gt; ${props.visited}&lt;/p&gt;\n          &lt;p style=\"margin: 4px 0;\"&gt;${props.notes}&lt;/p&gt;\n        &lt;/div&gt;\n      `;\n\n      new maplibregl.Popup()\n        .setLngLat(coordinates)\n        .setHTML(popupContent)\n        .addTo(mapInstance);\n    });\n\n    // Change cursor on hover\n    mapInstance.on('mouseenter', 'places-circle', () =&gt; {\n      mapInstance.getCanvas().style.cursor = 'pointer';\n    });\n\n    mapInstance.on('mouseleave', 'places-circle', () =&gt; {\n      mapInstance.getCanvas().style.cursor = '';\n    });\n\n    // Fit map to show all places\n    const places = travelData.features.filter(f =&gt; f.properties.type === 'place');\n    if (places.length &gt; 0) {\n      const bounds = new maplibregl.LngLatBounds();\n      places.forEach(place =&gt; {\n        bounds.extend(place.geometry.coordinates);\n      });\n      mapInstance.fitBounds(bounds, { padding: 50 });\n    }\n  });\n\n  // Add navigation controls\n  mapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');\n\n  return mapInstance;\n}"
+  },
+  {
+    "objectID": "travel/index.html#how-to-update",
+    "href": "travel/index.html#how-to-update",
+    "title": "Travel Map",
+    "section": "How to Update",
+    "text": "How to Update\nTo add your own travel locations:\n\nEdit the places.geojson file in the travel folder\nAdd Point features for places you’ve visited:\n\nSet coordinates as [longitude, latitude]\nInclude properties: name, country, visited date, notes\n\nAdd LineString features for travel routes connecting places\nThe map will automatically update when you rebuild the site\n\n\nGeoJSON Structure Example\n{\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [longitude, latitude]\n  },\n  \"properties\": {\n    \"name\": \"City Name\",\n    \"country\": \"Country\",\n    \"visited\": \"2024-01\",\n    \"notes\": \"Your notes here\",\n    \"type\": \"place\"\n  }\n}"
+  },
+  {
+    "objectID": "talks/index.html#planetary-computer-and-stac-api",
+    "href": "talks/index.html#planetary-computer-and-stac-api",
     "title": "Talks",
-    "section": "",
-    "text": "Talks conducted"
+    "section": "Planetary Computer and STAC API",
+    "text": "Planetary Computer and STAC API"
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Redirecting…",
-    "section": "",
-    "text": "If you are not redirected, click here."
+    "objectID": "talks/index.html#geopython",
+    "href": "talks/index.html#geopython",
+    "title": "Talks",
+    "section": "Geopython",
+    "text": "Geopython"
   },
   {
-    "objectID": "project/index.html",
-    "href": "project/index.html",
-    "title": "Redirecting…",
-    "section": "",
-    "text": "If you are not redirected, click here."
+    "objectID": "talks/index.html#event-moderation-and-hosting",
+    "href": "talks/index.html#event-moderation-and-hosting",
+    "title": "Talks",
+    "section": "Event Moderation and Hosting",
+    "text": "Event Moderation and Hosting"
   },
   {
-    "objectID": "presentations/foss4g_asia_2023/index.html",
-    "href": "presentations/foss4g_asia_2023/index.html",
-    "title": "Sentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling",
-    "section": "",
-    "text": "Hello hello world"
+    "objectID": "talks/index.html#qgis",
+    "href": "talks/index.html#qgis",
+    "title": "Talks",
+    "section": "QGIS",
+    "text": "QGIS"
   },
   {
-    "objectID": "presentations/datajam_2023/index.html",
-    "href": "presentations/datajam_2023/index.html",
+    "objectID": "presentations/index.html",
+    "href": "presentations/index.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n\n\n\n\n\n\n\n\n\n\nFeasibility Study of Floating Solar Panels over Lakes in Bengaluru City\n\n\n\n\n\nJul 28, 2019\n\n\n\n\n\n\n\n\n\n\n\n\nMechanistic Approach for the Design of Surface Drainage System of Roads\n\n\n\n\n\nSep 8, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nData Jam Presentation organised by WRI and opencity\n\n\n\n\n\nJun 10, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nSentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling\n\n\n\n\n\nNov 30, 2023\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "presentations/design_of_surface_drainage_2021/index.html",
+    "href": "presentations/design_of_surface_drainage_2021/index.html",
     "title": "Structural Modelling and analysis of concrete canoe hull",
     "section": "",
     "text": "Hello hello world"
   },
   {
-    "objectID": "posts.html",
-    "href": "posts.html",
-    "title": "Redirecting…",
+    "objectID": "presentations/asce_conference_2019/index.html",
+    "href": "presentations/asce_conference_2019/index.html",
+    "title": "Structural Modelling and analysis of concrete canoe hull",
     "section": "",
-    "text": "If you are not redirected, click here."
+    "text": "Hello hello world"
   },
   {
     "objectID": "posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html",
@@ -350,25 +371,25 @@
     "text": "step 3: Send Email via SMTP backend\nIn views.py, we create sendPDF function which calls the generate_pdfto generate PDF and attaches the pdf to the email using the EmailMessage class method attach. We additionally need to setup backend for smtp service and host user which is to be done in settings.py.\n# views.py\ndef sendPDF(**Mydata):\n    pdf = generate_pdf(**Mydata)\n    msg = EmailMessage(Mydata['Title'], \" Your Report is ready! \", settings.EMAIL_HOST_USER, to=[Mydata['EmailAddress']])\n    msg.attach(f\"{Mydata['Title']}.pdf\", pdf, 'application/pdf')\n    msg.content_subtype = \"html\"\n    resp = msg.send()\n    print(\"resp:\" , resp)\nIn settings.py\n# settings.py\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = \"smtp.gmail.com\"\nEMAIL_HOST_USER = 'your_email@gmail.com'\nEMAIL_HOST_PASSWORD = 'your_password'\nEMAIL_PORT = 587\nEMAIL_USE_TLS = True\nAt this point we have been able to successfully setup and send email with attachment."
   },
   {
-    "objectID": "events.html",
-    "href": "events.html",
-    "title": "Redirecting…",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Aman Bagrecha",
     "section": "",
-    "text": "If you are not redirected, click here."
+    "text": "I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few. Beyond my professional life, I enjoy jogging and playing badminton.\nI graduated from Rashtreeya Vidyalaya College of Engineering in Civil Engineering where I was the president of ASCE Student Chapter, leading the team to Concrete Canoe Competition among various other activities. During college, I was also a Research Intern at Indian Institute of Science working on non-stationary rainfall intensity surface drainage design.\nI co-founded Let’s Talk Spatial, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.\nAs the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize various events.\nI’ve spoken at opensource conferences like FOSS4G Kosovo and FOSS4G Asia Seoul, sharing my insights on open-source technologies.\nMy publications can be found on Google Scholar.\n\n\n\nGalaxEye Space | Geospatial Scientist | Sept 2023 – present\nBlue Sky Analytics | Data Scientist | May 2022 – Sept 2023\nSatyukt Analytics | Remote Sensing Engineer | Sept 2021 – Mar 2022\nRotten Grapes Pvt. Ltd | Web GIS Developer | Feb 2021 – May 2021"
   },
   {
-    "objectID": "event/index.html",
-    "href": "event/index.html",
-    "title": "Redirecting…",
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Aman Bagrecha",
     "section": "",
-    "text": "If you are not redirected, click here."
+    "text": "I am a geospatial scientist specializing in GIS, AI/ML, and Remote Sensing. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few. Beyond my professional life, I enjoy jogging and playing badminton.\nI graduated from Rashtreeya Vidyalaya College of Engineering in Civil Engineering where I was the president of ASCE Student Chapter, leading the team to Concrete Canoe Competition among various other activities. During college, I was also a Research Intern at Indian Institute of Science working on non-stationary rainfall intensity surface drainage design.\nI co-founded Let’s Talk Spatial, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open-source projects and share my knowledge through blogs, videos, and workshops.\nAs the Young Professional Chair of IEEE GRSS Bangalore chapter, I co-organize various events.\nI’ve spoken at opensource conferences like FOSS4G Kosovo and FOSS4G Asia Seoul, sharing my insights on open-source technologies.\nMy publications can be found on Google Scholar."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Aman Bagrecha",
     "section": "",
-    "text": "About this site"
+    "text": "GalaxEye Space | Geospatial Scientist | Sept 2023 – present\nBlue Sky Analytics | Data Scientist | May 2022 – Sept 2023\nSatyukt Analytics | Remote Sensing Engineer | Sept 2021 – Mar 2022\nRotten Grapes Pvt. Ltd | Web GIS Developer | Feb 2021 – May 2021"
   },
   {
     "objectID": "disclaimer/index.html",
@@ -378,39 +399,25 @@
     "text": "Opinions expressed on this Site are the authors’ own in his personal capacity. They do not reflect the views of the any organisation or company he is associated with."
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
     "objectID": "events/index.html",
     "href": "events/index.html",
     "title": "Events",
     "section": "",
-    "text": "This was my last month at Galaxeye. Enjoyed every part of seeing the product built from scratch."
-  },
-  {
-    "objectID": "events/index.html#october-2025",
-    "href": "events/index.html#october-2025",
-    "title": "Events",
-    "section": "",
-    "text": "This was my last month at Galaxeye. Enjoyed every part of seeing the product built from scratch."
-  },
-  {
-    "objectID": "events/index.html#september-2025",
-    "href": "events/index.html#september-2025",
-    "title": "Events",
-    "section": "September 2025",
-    "text": "September 2025\nGave a talk at BNMIT on Machine Learning for Climate science. You can find the slides here. I built a brush selection tool for qgis. I use it daily for my usecase."
-  },
-  {
-    "objectID": "events/index.html#august-2025",
-    "href": "events/index.html#august-2025",
-    "title": "Events",
-    "section": "August 2025",
-    "text": "August 2025\nHad a workshop session for NITK on python data handling and mining. You can find the slides here. The associated github code is here"
+    "text": "Visited varkala for the first time. An absolute delight to be at south/north cliff with an amazing company."
   },
   {
     "objectID": "events/index.html#june-2025",
     "href": "events/index.html#june-2025",
     "title": "Events",
-    "section": "June 2025",
-    "text": "June 2025\nVisited varkala for the first time. An absolute delight to be at south/north cliff with an amazing company."
+    "section": "",
+    "text": "Visited varkala for the first time. An absolute delight to be at south/north cliff with an amazing company."
   },
   {
     "objectID": "events/index.html#may-2025",
@@ -565,41 +572,6 @@
     "title": "Events",
     "section": "June - July 2023",
     "text": "June - July 2023\nI attended FOSS4G for the very first time and gave two talks. I had the most memorable experience in Prizren. Read in-depth blog here."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Aman Bagrecha",
-    "section": "",
-    "text": "I am a geospatial scientist working at the intersection of GIS, remote sensing, and deep‑learning computer vision. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few.\n\n\n\nGalaxEye Space | Geospatial Scientist | Sept 2023 – present\nBlue Sky Analytics | Data Scientist | May 2022 – Sept 2023\nSatyukt Analytics | Remote Sensing Engineer | Sept 2021 – Mar 2022\nRotten Grapes Pvt. Ltd | Web GIS Developer | Feb 2021 – May 2021\nPast work, current focus and interests:\n\nComputer vision: deep learning for segmentation and object detection; current focus on self‑supervised learning.\nSensors and data: SAR and optical VHR data with spatial resolution down to 0.5 m apart from open‑source datasets; experience with datasets from Umbra, Capella, Maxar, SkySat, ICEYE, and Synspective.\nMLOps: DVC and MLflow; designed and deployed end‑to‑end experiment tracking, data versioning, and reproducible training/inference pipelines in production.\nPerformance: GPU optimization and profiling; Python packaging and environment management for reliable builds.\nWorkflows: STAC experience including operating a STAC API server.\nTooling: developed QGIS plugins; built an active‑learning pipeline using a Random Forest predictor and QGIS as the labeling tool.\n\nI co‑founded Let’s Talk Spatial, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open‑source projects and share my knowledge through blogs, videos, and workshops.\nAs the Young Professional Chair of IEEE GRSS Bangalore chapter, I co‑organize various events.\nI’ve spoken at open‑source conferences like FOSS4G Kosovo and FOSS4G Asia Seoul, sharing my insights on open‑source technologies.\nMy publications can be found on Google Scholar.\nI graduated from Rashtreeya Vidyalaya College of Engineering in Civil Engineering where I was the president of the ASCE Student Chapter, leading the team to the Concrete Canoe Competition among various other activities. During college, I was also a Research Intern at the Indian Institute of Science, working on non‑stationary rainfall intensity surface drainage design.\nBeyond work, I enjoy jogging and playing badminton.\n\n\n\n\n\n\n\n\n\n\n\n\nA QGIS plugin that provides an intuitive ‘painting’ interface for selecting polygon features by dragging a circular brush across the map canvas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA web-based image viewer with tiling capabilities for large image collections, designed to handle large panoramic images including 360-degree camera images.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt allows the user to visualise the inner workings of the NL-means algorithm.\n\n\n\n\n\n\n\n\nNo matching items\n\n\nView All Projects"
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Aman Bagrecha",
-    "section": "",
-    "text": "I am a geospatial scientist working at the intersection of GIS, remote sensing, and deep‑learning computer vision. I advocate and contribute to open-source software - Xarray, QGIS, STAC, GeoPython stack to name a few."
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Aman Bagrecha",
-    "section": "",
-    "text": "GalaxEye Space | Geospatial Scientist | Sept 2023 – present\nBlue Sky Analytics | Data Scientist | May 2022 – Sept 2023\nSatyukt Analytics | Remote Sensing Engineer | Sept 2021 – Mar 2022\nRotten Grapes Pvt. Ltd | Web GIS Developer | Feb 2021 – May 2021\nPast work, current focus and interests:\n\nComputer vision: deep learning for segmentation and object detection; current focus on self‑supervised learning.\nSensors and data: SAR and optical VHR data with spatial resolution down to 0.5 m apart from open‑source datasets; experience with datasets from Umbra, Capella, Maxar, SkySat, ICEYE, and Synspective.\nMLOps: DVC and MLflow; designed and deployed end‑to‑end experiment tracking, data versioning, and reproducible training/inference pipelines in production.\nPerformance: GPU optimization and profiling; Python packaging and environment management for reliable builds.\nWorkflows: STAC experience including operating a STAC API server.\nTooling: developed QGIS plugins; built an active‑learning pipeline using a Random Forest predictor and QGIS as the labeling tool.\n\nI co‑founded Let’s Talk Spatial, a community for geospatial enthusiasts, hosting events and collaborating with other communities like OpenStreetMap Bengaluru and IEEE GRSS Bangalore chapter. I actively contribute to open‑source projects and share my knowledge through blogs, videos, and workshops.\nAs the Young Professional Chair of IEEE GRSS Bangalore chapter, I co‑organize various events.\nI’ve spoken at open‑source conferences like FOSS4G Kosovo and FOSS4G Asia Seoul, sharing my insights on open‑source technologies.\nMy publications can be found on Google Scholar.\nI graduated from Rashtreeya Vidyalaya College of Engineering in Civil Engineering where I was the president of the ASCE Student Chapter, leading the team to the Concrete Canoe Competition among various other activities. During college, I was also a Research Intern at the Indian Institute of Science, working on non‑stationary rainfall intensity surface drainage design.\nBeyond work, I enjoy jogging and playing badminton."
-  },
-  {
-    "objectID": "index.html#featured-projects",
-    "href": "index.html#featured-projects",
-    "title": "Aman Bagrecha",
-    "section": "",
-    "text": "A QGIS plugin that provides an intuitive ‘painting’ interface for selecting polygon features by dragging a circular brush across the map canvas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA web-based image viewer with tiling capabilities for large image collections, designed to handle large panoramic images including 360-degree camera images.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt allows the user to visualise the inner workings of the NL-means algorithm.\n\n\n\n\n\n\n\n\nNo matching items\n\n\nView All Projects"
-  },
-  {
-    "objectID": "post/index.html",
-    "href": "post/index.html",
-    "title": "Redirecting…",
-    "section": "",
-    "text": "If you are not redirected, click here."
   },
   {
     "objectID": "posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html",
@@ -805,25 +777,18 @@
     "text": "What is Jason-3?\nJason-3 is a satellite which measures topographic height of the entire earth once every ~10 days since the year 2016 and is used in applications such as sea level rise, ocean circulation, and climate change. - It has an altimeter which measures the two-way travel time from the Earth’s surface to satellite. - It emits a pulse (radar pulse in this case) at a certain frequency to measure time. Thus it can also penetrate clouds.\n\n\n\n\nFig.1 - Jason-3 ground track visualised on felt. Each point represents a measurement. The distance between two measurements depends on specific product type. \n\n\n\nThe data format of this satellite is Vector Points, distributed as netCDF4 file format.\n\n\n\nUnderstanding Jason-3 Family of products\nJason-3 is processed to level-2 from telemetry data (level-0) and is available online for users to download via NOAA, EUMETSAT and CNES. Jason-3 level-2 product has 3 family of products depending on their latency. The near real time data with latency of 3-5 hours is categorised under Operational Geophysical Data Record (OGDR) product family, with latency of 1-2 days under Interim geophysical data record (IGDR) product family, and with latency of 60 days under geophysical data record (GDR) product family.\n\nNote: Higher the latency, more accurate the measurements since GDR products, unlike OGDR and IGDR products, are fully validated and calibrated.\n\nUnder each family, they are categorised with reduced, native and sensor product. The difference between them is in the amount and type of data included, as described in the figure below.\n\n\n\nDescribing Jason-3 Product Family and its childs. Reduced product only contains data with 1Hz frequency. Native product contains data with 1Hz + 20Hz. Sensor contains 1Hz + 20Hz + waveforms. GDR product is fully validated and has highest accuracy.\n\n\n\n\nWhich Jason-3 data product should I use?\nThe answer depends on 3 key factors: 1. Latency, spatial resolution, spectral resolution.\nI’ve already mentioned the latency difference between three parent products (see above section). Depending on user requirements and accuracy, one of the three families can be selected.\nLet us now look at two other factors which will help you decide which data product to choose.\nSpatial resolution here is the distance between two measurements, while spectral resolution is the richness of data. sensor product contains information about the photon signals (waveforms) and might not be useful for certain applications, while reduced product has sparsely spaced measurements, i.e, number of total measurements are less and it does not contain waveform information.\nTo illustrate which product to choose among the 8 products from 3 family, let us look at few real world use cases to help with our selection -\n\nIf I aim to create a DEM for a large scale area which has relatively relatively terrain surface and do not require near real time data, I’d prefer using reduced product from GDR family. While if the surface is undulating, I’d prefer native product, which has measurements at better spatial resolution.\nIf I am working on a climate variable, say, looking at atmospheric correction which requires raw photon signals as well, I’d use sensor product from IGDR family or GDR family depending on requirement.\nIf I am working on mission critical problem, and require near real time data with good spatial resolution, but do not need waveform data, I’d use native product from OGDR family.\n\n\n\nEarthdata hosts a product called GPS OGDR SSHA which is delivered near real time (8-10 hours) as reduced product (1Hz only). This product is more accurate than OGDR SSHA from the OGDR family described above due to it being processed against GPS orbit rather than DORIS orbit ( which is used for all other products described in figure 2). Though GPS OGDR SSHA product is only available from 2020 october onwards.\n\nNow that we know which product to download, let us look how and where to download them.\nManual Download\n\nEarthdata Search JASON3 GPS OGDR: It only allows you to visualise the ground track of the product you are going to download.\nNCEI NOAA JASON3: It has a GUI to check out the available products for each family, cycle and pass. Each family is suffixed with the version number.\nCMR API virtual Directory JASON3 GPS OGDR: It is same as NCEI NOAA, but only 1 product is available through CMR API virtual directory\n\nProgrammatic download Links\n\nPODAAC S3 access: Direct S3 access to only GPS OGDR SSHA reduced product. To know about bucket information, see here\nCMR API JASON3 GPS OGDR: CMI API access to only GPS OGDR SSHA reduced product. More details on how to use this API is described below.\nFTP NCEI NOAA JASON3: This FTP server hosts all the data described in figure 2. More information on how to download it is given below.\n\n\nData hosted by NCEI NOAA has all the data available for download, but NASA earthdata only hosts GPS OGDR SSHA reduced product.\n\n\n\nDownload from CMR API\nThe code for downloading jason-3 data using CMR API can be found here. Broadly, The code sends a request to CMR Search API https://cmr.earthdata.nasa.gov/search/granules.json along with parameters to filter by date, region and number of products required. The result is passed to authenticate with earthdata credentials and the file is downloaded to the local machine.\n\n\nDownload from FTP server\nThe entire code for downloading jason-3 data using FTP Server can be found here. In this code, the FTP directory is fetched for a specific product. To know which parent family folder to choose, we need to understand family versions for the Jason-3 product.\n\n\n\nJason-3 products grouped according to model version as seen in NOAA server directory at ncei.noaa.gov/data/oceans/jason3/.\n\n\nThe Jason-3 family product is versioned based on whether the product is in calibration/validation phase or intended to be used by the end user. If T is suffixed with the name of the parent folder, it means cal/val phase otherwise it is for end user. Product families with no suffix, combines all the versioned family product, keeping the latest for each cycle. It has data for all cycles till the latest available date.\n\nSince September 2018, all data products associated with gdr family have been moved to version f. If you require historcal jason3 data, it is a no-brainer to use GDR family products since it is at the most accurate among all the families and also has been updated with the latest model version f.\n\nReferences\n\nJason-3 Product Handbook\nPODAAC JPL NASA"
   },
   {
-    "objectID": "presentations/asce_conference_2019/index.html",
-    "href": "presentations/asce_conference_2019/index.html",
+    "objectID": "presentations/datajam_2023/index.html",
+    "href": "presentations/datajam_2023/index.html",
     "title": "Structural Modelling and analysis of concrete canoe hull",
     "section": "",
     "text": "Hello hello world"
   },
   {
-    "objectID": "presentations/design_of_surface_drainage_2021/index.html",
-    "href": "presentations/design_of_surface_drainage_2021/index.html",
-    "title": "Structural Modelling and analysis of concrete canoe hull",
+    "objectID": "presentations/foss4g_asia_2023/index.html",
+    "href": "presentations/foss4g_asia_2023/index.html",
+    "title": "Sentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling",
     "section": "",
     "text": "Hello hello world"
-  },
-  {
-    "objectID": "presentations/index.html",
-    "href": "presentations/index.html",
-    "title": "Presentations",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n\n\n\n\n\n\n\n\n\n\nFeasibility Study of Floating Solar Panels over Lakes in Bengaluru City\n\n\n\n\n\nJul 28, 2019\n\n\n\n\n\n\n\n\n\n\n\n\nMechanistic Approach for the Design of Surface Drainage System of Roads\n\n\n\n\n\nSep 8, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nData Jam Presentation organised by WRI and opencity\n\n\n\n\n\nJun 10, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nSentinel-1 Image Analysis: Flood Detection using Cloud Native Tooling\n\n\n\n\n\nNov 30, 2023\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/atharva/index.html",
@@ -837,48 +802,13 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "Brush Selection Tool for QGIS\n\n\n\nSep 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nImage Viewer (Streetview-Alike)\n\n\n\nSep 6, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nNon Local Means Visualisation\n\n\n\nApr 18, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurface Water Extent using Sentinel-2 Imagery\n\n\n\nFeb 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTrain 1Spacenet 5 CRESI Algorithm to extract road network from Satellite Imagery.\n\n\n\nJul 28, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\nSMAP Soil Moisture Time Series Analysis\n\n\n\nSep 8, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpenlayers Query via Geoserver\n\n\n\nAug 10, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting Age group of Social Media Application users\n\n\n\nJul 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructural Modelling and analysis of concrete canoe hull\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalyse professional degree student enrolment v/s university count\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nLand Surface Temperature\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nRadiant Earth Spot the Crop Hackathon\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeb application to access store information on click of marker!\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nDjango-rest-framework CRUD Token Authetication Application\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocoding using Mapbox API\n\n\n\nJul 8, 2021\n\n\n\n\n\n\nNo matching items"
+    "text": "Train 1Spacenet 5 CRESI Algorithm to extract road network from Satellite Imagery.\n\n\n\nJul 28, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\nSMAP Soil Moisture Time Series Analysis\n\n\n\nSep 8, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpenlayers Query via Geoserver\n\n\n\nAug 10, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructural Modelling and analysis of concrete canoe hull\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting Age group of Social Media Application users\n\n\n\nJul 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalyse professional degree student enrolment v/s university count\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nLand Surface Temperature\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeocoding using Mapbox API\n\n\n\nJul 8, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nRadiant Earth Spot the Crop Hackathon\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeb application to access store information on click of marker!\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nDjango-rest-framework CRUD Token Authetication Application\n\n\n\nJul 12, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurface Water Extent using Sentinel-2 Imagery\n\n\n\nApr 25, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nNon Local Means Visualisation\n\n\n\nApr 25, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "talks/index.html",
-    "href": "talks/index.html",
-    "title": "Videos",
+    "objectID": "talks.html",
+    "href": "talks.html",
+    "title": "Talks",
     "section": "",
-    "text": "A collection of conference presentations, technical talks, and educational content."
-  },
-  {
-    "objectID": "talks/index.html#conference-presentations",
-    "href": "talks/index.html#conference-presentations",
-    "title": "Videos",
-    "section": "Conference Presentations",
-    "text": "Conference Presentations\n\nFOSS4G Prizren 2023\n\n\n\n\nGeoPython Workshop"
-  },
-  {
-    "objectID": "talks/index.html#lets-talk-spatial-content",
-    "href": "talks/index.html#lets-talk-spatial-content",
-    "title": "Videos",
-    "section": "Let’s Talk Spatial Content",
-    "text": "Let’s Talk Spatial Content\n\nIntroduction to Planetary Computer and STAC API\n\n\n\n\nQGIS for Beginners"
-  },
-  {
-    "objectID": "talks/index.html#event-hosting-moderation",
-    "href": "talks/index.html#event-hosting-moderation",
-    "title": "Videos",
-    "section": "Event Hosting & Moderation",
-    "text": "Event Hosting & Moderation"
-  },
-  {
-    "objectID": "til/index.html",
-    "href": "til/index.html",
-    "title": "TIL (Today I Learnt)",
-    "section": "",
-    "text": "Min-Max Normalization\n\n\n\ngee\n\nimage-processing\n\n\n\n\n\n\n\n\n\nNov 7, 2025\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "til/gee-mosaic.html",
-    "href": "til/gee-mosaic.html",
-    "title": "Min-Max Normalization",
-    "section": "",
-    "text": "TIL that when we download large tiles from google earth engine, it shards it into multiple images and each image has its own min-max, and it streches it to that min-max and then lets us download.\nThe result is visible discontinuities when visualizing the mosaicked image, even though the underlying data is spatially continuous.\nWe can get back the seemless-mosaic by simply normalising using global min-max.\nimport numpy as np\nimport rasterio\nfrom rasterio.merge import merge\nfrom pathlib import Path\n\nshard_files = ['file1.tif', 'file2.tif']\n\ndatasets = [rasterio.open(f) for f in shard_files]\nmosaic, transform = merge(datasets)\n\nglobal_min = np.nanmin(mosaic)\nglobal_max = np.nanmax(mosaic)\n\nnormalized = (mosaic - global_min) / (global_max - global_min)\n\nprofile = datasets[0].profile.copy()\nprofile.update({\n    'dtype': 'float32',\n    'height': normalized.shape[1],\n    'width': normalized.shape[2],\n    'transform': transform,\n    'driver': 'COG'\n})\n\nwith rasterio.open('normalized_mosaic.tif', 'w', **profile) as dst:\n    dst.write(normalized)\n\n[d.close() for d in datasets]\nSimilar to this issue mentioned in stackoverflow\nI also experimented with if we should use local min-max normalisation or global, and for this use case a global normalisation makes sense since it was originally part of one tile.\nYou can check out the artifact here"
+    "text": "Talks conducted"
   }
 ]
