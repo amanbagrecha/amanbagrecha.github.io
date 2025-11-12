@@ -1,0 +1,22 @@
+author:
+  - id: cvc
+    number: 1
+    name:
+      given: Aman
+      family: Bagrecha
+      literal: Aman Bagrecha
+    orcid: 0000-0003-3131-0864
+    email: jainaman588@gmail.com
+format:
+  html:
+    toc: true
+    code-fold: show
+    code-tools: true
+    code-copy: hover
+    code-overflow: wrap
+    df-print: paged
+jupyter: python3
+execute:
+  freeze: auto
+  echo: true
+  warning: false

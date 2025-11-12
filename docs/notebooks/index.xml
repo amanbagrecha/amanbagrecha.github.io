@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Aman Bagrecha</title>
+<link>https://amanbagrecha.github.io/notebooks/</link>
+<atom:link href="https://amanbagrecha.github.io/notebooks/index.xml" rel="self" type="application/rss+xml"/>
+<description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
+<generator>quarto-1.7.32</generator>
+<lastBuildDate>Wed, 12 Nov 2025 05:15:55 GMT</lastBuildDate>
+</channel>
+</rss>

@@ -1,0 +1,18 @@
+---
+listing:
+  categories: true
+  contents:
+  - '*.ipynb'
+  - '**/*.ipynb'
+  feed: true
+  filter-ui: false
+  sort: date desc
+  sort-ui: false
+  type: grid
+  page-size: 12
+page-layout: article
+title: Notebooks
+title-block-banner: false
+---
+
+A collection of interactive notebooks documenting my learnings, experiments, and explorations in geospatial analysis, data science, and more.

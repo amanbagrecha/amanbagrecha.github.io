@@ -24,6 +24,8 @@ website:
         file: talks/index.qmd
       - href: posts
         text: Posts
+      # - href: notebooks
+      #   text: Notebooks
       - href: events
         text: Events
       - href: travel
@@ -39,17 +41,18 @@ website:
 
 format:
   html:
-    theme: 
+    theme:
       # - sandstone
       - custom.scss
     page-layout: article
     css: styles.css
-    # grid: 
+    # grid:
     #   body-width: 150px
     toc: true
     fontsize: 1.1em
     linestretch: 1.8
     fontcolor: black
+
     # linkcolor: hsl(210deg 60% 40%)
 
 # spacelab, superhero, simplex, sandstone, flatly
