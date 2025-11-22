@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aman Bagrecha">
+<meta name="dcterms.date" content="2025-11-15">
+<meta name="description" content="Workshop conducted at NIE for geospatial AI performing instance segmentation on high res imagery">
+
+<title>Introduction to Geospatial AI – Aman Bagrecha</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5f16ea97b6b7a511140a8dc90f57af35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction to Geospatial AI – Aman Bagrecha">
+<meta property="og:description" content="Workshop conducted at NIE for geospatial AI performing instance segmentation on high res imagery">
+<meta property="og:image" content="https://amanbagrecha.github.io/notebooks/nie-geoml-workshop/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta property="og:site_name" content="Aman Bagrecha">
+<meta name="twitter:title" content="Introduction to Geospatial AI – Aman Bagrecha">
+<meta name="twitter:description" content="Workshop conducted at NIE for geospatial AI performing instance segmentation on high res imagery">
+<meta name="twitter:image" content="https://amanbagrecha.github.io/notebooks/nie-geoml-workshop/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Aman Bagrecha</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html"> 
+<span class="menu-text">Videos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events"> 
+<span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../travel"> 
+<span class="menu-text">Travel</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../presentations"> 
+<span class="menu-text">Presentations</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://twitter.com/aman_bagrecha" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/amanbagrecha" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://www.youtube.com/@amanbagrecha/videos" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#geospatial-instance-segmentation-with-torchgeo-mask-r-cnn" id="toc-geospatial-instance-segmentation-with-torchgeo-mask-r-cnn" class="nav-link active" data-scroll-target="#geospatial-instance-segmentation-with-torchgeo-mask-r-cnn">Geospatial Instance Segmentation with TorchGeo + Mask R-CNN</a>
+  <ul class="collapse">
+  <li><a href="#nwpu-vhr-10-very-high-resolution-10-classes" id="toc-nwpu-vhr-10-very-high-resolution-10-classes" class="nav-link" data-scroll-target="#nwpu-vhr-10-very-high-resolution-10-classes">NWPU VHR-10 (Very High Resolution, 10 classes)</a></li>
+  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">0. Environment setup</a></li>
+  <li><a href="#load-and-explore-the-vhr-10-dataset" id="toc-load-and-explore-the-vhr-10-dataset" class="nav-link" data-scroll-target="#load-and-explore-the-vhr-10-dataset">1. Load and explore the VHR-10 dataset</a>
+  <ul class="collapse">
+  <li><a href="#visualize-an-image-with-ground-truth-boxes-masks" id="toc-visualize-an-image-with-ground-truth-boxes-masks" class="nav-link" data-scroll-target="#visualize-an-image-with-ground-truth-boxes-masks">Visualize an image with ground truth boxes &amp; masks</a></li>
+  </ul></li>
+  <li><a href="#simple-preprocessing-dataloader" id="toc-simple-preprocessing-dataloader" class="nav-link" data-scroll-target="#simple-preprocessing-dataloader">2. Simple preprocessing &amp; DataLoader</a></li>
+  <li><a href="#build-mask-r-cnn-torchvision" id="toc-build-mask-r-cnn-torchvision" class="nav-link" data-scroll-target="#build-mask-r-cnn-torchvision">3. Build Mask R-CNN (torchvision)</a></li>
+  <li><a href="#training-loop-mini-version-for-workshop" id="toc-training-loop-mini-version-for-workshop" class="nav-link" data-scroll-target="#training-loop-mini-version-for-workshop">4. Training loop (mini version for workshop)</a></li>
+  <li><a href="#inference-visualization" id="toc-inference-visualization" class="nav-link" data-scroll-target="#inference-visualization">5. Inference &amp; visualization</a></li>
+  <li><a href="#simple-evaluation-box-iou-precision-recall" id="toc-simple-evaluation-box-iou-precision-recall" class="nav-link" data-scroll-target="#simple-evaluation-box-iou-precision-recall">6. Simple evaluation: box IoU, precision, recall</a></li>
+  <li><a href="#wrap-up-extensions" id="toc-wrap-up-extensions" class="nav-link" data-scroll-target="#wrap-up-extensions">6. Wrap-up &amp; extensions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Introduction to Geospatial AI</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">python</div>
+    <div class="quarto-category">segmentation</div>
+    <div class="quarto-category">AI</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Workshop conducted at NIE for geospatial AI performing instance segmentation on high res imagery
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Aman Bagrecha <a href="mailto:jainaman588@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0003-3131-0864" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 15, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="geospatial-instance-segmentation-with-torchgeo-mask-r-cnn" class="level1">
+<h1>Geospatial Instance Segmentation with TorchGeo + Mask R-CNN</h1>
+<section id="nwpu-vhr-10-very-high-resolution-10-classes" class="level3">
+<h3 class="anchored" data-anchor-id="nwpu-vhr-10-very-high-resolution-10-classes">NWPU VHR-10 (Very High Resolution, 10 classes)</h3>
+<p>Link to github repository for installation steps on local <a href="https://github.com/amanbagrecha/intro-geospatial-ai">here</a></p>
+<p><strong>Goal for this workshop</strong></p>
+<p>By the end, you’ll be able to:</p>
+<ol type="1">
+<li>Load the NWPU VHR-10 dataset from TorchGeo (remote sensing, 10 object classes).</li>
+<li>Explore images, bounding boxes, and <strong>instance masks</strong>.</li>
+<li>Build a Mask R-CNN model (from torchvision) for <strong>instance segmentation</strong>.</li>
+<li>Train on a small subset (for speed) and visualize predictions.</li>
+</ol>
+<p>We’ll use:</p>
+<ul>
+<li><a href="https://github.com/torchgeo/torchgeo">TorchGeo</a> for geospatial dataset handling.</li>
+<li><a href="https://pytorch.org/vision/stable/models.html">torchvision</a> Mask R-CNN for instance segmentation.</li>
+</ul>
+</section>
+<section id="environment-setup" class="level2">
+<h2 class="anchored" data-anchor-id="environment-setup">0. Environment setup</h2>
+<blockquote class="blockquote">
+<p>Run this once at the top of your notebook.</p>
+</blockquote>
+<p>⚠️ <strong>Warning for instructors</strong>:</p>
+<ul>
+<li>VHR-10 needs the <code>datasets</code> extra, plus <code>pycocotools</code> for COCO-style annotations.</li>
+<li>Always request a GPU runtime in Colab (T4 is enough).</li>
+</ul>
+<p>💡 <strong>Idea</strong>: Have students run the <code>pip</code> cell themselves so they see what libraries are used.</p>
+<div id="6V69swLd1jlR" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="88322c97-2b84-427d-bd2f-0f4a224d8a35">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># If you're on Colab, uncomment this cell:</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install <span class="op">-</span>q <span class="st">"torchgeo[datasets]"</span> torch torchvision matplotlib</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> torch</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> torchvision</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader, Subset</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="im">from</span> torchgeo.datasets <span class="im">import</span> VHR10</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>device <span class="op">=</span> torch.device(<span class="st">"cuda"</span> <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> <span class="st">"cpu"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="bu">print</span>(<span class="st">"Using device:"</span>, device)</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># 🧪 Practice 0:</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co"># 1. Run this cell and see if you're on CPU or GPU.</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># 2. If you have a GPU: print(torch.cuda.device_count()) to see how many devices are available.</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="bu">print</span>(<span class="st">"CUDA device count:"</span>, torch.cuda.device_count())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>     <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">56.6/56.6 kB</span> <span class="ansi-red-fg">2.9 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+     <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">42.4/42.4 kB</span> <span class="ansi-red-fg">1.6 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">17.2/17.2 MB</span> <span class="ansi-red-fg">92.9 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">240.5/240.5 kB</span> <span class="ansi-red-fg">28.1 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">1.1/1.1 MB</span> <span class="ansi-red-fg">76.8 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">86.1/86.1 kB</span> <span class="ansi-red-fg">10.3 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">859.3/859.3 kB</span> <span class="ansi-red-fg">71.8 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">827.9/827.9 kB</span> <span class="ansi-red-fg">60.5 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">9.5/9.5 MB</span> <span class="ansi-red-fg">106.4 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">22.3/22.3 MB</span> <span class="ansi-red-fg">95.1 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">507.6/507.6 kB</span> <span class="ansi-red-fg">46.1 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">154.8/154.8 kB</span> <span class="ansi-red-fg">18.3 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">983.2/983.2 kB</span> <span class="ansi-red-fg">68.3 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">75.0/75.0 kB</span> <span class="ansi-red-fg">7.4 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">605.0/605.0 kB</span> <span class="ansi-red-fg">49.9 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">165.6/165.6 kB</span> <span class="ansi-red-fg">19.7 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">154.5/154.5 kB</span> <span class="ansi-red-fg">17.8 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">3.0/3.0 MB</span> <span class="ansi-red-fg">16.9 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">831.6/831.6 kB</span> <span class="ansi-red-fg">62.9 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">760.5/760.5 kB</span> <span class="ansi-red-fg">61.7 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+   <span class="ansi-bright-black-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">1.6/1.6 MB</span> <span class="ansi-red-fg">91.4 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+
+Using device: cuda
+
+CUDA device count: 1
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="load-and-explore-the-vhr-10-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="load-and-explore-the-vhr-10-dataset">1. Load and explore the VHR-10 dataset</h2>
+<p>VHR-10 (NWPU VHR-10) is a <strong>very high resolution (0.08–2 m)</strong> remote sensing dataset with:</p>
+<ul>
+<li>800 images total
+<ul>
+<li>650 “positive” images (contain at least one object)<br>
+</li>
+<li>150 “negative” images (no objects)<br>
+</li>
+</ul></li>
+<li>10 object classes: airplane, ship, storage tank, baseball diamond, tennis court, basketball court, ground track field, harbor, bridge, vehicle.</li>
+</ul>
+<p>TorchGeo provides:</p>
+<ul>
+<li>images as tensors (C, H, W)</li>
+<li>COCO-style annotations converted into <code>boxes</code>, <code>labels</code>, and <code>masks</code>.</li>
+</ul>
+<p>⚠️ <strong>Important</strong>:</p>
+<ul>
+<li>Use <code>split="positive"</code> for detection/segmentation (only positives have annotations).</li>
+</ul>
+<div id="koIlOaoE1jlW" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="a10806b0-0136-4ba0-ce30-4ad6f380f20b">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>root <span class="op">=</span> <span class="st">"data"</span>  <span class="co"># change if you want</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>ds <span class="op">=</span> VHR10(root<span class="op">=</span>root, split<span class="op">=</span><span class="st">"positive"</span>, download<span class="op">=</span><span class="va">True</span>, checksum<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">print</span>(<span class="st">"Dataset length (positive images):"</span>, <span class="bu">len</span>(ds))</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>sample <span class="op">=</span> ds[<span class="dv">0</span>]</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">print</span>(<span class="st">"Keys in one sample:"</span>, sample.keys())</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">print</span>(<span class="st">"Image shape:"</span>, sample[<span class="st">"image"</span>].shape)  <span class="co"># (C, H, W)</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="bu">print</span>(<span class="st">"Boxes shape:"</span>, sample[<span class="st">"bbox_xyxy"</span>].shape)</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">print</span>(<span class="st">"Labels shape:"</span>, sample[<span class="st">"label"</span>].shape)</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">print</span>(<span class="st">"Has masks:"</span>, <span class="st">"mask"</span> <span class="kw">in</span> sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>loading annotations into memory...
+Done (t=0.03s)
+creating index...
+index created!
+Dataset length (positive images): 650
+Keys in one sample: dict_keys(['image', 'label', 'bbox_xyxy', 'mask'])
+Image shape: torch.Size([3, 808, 958])
+Boxes shape: torch.Size([1, 4])
+Labels shape: torch.Size([1])
+Has masks: True</code></pre>
+</div>
+</div>
+<section id="visualize-an-image-with-ground-truth-boxes-masks" class="level3">
+<h3 class="anchored" data-anchor-id="visualize-an-image-with-ground-truth-boxes-masks">Visualize an image with ground truth boxes &amp; masks</h3>
+<p>TorchGeo’s <code>plot</code> method is built in for VHR-10 and can display:</p>
+<ul>
+<li>RGB image<br>
+</li>
+<li>bounding boxes<br>
+</li>
+<li>masks (if present)</li>
+</ul>
+<p>This is perfect to see what <strong>instance segmentation</strong> labels look like.</p>
+<div id="Q-NwHDEe1jlZ" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:877}}" data-outputid="05a842ed-10e6-4d10-90be-507f598a8a74">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>ds.plot(sample)  <span class="co"># draws image with GT boxes + masks</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>plt.show()</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># 🧪 Practice 1:</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># 1. Pick a random index, e.g. idx = 42, and visualize that sample with ds.plot(ds[idx]).</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># 2. Print the number of objects in that image: len(sample["labels"]).</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># Example (uncomment):</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co"># idx = 42</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co"># sample = ds[idx]</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co"># print("Number of objects:", len(sample["labels"]))</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co"># ds.plot(sample); plt.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="torchgeo_vhr10_maskrcnn_workshop_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="simple-preprocessing-dataloader" class="level2">
+<h2 class="anchored" data-anchor-id="simple-preprocessing-dataloader">2. Simple preprocessing &amp; DataLoader</h2>
+<p>Mask R-CNN in torchvision expects:</p>
+<ul>
+<li>images as <code>float32</code> tensors in <strong>[0, 1]</strong> range</li>
+<li>a <strong>list of images</strong> (variable size allowed)</li>
+<li>a <strong>list of target dicts</strong>, each with:
+<ul>
+<li><code>boxes</code>: <code>[N, 4]</code></li>
+<li><code>labels</code>: <code>[N]</code></li>
+<li><code>masks</code> (optional): <code>[N, H, W]</code></li>
+</ul></li>
+</ul>
+<p>TorchGeo already:</p>
+<ul>
+<li>returns <code>image</code> as float tensor (0–255)</li>
+<li>gives <code>boxes</code>, <code>labels</code>, <code>masks</code> per sample</li>
+</ul>
+<p>We’ll:</p>
+<ol type="1">
+<li>Normalize <code>image / 255.0</code> using a small transform function.</li>
+<li>Use a custom <code>collate_fn</code> that returns a <strong>list of samples</strong> (no stacking), since image sizes differ.</li>
+</ol>
+<div id="V6O7VTuC1jld" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="cc479838-b247-4602-91a4-79ddcfbf254d">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> transform_to_unit_range(sample: <span class="bu">dict</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># Normalize image to [0, 1] range.</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>    image <span class="op">=</span> sample[<span class="st">"image"</span>] <span class="op">/</span> <span class="fl">255.0</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>    sample[<span class="st">"image"</span>] <span class="op">=</span> image</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="cf">return</span> sample</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># Recreate dataset with transform</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>ds <span class="op">=</span> VHR10(root<span class="op">=</span>root, split<span class="op">=</span><span class="st">"positive"</span>, download<span class="op">=</span><span class="va">False</span>, transforms<span class="op">=</span>transform_to_unit_range)</span>
+<span id="cb5-9"><a href="#cb5-9"></a>sample <span class="op">=</span> ds[<span class="dv">0</span>]</span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="bu">print</span>(<span class="st">"Image min/max after normalization:"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11"></a>      sample[<span class="st">"image"</span>].<span class="bu">min</span>().item(), sample[<span class="st">"image"</span>].<span class="bu">max</span>().item())</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="kw">def</span> collate_fn(batch):</span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="co"># Simple collate function for detection / instance segmentation.</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="co"># Input: list of samples (dicts)</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a>    <span class="co"># Output: same list (we handle conversion in the training loop).</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>    <span class="cf">return</span> batch</span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co"># For speed in workshop, use a small subset (e.g. first 100 images)</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>subset_indices <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">100</span>))</span>
+<span id="cb5-21"><a href="#cb5-21"></a>train_dataset <span class="op">=</span> Subset(ds, subset_indices)</span>
+<span id="cb5-22"><a href="#cb5-22"></a></span>
+<span id="cb5-23"><a href="#cb5-23"></a>train_loader <span class="op">=</span> DataLoader(</span>
+<span id="cb5-24"><a href="#cb5-24"></a>    train_dataset,</span>
+<span id="cb5-25"><a href="#cb5-25"></a>    batch_size<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb5-26"><a href="#cb5-26"></a>    shuffle<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb5-27"><a href="#cb5-27"></a>    num_workers<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb5-28"><a href="#cb5-28"></a>    collate_fn<span class="op">=</span>collate_fn,</span>
+<span id="cb5-29"><a href="#cb5-29"></a>)</span>
+<span id="cb5-30"><a href="#cb5-30"></a></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="bu">print</span>(<span class="st">"Batches in train_loader:"</span>, <span class="bu">len</span>(train_loader))</span>
+<span id="cb5-32"><a href="#cb5-32"></a></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co"># 🧪 Practice 2:</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co"># Inspect one batch and print image shapes:</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="co"># batch = next(iter(train_loader))</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="co"># for i, s in enumerate(batch):</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="co">#     print(i, s["image"].shape)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>loading annotations into memory...
+Done (t=0.03s)
+creating index...
+index created!
+Image min/max after normalization: 0.0 1.0
+Batches in train_loader: 50</code></pre>
+</div>
+</div>
+</section>
+<section id="build-mask-r-cnn-torchvision" class="level2">
+<h2 class="anchored" data-anchor-id="build-mask-r-cnn-torchvision">3. Build Mask R-CNN (torchvision)</h2>
+<p>We’ll use <code>maskrcnn_resnet50_fpn</code> from torchvision:</p>
+<ul>
+<li>Backbone: ResNet-50 + FPN</li>
+<li>Detection head: region proposals + class &amp; box prediction</li>
+<li>Segmentation head: mask prediction per instance</li>
+</ul>
+<p>VHR-10 has <strong>10 classes + background</strong>, and <code>VHR10.categories</code> includes <code>'background'</code> at index 0.</p>
+<div id="QEMS-0V31jlg" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="6075a93d-c420-4938-8a3f-153d29c55420">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">from</span> torchvision.models.detection <span class="im">import</span> (</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    maskrcnn_resnet50_fpn,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    MaskRCNN_ResNet50_FPN_Weights,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="im">from</span> torchvision.models.detection.faster_rcnn <span class="im">import</span> FastRCNNPredictor</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="im">from</span> torchvision.models.detection.mask_rcnn <span class="im">import</span> MaskRCNNPredictor</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co"># Get class count from dataset (handle Subset)</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="cf">if</span> <span class="bu">isinstance</span>(train_dataset, Subset):</span>
+<span id="cb7-10"><a href="#cb7-10"></a>    base_ds <span class="op">=</span> train_dataset.dataset  <span class="co"># underlying VHR10</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="cf">else</span>:</span>
+<span id="cb7-12"><a href="#cb7-12"></a>    base_ds <span class="op">=</span> train_dataset</span>
+<span id="cb7-13"><a href="#cb7-13"></a></span>
+<span id="cb7-14"><a href="#cb7-14"></a>num_classes <span class="op">=</span> <span class="bu">len</span>(base_ds.categories)</span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="bu">print</span>(<span class="st">"Number of classes (including background):"</span>, num_classes)</span>
+<span id="cb7-16"><a href="#cb7-16"></a></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co"># 1) Start from COCO-pretrained weights (good initialization)</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a>weights <span class="op">=</span> MaskRCNN_ResNet50_FPN_Weights.COCO_V1</span>
+<span id="cb7-19"><a href="#cb7-19"></a>model <span class="op">=</span> maskrcnn_resnet50_fpn(weights<span class="op">=</span>weights)</span>
+<span id="cb7-20"><a href="#cb7-20"></a>model.to(device)</span>
+<span id="cb7-21"><a href="#cb7-21"></a></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="co"># 2) Replace classification head (box predictor)</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a>in_features <span class="op">=</span> model.roi_heads.box_predictor.cls_score.in_features</span>
+<span id="cb7-24"><a href="#cb7-24"></a>model.roi_heads.box_predictor <span class="op">=</span> FastRCNNPredictor(in_features, num_classes)</span>
+<span id="cb7-25"><a href="#cb7-25"></a></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="co"># 3) Replace mask head</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a>in_features_mask <span class="op">=</span> model.roi_heads.mask_predictor.conv5_mask.in_channels</span>
+<span id="cb7-28"><a href="#cb7-28"></a>hidden_layer <span class="op">=</span> <span class="dv">256</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a>model.roi_heads.mask_predictor <span class="op">=</span> MaskRCNNPredictor(</span>
+<span id="cb7-30"><a href="#cb7-30"></a>    in_features_mask,</span>
+<span id="cb7-31"><a href="#cb7-31"></a>    hidden_layer,</span>
+<span id="cb7-32"><a href="#cb7-32"></a>    num_classes,</span>
+<span id="cb7-33"><a href="#cb7-33"></a>)</span>
+<span id="cb7-34"><a href="#cb7-34"></a></span>
+<span id="cb7-35"><a href="#cb7-35"></a>model.to(device)</span>
+<span id="cb7-36"><a href="#cb7-36"></a><span class="bu">print</span>(<span class="st">"Model ready."</span>)</span>
+<span id="cb7-37"><a href="#cb7-37"></a></span>
+<span id="cb7-38"><a href="#cb7-38"></a><span class="co"># ⚠️ Note: We keep most COCO-trained weights and only reinitialize the last heads.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of classes (including background): 11
+Model ready.</code></pre>
+</div>
+</div>
+</section>
+<section id="training-loop-mini-version-for-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="training-loop-mini-version-for-workshop">4. Training loop (mini version for workshop)</h2>
+<p>For each batch:</p>
+<ol type="1">
+<li>Convert list of samples → <code>images</code> (list of tensors) + <code>targets</code> (list of dicts).</li>
+<li>Forward pass: <code>loss_dict = model(images, targets)</code>.</li>
+<li>Sum loss terms and backprop.</li>
+</ol>
+<p>We’ll only train for <strong>1–2 epochs</strong> on a <strong>subset of 100 images</strong> so it runs quickly.</p>
+<div id="184wrvjZ1jli" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="f4667cba-40b1-43a9-b9c4-704eccb064dc">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Optimizer</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>params <span class="op">=</span> [p <span class="cf">for</span> p <span class="kw">in</span> model.parameters() <span class="cf">if</span> p.requires_grad]</span>
+<span id="cb9-3"><a href="#cb9-3"></a>optimizer <span class="op">=</span> torch.optim.SGD(params, lr<span class="op">=</span><span class="fl">0.005</span>, momentum<span class="op">=</span><span class="fl">0.9</span>, weight_decay<span class="op">=</span><span class="fl">0.0005</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a>num_epochs <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(num_epochs):</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    model.train()</span>
+<span id="cb9-9"><a href="#cb9-9"></a>    epoch_loss <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a>    <span class="cf">for</span> batch_idx, batch <span class="kw">in</span> <span class="bu">enumerate</span>(train_loader):</span>
+<span id="cb9-12"><a href="#cb9-12"></a>        <span class="co"># batch is a list of samples (dicts)</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>        images <span class="op">=</span> [b[<span class="st">"image"</span>].to(device) <span class="cf">for</span> b <span class="kw">in</span> batch]</span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a>        targets <span class="op">=</span> []</span>
+<span id="cb9-16"><a href="#cb9-16"></a>        <span class="cf">for</span> b <span class="kw">in</span> batch:</span>
+<span id="cb9-17"><a href="#cb9-17"></a>            target <span class="op">=</span> {</span>
+<span id="cb9-18"><a href="#cb9-18"></a>                <span class="st">"boxes"</span>: b[<span class="st">"bbox_xyxy"</span>].to(device),</span>
+<span id="cb9-19"><a href="#cb9-19"></a>                <span class="st">"labels"</span>: b[<span class="st">"label"</span>].to(device),</span>
+<span id="cb9-20"><a href="#cb9-20"></a>            }</span>
+<span id="cb9-21"><a href="#cb9-21"></a>            <span class="cf">if</span> <span class="st">"mask"</span> <span class="kw">in</span> b:</span>
+<span id="cb9-22"><a href="#cb9-22"></a>                target[<span class="st">"masks"</span>] <span class="op">=</span> b[<span class="st">"mask"</span>].to(device)</span>
+<span id="cb9-23"><a href="#cb9-23"></a>            targets.append(target)</span>
+<span id="cb9-24"><a href="#cb9-24"></a></span>
+<span id="cb9-25"><a href="#cb9-25"></a>        loss_dict <span class="op">=</span> model(images, targets)</span>
+<span id="cb9-26"><a href="#cb9-26"></a>        loss <span class="op">=</span> <span class="bu">sum</span>(loss_dict.values())</span>
+<span id="cb9-27"><a href="#cb9-27"></a></span>
+<span id="cb9-28"><a href="#cb9-28"></a>        optimizer.zero_grad()</span>
+<span id="cb9-29"><a href="#cb9-29"></a>        loss.backward()</span>
+<span id="cb9-30"><a href="#cb9-30"></a>        optimizer.step()</span>
+<span id="cb9-31"><a href="#cb9-31"></a></span>
+<span id="cb9-32"><a href="#cb9-32"></a>        epoch_loss <span class="op">+=</span> loss.item()</span>
+<span id="cb9-33"><a href="#cb9-33"></a></span>
+<span id="cb9-34"><a href="#cb9-34"></a>        <span class="cf">if</span> (batch_idx <span class="op">+</span> <span class="dv">1</span>) <span class="op">%</span> <span class="dv">10</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb9-35"><a href="#cb9-35"></a>            <span class="bu">print</span>(</span>
+<span id="cb9-36"><a href="#cb9-36"></a>                <span class="ss">f"Epoch [</span><span class="sc">{</span>epoch<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>num_epochs<span class="sc">}</span><span class="ss">] "</span></span>
+<span id="cb9-37"><a href="#cb9-37"></a>                <span class="ss">f"Batch [</span><span class="sc">{</span>batch_idx<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(train_loader)<span class="sc">}</span><span class="ss">] "</span></span>
+<span id="cb9-38"><a href="#cb9-38"></a>                <span class="ss">f"Loss: </span><span class="sc">{</span>loss<span class="sc">.</span>item()<span class="sc">:.4f}</span><span class="ss">"</span></span>
+<span id="cb9-39"><a href="#cb9-39"></a>            )</span>
+<span id="cb9-40"><a href="#cb9-40"></a></span>
+<span id="cb9-41"><a href="#cb9-41"></a>    avg_loss <span class="op">=</span> epoch_loss <span class="op">/</span> <span class="bu">len</span>(train_loader)</span>
+<span id="cb9-42"><a href="#cb9-42"></a>    <span class="bu">print</span>(<span class="ss">f"Epoch [</span><span class="sc">{</span>epoch<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>num_epochs<span class="sc">}</span><span class="ss">] Average loss: </span><span class="sc">{</span>avg_loss<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb9-43"><a href="#cb9-43"></a></span>
+<span id="cb9-44"><a href="#cb9-44"></a><span class="co"># 🧪 Practice 3:</span></span>
+<span id="cb9-45"><a href="#cb9-45"></a><span class="co"># - Change num_epochs to 1 or 3 and observe training time and loss.</span></span>
+<span id="cb9-46"><a href="#cb9-46"></a><span class="co"># - Change batch_size in the DataLoader to 4 and see if GPU memory is okay.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch [1/2] Batch [10/50] Loss: 0.9551
+Epoch [1/2] Batch [20/50] Loss: 0.8104
+Epoch [1/2] Batch [30/50] Loss: 1.2225
+Epoch [1/2] Batch [40/50] Loss: 1.1001
+Epoch [1/2] Batch [50/50] Loss: 1.4788
+Epoch [1/2] Average loss: 1.1907
+Epoch [2/2] Batch [10/50] Loss: 0.5504
+Epoch [2/2] Batch [20/50] Loss: 0.5098
+Epoch [2/2] Batch [30/50] Loss: 0.9163
+Epoch [2/2] Batch [40/50] Loss: 0.4485
+Epoch [2/2] Batch [50/50] Loss: 0.5293
+Epoch [2/2] Average loss: 0.6151</code></pre>
+</div>
+</div>
+</section>
+<section id="inference-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="inference-visualization">5. Inference &amp; visualization</h2>
+<p>Now we’ll:</p>
+<ol type="1">
+<li>Take a few samples from the dataset.</li>
+<li>Run <code>model</code> in <code>eval()</code> mode <strong>without targets</strong> → predictions.</li>
+<li>Plot:
+<ul>
+<li>image</li>
+<li>ground-truth boxes</li>
+<li>predicted boxes + masks + scores</li>
+</ul></li>
+</ol>
+<p>We’ll reuse TorchGeo’s <code>plot</code> method and feed predictions back into the sample dict using keys:</p>
+<ul>
+<li><code>prediction_boxes</code></li>
+<li><code>prediction_labels</code></li>
+<li><code>prediction_scores</code></li>
+<li><code>prediction_masks</code></li>
+</ul>
+<div id="UnlC6qgI-JXw" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="b467e07f-7575-40f0-a119-7d7df2c42b3d">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>{'image': tensor([[[0.3059, 0.3059, 0.3098,  ..., 0.3765, 0.3686, 0.3647],
+          [0.3020, 0.3020, 0.3098,  ..., 0.3804, 0.3725, 0.3686],
+          [0.2941, 0.2980, 0.3059,  ..., 0.3804, 0.3686, 0.3569],
+          ...,
+          [0.4431, 0.4431, 0.4471,  ..., 0.3373, 0.3333, 0.3333],
+          [0.4431, 0.4431, 0.4471,  ..., 0.3373, 0.3333, 0.3294],
+          [0.4392, 0.4431, 0.4431,  ..., 0.3412, 0.3333, 0.3294]],
+ 
+         [[0.3490, 0.3490, 0.3529,  ..., 0.4275, 0.4196, 0.4157],
+          [0.3451, 0.3451, 0.3529,  ..., 0.4314, 0.4235, 0.4196],
+          [0.3333, 0.3373, 0.3451,  ..., 0.4314, 0.4196, 0.4078],
+          ...,
+          [0.4941, 0.4941, 0.4980,  ..., 0.3569, 0.3529, 0.3529],
+          [0.4941, 0.4941, 0.4980,  ..., 0.3569, 0.3529, 0.3490],
+          [0.4902, 0.4941, 0.4941,  ..., 0.3608, 0.3529, 0.3490]],
+ 
+         [[0.1922, 0.1922, 0.1961,  ..., 0.3098, 0.3098, 0.3059],
+          [0.1882, 0.1882, 0.1961,  ..., 0.3137, 0.3137, 0.3098],
+          [0.1882, 0.1922, 0.2000,  ..., 0.3137, 0.3098, 0.2980],
+          ...,
+          [0.4667, 0.4588, 0.4627,  ..., 0.2314, 0.2275, 0.2275],
+          [0.4667, 0.4588, 0.4627,  ..., 0.2314, 0.2275, 0.2235],
+          [0.4627, 0.4588, 0.4588,  ..., 0.2353, 0.2275, 0.2235]]]),
+ 'label': tensor([1]),
+ 'bbox_xyxy': tensor([[563., 485., 629., 571.]]),
+ 'mask': tensor([[[0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0],
+          ...,
+          [0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0]]], dtype=torch.uint8)}</code></pre>
+</div>
+</div>
+<div id="8ONH1cMd-OXZ" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="3bbad9cf-dfcd-48e8-9b1f-b97a36caa634">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>sample_for_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>{'image': tensor([[[0.3059, 0.3059, 0.3098,  ..., 0.3765, 0.3686, 0.3647],
+          [0.3020, 0.3020, 0.3098,  ..., 0.3804, 0.3725, 0.3686],
+          [0.2941, 0.2980, 0.3059,  ..., 0.3804, 0.3686, 0.3569],
+          ...,
+          [0.4431, 0.4431, 0.4471,  ..., 0.3373, 0.3333, 0.3333],
+          [0.4431, 0.4431, 0.4471,  ..., 0.3373, 0.3333, 0.3294],
+          [0.4392, 0.4431, 0.4431,  ..., 0.3412, 0.3333, 0.3294]],
+ 
+         [[0.3490, 0.3490, 0.3529,  ..., 0.4275, 0.4196, 0.4157],
+          [0.3451, 0.3451, 0.3529,  ..., 0.4314, 0.4235, 0.4196],
+          [0.3333, 0.3373, 0.3451,  ..., 0.4314, 0.4196, 0.4078],
+          ...,
+          [0.4941, 0.4941, 0.4980,  ..., 0.3569, 0.3529, 0.3529],
+          [0.4941, 0.4941, 0.4980,  ..., 0.3569, 0.3529, 0.3490],
+          [0.4902, 0.4941, 0.4941,  ..., 0.3608, 0.3529, 0.3490]],
+ 
+         [[0.1922, 0.1922, 0.1961,  ..., 0.3098, 0.3098, 0.3059],
+          [0.1882, 0.1882, 0.1961,  ..., 0.3137, 0.3137, 0.3098],
+          [0.1882, 0.1922, 0.2000,  ..., 0.3137, 0.3098, 0.2980],
+          ...,
+          [0.4667, 0.4588, 0.4627,  ..., 0.2314, 0.2275, 0.2275],
+          [0.4667, 0.4588, 0.4627,  ..., 0.2314, 0.2275, 0.2235],
+          [0.4627, 0.4588, 0.4588,  ..., 0.2353, 0.2275, 0.2235]]]),
+ 'boxes': tensor([[563., 485., 629., 571.]]),
+ 'labels': tensor([1]),
+ 'masks': tensor([[[0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0],
+          ...,
+          [0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0],
+          [0, 0, 0,  ..., 0, 0, 0]]], dtype=torch.uint8),
+ 'prediction_boxes': tensor([[559.5670, 481.6908, 630.8933, 570.8891]]),
+ 'prediction_labels': tensor([1]),
+ 'prediction_scores': tensor([0.9885]),
+ 'prediction_masks': tensor([[[0., 0., 0.,  ..., 0., 0., 0.],
+          [0., 0., 0.,  ..., 0., 0., 0.],
+          [0., 0., 0.,  ..., 0., 0., 0.],
+          ...,
+          [0., 0., 0.,  ..., 0., 0., 0.],
+          [0., 0., 0.,  ..., 0., 0., 0.],
+          [0., 0., 0.,  ..., 0., 0., 0.]]])}</code></pre>
+</div>
+</div>
+<div id="OAINHFwV1jlp" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>model.<span class="bu">eval</span>()</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a>indices_to_show <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>]  <span class="co"># change as you like</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="cf">for</span> idx <span class="kw">in</span> indices_to_show:</span>
+<span id="cb15-6"><a href="#cb15-6"></a>    sample <span class="op">=</span> ds[idx]</span>
+<span id="cb15-7"><a href="#cb15-7"></a></span>
+<span id="cb15-8"><a href="#cb15-8"></a>    image <span class="op">=</span> sample[<span class="st">"image"</span>].to(device)</span>
+<span id="cb15-9"><a href="#cb15-9"></a>    <span class="cf">with</span> torch.no_grad():</span>
+<span id="cb15-10"><a href="#cb15-10"></a>        prediction_list <span class="op">=</span> model([image])</span>
+<span id="cb15-11"><a href="#cb15-11"></a>    prediction <span class="op">=</span> prediction_list[<span class="dv">0</span>]</span>
+<span id="cb15-12"><a href="#cb15-12"></a></span>
+<span id="cb15-13"><a href="#cb15-13"></a>    <span class="co"># Prepare dict for plotting</span></span>
+<span id="cb15-14"><a href="#cb15-14"></a>    sample_for_plot <span class="op">=</span> {</span>
+<span id="cb15-15"><a href="#cb15-15"></a>        <span class="st">"image"</span>: sample[<span class="st">"image"</span>].cpu(),</span>
+<span id="cb15-16"><a href="#cb15-16"></a>        <span class="st">"bbox_xyxy"</span>: sample[<span class="st">"bbox_xyxy"</span>].cpu(),</span>
+<span id="cb15-17"><a href="#cb15-17"></a>        <span class="st">"label"</span>: sample[<span class="st">"label"</span>].cpu(),</span>
+<span id="cb15-18"><a href="#cb15-18"></a>    }</span>
+<span id="cb15-19"><a href="#cb15-19"></a></span>
+<span id="cb15-20"><a href="#cb15-20"></a>    <span class="cf">if</span> <span class="st">"mask"</span> <span class="kw">in</span> sample:</span>
+<span id="cb15-21"><a href="#cb15-21"></a>        sample_for_plot[<span class="st">"masks"</span>] <span class="op">=</span> sample[<span class="st">"mask"</span>].cpu()</span>
+<span id="cb15-22"><a href="#cb15-22"></a></span>
+<span id="cb15-23"><a href="#cb15-23"></a>    <span class="co"># Copy predictions</span></span>
+<span id="cb15-24"><a href="#cb15-24"></a>    sample_for_plot[<span class="st">"prediction_boxes"</span>] <span class="op">=</span> prediction[<span class="st">"boxes"</span>].cpu()</span>
+<span id="cb15-25"><a href="#cb15-25"></a>    sample_for_plot[<span class="st">"prediction_labels"</span>] <span class="op">=</span> prediction[<span class="st">"labels"</span>].cpu()</span>
+<span id="cb15-26"><a href="#cb15-26"></a>    sample_for_plot[<span class="st">"prediction_scores"</span>] <span class="op">=</span> prediction[<span class="st">"scores"</span>].cpu()</span>
+<span id="cb15-27"><a href="#cb15-27"></a></span>
+<span id="cb15-28"><a href="#cb15-28"></a>    <span class="cf">if</span> <span class="st">"masks"</span> <span class="kw">in</span> prediction:</span>
+<span id="cb15-29"><a href="#cb15-29"></a>        <span class="co"># prediction["masks"]: [N, 1, H, W] → [N, H, W]</span></span>
+<span id="cb15-30"><a href="#cb15-30"></a>        sample_for_plot[<span class="st">"prediction_masks"</span>] <span class="op">=</span> prediction[<span class="st">"masks"</span>].cpu().squeeze(<span class="dv">1</span>)</span>
+<span id="cb15-31"><a href="#cb15-31"></a></span>
+<span id="cb15-32"><a href="#cb15-32"></a>    fig <span class="op">=</span> ds.plot(sample_for_plot, show_feats<span class="op">=</span><span class="st">"both"</span>)</span>
+<span id="cb15-33"><a href="#cb15-33"></a>    plt.suptitle(<span class="ss">f"Sample </span><span class="sc">{</span>idx<span class="sc">}</span><span class="ss"> — GT vs. Mask R-CNN predictions"</span>)</span>
+<span id="cb15-34"><a href="#cb15-34"></a>    plt.show()</span>
+<span id="cb15-35"><a href="#cb15-35"></a></span>
+<span id="cb15-36"><a href="#cb15-36"></a><span class="co"># 🧪 Practice 4:</span></span>
+<span id="cb15-37"><a href="#cb15-37"></a><span class="co"># Add a confidence threshold, e.g. keep only scores &gt;= 0.5:</span></span>
+<span id="cb15-38"><a href="#cb15-38"></a><span class="co">#</span></span>
+<span id="cb15-39"><a href="#cb15-39"></a><span class="co"># scores = prediction["scores"]</span></span>
+<span id="cb15-40"><a href="#cb15-40"></a><span class="co"># keep = scores &gt;= 0.5</span></span>
+<span id="cb15-41"><a href="#cb15-41"></a><span class="co"># sample_for_plot["prediction_boxes"] = prediction["boxes"][keep].cpu()</span></span>
+<span id="cb15-42"><a href="#cb15-42"></a><span class="co"># sample_for_plot["prediction_labels"] = prediction["labels"][keep].cpu()</span></span>
+<span id="cb15-43"><a href="#cb15-43"></a><span class="co"># sample_for_plot["prediction_scores"] = scores[keep].cpu()</span></span>
+<span id="cb15-44"><a href="#cb15-44"></a><span class="co"># sample_for_plot["prediction_masks"] = prediction["masks"][keep].cpu().squeeze(1)</span></span>
+<span id="cb15-45"><a href="#cb15-45"></a><span class="co">#</span></span>
+<span id="cb15-46"><a href="#cb15-46"></a><span class="co"># Try different thresholds (0.3, 0.7, 0.9) and see how the visualization changes.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="simple-evaluation-box-iou-precision-recall" class="level2">
+<h2 class="anchored" data-anchor-id="simple-evaluation-box-iou-precision-recall">6. Simple evaluation: box IoU, precision, recall</h2>
+<p>We’ll compute a <strong>very small</strong> evaluation:</p>
+<ol type="1">
+<li>Use a tiny validation set (e.g.&nbsp;20 images).</li>
+<li>For each image:
+<ul>
+<li>Run the model in <code>eval()</code> mode.</li>
+<li>Filter predictions by score (e.g.&nbsp;≥ 0.5).</li>
+<li>Match predicted boxes to ground-truth boxes using IoU ≥ 0.5 and same class.</li>
+</ul></li>
+<li>Count:
+<ul>
+<li>TP (true positives): matched predictions</li>
+<li>FP (false positives): predictions that didn’t match any GT</li>
+<li>FN (false negatives): GT objects with no matching prediction</li>
+</ul></li>
+</ol>
+<p>Then compute:</p>
+<ul>
+<li>Precision = TP / (TP + FP)</li>
+<li>Recall = TP / (TP + FN)</li>
+</ul>
+<p>This is <strong>not</strong> full COCO-style mAP, but it’s easy to understand and enough for a workshop.</p>
+<div id="Ge7mJvqG_Tw-" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="im">from</span> torchvision.ops <span class="im">import</span> box_iou</span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># Build a tiny validation set: next 20 images after the training subset</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>val_indices <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">100</span>, <span class="bu">min</span>(<span class="dv">120</span>, <span class="bu">len</span>(ds))))</span>
+<span id="cb16-5"><a href="#cb16-5"></a>val_dataset <span class="op">=</span> Subset(ds, val_indices)</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a>val_loader <span class="op">=</span> DataLoader(</span>
+<span id="cb16-8"><a href="#cb16-8"></a>    val_dataset,</span>
+<span id="cb16-9"><a href="#cb16-9"></a>    batch_size<span class="op">=</span><span class="dv">1</span>,        <span class="co"># easier for teaching + matching logic</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>    shuffle<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb16-11"><a href="#cb16-11"></a>    num_workers<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb16-12"><a href="#cb16-12"></a>    collate_fn<span class="op">=</span>collate_fn,</span>
+<span id="cb16-13"><a href="#cb16-13"></a>)</span>
+<span id="cb16-14"><a href="#cb16-14"></a></span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="kw">def</span> evaluate_model(model, data_loader, score_thresh<span class="op">=</span><span class="fl">0.5</span>, iou_thresh<span class="op">=</span><span class="fl">0.5</span>):</span>
+<span id="cb16-16"><a href="#cb16-16"></a>    model.<span class="bu">eval</span>()</span>
+<span id="cb16-17"><a href="#cb16-17"></a>    total_tp <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-18"><a href="#cb16-18"></a>    total_fp <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-19"><a href="#cb16-19"></a>    total_fn <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-20"><a href="#cb16-20"></a></span>
+<span id="cb16-21"><a href="#cb16-21"></a>    <span class="cf">with</span> torch.no_grad():</span>
+<span id="cb16-22"><a href="#cb16-22"></a>        <span class="cf">for</span> batch <span class="kw">in</span> data_loader:</span>
+<span id="cb16-23"><a href="#cb16-23"></a>            <span class="co"># batch is a list of size 1 because batch_size=1</span></span>
+<span id="cb16-24"><a href="#cb16-24"></a>            sample <span class="op">=</span> batch[<span class="dv">0</span>]</span>
+<span id="cb16-25"><a href="#cb16-25"></a>            image <span class="op">=</span> sample[<span class="st">"image"</span>].to(device)</span>
+<span id="cb16-26"><a href="#cb16-26"></a>            gt_boxes <span class="op">=</span> sample[<span class="st">"boxes"</span>].to(device)</span>
+<span id="cb16-27"><a href="#cb16-27"></a>            gt_labels <span class="op">=</span> sample[<span class="st">"labels"</span>].to(device)</span>
+<span id="cb16-28"><a href="#cb16-28"></a></span>
+<span id="cb16-29"><a href="#cb16-29"></a>            <span class="co"># Forward pass (no targets → predictions)</span></span>
+<span id="cb16-30"><a href="#cb16-30"></a>            outputs <span class="op">=</span> model([image])[<span class="dv">0</span>]</span>
+<span id="cb16-31"><a href="#cb16-31"></a>            pred_boxes <span class="op">=</span> outputs[<span class="st">"boxes"</span>].to(device)</span>
+<span id="cb16-32"><a href="#cb16-32"></a>            pred_labels <span class="op">=</span> outputs[<span class="st">"labels"</span>].to(device)</span>
+<span id="cb16-33"><a href="#cb16-33"></a>            scores <span class="op">=</span> outputs[<span class="st">"scores"</span>].to(device)</span>
+<span id="cb16-34"><a href="#cb16-34"></a></span>
+<span id="cb16-35"><a href="#cb16-35"></a>            <span class="co"># 1) Filter predictions by score</span></span>
+<span id="cb16-36"><a href="#cb16-36"></a>            keep <span class="op">=</span> scores <span class="op">&gt;=</span> score_thresh</span>
+<span id="cb16-37"><a href="#cb16-37"></a>            pred_boxes <span class="op">=</span> pred_boxes[keep]</span>
+<span id="cb16-38"><a href="#cb16-38"></a>            pred_labels <span class="op">=</span> pred_labels[keep]</span>
+<span id="cb16-39"><a href="#cb16-39"></a></span>
+<span id="cb16-40"><a href="#cb16-40"></a>            <span class="cf">if</span> pred_boxes.numel() <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb16-41"><a href="#cb16-41"></a>                <span class="co"># no predictions at this threshold</span></span>
+<span id="cb16-42"><a href="#cb16-42"></a>                total_fn <span class="op">+=</span> gt_boxes.shape[<span class="dv">0</span>]</span>
+<span id="cb16-43"><a href="#cb16-43"></a>                <span class="cf">continue</span></span>
+<span id="cb16-44"><a href="#cb16-44"></a></span>
+<span id="cb16-45"><a href="#cb16-45"></a>            <span class="co"># 2) Compute IoU between all GT and predicted boxes</span></span>
+<span id="cb16-46"><a href="#cb16-46"></a>            ious <span class="op">=</span> box_iou(gt_boxes, pred_boxes)  <span class="co"># [num_gt, num_pred]</span></span>
+<span id="cb16-47"><a href="#cb16-47"></a></span>
+<span id="cb16-48"><a href="#cb16-48"></a>            <span class="co"># 3) Greedy matching based on max IoU per GT</span></span>
+<span id="cb16-49"><a href="#cb16-49"></a>            matched_pred <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb16-50"><a href="#cb16-50"></a>            tp <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-51"><a href="#cb16-51"></a></span>
+<span id="cb16-52"><a href="#cb16-52"></a>            <span class="cf">for</span> gt_idx <span class="kw">in</span> <span class="bu">range</span>(gt_boxes.shape[<span class="dv">0</span>]):</span>
+<span id="cb16-53"><a href="#cb16-53"></a>                <span class="co"># Best predicted box for this GT</span></span>
+<span id="cb16-54"><a href="#cb16-54"></a>                iou_row <span class="op">=</span> ious[gt_idx]</span>
+<span id="cb16-55"><a href="#cb16-55"></a>                best_iou, best_pred_idx <span class="op">=</span> iou_row.<span class="bu">max</span>(<span class="dv">0</span>)</span>
+<span id="cb16-56"><a href="#cb16-56"></a></span>
+<span id="cb16-57"><a href="#cb16-57"></a>                <span class="co"># Check if it’s a good match (IoU + same label)</span></span>
+<span id="cb16-58"><a href="#cb16-58"></a>                <span class="cf">if</span> (</span>
+<span id="cb16-59"><a href="#cb16-59"></a>                    best_iou <span class="op">&gt;=</span> iou_thresh</span>
+<span id="cb16-60"><a href="#cb16-60"></a>                    <span class="kw">and</span> best_pred_idx.item() <span class="kw">not</span> <span class="kw">in</span> matched_pred</span>
+<span id="cb16-61"><a href="#cb16-61"></a>                    <span class="kw">and</span> pred_labels[best_pred_idx] <span class="op">==</span> gt_labels[gt_idx]</span>
+<span id="cb16-62"><a href="#cb16-62"></a>                ):</span>
+<span id="cb16-63"><a href="#cb16-63"></a>                    tp <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-64"><a href="#cb16-64"></a>                    matched_pred.add(best_pred_idx.item())</span>
+<span id="cb16-65"><a href="#cb16-65"></a></span>
+<span id="cb16-66"><a href="#cb16-66"></a>            fp <span class="op">=</span> pred_boxes.shape[<span class="dv">0</span>] <span class="op">-</span> <span class="bu">len</span>(matched_pred)</span>
+<span id="cb16-67"><a href="#cb16-67"></a>            fn <span class="op">=</span> gt_boxes.shape[<span class="dv">0</span>] <span class="op">-</span> tp</span>
+<span id="cb16-68"><a href="#cb16-68"></a></span>
+<span id="cb16-69"><a href="#cb16-69"></a>            total_tp <span class="op">+=</span> tp</span>
+<span id="cb16-70"><a href="#cb16-70"></a>            total_fp <span class="op">+=</span> fp</span>
+<span id="cb16-71"><a href="#cb16-71"></a>            total_fn <span class="op">+=</span> fn</span>
+<span id="cb16-72"><a href="#cb16-72"></a></span>
+<span id="cb16-73"><a href="#cb16-73"></a>    precision <span class="op">=</span> total_tp <span class="op">/</span> (total_tp <span class="op">+</span> total_fp) <span class="cf">if</span> (total_tp <span class="op">+</span> total_fp) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="fl">0.0</span></span>
+<span id="cb16-74"><a href="#cb16-74"></a>    recall <span class="op">=</span> total_tp <span class="op">/</span> (total_tp <span class="op">+</span> total_fn) <span class="cf">if</span> (total_tp <span class="op">+</span> total_fn) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="fl">0.0</span></span>
+<span id="cb16-75"><a href="#cb16-75"></a></span>
+<span id="cb16-76"><a href="#cb16-76"></a>    <span class="cf">return</span> {</span>
+<span id="cb16-77"><a href="#cb16-77"></a>        <span class="st">"tp"</span>: total_tp,</span>
+<span id="cb16-78"><a href="#cb16-78"></a>        <span class="st">"fp"</span>: total_fp,</span>
+<span id="cb16-79"><a href="#cb16-79"></a>        <span class="st">"fn"</span>: total_fn,</span>
+<span id="cb16-80"><a href="#cb16-80"></a>        <span class="st">"precision"</span>: precision,</span>
+<span id="cb16-81"><a href="#cb16-81"></a>        <span class="st">"recall"</span>: recall,</span>
+<span id="cb16-82"><a href="#cb16-82"></a>    }</span>
+<span id="cb16-83"><a href="#cb16-83"></a></span>
+<span id="cb16-84"><a href="#cb16-84"></a>metrics <span class="op">=</span> evaluate_model(model, val_loader, score_thresh<span class="op">=</span><span class="fl">0.5</span>, iou_thresh<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb16-85"><a href="#cb16-85"></a><span class="bu">print</span>(<span class="st">"Evaluation on small validation set:"</span>)</span>
+<span id="cb16-86"><a href="#cb16-86"></a><span class="bu">print</span>(metrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="pf6EaSjy_buq" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># 🧪 Practice 5:</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># 1. Try different score thresholds: 0.3, 0.5, 0.7.</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co">#    metrics_03 = evaluate_model(model, val_loader, score_thresh=0.3)</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co">#    metrics_07 = evaluate_model(model, val_loader, score_thresh=0.7)</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="co"># 2. Compare precision and recall:</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co">#    - What happens to precision when you increase the threshold?</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="co">#    - What happens to recall?</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="co">#</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="co"># 3. (Discussion) How would you choose a threshold for a *real* application?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="wrap-up-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up-extensions">6. Wrap-up &amp; extensions</h2>
+<p><strong>Key takeaways:</strong></p>
+<ol type="1">
+<li><strong>Geospatial datasets</strong> can be handled with TorchGeo, which provides:
+<ul>
+<li>dataset classes</li>
+<li>metadata</li>
+<li>plotting helpers</li>
+</ul></li>
+<li><strong>Instance segmentation</strong> = object detection + per-instance mask (Mask R-CNN).</li>
+<li>Mask R-CNN from torchvision works on remote sensing data with:
+<ul>
+<li>proper image scaling to <code>[0, 1]</code></li>
+<li>correct <code>num_classes</code></li>
+<li>a custom <code>collate_fn</code> for variable-size images.</li>
+</ul></li>
+</ol>
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>Use TorchGeo’s <code>InstanceSegmentationTask</code> + PyTorch Lightning for cleaner training and metrics.</li>
+<li>Add data augmentations (random flip, resize, color jitter) and study their effect.</li>
+<li>Compare with:
+<ul>
+<li>object detection only (Faster R-CNN)</li>
+<li>semantic segmentation models (no instance separation)</li>
+<li>YOLO-style models trained on VHR-10.</li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright © Aman Bagrecha, 2025. <a href="disclaimer">Disclaimer</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -40,12 +40,14 @@
     ]
   },
   {
-    "listing": "/notebooks/index.html",
+    "listing": "/index.html",
     "items": []
   },
   {
-    "listing": "/index.html",
-    "items": []
+    "listing": "/notebooks/index.html",
+    "items": [
+      "/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html"
+    ]
   },
   {
     "listing": "/til/index.html",

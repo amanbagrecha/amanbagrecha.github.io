@@ -4,6 +4,14 @@ description: |
   News and Professional Journal - Updated once a month!
 ---
 
+## November 2025
+
+Gave a talk on machine learning for geospatial analysis to show instance segmentation. workshop material is published [here](https://github.com/amanbagrecha/intro-geospatial-ai).
+
+
+Started exploring comfy UI for some use cases I wanted to check on text to image models.
+
+
 ## October 2025
 
 This was my last month at Galaxeye. Enjoyed every part of seeing the product built from scratch.
