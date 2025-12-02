@@ -11,6 +11,7 @@ Gave a talk on machine learning for geospatial analysis to show instance segment
 
 Started exploring comfy UI for some use cases I wanted to check on text to image models.
 
+We had a fantastic meetup at Takshashila Institution, the place is welcoming with books. More details and video [here](https://github.com/letstalkspatial/2025-Nov) and [here](https://www.youtube.com/watch?v=WEQLLCmVOPI)
 
 ## October 2025
 
