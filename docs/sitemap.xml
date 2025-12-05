@@ -186,7 +186,7 @@
   </url>
   <url>
     <loc>https://amanbagrecha.github.io/posts/index.html</loc>
-    <lastmod>2025-07-12T11:57:25.156Z</lastmod>
+    <lastmod>2025-12-05T16:30:48.476Z</lastmod>
   </url>
   <url>
     <loc>https://amanbagrecha.github.io/posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html</loc>
@@ -247,5 +247,9 @@
   <url>
     <loc>https://amanbagrecha.github.io/til/index.html</loc>
     <lastmod>2025-11-11T06:07:50.750Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.github.io/posts/panoramic-viewer/index.html</loc>
+    <lastmod>2025-12-05T16:28:37.481Z</lastmod>
   </url>
 </urlset>

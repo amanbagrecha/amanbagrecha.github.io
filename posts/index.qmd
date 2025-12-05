@@ -10,6 +10,8 @@ listing:
   sort-ui: false
   type: default
   page-size: 10
+  exclude:
+    draft: true
 page-layout: article
 title: Blog
 title-block-banner: false
