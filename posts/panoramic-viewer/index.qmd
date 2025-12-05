@@ -1,0 +1,169 @@
+---
+title: Panoramic Image Editing & Reconstruction Pipeline
+date: 2025-12-05
+slug: panoramic-viewer
+categories:
+- visualization
+- computer-vision
+tags: [panorama, '360', viewer, image-editing, inpainting]
+description: 'Using multi-modal AI for editing 360° panoramic imagery with perspective-specific inpainting and seamless reconstruction'
+draft: true
+reading-time: yes
+resources:
+  - panorama.png
+  - before.png
+  - after.png
+  - b682781c-7947-48e8-b704-0067a56d8725.png
+format:
+  html:
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+---
+
+
+
+## Panoramic Image Editing & Reconstruction
+
+Over the past month, I have been building a pipeline for editing panoramic (360° equirectangular) imagery, with a focus on object removal, more specifically - inpainting, and reconstruction back into equirectangular format.
+
+
+
+My task in this fun project was to remove the artifact (car capturing 360 degree view) from the scene. The problem is these panoramic scene are large, and traditional lama model do not well as well for large object removal.
+
+To tackle inital thought was to segment the road using SAM and regenerate a new road as replacement. But there are many if/buts in that
+  - road detection is poor
+  - glare of camera
+  - object obstruction making replacement difficult
+
+Another challenge was any inpainting model (from SDXL/Flux/Fooocus) were not made for Very High resolution imagery.
+
+Additionally, the challenge with panoramic imagery is that editing in equirectangular projection introduces distortions, edge-wrap artifacts, and inconsistent geometry. I first hand saw changing the sky using any generative model introduces seam at the edges (the left and right image are not continuous after edit) 
+
+That is when I thought of doing this trick to get around the bottlenecks.
+I built a structured workflow that extracts clean perspective views, edits them using generative models (Qwen Image Edit 2509 here), and then maps the edits back accurately into the original panorama.
+
+
+![Workflow Diagram](b682781c-7947-48e8-b704-0067a56d8725.png)
+
+
+
+### 1. Extracting Perspective Views From ERP Using pytorch360convert (+ Masking)
+
+I used `pytorch360convert` to extract targeted perspective slices from the 360° image.
+
+Key parameters:
+
+- **FOV**: 140° since in this view the car was visible along with fron and back of the road (enough context for the model)
+- **Yaw / Pitch**: Controls which direction (front, back, left, right) is extracted
+
+These perspective slices provided a geometrically accurate view of localized regions—particularly useful when removing foreground objects like cars.
+
+I also generated a mask (manual mask) for the unwanted object (in this case the car). Since the car is stationary throughout, it was easier to manually make the binary mask.
+
+
+### 3. Object Removal Pipeline Using Qwen Image Edit 
+
+For targeted object removal, the workflow was:
+
+1. Run the perspective slice through Qwen Image Edit 2509 with a short, natural prompt:
+   *"Replace masked region with road continuation matching surrounding texture."*
+2. Adjust CFG / denoise strength depending on how subtle or strong the changes should be.
+
+#### Before/After Comparison Slider
+
+```{=html}
+<div style="position: relative; width: 100%; max-width: 1024px; margin: 0 auto; overflow: hidden; border: 1px solid #ddd;">
+  <img id="imageBefore" src="before.png" style="display: block; width: 100%; height: auto;">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; clip-path: inset(0 0 0 50%);" id="afterContainer">
+    <img id="imageAfter" src="after.png" style="display: block; width: 100%; height: auto;">
+  </div>
+  <div id="sliderHandle" style="position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: white; cursor: ew-resize; z-index: 1000; box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
+</div>
+```
+
+### 2. Building an Exact Forward Mapping (Perspective -> ERP)
+
+Since editing happens in perspective space, I needed to convert edited pixels back into the ERP.
+
+To ensure perfect geometric alignment, I built a per-pixel forward map, leveraging pytorch360convert's own sampling behavior:
+
+I used claude to built the pipeline which encoded perspective coordinates. This avoids reinventing spherical projection math, while guaranteeing no seams, no drift, no stretching mismatches.
+
+### 4. Merging the Edited Perspective Patch Back Into ERP
+
+Once the edit is done:
+
+1. Use the precomputed forward map to scatter updated pixels onto the original panorama.
+2. For overlap regions, blend using feather blending
+
+This method gave smooth, artifact-free transitions without visible seams.
+
+
+### 6. ComfyUI Automation + API Workflow
+
+The entire process was tested and built on ComfyUI workflow with the Qwen model to match for my requirement for this project.
+
+
+**Key learnings:**
+- I learnt about LoRA, diffusion models, VAEs, and GGUFs all through this tiny little project
+
+
+
+
+
+---
+
+## Interactive 360° Panoramic Viewer
+
+<div id="panorama" style="width: 100%; height: 500px;"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "./panorama.png",
+        "autoLoad": true,
+        "showZoomCtrl": true,
+        "showFullscreenCtrl": true,
+        "mouseZoom": true,
+        "draggable": true
+    });
+});
+</script>
+
+The final result after inpainting and reconstruction. Click and drag to explore the 360° view. Use the mouse wheel to zoom in and out.
+
+---
+
+
+
+<script>
+let isDragging = false;
+
+const sliderHandle = document.getElementById('sliderHandle');
+const afterContainer = document.getElementById('afterContainer');
+const container = sliderHandle.parentElement;
+
+sliderHandle.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    e.preventDefault();
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const rect = container.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    x = Math.max(0, Math.min(x, rect.width));
+
+    const percentage = (x / rect.width) * 100;
+    sliderHandle.style.left = percentage + '%';
+    afterContainer.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+</script>
