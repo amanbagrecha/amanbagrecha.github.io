@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f16ea97b6b7a511140a8dc90f57af35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c4180548e64a5f2faedd719bfec8d9d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,11 +110,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Merging Rasters using Rasterio – Aman Bagrecha">
 <meta property="og:description" content="Use pystac-client to fetch and merge data. Also, understand the merge functionality of rasterio.">
-<meta property="og:image" content="https://amanbagrecha.github.io/posts/2022-07-31-merge-rasters-the-modern-way-using-python/featured.jpg">
+<meta property="og:image" content="https://amanbagrecha.com/posts/2022-07-31-merge-rasters-the-modern-way-using-python/featured.jpg">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta name="twitter:title" content="Merging Rasters using Rasterio – Aman Bagrecha">
 <meta name="twitter:description" content="Use pystac-client to fetch and merge data. Also, understand the merge functionality of rasterio.">
-<meta name="twitter:image" content="https://amanbagrecha.github.io/posts/2022-07-31-merge-rasters-the-modern-way-using-python/featured.jpg">
+<meta name="twitter:image" content="https://amanbagrecha.com/posts/2022-07-31-merge-rasters-the-modern-way-using-python/featured.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -125,7 +126,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="../../img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -146,25 +148,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../events"> 
+    <a class="nav-link" href="../../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../travel"> 
+    <a class="nav-link" href="../../travel/index.html"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../presentations"> 
+    <a class="nav-link" href="../../presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../../tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -257,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figcaption>
 </figure>
 <p>We start by fetching sentinel-2 tiles over our AOI from <code>sentinel-s2-l2a-cogs</code> STAC catalog using <a href="https://github.com/stac-utils/pystac-client">pystac-client</a>. This library allows us to crawl STAC catalog and enables rapid access to the metadata we need.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STAC API root URL</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STAC API root URL</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Thanks to element84 for hosting the API for sentinel-2 catalog.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">'https://earth-search.aws.element84.com/v0/'</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -268,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    collections <span class="op">=</span> <span class="st">"sentinel-s2-l2a-cogs"</span>,</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    bbox <span class="op">=</span> gdf.total_bounds, <span class="co"># geodataframe for our region of study</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    datetime <span class="op">=</span> <span class="st">'2022-01-01/2022-01-24'</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In the above code, we search for 10 sentinel-s2-l2a-cogs over our AOI for the date between January 1 and 24 of 2022.</p>
 <p>Now we need to know which of our 10 queried images covers our area of interest in its entirety. To do that, we can plot all the search results on the map and visually inspect.</p>
 <figure class="figure">
@@ -288,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <p>We use rasterio’s <a href="https://rasterio.readthedocs.io/en/latest/api/rasterio.merge.html">merge</a> functionality, which would enable us to combine all of them seamlessly.</p>
 <p>First, we get all the tiles for a single day and look for True Color Image (TCI) band</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the items as dictionaries, rather than Item objects</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the items as dictionaries, rather than Item objects</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">items</span> = list<span class="er">(</span><span class="fu">search.items_as_dicts()</span><span class="kw">)</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert found items to a GeoDataFrame</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">items_gdf</span> = items_to_geodataframe<span class="er">(</span><span class="ex">items</span><span class="kw">)</span></span>
@@ -301,12 +314,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a> <span class="ex">2022-01-23</span> 05:25:11+00:00    https://sentinel-cogs.s3.us-west-2.amazonaws.c...</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a> <span class="ex">2022-01-23</span> 05:24:59+00:00    https://sentinel-cogs.s3.us-west-2.amazonaws.c...</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a> <span class="ex">2022-01-23</span> 05:24:56+00:00    https://sentinel-cogs.s3.us-west-2.amazonaws.c...</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a> <span class="ex">Name:</span> assets.visual.href, dtype: object</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a> <span class="ex">Name:</span> assets.visual.href, dtype: object</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Next, read the remote files via the URL in the above output using <code>rasterio.open</code> and save the returned file handlers as a list. This is the first instance where we are dealing with the actual imagery. Although, we are not reading the values stored in the data just yet.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># open images stored on s3</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>file_handler <span class="op">=</span> [rasterio.<span class="bu">open</span>(row) <span class="cf">for</span> row <span class="kw">in</span> tiles_single_day]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># open images stored on s3</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>file_handler <span class="op">=</span> [rasterio.<span class="bu">open</span>(row) <span class="cf">for</span> row <span class="kw">in</span> tiles_single_day]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Finally we can merge all of the tiles and get the clipped raster stored in memory.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.io <span class="im">import</span> MemoryFile</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.io <span class="im">import</span> MemoryFile</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.merge <span class="im">import</span> merge</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>memfile <span class="op">=</span> MemoryFile()</span>
@@ -319,13 +332,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">'first'</span>, <span class="co"># strategy to combine overlapping rasters</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    dst_path<span class="op">=</span>memfile.name, <span class="co"># str or PathLike to save raster</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    dst_kwds<span class="op">=</span>{<span class="st">'blockysize'</span>:<span class="dv">512</span>, <span class="st">'blockxsize'</span>:<span class="dv">512</span>} <span class="co"># Dictionary</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>There are really interesting things to look at in the above code. Overall, the code above returns a <code>MemoryFile</code> object which contains a <code>uint16</code> raster with bounds of our AOI and blocksize of 512. The attribute <code>dst_path</code> allows us to specify a path to save the output as a raster. What is interesting is we can not only pass a file path to save on local disk but also a virtual path and save the merged raster <strong>in-memory</strong>, avoiding clutter of additional files on disk.</p>
 <p>To define a virtual path, we use rasterio’s <code>MemoryFile</code> class. When we create a <code>MemoryFile</code> object, it has a <code>name</code> attribute which gives us a virtual path, thus treating it as a real file (using GDALs <a href="https://gdal.org/user/virtual_file_systems.html#vsimem-in-memory-files">vsimem</a> internally). This MemoryFile object (<code>memfile</code> here) provides us all the methods and attributes of rasterio’s file handler, which is extremely helpful.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(memfile.<span class="bu">open</span>().profile)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(memfile.<span class="bu">open</span>().profile)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>{<span class="st">'driver'</span>: <span class="st">'GTiff'</span>, <span class="st">'dtype'</span>: <span class="st">'uint16'</span>, <span class="st">'nodata'</span>: <span class="fl">0.0</span>, <span class="st">'width'</span>: <span class="dv">4110</span>, <span class="st">'height'</span>: <span class="dv">3211</span>, <span class="st">'count'</span>: <span class="dv">3</span>, <span class="st">'crs'</span>: CRS.from_epsg(<span class="dv">32643</span>), <span class="st">'transform'</span>: Affine(<span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="fl">788693.4700669964</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.0</span>, <span class="op">-</span><span class="fl">10.0</span>, <span class="fl">1500674.3670768766</span>), <span class="st">'blockxsize'</span>: <span class="dv">512</span>, <span class="st">'blockysize'</span>: <span class="dv">512</span>, <span class="st">'tiled'</span>: <span class="va">True</span>, <span class="st">'compress'</span>: <span class="st">'deflate'</span>, <span class="st">'interleave'</span>: <span class="st">'pixel'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.0</span>, <span class="op">-</span><span class="fl">10.0</span>, <span class="fl">1500674.3670768766</span>), <span class="st">'blockxsize'</span>: <span class="dv">512</span>, <span class="st">'blockysize'</span>: <span class="dv">512</span>, <span class="st">'tiled'</span>: <span class="va">True</span>, <span class="st">'compress'</span>: <span class="st">'deflate'</span>, <span class="st">'interleave'</span>: <span class="st">'pixel'</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>method='first'</code> tells us the strategy used to determine the value of the pixel where the rasters overlap. In this case, the pixel value from the first imagery of the overlapping region in the list, is used as the value for the output raster.</p>
 <p>The entire algorithm to merge rasters is illustrated in the figure below by taking an example of combining two rasters with <code>method=first</code>.</p>
 <figure class="figure">
@@ -375,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figcaption>
 </figure>
 <p>We would replace our custom logic of averaging with that of <code>minimum</code> in the above code and that is all there is to it. We can now use this function to manipulate the values of overlapping region!</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> custom_method_avg(merged_data, new_data, merged_mask, new_mask, <span class="op">**</span>kwargs):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> custom_method_avg(merged_data, new_data, merged_mask, new_mask, <span class="op">**</span>kwargs):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Returns the average value pixel."""</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> np.empty_like(merged_mask, dtype<span class="op">=</span><span class="st">"bool"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    np.logical_or(merged_mask, new_mask, out<span class="op">=</span>mask)</span>
@@ -383,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    np.nanmean([merged_data, new_data], axis<span class="op">=</span><span class="dv">0</span>, out<span class="op">=</span>merged_data, where<span class="op">=</span>mask)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    np.logical_not(new_mask, out<span class="op">=</span>mask)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    np.logical_and(merged_mask, mask, out<span class="op">=</span>mask)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    np.copyto(merged_data, new_data, where<span class="op">=</span>mask, casting<span class="op">=</span><span class="st">"unsafe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    np.copyto(merged_data, new_data, where<span class="op">=</span>mask, casting<span class="op">=</span><span class="st">"unsafe"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="endnote" class="level3">
@@ -446,13 +459,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -467,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

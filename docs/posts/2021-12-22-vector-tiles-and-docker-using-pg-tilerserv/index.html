@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f16ea97b6b7a511140a8dc90f57af35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c4180548e64a5f2faedd719bfec8d9d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,13 +110,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Vector tiles and Docker using pg_tilerserv – Aman Bagrecha">
 <meta property="og:description" content="Serve your geospatial data as Vector Tiles using pg_tileserv in a Docker container">
-<meta property="og:image" content="https://amanbagrecha.github.io/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/featured.png">
+<meta property="og:image" content="https://amanbagrecha.com/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta property="og:image:height" content="3264">
 <meta property="og:image:width" content="7276">
 <meta name="twitter:title" content="Vector tiles and Docker using pg_tilerserv – Aman Bagrecha">
 <meta name="twitter:description" content="Serve your geospatial data as Vector Tiles using pg_tileserv in a Docker container">
-<meta name="twitter:image" content="https://amanbagrecha.github.io/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/featured.png">
+<meta name="twitter:image" content="https://amanbagrecha.com/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/featured.png">
 <meta name="twitter:image-height" content="3264">
 <meta name="twitter:image-width" content="7276">
 <meta name="twitter:card" content="summary_large_image">
@@ -129,7 +130,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="../../img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -150,25 +152,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../events"> 
+    <a class="nav-link" href="../../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../travel"> 
+    <a class="nav-link" href="../../travel/index.html"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../presentations"> 
+    <a class="nav-link" href="../../presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../../tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -283,8 +296,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Notes on docker-compose file - We are mounting <code>data</code> dir from our local system to the work dir in the docker container. - We are mapping port 7800 from our local machine to 7800 to the pg_tileserv container.</p>
 <p>Start Docker Desktop and run <code>docker-compose build</code> in the command line. It will download the image needed from the dockerfile specified. It only downloads the latest alpine image and all other dependencies are installed in the build.</p>
 <p>Once the database setup is done, we now load data into the database by running either <code>load-data.sh</code> shell script (or) the following command,</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load data using shp2pgsql </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> exec pg_tileserv_db sh <span class="at">-c</span> <span class="st">"shp2pgsql -D -s 4326 /work/ne_50m_admin_0_countries.shp | psql -U tileserv -d tileserv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load data using shp2pgsql </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> exec pg_tileserv_db sh <span class="at">-c</span> <span class="st">"shp2pgsql -D -s 4326 /work/ne_50m_admin_0_countries.shp | psql -U tileserv -d tileserv"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The above command opens a terminal inside the pg_tileserv_db container and runs the <code>shp2pgsql</code> command.</p>
 <p>We can use <code>ogr2ogr</code> command line tool if your data is anything other than shapefile. Read this blog by <a href="https://blog.crunchydata.com/blog/loading-data-into-postgis-an-overview">Kat Batuigas</a> to know how to do it.</p>
 <p>Finally, run <code>docker-compose up</code> to start the service. You’d see both containers starting up and your web app being served on port 7800. If you do not see this, stop the container and run again.</p>
@@ -359,13 +372,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -380,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f16ea97b6b7a511140a8dc90f57af35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c4180548e64a5f2faedd719bfec8d9d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,7 +124,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="../../img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -144,25 +146,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../events"> 
+    <a class="nav-link" href="../../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../travel"> 
+    <a class="nav-link" href="../../travel/index.html"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../presentations"> 
+    <a class="nav-link" href="../../presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../../tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -258,17 +271,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="run-the-downloaded-script.-it-will-ask-you-for-your-earth-data-credentials-username-and-password" class="level3">
 <h3 class="anchored" data-anchor-id="run-the-downloaded-script.-it-will-ask-you-for-your-earth-data-credentials-username-and-password">Run the downloaded script. It will ask you for your earth data credentials (username and password)</h3>
 <p>We move the downloaded files to data directory and delete any associated files that comes along with it.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data: Enter credentials for earth data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data: Enter credentials for earth data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run <span class="op">/</span>content<span class="op">/</span>download_SPL3.py</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># move files to data dir</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>mkdir <span class="op">-</span>p data<span class="op">/</span>L3_SM_P</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>mv <span class="op">*</span>h5 data<span class="op">/</span>L3_SM_P</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>rm <span class="op">*</span>.h5<span class="op">*</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Next, get the lat long for EASE grid 2.0. Since we have to locate Bengaluru (study area) and SMAP uses a specific grid system, we download these files.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget https:<span class="op">//</span>github.com<span class="op">/</span>nsidc<span class="op">/</span>smap_python_notebooks<span class="op">/</span>raw<span class="op">/</span>main<span class="op">/</span>notebooks<span class="op">/</span>EASE2_M36km.lats<span class="fl">.964</span><span class="er">x406x1</span>.double</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget https:<span class="op">//</span>github.com<span class="op">/</span>nsidc<span class="op">/</span>smap_python_notebooks<span class="op">/</span>raw<span class="op">/</span>main<span class="op">/</span>notebooks<span class="op">/</span>EASE2_M36km.lons<span class="fl">.964</span><span class="er">x406x1</span>.double</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget https:<span class="op">//</span>github.com<span class="op">/</span>nsidc<span class="op">/</span>smap_python_notebooks<span class="op">/</span>raw<span class="op">/</span>main<span class="op">/</span>notebooks<span class="op">/</span>EASE2_M36km.lats<span class="fl">.964</span><span class="er">x406x1</span>.double</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget https:<span class="op">//</span>github.com<span class="op">/</span>nsidc<span class="op">/</span>smap_python_notebooks<span class="op">/</span>raw<span class="op">/</span>main<span class="op">/</span>notebooks<span class="op">/</span>EASE2_M36km.lons<span class="fl">.964</span><span class="er">x406x1</span>.double</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="extract-soil-moisture" class="level3">
 <h3 class="anchored" data-anchor-id="extract-soil-moisture">Extract soil moisture</h3>
@@ -276,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We create a <code>read_SML3P</code> method which reads the hdf5 files using the h5py library as an array and removes noisy elements as defined by the user guide. The filename contains the date of acquisition and we extract that.</p>
 <p>We next define the <code>generate_time_series</code> method to subset the array to our area of interest (Bengaluru) while also taking the mean since there might be more than 1 pixel intersecting the AOI and then return a dataframe with date and the value of Soil Moisture.</p>
 <p>There are some additional method we define to run and initialise the class which can be read from <a href="https://github.com/amanbagrecha/smap_time_series_analysis/blob/main/main.py">here</a></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SML3PSoilMoist:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SML3PSoilMoist:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">  get soil moisture from L3 SMAP SCA-V algo for the specified date</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Parameters</span></span>
@@ -336,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        sm_time[i] <span class="op">=</span> np.nanmean(sm_2d[subset])<span class="op">;</span></span>
 <span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">'time'</span> : times, <span class="va">self</span>.orbit_pass: sm_time })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">'time'</span> : times, <span class="va">self</span>.orbit_pass: sm_time })</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Lastly, we plot the dataframe using pandas method <code>plot</code> and the result is to be shown to the world.</p>
 <p><img src="https://i.imgur.com/PngGsda.png" class="img-fluid"></p>
 <p>This blog helps demonstrates use of SMAP product to generate time series for an entire month of August. You can read more about the specification of the product <a href="https://nsidc.org/support/faq/how-do-i-interpret-surface-and-quality-flag-information-level-2-and-3-passive-soil">here</a></p>
@@ -400,13 +413,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -421,7 +435,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

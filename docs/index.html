@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,13 +33,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-91c29dfac2bfd191fc951d758659a845.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-57650c7dfb1d31b2b512fffcf5f0f118.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -113,7 +114,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -131,10 +132,10 @@ window.Quarto = {
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Aman Bagrecha">
-<meta property="og:image" content="https://amanbagrecha.github.io/img/profile.jpeg">
+<meta property="og:image" content="https://amanbagrecha.com/img/profile.jpeg">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta name="twitter:title" content="Aman Bagrecha">
-<meta name="twitter:image" content="https://amanbagrecha.github.io/img/profile.jpeg">
+<meta name="twitter:image" content="https://amanbagrecha.com/img/profile.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -146,7 +147,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/AB.png" alt="" class="navbar-logo">
+    <img src="./img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="./img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -167,25 +169,36 @@ window.Quarto = {
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts"> 
+    <a class="nav-link" href="./posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./events"> 
+    <a class="nav-link" href="./events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./travel"> 
+    <a class="nav-link" href="./travel/index.html"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects"> 
+    <a class="nav-link" href="./projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentations"> 
+    <a class="nav-link" href="./presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="./tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -269,7 +282,7 @@ window.Quarto = {
 <h2 data-anchor-id="featured-projects">Featured Projects</h2>
 <div id="listing-featured-projects" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UHl0aG9uJTJDUUdJUyUyQ1BsdWdpbg==" data-listing-date-sort="1757356200000">
+<div class="quarto-post image-right" data-index="0" data-categories="UHl0aG9uJTJDUUdJUyUyQ1BsdWdpbg==" data-listing-date-sort="1757368800000">
 <div class="thumbnail"><a href="https://github.com/amanbagrecha/brush-tool-selection" class="no-external">
 <img loading="lazy" src="./projects/brush-tool-selection/featured.png" class="thumbnail-image">
 </a></div>
@@ -286,7 +299,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="UHl0aG9uJTJDSmF2YXNjcmlwdCUyQ0ltYWdlJTIwUHJvY2Vzc2luZw==" data-listing-date-sort="1757097000000">
+<div class="quarto-post image-right" data-index="1" data-categories="UHl0aG9uJTJDSmF2YXNjcmlwdCUyQ0ltYWdlJTIwUHJvY2Vzc2luZw==" data-listing-date-sort="1757109600000">
 <div class="thumbnail"><a href="https://github.com/amanbagrecha/streetview-alike" class="no-external">
 <img loading="lazy" src="./projects/image-viewer/featured.png" class="thumbnail-image">
 </a></div>
@@ -303,7 +316,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="SmF2YXNjcmlwdCUyQ0NvbXB1dGVyJTIwVmlzaW9u" data-listing-date-sort="1744914600000">
+<div class="quarto-post image-right" data-index="2" data-categories="SmF2YXNjcmlwdCUyQ0NvbXB1dGVyJTIwVmlzaW9u" data-listing-date-sort="1744927200000">
 <div class="thumbnail"><a href="./projects/nlm/nl-means-viz-enhanced.html" class="no-external">
 <img loading="lazy" src="./projects/nlm/featured.png" class="thumbnail-image">
 </a></div>
@@ -381,13 +394,14 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -402,7 +416,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

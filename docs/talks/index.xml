@@ -6,10 +6,10 @@
       version="2.0">
 <channel>
 <title>Aman Bagrecha</title>
-<link>https://amanbagrecha.github.io/talks/</link>
-<atom:link href="https://amanbagrecha.github.io/talks/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://amanbagrecha.com/talks/</link>
+<atom:link href="https://amanbagrecha.com/talks/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
-<generator>quarto-1.7.32</generator>
-<lastBuildDate>Fri, 05 Dec 2025 16:16:02 GMT</lastBuildDate>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Sun, 07 Dec 2025 18:37:00 GMT</lastBuildDate>
 </channel>
 </rss>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f16ea97b6b7a511140a8dc90f57af35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c4180548e64a5f2faedd719bfec8d9d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,13 +110,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="How to save Earth Engine Image directly to your local machine – Aman Bagrecha">
 <meta property="og:description" content="In this post I show a trick which can let you download upto 100 times larger size images, directly to your local machine. Spoiler: getRegion method plays a significant role to help accomplish this task.">
-<meta property="og:image" content="https://amanbagrecha.github.io/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png">
+<meta property="og:image" content="https://amanbagrecha.com/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta property="og:image:height" content="3426">
 <meta property="og:image:width" content="7677">
 <meta name="twitter:title" content="How to save Earth Engine Image directly to your local machine – Aman Bagrecha">
 <meta name="twitter:description" content="In this post I show a trick which can let you download upto 100 times larger size images, directly to your local machine. Spoiler: getRegion method plays a significant role to help accomplish this task.">
-<meta name="twitter:image" content="https://amanbagrecha.github.io/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png">
+<meta name="twitter:image" content="https://amanbagrecha.com/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png">
 <meta name="twitter:image-height" content="3426">
 <meta name="twitter:image-width" content="7677">
 <meta name="twitter:card" content="summary_large_image">
@@ -129,7 +130,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="../../img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -150,25 +152,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../events"> 
+    <a class="nav-link" href="../../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../travel"> 
+    <a class="nav-link" href="../../travel/index.html"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../presentations"> 
+    <a class="nav-link" href="../../presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../../tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -241,20 +254,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figcaption>
 </figure>
 <p>To accomplish creation of points at spacing equal to pixel width and height, we use the following function</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate points</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate points</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> xcor(y_pt, crs):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrap(x_each):</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        feat <span class="op">=</span> ee.FeatureCollection(y_pt.<span class="bu">map</span>(<span class="kw">lambda</span> y_each: ee.Feature(</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            ee.Geometry.Point([x_each, y_each], ee.Projection(crs)))))</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> feat</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wrap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wrap</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The above code can be interpreted as a nested loop.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudo code</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudo code</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> each_x <span class="kw">in</span> x_pt:</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> each_y <span class="kw">in</span> y_pt:</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        create_Point(each_x, each_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        create_Point(each_x, each_y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>x_pt and y_pt are generated from the geopackage (AOI) using GeoPandas library as follows</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generatePoints(file_name, pixel_size):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generatePoints(file_name, pixel_size):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># read the farm and convert to geojson</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    feature <span class="op">=</span> gpd.read_file(file_name).__geo_interface__</span>
@@ -264,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    x_pt <span class="op">=</span> ee.List.sequence(minx, maxx, pixel_size)</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    y_pt <span class="op">=</span> ee.List.sequence(miny, maxy, pixel_size)</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x_pt, y_pt, minx, maxy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x_pt, y_pt, minx, maxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here we are basically creating a new <code>Point</code> feature for each x and y point.</p>
 <p>Once we have the grid over our AOI, we can go ahead and call <code>getRegion</code> method</p>
 <p>The documentation does a good job in explaining what <code>getRegion</code> is all about</p>
@@ -272,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Output an array of values for each [pixel, band, image] tuple in an ImageCollection. The output contains rows of id, lon, lat, time, and all bands for each image that intersects each pixel in the given region. Attempting to extract more than 1048576 values will result in an error.</p>
 </blockquote>
 <p>The limit 1048576 results in a max tile width and height of 1024 x 1024 pixels. By combining the previously created grid and <code>getRegion</code>, we could potentially get 100 times more pixels than getDownloadURL. Let us do that!</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>len_y <span class="op">=</span> <span class="bu">len</span>(y_pt.getInfo())</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>len_y <span class="op">=</span> <span class="bu">len</span>(y_pt.getInfo())</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>len_x <span class="op">=</span> <span class="bu">len</span>(x_pt.getInfo())</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>imgCollection <span class="op">=</span> ee.ImageCollection(<span class="st">"COPERNICUS/S2_SR"</span>).filters(filters_to_add)</span>
@@ -284,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>data_matrix <span class="op">=</span> df[input_bands].values.reshape(len_y, len_x)</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>data_matrix <span class="op">=</span> np.flip(data_matrix, axis <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> rasterio.transform.from_origin(minx, maxy, pixel_size, pixel_size)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>save_tiff(<span class="st">"output.tif"</span>, data_matrix, transform, CRS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>save_tiff(<span class="st">"output.tif"</span>, data_matrix, transform, CRS)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The above code first gets the count of points in each of the 2-dimensions followed by fetching the dataframe which contains the lat, lon and pixel value as shown in the image.</p>
 <figure class="figure">
 <p><img src="https://i.imgur.com/5SjjW0E.png" class="img-fluid figure-img"></p>
@@ -293,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figcaption>
 </figure>
 <p>Now we reshape the dataframe and flip it to make the pixel arrange in image format. Lastly, we save the image by passing the transformation of the image. Make sure to have an imageCollection for the <code>getRegion</code> method to work. Currently, the above code can only download 1 band at a time, but with simple modification to the <code>getDataframe</code> function, that too can be changed.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> getDataframe(img_col, feature, input_band, crs):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> getDataframe(img_col, feature, input_band, crs):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    imgcol <span class="op">=</span> ee.ImageCollection(img_col).select(input_band)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(imgcol.getRegion(feature.geometry(), <span class="dv">10</span>, crs).getInfo())</span>
@@ -317,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rs.<span class="bu">open</span>(output_name, <span class="st">'w'</span>, <span class="op">**</span>options) <span class="im">as</span> src:</span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        src.write(data_array, <span class="dv">1</span>)</span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The output of the exercise is that you have a raster directly downloaded to your local machine, without google drive/ cloud intermediaries. One thing worth pointing out, is for extremely large images, you are better off downloading via the specified steps in docs. This hacky way is to simplify things and avoid google drive (which is never empty for me).</p>
 <p><img src="https://i.imgur.com/Z8DEJHh.jpg" class="img-fluid"></p>
 <p>The full code can be accessed <a href="https://github.com/amanbagrecha/ee-image-direct-download">here</a></p>
@@ -376,13 +389,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -397,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

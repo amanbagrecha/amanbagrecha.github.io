@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,14 +33,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d50b1ffeecd4d0d7537121f5bd940e38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b41e3af0db88674e0a0ed1bb04d0ec7f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,7 +113,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -130,12 +131,12 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="alternate" type="application/rss+xml" title="Aman Bagrecha" href="index.xml" data-external="1"><meta property="og:title" content="Projects – Aman Bagrecha">
-<meta property="og:image" content="https://amanbagrecha.github.io/projects/brush-tool-selection/featured.png">
+<meta property="og:image" content="https://amanbagrecha.com/projects/brush-tool-selection/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta property="og:image:height" content="606">
 <meta property="og:image:width" content="1116">
 <meta name="twitter:title" content="Projects – Aman Bagrecha">
-<meta name="twitter:image" content="https://amanbagrecha.github.io/projects/brush-tool-selection/featured.png">
+<meta name="twitter:image" content="https://amanbagrecha.com/projects/brush-tool-selection/featured.png">
 <meta name="twitter:image-height" content="606">
 <meta name="twitter:image-width" content="1116">
 <meta name="twitter:card" content="summary_large_image">
@@ -149,7 +150,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/AB.png" alt="" class="navbar-logo">
+    <img src="../img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="../img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -170,25 +172,36 @@ window.Quarto = {
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../events"> 
+    <a class="nav-link" href="../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../travel"> 
+    <a class="nav-link" href="../travel/index.html"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects"> 
+    <a class="nav-link" href="../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../presentations"> 
+    <a class="nav-link" href="../presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -234,7 +247,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UHl0aG9uJTJDUUdJUyUyQ1BsdWdpbg==" data-listing-date-sort="1757356200000">
+<div class="g-col-1" data-index="0" data-categories="UHl0aG9uJTJDUUdJUyUyQ1BsdWdpbg==" data-listing-date-sort="1757368800000">
 <a href="https://github.com/amanbagrecha/brush-tool-selection" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -252,7 +265,7 @@ Sep 9, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="UHl0aG9uJTJDSmF2YXNjcmlwdCUyQ0ltYWdlJTIwUHJvY2Vzc2luZw==" data-listing-date-sort="1757097000000">
+<div class="g-col-1" data-index="1" data-categories="UHl0aG9uJTJDSmF2YXNjcmlwdCUyQ0ltYWdlJTIwUHJvY2Vzc2luZw==" data-listing-date-sort="1757109600000">
 <a href="https://github.com/amanbagrecha/streetview-alike" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -270,7 +283,7 @@ Sep 6, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="SmF2YXNjcmlwdCUyQ0NvbXB1dGVyJTIwVmlzaW9u" data-listing-date-sort="1744914600000">
+<div class="g-col-1" data-index="2" data-categories="SmF2YXNjcmlwdCUyQ0NvbXB1dGVyJTIwVmlzaW9u" data-listing-date-sort="1744927200000">
 <a href="../projects/nlm/nl-means-viz-enhanced.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -288,7 +301,7 @@ Apr 18, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="SmF2YXNjcmlwdCUyQ0dFRQ==" data-listing-date-sort="1740421800000">
+<div class="g-col-1" data-index="3" data-categories="SmF2YXNjcmlwdCUyQ0dFRQ==" data-listing-date-sort="1740438000000">
 <a href="https://github.com/amanbagrecha/surface_water_extent" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -306,7 +319,7 @@ Feb 25, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="UHl0aG9uJTJDRG9ja2VyJTJDRGVlcCUyMExlYXJuaW5n" data-listing-date-sort="1658946600000">
+<div class="g-col-1" data-index="4" data-categories="UHl0aG9uJTJDRG9ja2VyJTJDRGVlcCUyMExlYXJuaW5n" data-listing-date-sort="1658959200000">
 <a href="https://github.com/amanbagrecha/cresi-modified" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -324,7 +337,7 @@ Jul 28, 2022
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="UmVtb3RlJTIwU2Vuc2luZyUyQ1B5dGhvbg==" data-listing-date-sort="1631039400000">
+<div class="g-col-1" data-index="5" data-categories="UmVtb3RlJTIwU2Vuc2luZyUyQ1B5dGhvbg==" data-listing-date-sort="1631052000000">
 <a href="https://github.com/amanbagrecha/smap_time_series_analysis" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -342,7 +355,7 @@ Sep 8, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="R2Vvc2VydmVyJTJDT3BlbkxheWVycw==" data-listing-date-sort="1628533800000">
+<div class="g-col-1" data-index="6" data-categories="R2Vvc2VydmVyJTJDT3BlbkxheWVycw==" data-listing-date-sort="1628546400000">
 <a href="https://github.com/amanbagrecha/openlayers-geoserver-query" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -360,7 +373,7 @@ Aug 10, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1627065000000">
+<div class="g-col-1" data-index="7" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1627077600000">
 <a href="https://github.com/amanbagrecha/datascience_project/blob/master/ML_socialMediaAnalysis/dphi_Prediction_model.ipynb" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -378,7 +391,7 @@ Jul 24, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="U3RydWN0dXJlcw==" data-listing-date-sort="1626028200000">
+<div class="g-col-1" data-index="8" data-categories="U3RydWN0dXJlcw==" data-listing-date-sort="1626040800000">
 <a href="https://github.com/amanbagrecha/MyProjects/tree/master/Avyaan" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -396,7 +409,7 @@ Jul 12, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="9" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1626028200000">
+<div class="g-col-1" data-index="9" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1626040800000">
 <a href="https://github.com/amanbagrecha/datascience_project/tree/master/enrolmentByLevel" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -414,7 +427,7 @@ Jul 12, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="10" data-categories="UHl0aG9uJTJDUmVtb3RlJTIwU2Vuc2luZw==" data-listing-date-sort="1626028200000">
+<div class="g-col-1" data-index="10" data-categories="UHl0aG9uJTJDUmVtb3RlJTIwU2Vuc2luZw==" data-listing-date-sort="1626040800000">
 <a href="https://github.com/amanbagrecha/MyProjects/tree/master/LST" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -432,7 +445,7 @@ Jul 12, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="11" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1626028200000">
+<div class="g-col-1" data-index="11" data-categories="UHl0aG9uJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1626040800000">
 <a href="https://github.com/amanbagrecha/datascience_project/blob/master/Spot%20the%20Crop%20Hackathon/ZINDI_SPOT_THE_CROP_CHALLENGE.ipynb" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -450,7 +463,7 @@ Jul 12, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="12" data-categories="SmF2YXNjcmlwdCUyQ0xlYWZsZXQ=" data-listing-date-sort="1626028200000">
+<div class="g-col-1" data-index="12" data-categories="SmF2YXNjcmlwdCUyQ0xlYWZsZXQ=" data-listing-date-sort="1626040800000">
 <a href="https://amanbagrecha.github.io/store-info/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -468,7 +481,7 @@ Jul 12, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="13" data-categories="RGphbmdvJTJDUHl0aG9u" data-listing-date-sort="1626028200000">
+<div class="g-col-1" data-index="13" data-categories="RGphbmdvJTJDUHl0aG9u" data-listing-date-sort="1626040800000">
 <a href="https://github.com/amanbagrecha/drf_userprofile" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -486,7 +499,7 @@ Jul 12, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="14" data-categories="R2VvY29kaW5nJTJDSmF2YXNjcmlwdA==" data-listing-date-sort="1625682600000">
+<div class="g-col-1" data-index="14" data-categories="R2VvY29kaW5nJTJDSmF2YXNjcmlwdA==" data-listing-date-sort="1625695200000">
 <a href="https://amanbagrecha.github.io/mapbox-search-functionality/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -558,13 +571,14 @@ Jul 8, 2021
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -579,7 +593,7 @@ Jul 8, 2021
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>Aman Bagrecha</title>
-<link>https://amanbagrecha.github.io/til/</link>
-<atom:link href="https://amanbagrecha.github.io/til/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://amanbagrecha.com/til/</link>
+<atom:link href="https://amanbagrecha.com/til/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
-<generator>quarto-1.7.32</generator>
-<lastBuildDate>Thu, 06 Nov 2025 18:30:00 GMT</lastBuildDate>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Thu, 06 Nov 2025 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Min-Max Normalization</title>
-  <link>https://amanbagrecha.github.io/til/gee-mosaic.html</link>
+  <link>https://amanbagrecha.com/til/gee-mosaic.html</link>
   <description><![CDATA[ 
 
 
@@ -22,7 +22,7 @@
 <p>TIL that when we download large tiles from google earth engine, it shards it into multiple images and each image has its own min-max, and it streches it to that min-max and then lets us download.</p>
 <p>The result is visible discontinuities when visualizing the mosaicked image, even though the underlying data is spatially continuous.</p>
 <p>We can get back the seemless-mosaic by simply normalising using global min-max.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
 background-color: null;
@@ -134,7 +134,7 @@ font-weight: bold;
 font-style: inherit;">for</span> d <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">in</span> datasets]</span></code></pre></div>
+font-style: inherit;">in</span> datasets]</span></code></pre></div></div>
 <p>Similar to this issue mentioned in <a href="https://gis.stackexchange.com/questions/490449/why-is-there-a-color-difference-problem-in-the-mosaic-of-sentinel-2-images-from">stackoverflow</a></p>
 <p>I also experimented with if we should use local min-max normalisation or global, and for this use case a global normalisation makes sense since it was originally part of one tile.</p>
 <p>You can check out the artifact <a href="https://claude.ai/public/artifacts/76501e96-a650-4a23-867f-2e531ac05902">here</a></p>
@@ -144,8 +144,8 @@ font-style: inherit;">in</span> datasets]</span></code></pre></div>
  ]]></description>
   <category>gee</category>
   <category>image-processing</category>
-  <guid>https://amanbagrecha.github.io/til/gee-mosaic.html</guid>
-  <pubDate>Thu, 06 Nov 2025 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/til/gee-mosaic.html</guid>
+  <pubDate>Thu, 06 Nov 2025 23:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

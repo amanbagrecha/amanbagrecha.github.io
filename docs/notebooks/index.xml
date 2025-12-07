@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Aman Bagrecha</title>
-<link>https://amanbagrecha.github.io/notebooks/</link>
-<atom:link href="https://amanbagrecha.github.io/notebooks/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://amanbagrecha.com/notebooks/</link>
+<atom:link href="https://amanbagrecha.com/notebooks/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
-<generator>quarto-1.7.32</generator>
-<lastBuildDate>Fri, 14 Nov 2025 18:30:00 GMT</lastBuildDate>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Fri, 14 Nov 2025 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Introduction to Geospatial AI</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html</link>
+  <link>https://amanbagrecha.com/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html</link>
   <description><![CDATA[ 
 
 
@@ -53,7 +53,7 @@
 <div id="6V69swLd1jlR" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="88322c97-2b84-427d-bd2f-0f4a224d8a35">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># If you're on Colab, uncomment this cell:</span></span>
 <span id="cb1-2"><span class="op" style="color: #5E5E5E;
@@ -120,7 +120,7 @@ font-style: inherit;"># 2. If you have a GPU: print(torch.cuda.device_count()) t
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"CUDA device count:"</span>, torch.cuda.device_count())</span></code></pre></div>
+font-style: inherit;">"CUDA device count:"</span>, torch.cuda.device_count())</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <div class="ansi-escaped-output">
@@ -199,7 +199,7 @@ CUDA device count: 1
 <div id="koIlOaoE1jlW" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="a10806b0-0136-4ba0-ce30-4ad6f380f20b">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">root <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">root <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -273,7 +273,7 @@ background-color: null;
 font-style: inherit;">"mask"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">in</span> sample)</span></code></pre></div>
+font-style: inherit;">in</span> sample)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>loading annotations into memory...
@@ -302,7 +302,7 @@ Has masks: True</code></pre>
 <div id="Q-NwHDEe1jlZ" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:877}}" data-outputid="05a842ed-10e6-4d10-90be-507f598a8a74">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">ds.plot(sample)  <span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">ds.plot(sample)  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># draws image with GT boxes + masks</span></span>
 <span id="cb4-2">plt.show()</span>
@@ -331,12 +331,12 @@ background-color: null;
 font-style: inherit;"># print("Number of objects:", len(sample["labels"]))</span></span>
 <span id="cb4-12"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># ds.plot(sample); plt.show()</span></span></code></pre></div>
+font-style: inherit;"># ds.plot(sample); plt.show()</span></span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://amanbagrecha.github.io/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://amanbagrecha.com/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -369,7 +369,7 @@ font-style: inherit;"># ds.plot(sample); plt.show()</span></span></code></pre></
 <div id="V6O7VTuC1jld" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="cc479838-b247-4602-91a4-79ddcfbf254d">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> transform_to_unit_range(sample: <span class="bu" style="color: null;
@@ -519,7 +519,7 @@ background-color: null;
 font-style: inherit;"># for i, s in enumerate(batch):</span></span>
 <span id="cb5-37"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#     print(i, s["image"].shape)</span></span></code></pre></div>
+font-style: inherit;">#     print(i, s["image"].shape)</span></span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>loading annotations into memory...
@@ -543,7 +543,7 @@ Batches in train_loader: 50</code></pre>
 <div id="QEMS-0V31jlg" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="6075a93d-c420-4938-8a3f-153d29c55420">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> torchvision.models.detection <span class="im" style="color: #00769E;
 background-color: null;
@@ -646,7 +646,7 @@ font-style: inherit;">"Model ready."</span>)</span>
 <span id="cb7-37"></span>
 <span id="cb7-38"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># ⚠️ Note: We keep most COCO-trained weights and only reinitialize the last heads.</span></span></code></pre></div>
+font-style: inherit;"># ⚠️ Note: We keep most COCO-trained weights and only reinitialize the last heads.</span></span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of classes (including background): 11
@@ -666,7 +666,7 @@ Model ready.</code></pre>
 <div id="184wrvjZ1jli" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="f4667cba-40b1-43a9-b9c4-704eccb064dc">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Optimizer</span></span>
 <span id="cb9-2">params <span class="op" style="color: #5E5E5E;
@@ -917,7 +917,7 @@ background-color: null;
 font-style: inherit;"># - Change num_epochs to 1 or 3 and observe training time and loss.</span></span>
 <span id="cb9-46"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># - Change batch_size in the DataLoader to 4 and see if GPU memory is okay.</span></span></code></pre></div>
+font-style: inherit;"># - Change batch_size in the DataLoader to 4 and see if GPU memory is okay.</span></span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Epoch [1/2] Batch [10/50] Loss: 0.9551
@@ -958,7 +958,7 @@ Epoch [2/2] Average loss: 0.6151</code></pre>
 <div id="UnlC6qgI-JXw" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="b467e07f-7575-40f0-a119-7d7df2c42b3d">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1">sample</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1">sample</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>{'image': tensor([[[0.3059, 0.3059, 0.3098,  ..., 0.3765, 0.3686, 0.3647],
@@ -998,7 +998,7 @@ Epoch [2/2] Average loss: 0.6151</code></pre>
 <div id="8ONH1cMd-OXZ" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="3bbad9cf-dfcd-48e8-9b1f-b97a36caa634">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1">sample_for_plot</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1">sample_for_plot</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>{'image': tensor([[[0.3059, 0.3059, 0.3098,  ..., 0.3765, 0.3686, 0.3647],
@@ -1048,7 +1048,7 @@ Epoch [2/2] Average loss: 0.6151</code></pre>
 <div id="OAINHFwV1jlp" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">model.<span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">model.<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">eval</span>()</span>
 <span id="cb15-2"></span>
@@ -1230,7 +1230,7 @@ background-color: null;
 font-style: inherit;">#</span></span>
 <span id="cb15-46"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Try different thresholds (0.3, 0.7, 0.9) and see how the visualization changes.</span></span></code></pre></div>
+font-style: inherit;"># Try different thresholds (0.3, 0.7, 0.9) and see how the visualization changes.</span></span></code></pre></div></div>
 </details>
 </div>
 </section>
@@ -1261,7 +1261,7 @@ font-style: inherit;"># Try different thresholds (0.3, 0.7, 0.9) and see how the
 <div id="Ge7mJvqG_Tw-" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> torchvision.ops <span class="im" style="color: #00769E;
 background-color: null;
@@ -1632,13 +1632,13 @@ background-color: null;
 font-style: inherit;">"Evaluation on small validation set:"</span>)</span>
 <span id="cb16-86"><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">print</span>(metrics)</span></code></pre></div>
+font-style: inherit;">print</span>(metrics)</span></code></pre></div></div>
 </details>
 </div>
 <div id="pf6EaSjy_buq" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 🧪 Practice 5:</span></span>
 <span id="cb17-2"><span class="co" style="color: #5E5E5E;
@@ -1664,7 +1664,7 @@ background-color: null;
 font-style: inherit;">#</span></span>
 <span id="cb17-9"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 3. (Discussion) How would you choose a threshold for a *real* application?</span></span></code></pre></div>
+font-style: inherit;"># 3. (Discussion) How would you choose a threshold for a *real* application?</span></span></code></pre></div></div>
 </details>
 </div>
 </section>
@@ -1706,8 +1706,8 @@ font-style: inherit;"># 3. (Discussion) How would you choose a threshold for a *
   <category>python</category>
   <category>segmentation</category>
   <category>AI</category>
-  <guid>https://amanbagrecha.github.io/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html</guid>
-  <pubDate>Fri, 14 Nov 2025 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html</guid>
+  <pubDate>Fri, 14 Nov 2025 23:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

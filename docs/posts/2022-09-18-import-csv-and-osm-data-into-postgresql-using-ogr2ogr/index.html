@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f16ea97b6b7a511140a8dc90f57af35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c4180548e64a5f2faedd719bfec8d9d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,13 +109,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Import CSV and OSM data into PostgreSQL using ogr2ogr – Aman Bagrecha">
 <meta property="og:description" content="Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial">
-<meta property="og:image" content="https://amanbagrecha.github.io/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/featured.png">
+<meta property="og:image" content="https://amanbagrecha.com/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta property="og:image:height" content="738">
 <meta property="og:image:width" content="1920">
 <meta name="twitter:title" content="Import CSV and OSM data into PostgreSQL using ogr2ogr – Aman Bagrecha">
 <meta name="twitter:description" content="Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial">
-<meta name="twitter:image" content="https://amanbagrecha.github.io/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/featured.png">
+<meta name="twitter:image" content="https://amanbagrecha.com/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/featured.png">
 <meta name="twitter:image-height" content="738">
 <meta name="twitter:image-width" content="1920">
 <meta name="twitter:card" content="summary_large_image">
@@ -128,7 +129,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="../../img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -149,25 +151,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../events"> 
+    <a class="nav-link" href="../../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../travel"> 
+    <a class="nav-link" href="../../travel/index.html"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../presentations"> 
+    <a class="nav-link" href="../../presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../../tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -237,11 +250,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>We first read the metadata of the CSV using ogrinfo</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogrinfo</span> <span class="at">-so</span> filter_all_cat_data.csv filter_all_cat_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogrinfo</span> <span class="at">-so</span> filter_all_cat_data.csv filter_all_cat_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Assuming you have a database already (<code>postgres</code> here), we run the following command to create <code>postgis</code> extension for <code>postgres</code> database. The connection string is of the format as described <a href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING">here</a></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-c</span> <span class="st">"create extension postgis;"</span> <span class="st">"postgresql://postgres:1234@localhost:5432/postgres"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-c</span> <span class="st">"create extension postgis;"</span> <span class="st">"postgresql://postgres:1234@localhost:5432/postgres"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Finally, we insert the CSV into PostgreSQL table named <strong>cat_data_copy</strong> and assign CRS of EPSG:4326.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogr2ogr</span> <span class="at">-f</span> PostgreSQL PG:<span class="st">"host=localhost user=postgres dbname=postgres password=1234"</span> filter_all_cat_data.csv <span class="at">-oo</span> X_POSSIBLE_NAMES=long_url <span class="at">-oo</span> Y_POSSIBLE_NAMES=lat_url <span class="at">-nlt</span> POINT <span class="at">-nln</span> <span class="st">"cat_data_copy"</span> <span class="at">-sql</span> <span class="st">"select name,city,lat_url,long_url,type from filter_all_cat_data"</span> <span class="at">-a_srs</span> <span class="st">"EPSG:4326”</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogr2ogr</span> <span class="at">-f</span> PostgreSQL PG:<span class="st">"host=localhost user=postgres dbname=postgres password=1234"</span> filter_all_cat_data.csv <span class="at">-oo</span> X_POSSIBLE_NAMES=long_url <span class="at">-oo</span> Y_POSSIBLE_NAMES=lat_url <span class="at">-nlt</span> POINT <span class="at">-nln</span> <span class="st">"cat_data_copy"</span> <span class="at">-sql</span> <span class="st">"select name,city,lat_url,long_url,type from filter_all_cat_data"</span> <span class="at">-a_srs</span> <span class="st">"EPSG:4326”</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The following explains few of the flags</p>
 <ul>
 <li><p><code>-oo</code>: <code>X_POSSIBLE_NAMES</code> and <code>Y_POSSIBLE_NAMES</code> allows us to specify geometry columns from CSV</p></li>
@@ -255,12 +268,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="insert-osm-data-to-postgresql">2. Insert OSM data to PostgreSQL</h2>
 <p>Our OSM data is of Bahamas downloaded from geofabrik. You can download it from <a href="https://download.geofabrik.de/central-america/bahamas-latest.osm.pbf">here</a></p>
 <p>We first read the metadata of the OSM data using ogrinfo</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogrinfo</span> <span class="at">-so</span> bahamas-latest.osm.pbf multipolygons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogrinfo</span> <span class="at">-so</span> bahamas-latest.osm.pbf multipolygons</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We find about the geometry column, CRS and columns in the data. This will be used when inserting the data into the database.</p>
 <p>Next we create postgis and hstore extensions in our <code>postgres</code> database.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-c</span> <span class="st">"create extension hstore; create extension postgis"</span> <span class="st">"postgresql://postgres:1234@localhost:5432/postgres"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-c</span> <span class="st">"create extension hstore; create extension postgis"</span> <span class="st">"postgresql://postgres:1234@localhost:5432/postgres"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Finally we insert the data into PostgreSQL with table name as <strong>bahamas_mpoly</strong> with only multipolygons. We convert the <code>other_tags</code> column into <code>hstore</code> and insert only those rows where the <code>name</code> column does not contain a null value. We also clip our data to a bounding box and promote our polygons to multipolygons to avoid error.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogr2ogr</span> <span class="at">-f</span> PostgreSQL PG:<span class="st">"dbname=postgres host=localhost port=5432 user=postgres password=1234"</span> bahamas-latest.osm.pbf multipolygons <span class="at">-nln</span> bahamas_mpoly <span class="at">-lco</span> COLUMN_TYPES=other_tags=hstore <span class="at">-overwrite</span> <span class="at">-skipfailures</span> <span class="at">-where</span> <span class="st">"name is not null"</span> <span class="at">-clipsrc</span> <span class="at">-78</span> 23 <span class="at">-73</span> 27 <span class="at">-nlt</span> PROMOTE_TO_MULTI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogr2ogr</span> <span class="at">-f</span> PostgreSQL PG:<span class="st">"dbname=postgres host=localhost port=5432 user=postgres password=1234"</span> bahamas-latest.osm.pbf multipolygons <span class="at">-nln</span> bahamas_mpoly <span class="at">-lco</span> COLUMN_TYPES=other_tags=hstore <span class="at">-overwrite</span> <span class="at">-skipfailures</span> <span class="at">-where</span> <span class="st">"name is not null"</span> <span class="at">-clipsrc</span> <span class="at">-78</span> 23 <span class="at">-73</span> 27 <span class="at">-nlt</span> PROMOTE_TO_MULTI</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 <section id="video-version-of-the-blog-can-be-found-here" class="level4">
 <h4 class="anchored" data-anchor-id="video-version-of-the-blog-can-be-found-here">Video version of the blog can be found <a href="https://youtu.be/87liLpASYPI">here</a></h4>
@@ -321,13 +334,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -342,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

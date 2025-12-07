@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d50b1ffeecd4d0d7537121f5bd940e38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b41e3af0db88674e0a0ed1bb04d0ec7f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -122,7 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/AB.png" alt="" class="navbar-logo">
+    <img src="../img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="../img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -143,25 +145,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../events"> 
+    <a class="nav-link" href="../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../travel"> 
+    <a class="nav-link active" href="../travel/index.html" aria-current="page"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects"> 
+    <a class="nav-link" href="../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../presentations"> 
+    <a class="nav-link" href="../presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -212,9 +225,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Explore the places I’ve visited around the world. Click on markers to see details about each location.</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="14" data-source-offset="-42"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 13;"><span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>maplibregl <span class="op">=</span> <span class="pp">require</span>(<span class="st">'maplibre-gl@4.7.1/dist/maplibre-gl.js'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="14" data-source-offset="-40"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 13;"><span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>maplibregl <span class="op">=</span> <span class="pp">require</span>(<span class="st">'maplibre-gl@4.7.1/dist/maplibre-gl.js'</span>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;link href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' rel='stylesheet' /&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;link href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' rel='stylesheet' /&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -231,8 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="20" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 19;"><span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">// Load the GeoJSON data</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>travelData <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"places.geojson"</span>)<span class="op">.</span><span class="fu">json</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="20" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 19;"><span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">// Load the GeoJSON data</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>travelData <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"places.geojson"</span>)<span class="op">.</span><span class="fu">json</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -240,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="27" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 26;"><span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">// Create map container</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="27" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 26;"><span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">// Create map container</span></span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>map <span class="op">=</span> {</span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Create a container div for the map</span></span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="height: 600px; width: 100%;"&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
@@ -336,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>  mapInstance<span class="op">.</span><span class="fu">addControl</span>(<span class="kw">new</span> maplibregl<span class="op">.</span><span class="fu">NavigationControl</span>()<span class="op">,</span> <span class="st">'top-right'</span>)<span class="op">;</span></span>
 <span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mapInstance<span class="op">;</span></span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="declaration">
 
@@ -358,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <section id="geojson-structure-example" class="level3">
 <h3 class="anchored" data-anchor-id="geojson-structure-example">GeoJSON Structure Example</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"Feature"</span><span class="fu">,</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"geometry"</span><span class="fu">:</span> <span class="fu">{</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"Point"</span><span class="fu">,</span></span>
@@ -371,7 +384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"notes"</span><span class="fu">:</span> <span class="st">"Your notes here"</span><span class="fu">,</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"place"</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -379,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxyXG4vLyBMb2FkIE1hcExpYnJlIEdMIEpTIGxpYnJhcnkgYW5kIENTU1xyXG5tYXBsaWJyZWdsID0gcmVxdWlyZSgnbWFwbGlicmUtZ2xANC43LjEvZGlzdC9tYXBsaWJyZS1nbC5qcycpXHJcblxyXG5odG1sYDxsaW5rIGhyZWY9J2h0dHBzOi8vdW5wa2cuY29tL21hcGxpYnJlLWdsQDQuNy4xL2Rpc3QvbWFwbGlicmUtZ2wuY3NzJyByZWw9J3N0eWxlc2hlZXQnIC8+YFxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcclxuLy8gTG9hZCB0aGUgR2VvSlNPTiBkYXRhXHJcbnRyYXZlbERhdGEgPSBGaWxlQXR0YWNobWVudChcInBsYWNlcy5nZW9qc29uXCIpLmpzb24oKVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcclxuLy8gQ3JlYXRlIG1hcCBjb250YWluZXJcclxubWFwID0ge1xyXG4gIC8vIENyZWF0ZSBhIGNvbnRhaW5lciBkaXYgZm9yIHRoZSBtYXBcclxuICBjb25zdCBjb250YWluZXIgPSBodG1sYDxkaXYgc3R5bGU9XCJoZWlnaHQ6IDYwMHB4OyB3aWR0aDogMTAwJTtcIj48L2Rpdj5gO1xyXG5cclxuICAvLyBXYWl0IGZvciB0aGUgY29udGFpbmVyIHRvIGJlIGFkZGVkIHRvIHRoZSBET01cclxuICB5aWVsZCBjb250YWluZXI7XHJcblxyXG4gIC8vIEluaXRpYWxpemUgdGhlIG1hcCB3aXRoIE9TTSBJbmRpYSBzdHlsZSAoc2hvd3MgY29ycmVjdCBJbmRpYSBib3JkZXJzKVxyXG4gIGNvbnN0IG1hcEluc3RhbmNlID0gbmV3IG1hcGxpYnJlZ2wuTWFwKHtcclxuICAgIGNvbnRhaW5lcjogY29udGFpbmVyLFxyXG4gICAgc3R5bGU6ICdodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvb3NtLWluL21hcGJveC1nbC1zdHlsZXNAbWFzdGVyL29zbS1tYXBuaWstaW5kaWEtdjguanNvbicsXHJcbiAgICBjZW50ZXI6IFs3OC4wLCAyMC4wXSwgLy8gQ2VudGVyIG9mIEluZGlhXHJcbiAgICB6b29tOiA0XHJcbiAgfSk7XHJcblxyXG4gIC8vIFdhaXQgZm9yIG1hcCB0byBsb2FkXHJcbiAgbWFwSW5zdGFuY2Uub24oJ2xvYWQnLCAoKSA9PiB7XHJcbiAgICAvLyBBZGQgdGhlIEdlb0pTT04gc291cmNlXHJcbiAgICBtYXBJbnN0YW5jZS5hZGRTb3VyY2UoJ3RyYXZlbC1kYXRhJywge1xyXG4gICAgICB0eXBlOiAnZ2VvanNvbicsXHJcbiAgICAgIGRhdGE6IHRyYXZlbERhdGFcclxuICAgIH0pO1xyXG5cclxuICAgIC8vIEFkZCByb3V0ZSBsaW5lcyBsYXllclxyXG4gICAgbWFwSW5zdGFuY2UuYWRkTGF5ZXIoe1xyXG4gICAgICBpZDogJ3JvdXRlcycsXHJcbiAgICAgIHR5cGU6ICdsaW5lJyxcclxuICAgICAgc291cmNlOiAndHJhdmVsLWRhdGEnLFxyXG4gICAgICBmaWx0ZXI6IFsnPT0nLCBbJ2dldCcsICd0eXBlJ10sICdyb3V0ZSddLFxyXG4gICAgICBwYWludDoge1xyXG4gICAgICAgICdsaW5lLWNvbG9yJzogJyMzYjgyZjYnLFxyXG4gICAgICAgICdsaW5lLXdpZHRoJzogMixcclxuICAgICAgICAnbGluZS1vcGFjaXR5JzogMC42LFxyXG4gICAgICAgICdsaW5lLWRhc2hhcnJheSc6IFsyLCAyXVxyXG4gICAgICB9XHJcbiAgICB9KTtcclxuXHJcbiAgICAvLyBBZGQgcGxhY2VzIGNpcmNsZXMgbGF5ZXJcclxuICAgIG1hcEluc3RhbmNlLmFkZExheWVyKHtcclxuICAgICAgaWQ6ICdwbGFjZXMtY2lyY2xlJyxcclxuICAgICAgdHlwZTogJ2NpcmNsZScsXHJcbiAgICAgIHNvdXJjZTogJ3RyYXZlbC1kYXRhJyxcclxuICAgICAgZmlsdGVyOiBbJz09JywgWydnZXQnLCAndHlwZSddLCAncGxhY2UnXSxcclxuICAgICAgcGFpbnQ6IHtcclxuICAgICAgICAnY2lyY2xlLXJhZGl1cyc6IDgsXHJcbiAgICAgICAgJ2NpcmNsZS1jb2xvcic6ICcjZWY0NDQ0JyxcclxuICAgICAgICAnY2lyY2xlLXN0cm9rZS13aWR0aCc6IDIsXHJcbiAgICAgICAgJ2NpcmNsZS1zdHJva2UtY29sb3InOiAnI2ZmZmZmZidcclxuICAgICAgfVxyXG4gICAgfSk7XHJcblxyXG4gICAgLy8gQWRkIHBvcHVwcyBvbiBjbGlja1xyXG4gICAgbWFwSW5zdGFuY2Uub24oJ2NsaWNrJywgJ3BsYWNlcy1jaXJjbGUnLCAoZSkgPT4ge1xyXG4gICAgICBjb25zdCBjb29yZGluYXRlcyA9IGUuZmVhdHVyZXNbMF0uZ2VvbWV0cnkuY29vcmRpbmF0ZXMuc2xpY2UoKTtcclxuICAgICAgY29uc3QgcHJvcHMgPSBlLmZlYXR1cmVzWzBdLnByb3BlcnRpZXM7XHJcblxyXG4gICAgICBjb25zdCBwb3B1cENvbnRlbnQgPSBgXHJcbiAgICAgICAgPGRpdiBzdHlsZT1cInBhZGRpbmc6IDhweDtcIj5cclxuICAgICAgICAgIDxoMyBzdHlsZT1cIm1hcmdpbjogMCAwIDhweCAwOyBmb250LXNpemU6IDE2cHg7IGZvbnQtd2VpZ2h0OiBib2xkO1wiPiR7cHJvcHMubmFtZX08L2gzPlxyXG4gICAgICAgICAgPHAgc3R5bGU9XCJtYXJnaW46IDRweCAwO1wiPjxzdHJvbmc+Q291bnRyeTo8L3N0cm9uZz4gJHtwcm9wcy5jb3VudHJ5fTwvcD5cclxuICAgICAgICAgIDxwIHN0eWxlPVwibWFyZ2luOiA0cHggMDtcIj48c3Ryb25nPlZpc2l0ZWQ6PC9zdHJvbmc+ICR7cHJvcHMudmlzaXRlZH08L3A+XHJcbiAgICAgICAgICA8cCBzdHlsZT1cIm1hcmdpbjogNHB4IDA7XCI+JHtwcm9wcy5ub3Rlc308L3A+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgIGA7XHJcblxyXG4gICAgICBuZXcgbWFwbGlicmVnbC5Qb3B1cCgpXHJcbiAgICAgICAgLnNldExuZ0xhdChjb29yZGluYXRlcylcclxuICAgICAgICAuc2V0SFRNTChwb3B1cENvbnRlbnQpXHJcbiAgICAgICAgLmFkZFRvKG1hcEluc3RhbmNlKTtcclxuICAgIH0pO1xyXG5cclxuICAgIC8vIENoYW5nZSBjdXJzb3Igb24gaG92ZXJcclxuICAgIG1hcEluc3RhbmNlLm9uKCdtb3VzZWVudGVyJywgJ3BsYWNlcy1jaXJjbGUnLCAoKSA9PiB7XHJcbiAgICAgIG1hcEluc3RhbmNlLmdldENhbnZhcygpLnN0eWxlLmN1cnNvciA9ICdwb2ludGVyJztcclxuICAgIH0pO1xyXG5cclxuICAgIG1hcEluc3RhbmNlLm9uKCdtb3VzZWxlYXZlJywgJ3BsYWNlcy1jaXJjbGUnLCAoKSA9PiB7XHJcbiAgICAgIG1hcEluc3RhbmNlLmdldENhbnZhcygpLnN0eWxlLmN1cnNvciA9ICcnO1xyXG4gICAgfSk7XHJcblxyXG4gICAgLy8gRml0IG1hcCB0byBzaG93IGFsbCBwbGFjZXNcclxuICAgIGNvbnN0IHBsYWNlcyA9IHRyYXZlbERhdGEuZmVhdHVyZXMuZmlsdGVyKGYgPT4gZi5wcm9wZXJ0aWVzLnR5cGUgPT09ICdwbGFjZScpO1xyXG4gICAgaWYgKHBsYWNlcy5sZW5ndGggPiAwKSB7XHJcbiAgICAgIGNvbnN0IGJvdW5kcyA9IG5ldyBtYXBsaWJyZWdsLkxuZ0xhdEJvdW5kcygpO1xyXG4gICAgICBwbGFjZXMuZm9yRWFjaChwbGFjZSA9PiB7XHJcbiAgICAgICAgYm91bmRzLmV4dGVuZChwbGFjZS5nZW9tZXRyeS5jb29yZGluYXRlcyk7XHJcbiAgICAgIH0pO1xyXG4gICAgICBtYXBJbnN0YW5jZS5maXRCb3VuZHMoYm91bmRzLCB7IHBhZGRpbmc6IDUwIH0pO1xyXG4gICAgfVxyXG4gIH0pO1xyXG5cclxuICAvLyBBZGQgbmF2aWdhdGlvbiBjb250cm9sc1xyXG4gIG1hcEluc3RhbmNlLmFkZENvbnRyb2wobmV3IG1hcGxpYnJlZ2wuTmF2aWdhdGlvbkNvbnRyb2woKSwgJ3RvcC1yaWdodCcpO1xyXG5cclxuICByZXR1cm4gbWFwSW5zdGFuY2U7XHJcbn1cclxuIn1dfQ==
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gTG9hZCBNYXBMaWJyZSBHTCBKUyBsaWJyYXJ5IGFuZCBDU1Ncbm1hcGxpYnJlZ2wgPSByZXF1aXJlKCdtYXBsaWJyZS1nbEA0LjcuMS9kaXN0L21hcGxpYnJlLWdsLmpzJylcblxuaHRtbGA8bGluayBocmVmPSdodHRwczovL3VucGtnLmNvbS9tYXBsaWJyZS1nbEA0LjcuMS9kaXN0L21hcGxpYnJlLWdsLmNzcycgcmVsPSdzdHlsZXNoZWV0JyAvPmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gTG9hZCB0aGUgR2VvSlNPTiBkYXRhXG50cmF2ZWxEYXRhID0gRmlsZUF0dGFjaG1lbnQoXCJwbGFjZXMuZ2VvanNvblwiKS5qc29uKClcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gQ3JlYXRlIG1hcCBjb250YWluZXJcbm1hcCA9IHtcbiAgLy8gQ3JlYXRlIGEgY29udGFpbmVyIGRpdiBmb3IgdGhlIG1hcFxuICBjb25zdCBjb250YWluZXIgPSBodG1sYDxkaXYgc3R5bGU9XCJoZWlnaHQ6IDYwMHB4OyB3aWR0aDogMTAwJTtcIj48L2Rpdj5gO1xuXG4gIC8vIFdhaXQgZm9yIHRoZSBjb250YWluZXIgdG8gYmUgYWRkZWQgdG8gdGhlIERPTVxuICB5aWVsZCBjb250YWluZXI7XG5cbiAgLy8gSW5pdGlhbGl6ZSB0aGUgbWFwIHdpdGggT1NNIEluZGlhIHN0eWxlIChzaG93cyBjb3JyZWN0IEluZGlhIGJvcmRlcnMpXG4gIGNvbnN0IG1hcEluc3RhbmNlID0gbmV3IG1hcGxpYnJlZ2wuTWFwKHtcbiAgICBjb250YWluZXI6IGNvbnRhaW5lcixcbiAgICBzdHlsZTogJ2h0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9vc20taW4vbWFwYm94LWdsLXN0eWxlc0BtYXN0ZXIvb3NtLW1hcG5pay1pbmRpYS12OC5qc29uJyxcbiAgICBjZW50ZXI6IFs3OC4wLCAyMC4wXSwgLy8gQ2VudGVyIG9mIEluZGlhXG4gICAgem9vbTogNFxuICB9KTtcblxuICAvLyBXYWl0IGZvciBtYXAgdG8gbG9hZFxuICBtYXBJbnN0YW5jZS5vbignbG9hZCcsICgpID0+IHtcbiAgICAvLyBBZGQgdGhlIEdlb0pTT04gc291cmNlXG4gICAgbWFwSW5zdGFuY2UuYWRkU291cmNlKCd0cmF2ZWwtZGF0YScsIHtcbiAgICAgIHR5cGU6ICdnZW9qc29uJyxcbiAgICAgIGRhdGE6IHRyYXZlbERhdGFcbiAgICB9KTtcblxuICAgIC8vIEFkZCByb3V0ZSBsaW5lcyBsYXllclxuICAgIG1hcEluc3RhbmNlLmFkZExheWVyKHtcbiAgICAgIGlkOiAncm91dGVzJyxcbiAgICAgIHR5cGU6ICdsaW5lJyxcbiAgICAgIHNvdXJjZTogJ3RyYXZlbC1kYXRhJyxcbiAgICAgIGZpbHRlcjogWyc9PScsIFsnZ2V0JywgJ3R5cGUnXSwgJ3JvdXRlJ10sXG4gICAgICBwYWludDoge1xuICAgICAgICAnbGluZS1jb2xvcic6ICcjM2I4MmY2JyxcbiAgICAgICAgJ2xpbmUtd2lkdGgnOiAyLFxuICAgICAgICAnbGluZS1vcGFjaXR5JzogMC42LFxuICAgICAgICAnbGluZS1kYXNoYXJyYXknOiBbMiwgMl1cbiAgICAgIH1cbiAgICB9KTtcblxuICAgIC8vIEFkZCBwbGFjZXMgY2lyY2xlcyBsYXllclxuICAgIG1hcEluc3RhbmNlLmFkZExheWVyKHtcbiAgICAgIGlkOiAncGxhY2VzLWNpcmNsZScsXG4gICAgICB0eXBlOiAnY2lyY2xlJyxcbiAgICAgIHNvdXJjZTogJ3RyYXZlbC1kYXRhJyxcbiAgICAgIGZpbHRlcjogWyc9PScsIFsnZ2V0JywgJ3R5cGUnXSwgJ3BsYWNlJ10sXG4gICAgICBwYWludDoge1xuICAgICAgICAnY2lyY2xlLXJhZGl1cyc6IDgsXG4gICAgICAgICdjaXJjbGUtY29sb3InOiAnI2VmNDQ0NCcsXG4gICAgICAgICdjaXJjbGUtc3Ryb2tlLXdpZHRoJzogMixcbiAgICAgICAgJ2NpcmNsZS1zdHJva2UtY29sb3InOiAnI2ZmZmZmZidcbiAgICAgIH1cbiAgICB9KTtcblxuICAgIC8vIEFkZCBwb3B1cHMgb24gY2xpY2tcbiAgICBtYXBJbnN0YW5jZS5vbignY2xpY2snLCAncGxhY2VzLWNpcmNsZScsIChlKSA9PiB7XG4gICAgICBjb25zdCBjb29yZGluYXRlcyA9IGUuZmVhdHVyZXNbMF0uZ2VvbWV0cnkuY29vcmRpbmF0ZXMuc2xpY2UoKTtcbiAgICAgIGNvbnN0IHByb3BzID0gZS5mZWF0dXJlc1swXS5wcm9wZXJ0aWVzO1xuXG4gICAgICBjb25zdCBwb3B1cENvbnRlbnQgPSBgXG4gICAgICAgIDxkaXYgc3R5bGU9XCJwYWRkaW5nOiA4cHg7XCI+XG4gICAgICAgICAgPGgzIHN0eWxlPVwibWFyZ2luOiAwIDAgOHB4IDA7IGZvbnQtc2l6ZTogMTZweDsgZm9udC13ZWlnaHQ6IGJvbGQ7XCI+JHtwcm9wcy5uYW1lfTwvaDM+XG4gICAgICAgICAgPHAgc3R5bGU9XCJtYXJnaW46IDRweCAwO1wiPjxzdHJvbmc+Q291bnRyeTo8L3N0cm9uZz4gJHtwcm9wcy5jb3VudHJ5fTwvcD5cbiAgICAgICAgICA8cCBzdHlsZT1cIm1hcmdpbjogNHB4IDA7XCI+PHN0cm9uZz5WaXNpdGVkOjwvc3Ryb25nPiAke3Byb3BzLnZpc2l0ZWR9PC9wPlxuICAgICAgICAgIDxwIHN0eWxlPVwibWFyZ2luOiA0cHggMDtcIj4ke3Byb3BzLm5vdGVzfTwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICBgO1xuXG4gICAgICBuZXcgbWFwbGlicmVnbC5Qb3B1cCgpXG4gICAgICAgIC5zZXRMbmdMYXQoY29vcmRpbmF0ZXMpXG4gICAgICAgIC5zZXRIVE1MKHBvcHVwQ29udGVudClcbiAgICAgICAgLmFkZFRvKG1hcEluc3RhbmNlKTtcbiAgICB9KTtcblxuICAgIC8vIENoYW5nZSBjdXJzb3Igb24gaG92ZXJcbiAgICBtYXBJbnN0YW5jZS5vbignbW91c2VlbnRlcicsICdwbGFjZXMtY2lyY2xlJywgKCkgPT4ge1xuICAgICAgbWFwSW5zdGFuY2UuZ2V0Q2FudmFzKCkuc3R5bGUuY3Vyc29yID0gJ3BvaW50ZXInO1xuICAgIH0pO1xuXG4gICAgbWFwSW5zdGFuY2Uub24oJ21vdXNlbGVhdmUnLCAncGxhY2VzLWNpcmNsZScsICgpID0+IHtcbiAgICAgIG1hcEluc3RhbmNlLmdldENhbnZhcygpLnN0eWxlLmN1cnNvciA9ICcnO1xuICAgIH0pO1xuXG4gICAgLy8gRml0IG1hcCB0byBzaG93IGFsbCBwbGFjZXNcbiAgICBjb25zdCBwbGFjZXMgPSB0cmF2ZWxEYXRhLmZlYXR1cmVzLmZpbHRlcihmID0+IGYucHJvcGVydGllcy50eXBlID09PSAncGxhY2UnKTtcbiAgICBpZiAocGxhY2VzLmxlbmd0aCA+IDApIHtcbiAgICAgIGNvbnN0IGJvdW5kcyA9IG5ldyBtYXBsaWJyZWdsLkxuZ0xhdEJvdW5kcygpO1xuICAgICAgcGxhY2VzLmZvckVhY2gocGxhY2UgPT4ge1xuICAgICAgICBib3VuZHMuZXh0ZW5kKHBsYWNlLmdlb21ldHJ5LmNvb3JkaW5hdGVzKTtcbiAgICAgIH0pO1xuICAgICAgbWFwSW5zdGFuY2UuZml0Qm91bmRzKGJvdW5kcywgeyBwYWRkaW5nOiA1MCB9KTtcbiAgICB9XG4gIH0pO1xuXG4gIC8vIEFkZCBuYXZpZ2F0aW9uIGNvbnRyb2xzXG4gIG1hcEluc3RhbmNlLmFkZENvbnRyb2wobmV3IG1hcGxpYnJlZ2wuTmF2aWdhdGlvbkNvbnRyb2woKSwgJ3RvcC1yaWdodCcpO1xuXG4gIHJldHVybiBtYXBJbnN0YW5jZTtcbn1cbiJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -440,13 +453,14 @@ window._ojs.runtime.interpretFromScriptTags();
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -461,7 +475,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

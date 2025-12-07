@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(ls:*)",
+      "Bash(sudo systemctl daemon-reload:*)",
+      "Bash(sudo systemctl restart:*)",
+      "Bash(sudo systemctl status:*)",
+      "Bash(sudo ln:*)",
+      "Bash(sudo nginx:*)",
+      "Bash(curl:*)",
+      "Bash(sudo journalctl:*)"
     ],
     "deny": [],
     "ask": []

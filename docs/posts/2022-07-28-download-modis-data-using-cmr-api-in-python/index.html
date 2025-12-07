@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5f16ea97b6b7a511140a8dc90f57af35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c4180548e64a5f2faedd719bfec8d9d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,13 +109,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Download MODIS data using CMR API in Python – Aman Bagrecha">
 <meta property="og:description" content="Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial">
-<meta property="og:image" content="https://amanbagrecha.github.io/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/featured.png">
+<meta property="og:image" content="https://amanbagrecha.com/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/featured.png">
 <meta property="og:site_name" content="Aman Bagrecha">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1913">
 <meta name="twitter:title" content="Download MODIS data using CMR API in Python – Aman Bagrecha">
 <meta name="twitter:description" content="Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial">
-<meta name="twitter:image" content="https://amanbagrecha.github.io/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/featured.png">
+<meta name="twitter:image" content="https://amanbagrecha.com/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/featured.png">
 <meta name="twitter:image-height" content="1024">
 <meta name="twitter:image-width" content="1913">
 <meta name="twitter:card" content="summary_large_image">
@@ -128,7 +129,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../img/AB.png" alt="" class="navbar-logo">
+    <img src="../../img/AB.png" alt="" class="navbar-logo light-content">
+    <img src="../../img/AB.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -149,25 +151,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Videos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../events"> 
+    <a class="nav-link" href="../../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../travel"> 
+    <a class="nav-link" href="../../travel/index.html"> 
 <span class="menu-text">Travel</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../presentations"> 
+    <a class="nav-link" href="../../presentations/index.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../../tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -265,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="insert-the-below-code" class="level3">
 <h3 class="anchored" data-anchor-id="insert-the-below-code">Insert the below code</h3>
 <p>Paste the code in a python file named <code>download.py</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># download_modis.py</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># download_modis.py</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) connect to earthdata</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>session <span class="op">=</span> ModisSession(username<span class="op">=</span>username, password<span class="op">=</span>password)</span>
@@ -281,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>nigeria_granules <span class="op">=</span> granule_client.query(start_date<span class="op">=</span><span class="st">"2019-12-29"</span>, end_date<span class="op">=</span><span class="st">"2019-12-31"</span>, bounding_box<span class="op">=</span>nigeria_bbox)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Download the granules</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>GranuleHandler.download_from_granules(nigeria_granules, session, threads<span class="op">=-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>GranuleHandler.download_from_granules(nigeria_granules, session, threads<span class="op">=-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In the above code, change the <code>username</code>, <code>password</code>, <code>nigeria_box</code> and <code>start_date</code> &amp; <code>end_date</code> according to your requirements.</p>
 <p>To explain the above code —</p>
 <ul>
@@ -307,11 +320,11 @@ Downloading: 100%|████████████████████�
 <section id="for-the-curious-advanced" class="level3">
 <h3 class="anchored" data-anchor-id="for-the-curious-advanced">For the curious (Advanced)</h3>
 <p>The base url for the CMR API is —</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://cmr.earthdata.nasa.gov/search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://cmr.earthdata.nasa.gov/search</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Internally, CMR API first finds the collection for our dataset —</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD09GQ</span><span class="kw">&amp;</span><span class="va">version</span><span class="op">=</span>061</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD09GQ</span><span class="kw">&amp;</span><span class="va">version</span><span class="op">=</span>061</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After that the package queries the granules endpoint to find individual granules matching our query parameters —</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://cmr.earthdata.nasa.gov/search/granules.json?downloadable=true</span><span class="kw">&amp;</span><span class="va">scroll</span><span class="op">=</span>true<span class="kw">&amp;</span><span class="va">page_size</span><span class="op">=</span>2000<span class="kw">&amp;</span><span class="va">sort_key</span><span class="op">=</span>-start_date<span class="kw">&amp;</span><span class="va">concept_id</span><span class="op">=</span>C1621091662-LPDAAC_ECS<span class="kw">&amp;</span><span class="va">temporal</span><span class="op">=</span>2019-12-01T00%3A00%3A00Z%2C2019-12-31T00%3A00%3A00Z<span class="kw">&amp;</span><span class="va">bounding_box</span><span class="op">=</span>2.1448863675%2C3.002583177%2C4.289420717%2C4.275061098</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://cmr.earthdata.nasa.gov/search/granules.json?downloadable=true</span><span class="kw">&amp;</span><span class="va">scroll</span><span class="op">=</span>true<span class="kw">&amp;</span><span class="va">page_size</span><span class="op">=</span>2000<span class="kw">&amp;</span><span class="va">sort_key</span><span class="op">=</span>-start_date<span class="kw">&amp;</span><span class="va">concept_id</span><span class="op">=</span>C1621091662-LPDAAC_ECS<span class="kw">&amp;</span><span class="va">temporal</span><span class="op">=</span>2019-12-01T00%3A00%3A00Z%2C2019-12-31T00%3A00%3A00Z<span class="kw">&amp;</span><span class="va">bounding_box</span><span class="op">=</span>2.1448863675%2C3.002583177%2C4.289420717%2C4.275061098</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note that most parameters are autogenerated by the python package depending on the <code>short_name</code> and <code>version</code> you provide (downloadable, scroll, page_size, sort_key, concept_id). The other parameters are user defined (temporal, bounding_box)</p>
 <p>There are many more additional parameters which can be passed. A complete list is present in the <a href="https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html">documentation</a>. One such useful parameter that you can try out is <code>cloud_cover</code>. All you need to do is pass this parameter name with value to the <code>query</code> method in the above code.</p>
 
@@ -370,13 +383,14 @@ Downloading: 100%|████████████████████�
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -391,7 +405,7 @@ Downloading: 100%|████████████████████�
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amanbagrecha\.github\.io");
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

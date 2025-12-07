@@ -5,7 +5,7 @@ project:
 website:
   title: "Aman Bagrecha"
   description: "Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial"
-  site-url: https://amanbagrecha.github.io
+  site-url: https://amanbagrecha.com
   draft-mode: unlinked
   navbar:
     search: true
@@ -23,18 +23,22 @@ website:
         file: index.qmd
       - text: Videos
         file: talks/index.qmd
-      - href: posts
-        text: Posts
+      - text: Posts
+        file: posts.qmd
       # - href: notebooks
       #   text: Notebooks
-      - href: events
-        text: Events
-      - href: travel
-        text: Travel
-      - href: projects
-        text: Projects
-      - href: presentations
-        text: Presentations
+      - text: Events
+        file: events.qmd
+      - text: Travel
+        file: travel/index.qmd
+      - text: Projects
+        file: projects.qmd
+      - text: Presentations
+        file: presentations/index.qmd
+      - text: "Tools"
+        menu:
+          - text: "Photo Search"
+            file: tools/photo-search.qmd
   page-footer:
     left: "Copyright © Aman Bagrecha, 2025. [Disclaimer](disclaimer)"
   twitter-card: true

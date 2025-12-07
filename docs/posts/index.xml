@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Aman Bagrecha</title>
-<link>https://amanbagrecha.github.io/posts/</link>
-<atom:link href="https://amanbagrecha.github.io/posts/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://amanbagrecha.com/posts/</link>
+<atom:link href="https://amanbagrecha.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description>Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial</description>
-<generator>quarto-1.7.32</generator>
-<lastBuildDate>Tue, 04 Jul 2023 18:30:00 GMT</lastBuildDate>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Tue, 04 Jul 2023 22:00:00 GMT</lastBuildDate>
 <item>
   <title>My first FOSS4G experience</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/first-foss4g/</link>
+  <link>https://amanbagrecha.com/posts/first-foss4g/</link>
   <description><![CDATA[ 
 
 
@@ -23,7 +23,7 @@
 <p>I embarked on a journey to attend the esteemed geospatial conference, FOSS4G 2023, held in Prizren. As I reflect, it was an event that left a profound impact on me, and I want to treasure these memories forever.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://amanbagrecha.github.io/posts/first-foss4g/first-day.jpeg" class="img-fluid figure-img"></p>
+<p><img src="https://amanbagrecha.com/posts/first-foss4g/first-day.jpeg" class="img-fluid figure-img"></p>
 <figcaption>Entering the exhibition center at ITP</figcaption>
 </figure>
 </div>
@@ -33,7 +33,7 @@
 <p>With dense knowledge delivered within every conference room, I had to decide to let go one talk over another. Thankfully the talks are recorded, and will be shared freely and openly, adhering the spirit of foss4g!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://amanbagrecha.github.io/posts/first-foss4g/geonerds.jpeg" class="img-fluid figure-img"></p>
+<p><img src="https://amanbagrecha.com/posts/first-foss4g/geonerds.jpeg" class="img-fluid figure-img"></p>
 <figcaption>Day5: Presenting my work to a room full of geonerds</figcaption>
 </figure>
 </div>
@@ -41,7 +41,7 @@
 <p>These ten days in Kosovo were one of the most remarkable days of my life. The local people I met, both from Kosovo and Albania, made me feel right at home and added to the incredible experience. I’m back home, with a fresh perspective on life, a bunch of goals to accomplish, and a trove of memories that I will cherish forever.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://amanbagrecha.github.io/posts/first-foss4g/friends-day-out.jpeg" class="img-fluid figure-img"></p>
+<p><img src="https://amanbagrecha.com/posts/first-foss4g/friends-day-out.jpeg" class="img-fluid figure-img"></p>
 <figcaption>Random day: City tour with friends</figcaption>
 </figure>
 </div>
@@ -52,13 +52,13 @@
 <p><em>PS: This post is a glimpse of what transpired during the conference! Highly encourage everybody to attend this event and experience it yourself!</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://amanbagrecha.github.io/posts/first-foss4g/prizren.jpeg" class="img-fluid figure-img"></p>
+<p><img src="https://amanbagrecha.com/posts/first-foss4g/prizren.jpeg" class="img-fluid figure-img"></p>
 <figcaption>Everyday visit: Stunning landscape of Prizren city, Kosovo</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://amanbagrecha.github.io/posts/first-foss4g/stickers.png" class="img-fluid figure-img"></p>
+<p><img src="https://amanbagrecha.com/posts/first-foss4g/stickers.png" class="img-fluid figure-img"></p>
 <figcaption>Saving some stickers for Lets Talk Spatial community! Grab them at next meetup :)</figcaption>
 </figure>
 </div>
@@ -67,14 +67,14 @@
 
  ]]></description>
   <category>foss4g</category>
-  <guid>https://amanbagrecha.github.io/posts/first-foss4g/</guid>
-  <pubDate>Tue, 04 Jul 2023 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/first-foss4g/featured.jpeg" medium="image" type="image/jpeg"/>
+  <guid>https://amanbagrecha.com/posts/first-foss4g/</guid>
+  <pubDate>Tue, 04 Jul 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/first-foss4g/featured.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Understanding Jason-3 satellite: Data and its Applications</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/understanding-jason-3-satellite-data-and-its-applications/</link>
+  <link>https://amanbagrecha.com/posts/understanding-jason-3-satellite-data-and-its-applications/</link>
   <description><![CDATA[ 
 
 
@@ -170,14 +170,14 @@
  ]]></description>
   <category>Python</category>
   <category>Remote Sensing</category>
-  <guid>https://amanbagrecha.github.io/posts/understanding-jason-3-satellite-data-and-its-applications/</guid>
-  <pubDate>Wed, 25 Jan 2023 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/understanding-jason-3-satellite-data-and-its-applications/featured.png" medium="image" type="image/png" height="123" width="144"/>
+  <guid>https://amanbagrecha.com/posts/understanding-jason-3-satellite-data-and-its-applications/</guid>
+  <pubDate>Wed, 25 Jan 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/understanding-jason-3-satellite-data-and-its-applications/featured.png" medium="image" type="image/png" height="123" width="144"/>
 </item>
 <item>
   <title>Cloud Native Composite, Subset and Processing of Satellite Imagery with STAC and Stackstac</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/</link>
+  <link>https://amanbagrecha.com/posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/</link>
   <description><![CDATA[ 
 
 
@@ -238,14 +238,14 @@ bounds_latlon= aoi_as_multiline.bounds )
 
  ]]></description>
   <category>Python</category>
-  <guid>https://amanbagrecha.github.io/posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/</guid>
-  <pubDate>Fri, 13 Jan 2023 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/featured.png" medium="image" type="image/png" height="103" width="144"/>
+  <guid>https://amanbagrecha.com/posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/</guid>
+  <pubDate>Fri, 13 Jan 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/featured.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Full Fledged CRUD application using DRF and Token Authentication</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-crud-in-django-rest-framework/</link>
+  <link>https://amanbagrecha.com/posts/2021-crud-in-django-rest-framework/</link>
   <description><![CDATA[ 
 
 
@@ -300,17 +300,17 @@ bounds_latlon= aoi_as_multiline.bounds )
 <p>Now that we have the project and app installed your structure should look like this (insert picture here)</p>
 <p>Register the app in file as follows</p>
 <p>In <code>settings.py</code></p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">Installed_apps <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">Installed_apps <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [ </span>
 <span id="cb4-2">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Accountsapp.apps.AccountsappConfig'</span>,</span>
 <span id="cb4-3">    ...</span>
-<span id="cb4-4">]</span></code></pre></div>
+<span id="cb4-4">]</span></code></pre></div></div>
 <p>We now create our own custom model named <strong><em>MyAccounts</em></strong></p>
 <p>In <code>models.py</code></p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> django.db <span class="im" style="color: #00769E;
 background-color: null;
@@ -616,18 +616,18 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">True</span></span></code></pre></div>
+font-style: inherit;">True</span></span></code></pre></div></div>
 <p>To tell django we are overwriting the default user model, we do the following</p>
 <p>In <code>settings.py</code></p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">AUTH_USER_MODEL <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">AUTH_USER_MODEL <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> Accounts.MyAccounts</span></code></pre></div>
+font-style: inherit;">=</span> Accounts.MyAccounts</span></code></pre></div></div>
 <p>Now we makemigrates to register the model in our database</p>
 <pre><code>python manage.py makemigrations
 python manage.py migrate</code></pre>
 <p>And for the model to be visible in admin section we do the following</p>
 <p>In <code>admin.py</code></p>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> django.contrib <span class="im" style="color: #00769E;
 background-color: null;
@@ -640,7 +640,7 @@ font-style: inherit;">import</span> MyAccount</span>
 <span id="cb8-3"></span>
 <span id="cb8-4">admin.site.register(MyAccount) <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Register your models here.</span></span></code></pre></div>
+font-style: inherit;"># Register your models here.</span></span></code></pre></div></div>
 <p>For now the our project is setup. We move to Django Rest Framework setup</p>
 </section>
 <section id="setup-django-rest-framework-with-authentication" class="level2">
@@ -649,7 +649,7 @@ font-style: inherit;"># Register your models here.</span></span></code></pre></d
 <pre><code>conda install djangorestframework</code></pre>
 <p>Like any other app, django rest framework is also an app. so we add it to the list of installed apps. We additionally add authtoken app for user authentication which we are shortly going to intergrate in our CRUD application</p>
 <p>In <code>settings.py</code></p>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">INSTALLED_APPS <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">INSTALLED_APPS <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [</span>
 <span id="cb10-2">    <span class="co" style="color: #5E5E5E;
@@ -669,10 +669,10 @@ background-color: null;
 font-style: inherit;">'rest_framework.authtoken'</span>,</span>
 <span id="cb10-7">    ...</span>
 <span id="cb10-8">    </span>
-<span id="cb10-9">]</span></code></pre></div>
+<span id="cb10-9">]</span></code></pre></div></div>
 <p>We are going to be using Token Authentication in this application. DRF documentation recommends it as the default. Let Us setup the Default authentication class before actually utilising it.</p>
 <p>In <code>settings.py</code></p>
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">REST_FRAMEWORK&nbsp;<span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">REST_FRAMEWORK&nbsp;<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>&nbsp;{</span>
 <span id="cb11-2">&nbsp;&nbsp;&nbsp;&nbsp;<span class="st" style="color: #20794D;
@@ -683,7 +683,7 @@ background-color: null;
 font-style: inherit;">'rest_framework.authentication.TokenAuthentication'</span>,</span>
 <span id="cb11-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span id="cb11-5">&nbsp;&nbsp;&nbsp;&nbsp;]</span>
-<span id="cb11-6">}</span></code></pre></div>
+<span id="cb11-6">}</span></code></pre></div></div>
 <p>The last thing before we actually start writing code is to perform migration. The&nbsp;<code>rest_framework.authtoken</code>&nbsp;app provides Django database migrations.</p>
 <p>As done previously on command line</p>
 <pre><code>python manage.py makemigrations
@@ -701,7 +701,7 @@ python manage.py migrate</code></pre>
 <li><code>urls.py</code></li>
 </ul>
 <p>In <code>serializers.py</code></p>
-<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> rest_framework <span class="im" style="color: #00769E;
 background-color: null;
@@ -895,13 +895,13 @@ font-style: inherit;">True</span>},  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#  password cannot be edited from here</span></span>
 <span id="cb13-46">        }</span>
-<span id="cb13-47"></span></code></pre></div>
+<span id="cb13-47"></span></code></pre></div></div>
 <p><strong>Note</strong> : Do not try to update the password from serializers. There is another technique which we will deal with in later section.</p>
 <blockquote class="blockquote">
 <p>The serializers in REST framework work very similarly to Django’s Form and ModelForm classes. The two major serializers that are most popularly used are ModelSerializer and HyperLinkedModelSerialzer.</p>
 </blockquote>
 <p>In <code>views.py</code></p>
-<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> rest_framework <span class="im" style="color: #00769E;
 background-color: null;
@@ -1582,10 +1582,10 @@ font-style: inherit;">+</span> token.key})</span>
 <span id="cb14-142">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> renderer</span></code></pre></div>
+font-style: inherit;">return</span> renderer</span></code></pre></div></div>
 <p>Setup end points for our API</p>
 <p>In <code>views.py</code></p>
-<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"></span>
 <span id="cb15-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> django.urls <span class="im" style="color: #00769E;
@@ -1654,7 +1654,7 @@ background-color: null;
 font-style: inherit;">'drf_login'</span>),</span>
 <span id="cb15-16"></span>
 <span id="cb15-17">    </span>
-<span id="cb15-18">]</span></code></pre></div>
+<span id="cb15-18">]</span></code></pre></div></div>
 <p>We first create users and then test delete, update and show users functionality of our API. We will use Postman for timebeing. Later we will built the front-end to perform all these actions.</p>
 </section>
 <section id="post-request-add-user" class="level2">
@@ -1704,7 +1704,7 @@ font-style: inherit;">'drf_login'</span>),</span>
 <section id="front-end-setup" class="level2">
 <h2 class="anchored" data-anchor-id="front-end-setup">Front end setup</h2>
 <p>In root directory create folder <code>templates\Accountsapp\</code> and create <code>RegiserUser.html</code> file in it. Create form field in the file as follows</p>
-<div class="sourceCode" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb25-1">          <span class="dt" style="color: #AD0000;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb25-1">          <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">&lt;</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2393,10 +2393,10 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">form</span><span class="dt" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">&gt;</span></span></code></pre></div>
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
 <p>Once the form is created, we now need to take the input from the form and send to the register user API <code>drf_adduser/</code>.</p>
 <p>In <code>RegisterUser.html</code></p>
-<div class="sourceCode" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb26-1"><span class="dt" style="color: #AD0000;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb26-1"><span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">&lt;</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2947,9 +2947,9 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">script</span><span class="dt" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">&gt;</span></span></code></pre></div>
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
 <p>To make this work in front-end, we need to register the file to <code>Accountsapp/views.py</code></p>
-<div class="sourceCode" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> register_user(request):</span>
@@ -2965,20 +2965,20 @@ font-style: inherit;">"Accountsapp/RegisterUser.html"</span>, {<span class="st" 
 background-color: null;
 font-style: inherit;">'Title'</span>: <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Register new user"</span>})</span></code></pre></div>
+font-style: inherit;">"Register new user"</span>})</span></code></pre></div></div>
 
 
 </section>
 
  ]]></description>
   <category>Django</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-crud-in-django-rest-framework/</guid>
-  <pubDate>Sun, 01 Jan 2023 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-crud-in-django-rest-framework/</guid>
+  <pubDate>Sun, 01 Jan 2023 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How hard can it be to create 30 Maps?</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/</link>
+  <link>https://amanbagrecha.com/posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/</link>
   <description><![CDATA[ 
 
 
@@ -3026,14 +3026,14 @@ font-style: inherit;">"Register new user"</span>})</span></code></pre></div>
 
  ]]></description>
   <category>QGIS</category>
-  <guid>https://amanbagrecha.github.io/posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/</guid>
-  <pubDate>Tue, 20 Dec 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/featured.png" medium="image" type="image/png" height="81" width="144"/>
+  <guid>https://amanbagrecha.com/posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/</guid>
+  <pubDate>Tue, 20 Dec 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/featured.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Import CSV and OSM data into PostgreSQL using ogr2ogr</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/</link>
+  <link>https://amanbagrecha.com/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/</link>
   <description><![CDATA[ 
 
 
@@ -3050,13 +3050,13 @@ font-style: inherit;">"Register new user"</span>})</span></code></pre></div>
 </figure>
 </div>
 <p>We first read the metadata of the CSV using ogrinfo</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ogrinfo</span> <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-so</span> filter_all_cat_data.csv filter_all_cat_data</span></code></pre></div>
+font-style: inherit;">-so</span> filter_all_cat_data.csv filter_all_cat_data</span></code></pre></div></div>
 <p>Assuming you have a database already (<code>postgres</code> here), we run the following command to create <code>postgis</code> extension for <code>postgres</code> database. The connection string is of the format as described <a href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING">here</a></p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">psql</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3064,9 +3064,9 @@ font-style: inherit;">-c</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"create extension postgis;"</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"postgresql://postgres:1234@localhost:5432/postgres"</span></span></code></pre></div>
+font-style: inherit;">"postgresql://postgres:1234@localhost:5432/postgres"</span></span></code></pre></div></div>
 <p>Finally, we insert the CSV into PostgreSQL table named <strong>cat_data_copy</strong> and assign CRS of EPSG:4326.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ogr2ogr</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3090,7 +3090,7 @@ font-style: inherit;">"select name,city,lat_url,long_url,type from filter_all_ca
 background-color: null;
 font-style: inherit;">-a_srs</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"EPSG:4326”</span></span></code></pre></div>
+font-style: inherit;">"EPSG:4326”</span></span></code></pre></div></div>
 <p>The following explains few of the flags</p>
 <ul>
 <li><p><code>-oo</code>: <code>X_POSSIBLE_NAMES</code> and <code>Y_POSSIBLE_NAMES</code> allows us to specify geometry columns from CSV</p></li>
@@ -3104,14 +3104,14 @@ font-style: inherit;">"EPSG:4326”</span></span></code></pre></div>
 <h2 class="anchored" data-anchor-id="insert-osm-data-to-postgresql">2. Insert OSM data to PostgreSQL</h2>
 <p>Our OSM data is of Bahamas downloaded from geofabrik. You can download it from <a href="https://download.geofabrik.de/central-america/bahamas-latest.osm.pbf">here</a></p>
 <p>We first read the metadata of the OSM data using ogrinfo</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ogrinfo</span> <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-so</span> bahamas-latest.osm.pbf multipolygons</span></code></pre></div>
+font-style: inherit;">-so</span> bahamas-latest.osm.pbf multipolygons</span></code></pre></div></div>
 <p>We find about the geometry column, CRS and columns in the data. This will be used when inserting the data into the database.</p>
 <p>Next we create postgis and hstore extensions in our <code>postgres</code> database.</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">psql</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3119,9 +3119,9 @@ font-style: inherit;">-c</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"create extension hstore; create extension postgis"</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"postgresql://postgres:1234@localhost:5432/postgres"</span></span></code></pre></div>
+font-style: inherit;">"postgresql://postgres:1234@localhost:5432/postgres"</span></span></code></pre></div></div>
 <p>Finally we insert the data into PostgreSQL with table name as <strong>bahamas_mpoly</strong> with only multipolygons. We convert the <code>other_tags</code> column into <code>hstore</code> and insert only those rows where the <code>name</code> column does not contain a null value. We also clip our data to a bounding box and promote our polygons to multipolygons to avoid error.</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ogr2ogr</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3147,7 +3147,7 @@ font-style: inherit;">-78</span> 23 <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-73</span> 27 <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-nlt</span> PROMOTE_TO_MULTI</span></code></pre></div>
+font-style: inherit;">-nlt</span> PROMOTE_TO_MULTI</span></code></pre></div></div>
 <hr>
 <section id="video-version-of-the-blog-can-be-found-here" class="level4">
 <h4 class="anchored" data-anchor-id="video-version-of-the-blog-can-be-found-here">Video version of the blog can be found <a href="https://youtu.be/87liLpASYPI">here</a></h4>
@@ -3157,14 +3157,14 @@ font-style: inherit;">-nlt</span> PROMOTE_TO_MULTI</span></code></pre></div>
 </section>
 
  ]]></description>
-  <guid>https://amanbagrecha.github.io/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/</guid>
-  <pubDate>Sat, 17 Sep 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/featured.png" medium="image" type="image/png" height="55" width="144"/>
+  <guid>https://amanbagrecha.com/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/</guid>
+  <pubDate>Sat, 17 Sep 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/featured.png" medium="image" type="image/png" height="55" width="144"/>
 </item>
 <item>
   <title>Merging Rasters using Rasterio</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2022-07-31-merge-rasters-the-modern-way-using-python/</link>
+  <link>https://amanbagrecha.com/posts/2022-07-31-merge-rasters-the-modern-way-using-python/</link>
   <description><![CDATA[ 
 
 
@@ -3194,7 +3194,7 @@ font-style: inherit;">-nlt</span> PROMOTE_TO_MULTI</span></code></pre></div>
 </figcaption>
 </figure>
 <p>We start by fetching sentinel-2 tiles over our AOI from <code>sentinel-s2-l2a-cogs</code> STAC catalog using <a href="https://github.com/stac-utils/pystac-client">pystac-client</a>. This library allows us to crawl STAC catalog and enables rapid access to the metadata we need.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># STAC API root URL</span></span>
 <span id="cb1-2"><span class="co" style="color: #5E5E5E;
@@ -3235,7 +3235,7 @@ background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'2022-01-01/2022-01-24'</span></span>
-<span id="cb1-12">)</span></code></pre></div>
+<span id="cb1-12">)</span></code></pre></div></div>
 <p>In the above code, we search for 10 sentinel-s2-l2a-cogs over our AOI for the date between January 1 and 24 of 2022.</p>
 <p>Now we need to know which of our 10 queried images covers our area of interest in its entirety. To do that, we can plot all the search results on the map and visually inspect.</p>
 <figure class="figure">
@@ -3255,7 +3255,7 @@ font-style: inherit;">'2022-01-01/2022-01-24'</span></span>
 </blockquote>
 <p>We use rasterio’s <a href="https://rasterio.readthedocs.io/en/latest/api/rasterio.merge.html">merge</a> functionality, which would enable us to combine all of them seamlessly.</p>
 <p>First, we get all the tiles for a single day and look for True Color Image (TCI) band</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># retrieve the items as dictionaries, rather than Item objects</span></span>
 <span id="cb2-2"><span class="ex" style="color: null;
@@ -3310,9 +3310,9 @@ background-color: null;
 font-style: inherit;">2022-01-23</span> 05:24:56+00:00    https://sentinel-cogs.s3.us-west-2.amazonaws.c...</span>
 <span id="cb2-14"> <span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">Name:</span> assets.visual.href, dtype: object</span></code></pre></div>
+font-style: inherit;">Name:</span> assets.visual.href, dtype: object</span></code></pre></div></div>
 <p>Next, read the remote files via the URL in the above output using <code>rasterio.open</code> and save the returned file handlers as a list. This is the first instance where we are dealing with the actual imagery. Although, we are not reading the values stored in the data just yet.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># open images stored on s3</span></span>
 <span id="cb3-2">file_handler <span class="op" style="color: #5E5E5E;
@@ -3325,9 +3325,9 @@ font-weight: bold;
 font-style: inherit;">for</span> row <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">in</span> tiles_single_day]</span></code></pre></div>
+font-style: inherit;">in</span> tiles_single_day]</span></code></pre></div></div>
 <p>Finally we can merge all of the tiles and get the clipped raster stored in memory.</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> rasterio.io <span class="im" style="color: #00769E;
 background-color: null;
@@ -3400,10 +3400,10 @@ background-color: null;
 font-style: inherit;">512</span>} <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Dictionary</span></span>
-<span id="cb4-14">  )</span></code></pre></div>
+<span id="cb4-14">  )</span></code></pre></div></div>
 <p>There are really interesting things to look at in the above code. Overall, the code above returns a <code>MemoryFile</code> object which contains a <code>uint16</code> raster with bounds of our AOI and blocksize of 512. The attribute <code>dst_path</code> allows us to specify a path to save the output as a raster. What is interesting is we can not only pass a file path to save on local disk but also a virtual path and save the merged raster <strong>in-memory</strong>, avoiding clutter of additional files on disk.</p>
 <p>To define a virtual path, we use rasterio’s <code>MemoryFile</code> class. When we create a <code>MemoryFile</code> object, it has a <code>name</code> attribute which gives us a virtual path, thus treating it as a real file (using GDALs <a href="https://gdal.org/user/virtual_file_systems.html#vsimem-in-memory-files">vsimem</a> internally). This MemoryFile object (<code>memfile</code> here) provides us all the methods and attributes of rasterio’s file handler, which is extremely helpful.</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(memfile.<span class="bu" style="color: null;
 background-color: null;
@@ -3474,7 +3474,7 @@ font-style: inherit;">'deflate'</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'interleave'</span>: <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'pixel'</span>}</span></code></pre></div>
+font-style: inherit;">'pixel'</span>}</span></code></pre></div></div>
 <p>The <code>method='first'</code> tells us the strategy used to determine the value of the pixel where the rasters overlap. In this case, the pixel value from the first imagery of the overlapping region in the list, is used as the value for the output raster.</p>
 <p>The entire algorithm to merge rasters is illustrated in the figure below by taking an example of combining two rasters with <code>method=first</code>.</p>
 <figure class="figure">
@@ -3524,7 +3524,7 @@ font-style: inherit;">'pixel'</span>}</span></code></pre></div>
 </figcaption>
 </figure>
 <p>We would replace our custom logic of averaging with that of <code>minimum</code> in the above code and that is all there is to it. We can now use this function to manipulate the values of overlapping region!</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> custom_method_avg(merged_data, new_data, merged_mask, new_mask, <span class="op" style="color: #5E5E5E;
@@ -3567,7 +3567,7 @@ font-style: inherit;">=</span>mask, casting<span class="op" style="color: #5E5E5
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"unsafe"</span>)</span></code></pre></div>
+font-style: inherit;">"unsafe"</span>)</span></code></pre></div></div>
 <hr>
 </section>
 <section id="endnote" class="level3">
@@ -3580,14 +3580,14 @@ font-style: inherit;">"unsafe"</span>)</span></code></pre></div>
 
  ]]></description>
   <category>Python</category>
-  <guid>https://amanbagrecha.github.io/posts/2022-07-31-merge-rasters-the-modern-way-using-python/</guid>
-  <pubDate>Sat, 06 Aug 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/2022-07-31-merge-rasters-the-modern-way-using-python/featured.jpg" medium="image" type="image/jpeg"/>
+  <guid>https://amanbagrecha.com/posts/2022-07-31-merge-rasters-the-modern-way-using-python/</guid>
+  <pubDate>Sat, 06 Aug 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/2022-07-31-merge-rasters-the-modern-way-using-python/featured.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Download MODIS data using CMR API in Python</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/</link>
+  <link>https://amanbagrecha.com/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/</link>
   <description><![CDATA[ 
 
 
@@ -3626,7 +3626,7 @@ font-style: inherit;">"unsafe"</span>)</span></code></pre></div>
 <section id="insert-the-below-code" class="level3">
 <h3 class="anchored" data-anchor-id="insert-the-below-code">Insert the below code</h3>
 <p>Paste the code in a python file named <code>download.py</code>.</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># download_modis.py</span></span>
 <span id="cb4-2"></span>
@@ -3708,7 +3708,7 @@ font-style: inherit;"># 4) Download the granules</span></span>
 background-color: null;
 font-style: inherit;">=-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
+font-style: inherit;">1</span>)</span></code></pre></div></div>
 <p>In the above code, change the <code>username</code>, <code>password</code>, <code>nigeria_box</code> and <code>start_date</code> &amp; <code>end_date</code> according to your requirements.</p>
 <p>To explain the above code —</p>
 <ul>
@@ -3734,11 +3734,11 @@ Downloading: 100%|████████████████████�
 <section id="for-the-curious-advanced" class="level3">
 <h3 class="anchored" data-anchor-id="for-the-curious-advanced">For the curious (Advanced)</h3>
 <p>The base url for the CMR API is —</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">https://cmr.earthdata.nasa.gov/search</span></span></code></pre></div>
+font-style: inherit;">https://cmr.earthdata.nasa.gov/search</span></span></code></pre></div></div>
 <p>Internally, CMR API first finds the collection for our dataset —</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD09GQ</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -3747,9 +3747,9 @@ font-style: inherit;">&amp;</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">version</span><span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>061</span></code></pre></div>
+font-style: inherit;">=</span>061</span></code></pre></div></div>
 <p>After that the package queries the granules endpoint to find individual granules matching our query parameters —</p>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">https://cmr.earthdata.nasa.gov/search/granules.json?downloadable=true</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -3793,7 +3793,7 @@ font-style: inherit;">&amp;</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">bounding_box</span><span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>2.1448863675%2C3.002583177%2C4.289420717%2C4.275061098</span></code></pre></div>
+font-style: inherit;">=</span>2.1448863675%2C3.002583177%2C4.289420717%2C4.275061098</span></code></pre></div></div>
 <p>Note that most parameters are autogenerated by the python package depending on the <code>short_name</code> and <code>version</code> you provide (downloadable, scroll, page_size, sort_key, concept_id). The other parameters are user defined (temporal, bounding_box)</p>
 <p>There are many more additional parameters which can be passed. A complete list is present in the <a href="https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html">documentation</a>. One such useful parameter that you can try out is <code>cloud_cover</code>. All you need to do is pass this parameter name with value to the <code>query</code> method in the above code.</p>
 
@@ -3802,14 +3802,14 @@ font-style: inherit;">=</span>2.1448863675%2C3.002583177%2C4.289420717%2C4.27506
 
  ]]></description>
   <category>Python</category>
-  <guid>https://amanbagrecha.github.io/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/</guid>
-  <pubDate>Wed, 27 Jul 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/featured.png" medium="image" type="image/png" height="77" width="144"/>
+  <guid>https://amanbagrecha.com/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/</guid>
+  <pubDate>Wed, 27 Jul 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/featured.png" medium="image" type="image/png" height="77" width="144"/>
 </item>
 <item>
   <title>Download and preprocess NASA GPM IMERG Data using Python and wget</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/gpm-imerg-xarray/</link>
+  <link>https://amanbagrecha.com/posts/gpm-imerg-xarray/</link>
   <description><![CDATA[ 
 
 
@@ -3849,7 +3849,7 @@ font-style: inherit;">=</span>2.1448863675%2C3.002583177%2C4.289420717%2C4.27506
 <p><img src="https://i.imgur.com/oZLeJuY.png" class="img-fluid"></p>
 <p>Now we have all the setup done and are ready to code.</p>
 <p>We first load the required libraries. Then, read the text file and loop over every line in it to download from the URL using the <code>requests</code> module. Finally, we save the file to Colab’s hard drive. If you do not see the files after running code, make sure to wait for at least a day after registering to earthdata to make your account activated. I was late to read about it and had wasted a long time debugging it.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
 background-color: null;
@@ -3979,14 +3979,14 @@ font-style: inherit;">'lat'</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'lon'</span>]).to_dataframe().to_csv(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'results.csv'</span>)</span></code></pre></div>
+font-style: inherit;">'results.csv'</span>)</span></code></pre></div></div>
 <p>In the above snippet, what is interesting is the method <code>open_mfdataset</code> which takes in all the <code>netCDF</code> files and gives us a nice, compact output from which we can subset and further process our data. Here, we take the average of all the values (precipitation) and convert it into a new dataframe. We are ready to export it as CSV.</p>
 </section>
 <section id="method-2-using-wget-to-download-and-then-preprocess-using-xarray" class="level3">
 <h3 class="anchored" data-anchor-id="method-2-using-wget-to-download-and-then-preprocess-using-xarray">Method 2: Using wget to download and then preprocess using xarray</h3>
 <p>In this method, we download all the netCDF files using <code>wget</code>. These files are then read using xarray which makes it really easy to process and get the information we require.</p>
 <p>Running the following shell command in Google Colab will download all the data from the text file URLs. Make sure to replace <code>your_user_name</code> , <code>&lt;url text file&gt;</code> within the command. It will ask for password of your earthdata account on running the cell.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">! </span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4012,9 +4012,9 @@ font-style: inherit;">-i</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;</span>url text file<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">&gt;</span></span></code></pre></div>
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
 <p>Once the above shell command is run on Colab, the following 2 lines of code will give a nice dataframe which can be exported to csv for further analysis.</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> xarray <span class="im" style="color: #00769E;
 background-color: null;
@@ -4036,7 +4036,7 @@ font-style: inherit;">'lon'</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'lat'</span>)).plot() <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># calculate the average precipitation on a half-hourly basis.</span></span></code></pre></div>
+font-style: inherit;"># calculate the average precipitation on a half-hourly basis.</span></span></code></pre></div></div>
 </section>
 <section id="final-comments" class="level3">
 <h3 class="anchored" data-anchor-id="final-comments">Final Comments</h3>
@@ -4048,13 +4048,13 @@ font-style: inherit;"># calculate the average precipitation on a half-hourly bas
 
  ]]></description>
   <category>Python</category>
-  <guid>https://amanbagrecha.github.io/posts/gpm-imerg-xarray/</guid>
-  <pubDate>Tue, 19 Apr 2022 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/gpm-imerg-xarray/</guid>
+  <pubDate>Tue, 19 Apr 2022 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>How to Upload Multiple Geotagged Images in Django</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-django-image-upload/</link>
+  <link>https://amanbagrecha.com/posts/2021-django-image-upload/</link>
   <description><![CDATA[ 
 
 
@@ -4068,7 +4068,7 @@ font-style: inherit;"># calculate the average precipitation on a half-hourly bas
 <section id="project-setup" class="level3">
 <h3 class="anchored" data-anchor-id="project-setup">Project setup</h3>
 <p>create django project</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">django-admin</span> startproject login_boiler_plate</span>
 <span id="cb1-2"><span class="ex" style="color: null;
@@ -4076,9 +4076,9 @@ background-color: null;
 font-style: inherit;">create</span> app python manage.py startapp GisMap</span>
 <span id="cb1-3"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">create</span> superuser python manage.py createsuperuser</span></code></pre></div>
+font-style: inherit;">create</span> superuser python manage.py createsuperuser</span></code></pre></div></div>
 <p>In <code>settings.py</code> add the app to <code>installed_app</code> list and setup the default location for media storage.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">INSTALLED_APPS <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">INSTALLED_APPS <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [</span>
 <span id="cb2-2">    ...</span>
@@ -4096,11 +4096,11 @@ font-style: inherit;">'media'</span>) </span>
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'/media/'</span></span></code></pre></div>
+font-style: inherit;">'/media/'</span></span></code></pre></div></div>
 </section>
 <section id="setup-the-database-backend-to-postgis-extenstion-of-postgresql." class="level3">
 <h3 class="anchored" data-anchor-id="setup-the-database-backend-to-postgis-extenstion-of-postgresql."><strong>Setup the database backend to postgis extenstion of postgresql.</strong></h3>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># in settings.py file</span></span>
 <span id="cb3-2">DATABASES <span class="op" style="color: #5E5E5E;
@@ -4142,9 +4142,9 @@ font-style: inherit;">'PORT'</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'5432'</span>,</span>
 <span id="cb3-10">    },</span>
-<span id="cb3-11">}</span></code></pre></div>
+<span id="cb3-11">}</span></code></pre></div></div>
 <p>In <code>models.py</code>, create model for uploading images. <code>DateTimeField</code> and <code>user</code> are not necessary.</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> django.db <span class="im" style="color: #00769E;
 background-color: null;
@@ -4217,9 +4217,9 @@ font-style: inherit;">" uploaded: "</span><span class="op" style="color: #5E5E5E
 background-color: null;
 font-style: inherit;">+</span> <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">self</span>.image.name</span></code></pre></div>
+font-style: inherit;">self</span>.image.name</span></code></pre></div></div>
 <p>In <code>forms.py</code>, refer to the ImageUpload model for input.</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">  </span>
 <span id="cb5-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> django.forms <span class="im" style="color: #00769E;
@@ -4251,9 +4251,9 @@ font-style: inherit;">=</span> ImageUpload</span>
 background-color: null;
 font-style: inherit;">=</span> (<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'image'</span>,)</span></code></pre></div>
+font-style: inherit;">'image'</span>,)</span></code></pre></div></div>
 <p>In <code>home.html</code>, create the form to accept image upload.</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1">                  <span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1">                  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;!-- Modal --&gt;</span></span>
 <span id="cb6-2">                  <span class="dt" style="color: #AD0000;
@@ -4605,9 +4605,9 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">form</span><span class="dt" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">&gt;</span></span></code></pre></div>
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
 <p>In <code>views.py</code>, accept the HTTP POST request and save to the database. We will alter this to extract latitude, longitude later.</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="at" style="color: #657422;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">@login_required</span>(login_url<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -4677,7 +4677,7 @@ font-style: inherit;">'Title'</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Home Page"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"image_form"</span>: ImageForm})</span></code></pre></div>
+font-style: inherit;">"image_form"</span>: ImageForm})</span></code></pre></div></div>
 </section>
 <section id="get-lat-lon-from-image-meta-deta-exchangeable-image-file-format-exif" class="level3">
 <h3 class="anchored" data-anchor-id="get-lat-lon-from-image-meta-deta-exchangeable-image-file-format-exif">Get Lat, lon from image meta deta (Exchangeable image file format [EXIF] )</h3>
@@ -4688,7 +4688,7 @@ font-style: inherit;">"image_form"</span>: ImageForm})</span></code></pre></div>
 <pre><code>pip install django-geo</code></pre>
 <p>NOTE- ensure os4geo is installed: install from <a href="https://qgis.org/en/site/forusers/download.html">here</a> if not done. And make the following changes in <code>settings.py</code>.</p>
 <p>An additional setting is required, which is to locate osgeo4w directory in django. If you install osgeo4w in default directory, you need to put the following code within the settings.py file.</p>
-<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">INSTALLED_APPS <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">INSTALLED_APPS <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [</span>
 <span id="cb9-2">...</span>
@@ -4804,9 +4804,9 @@ font-style: inherit;">in;"</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> os.environ[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'PATH'</span>]</span></code></pre></div>
+font-style: inherit;">'PATH'</span>]</span></code></pre></div></div>
 <p>In <code>models.py</code>, add a PointField which can store geospatial information (lat,lon)</p>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> django.contrib.gis.db <span class="im" style="color: #00769E;
 background-color: null;
@@ -4822,9 +4822,9 @@ font-style: inherit;">=</span> models.PointField( null<span class="op" style="co
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">True</span>)</span></code></pre></div>
+font-style: inherit;">True</span>)</span></code></pre></div></div>
 <p>In <code>views.py</code>, define functions to extract meta data from image and convert into right format for GeoDjango to understand it. Courtesy of <a href="https://developer.here.com/blog/getting-started-with-geocoding-exif-image-metadata-in-python3">Jayson DeLancey</a></p>
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"></span>
 <span id="cb11-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#________________________________________FUNCTIONS FOR IMAGE EXIF DATA______________________________________________________________________________#</span></span>
@@ -5031,9 +5031,9 @@ font-style: inherit;">return</span> geotagging</span>
 <span id="cb11-49"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#_______________________________________________________________________________________________________________________________________#</span></span>
-<span id="cb11-50"></span></code></pre></div>
+<span id="cb11-50"></span></code></pre></div></div>
 <p>In <code>views.py</code>, update home_page function to extract meta data and save the image to database.</p>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> django.contrib.gis.geos <span class="im" style="color: #00769E;
 background-color: null;
@@ -5145,20 +5145,20 @@ background-color: null;
 font-style: inherit;">"Home Page"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"image_form"</span>: ImageForm}</span>
-<span id="cb12-28">        )</span></code></pre></div>
+<span id="cb12-28">        )</span></code></pre></div></div>
 </section>
 </section>
 <section id="upload-to-s3-bucket" class="level2">
 <h2 class="anchored" data-anchor-id="upload-to-s3-bucket">Upload to S3 bucket</h2>
 <p>Install boto3 package and django-storages. Add to installed packages. Additionally, provide Key:Value AWS credentials to access the bucket and change the default file storage to S3.</p>
-<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">pip</span> install django-storages</span>
 <span id="cb13-2"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">pip</span> install boto3</span></code></pre></div>
+font-style: inherit;">pip</span> install boto3</span></code></pre></div></div>
 <p>in <code>settings.py</code></p>
-<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">INSTALLED_APPS <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">INSTALLED_APPS <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [</span>
 <span id="cb14-2">    ...</span>
@@ -5206,10 +5206,10 @@ font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">False</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">//</span> removes the query string</span></code></pre></div>
+font-style: inherit;">//</span> removes the query string</span></code></pre></div></div>
 <p><strong>NOTE: Make the bucket public to be able to make HTTP request</strong></p>
 <p>Provide policy to make our s3 bucket public. By default, the bucket is private and no read/wrtie access is provided for user from outside the s3 page. There are other ways to access private bucket by either Limiting access to specific IP addresses or Restricting access to a specific HTTP referer. For simplicity we make the bucket public.</p>
-<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb15-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb15-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">{</span></span>
 <span id="cb15-2">  <span class="dt" style="color: #AD0000;
@@ -5294,14 +5294,14 @@ background-color: null;
 font-style: inherit;">]</span></span>
 <span id="cb15-12"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">}</span></span></code></pre></div>
+font-style: inherit;">}</span></span></code></pre></div></div>
 </section>
 <section id="accept-non-geotagged-images" class="level2">
 <h2 class="anchored" data-anchor-id="accept-non-geotagged-images">Accept non-geotagged images</h2>
 <p>At this point, we should be able to upload geotagged images to s3 bucket. Non-geotagged images are not yet accepted by the model and thus we create seperate model for it.</p>
 <p><a href="https://stackoverflow.com/questions/34006994/how-to-upload-multiple-images-to-a-blog-post-in-django">Additional resource</a></p>
 <p>We now make separate model for accepting non-geotagged images similar to <code>ImageUpload</code> model but without <code>PointField</code>.</p>
-<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> Photos(models.Model):</span>
@@ -5393,9 +5393,9 @@ font-style: inherit;">" uploaded image "</span><span class="op" style="color: #5
 background-color: null;
 font-style: inherit;">+</span> <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">self</span>.image.name</span></code></pre></div>
+font-style: inherit;">self</span>.image.name</span></code></pre></div></div>
 <p>In <code>views.py</code> file, extend the home_page function to add a fallback for non-geotagged images.</p>
-<div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><span class="cf" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> request.method <span class="op" style="color: #5E5E5E;
@@ -5531,12 +5531,12 @@ background-color: null;
 font-style: inherit;">"Home Page"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"image_form"</span>: ImageForm}</span>
-<span id="cb17-35">    )</span></code></pre></div>
+<span id="cb17-35">    )</span></code></pre></div></div>
 </section>
 <section id="accept-multiple-images" class="level2">
 <h2 class="anchored" data-anchor-id="accept-multiple-images">Accept multiple images</h2>
 <p>Make a new form which accepts multiple image files to be uploaded at once.</p>
-<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> PhotoForm(forms.ModelForm):</span>
@@ -5563,9 +5563,9 @@ font-style: inherit;">=</span> Photos</span>
 background-color: null;
 font-style: inherit;">=</span> (<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'images'</span>,)</span></code></pre></div>
+font-style: inherit;">'images'</span>,)</span></code></pre></div></div>
 <p>In <code>home.html</code>, add <code>multiple</code> attribute to allow for multiple selection of images at once.</p>
-<div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb19-1">                <span class="dt" style="color: #AD0000;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb19-1">                <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">&lt;</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -5639,7 +5639,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">div</span><span class="dt" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">&gt;</span></span></code></pre></div>
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
 </section>
 <section id="final-note" class="level2">
 <h2 class="anchored" data-anchor-id="final-note">Final Note:</h2>
@@ -5659,13 +5659,13 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 
  ]]></description>
   <category>Django</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-django-image-upload/</guid>
-  <pubDate>Sat, 02 Apr 2022 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-django-image-upload/</guid>
+  <pubDate>Sat, 02 Apr 2022 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>COGs as the Stand-in Replacement for GeoTIFFs</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/</link>
+  <link>https://amanbagrecha.com/posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/</link>
   <description><![CDATA[ 
 
 
@@ -5706,7 +5706,7 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 <p>While looking at “How to generate a COG”, I encountered some fancy jargons — Block, Tile, Overview and Pyramid. Understanding them is essential to get the most out of COGs. Although I had known about them from when I started my GIS career, but you truly understand anything only when you apply it, don’t you?</p>
 <p>To comprehend the above terms, let us take an example and experiment with it. I have a sentinel-2 L2A band 03 downloaded from <a href="https://scihub.copernicus.eu/dhus/">scihub</a>. The data is in JPEG2000 format (which is not a cloud optimized format).</p>
 <p>On performing <code>gdalinfo ./T43PHP_20210123T051121_B03_20m.jp2</code>, the output gives a detailed description of the dataset. We focus on last few lines,</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">Band</span> 1 Block=640x640 Type=UInt16, ColorInterp=Gray</span>
 <span id="cb1-2"><span class="ex" style="color: null;
@@ -5727,7 +5727,7 @@ font-style: inherit;">=</span>JPEG2000</span>
 background-color: null;
 font-style: inherit;">NBITS</span><span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>15</span></code></pre></div>
+font-style: inherit;">=</span>15</span></code></pre></div></div>
 <p>The <code>block</code> parameter represents the shape of tile (width x height) in the raster image. For example a <code>Block=640x640</code> represents a tile of width of 640 and height of 640 pixels. <strong>Fig. 1</strong> illustrates a tile as displayed on a web application.</p>
 <figure class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Tiled_web_map_Stevage.png" class="img-fluid figure-img"></p>
@@ -5767,18 +5767,18 @@ font-style: inherit;">=</span>15</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="cogs-as-stand-in-replacement">COGs as Stand-in replacement</h3>
 <p>With the aim to create COGs, I ended up experimenting with GeoTIFF and JP2000 formats.</p>
 <p>On converting our <code>.jp2</code> to <code>.tif</code> by running <code>gdal_translate -of GTiff ./T43PHP_20210123T051121_B03_20m.jp2 b03.tif</code> and then <code>gdalinfo ./b03.tif</code>, it resulted in file size = 58 MB, and</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">Band</span> 1 Block=5490x1 Type=UInt16, ColorInterp=Gray</span></code></pre></div>
+font-style: inherit;">Band</span> 1 Block=5490x1 Type=UInt16, ColorInterp=Gray</span></code></pre></div></div>
 <p>You’d notice that the file size of the <code>.tif</code> is much higher than that of <code>.jp2</code>. Additionally we do not see any overviews for the <code>.tif</code> file.</p>
 <hr>
 <p>On running the command <code>gdaladdo -r average ./b03.tif</code> to add internal overview to my raster, and then <code>gdalinfo b03.tif</code>, the output file size of the resulted raster is 78 MB, and</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">Band</span> 1 Block=5490x1 Type=UInt16, ColorInterp=Gray</span>
 <span id="cb3-2">  <span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 172x172</span></code></pre></div>
+font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 172x172</span></code></pre></div></div>
 <p>The point I am trying to convey here is that when you add an overview to the raster, there is an additional cost in terms of storage. In my opinion, the reason sentinel-2 images are stored with <code>.jp2</code> format is because of lower file size since they do not have to serve the raster on the web but instead let users download them in entirety. This would save them a huge cost on storing the data.</p>
 </section>
 <section id="cloud-optimized-geotiff-cog" class="level3">
@@ -5788,35 +5788,35 @@ font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 
 </blockquote>
 <p>Cloud Optimized GeoTIFFs (COGs) are great! I use them in my work and they allow for easy and rendering of rasters on-the-fly. What makes it great is that it supports HTTP Range requests. This allows you to only fetch data where you are requesting it.</p>
 <p>To create COGs using GDAL, it is as simple as typing</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">gdalwarp</span> <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-of</span> COG ./b03.tif b03_cog.tif</span></code></pre></div>
+font-style: inherit;">-of</span> COG ./b03.tif b03_cog.tif</span></code></pre></div></div>
 <p>The result from the above command results in a file size of 87 MB and,</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">Band</span> 1 Block=512x512 Type=UInt16, ColorInterp=Gray</span>
 <span id="cb5-2">  <span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 172x172</span></code></pre></div>
+font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 172x172</span></code></pre></div></div>
 <p>By default, internal overviews and tiles are created for us. We can tune both Block size and Overview parameters if needed. See <a href="https://gdal.org/drivers/raster/cog.html">here</a></p>
 <hr>
 <p>You can see from previous experiments that creating COGs can be a costly in terms of its size, but you should not leave it there. The true potential of COG is realized only when you pass in additional options (compression, tile size, overviews etc).</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">gdalwarp</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-of</span> COG <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-co</span> COMPRESS=DEFLATE ./b03_cog.tif b03_cog_deflate.tif</span></code></pre></div>
+font-style: inherit;">-co</span> COMPRESS=DEFLATE ./b03_cog.tif b03_cog_deflate.tif</span></code></pre></div></div>
 <p>The result from the above command results in a file size of 57 MB and,</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">Band</span> 1 Block=512x512 Type=UInt16, ColorInterp=Gray</span>
 <span id="cb7-2">  <span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 172x172</span></code></pre></div>
+font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 172x172</span></code></pre></div></div>
 <hr>
 </section>
 <section id="description" class="level2">
@@ -5864,14 +5864,14 @@ font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 
 </section>
 
  ]]></description>
-  <guid>https://amanbagrecha.github.io/posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/</guid>
-  <pubDate>Sat, 05 Mar 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/featured1.png" medium="image" type="image/png" height="104" width="144"/>
+  <guid>https://amanbagrecha.com/posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/</guid>
+  <pubDate>Sat, 05 Mar 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/featured1.png" medium="image" type="image/png" height="104" width="144"/>
 </item>
 <item>
   <title>How to save Earth Engine Image directly to your local machine</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/</link>
+  <link>https://amanbagrecha.com/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/</link>
   <description><![CDATA[ 
 
 
@@ -5890,7 +5890,7 @@ font-style: inherit;">Overviews:</span> 2745x2745, 1373x1373, 687x687, 344x344, 
 </figcaption>
 </figure>
 <p>To accomplish creation of points at spacing equal to pixel width and height, we use the following function</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># generate points</span></span>
 <span id="cb1-2"><span class="kw" style="color: #003B4F;
@@ -5917,9 +5917,9 @@ font-style: inherit;">return</span> feat</span>
 <span id="cb1-7">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> wrap</span></code></pre></div>
+font-style: inherit;">return</span> wrap</span></code></pre></div></div>
 <p>The above code can be interpreted as a nested loop.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Pseudo code</span></span>
 <span id="cb2-2"><span class="cf" style="color: #003B4F;
@@ -5936,9 +5936,9 @@ font-style: inherit;">for</span> each_y <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> y_pt:</span>
-<span id="cb2-4">        create_Point(each_x, each_y)</span></code></pre></div>
+<span id="cb2-4">        create_Point(each_x, each_y)</span></code></pre></div></div>
 <p>x_pt and y_pt are generated from the geopackage (AOI) using GeoPandas library as follows</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> generatePoints(file_name, pixel_size):</span>
@@ -5970,7 +5970,7 @@ font-style: inherit;">=</span> ee.List.sequence(miny, maxy, pixel_size)</span>
 <span id="cb3-11">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> x_pt, y_pt, minx, maxy</span></code></pre></div>
+font-style: inherit;">return</span> x_pt, y_pt, minx, maxy</span></code></pre></div></div>
 <p>Here we are basically creating a new <code>Point</code> feature for each x and y point.</p>
 <p>Once we have the grid over our AOI, we can go ahead and call <code>getRegion</code> method</p>
 <p>The documentation does a good job in explaining what <code>getRegion</code> is all about</p>
@@ -5978,7 +5978,7 @@ font-style: inherit;">return</span> x_pt, y_pt, minx, maxy</span></code></pre></
 <p>Output an array of values for each [pixel, band, image] tuple in an ImageCollection. The output contains rows of id, lon, lat, time, and all bands for each image that intersects each pixel in the given region. Attempting to extract more than 1048576 values will result in an error.</p>
 </blockquote>
 <p>The limit 1048576 results in a max tile width and height of 1024 x 1024 pixels. By combining the previously created grid and <code>getRegion</code>, we could potentially get 100 times more pixels than getDownloadURL. Let us do that!</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">len_y <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">len_y <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="bu" style="color: null;
 background-color: null;
@@ -6028,7 +6028,7 @@ background-color: null;
 font-style: inherit;">=</span> rasterio.transform.from_origin(minx, maxy, pixel_size, pixel_size)</span>
 <span id="cb4-13">save_tiff(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"output.tif"</span>, data_matrix, transform, CRS)</span></code></pre></div>
+font-style: inherit;">"output.tif"</span>, data_matrix, transform, CRS)</span></code></pre></div></div>
 <p>The above code first gets the count of points in each of the 2-dimensions followed by fetching the dataframe which contains the lat, lon and pixel value as shown in the image.</p>
 <figure class="figure">
 <p><img src="https://i.imgur.com/5SjjW0E.png" class="img-fluid figure-img"></p>
@@ -6037,7 +6037,7 @@ font-style: inherit;">"output.tif"</span>, data_matrix, transform, CRS)</span></
 </figcaption>
 </figure>
 <p>Now we reshape the dataframe and flip it to make the pixel arrange in image format. Lastly, we save the image by passing the transformation of the image. Make sure to have an imageCollection for the <code>getRegion</code> method to work. Currently, the above code can only download 1 band at a time, but with simple modification to the <code>getDataframe</code> function, that too can be changed.</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> getDataframe(img_col, feature, input_band, crs):</span>
@@ -6134,7 +6134,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">None</span></span></code></pre></div>
+font-style: inherit;">None</span></span></code></pre></div></div>
 <p>The output of the exercise is that you have a raster directly downloaded to your local machine, without google drive/ cloud intermediaries. One thing worth pointing out, is for extremely large images, you are better off downloading via the specified steps in docs. This hacky way is to simplify things and avoid google drive (which is never empty for me).</p>
 <p><img src="https://i.imgur.com/Z8DEJHh.jpg" class="img-fluid"></p>
 <p>The full code can be accessed <a href="https://github.com/amanbagrecha/ee-image-direct-download">here</a></p>
@@ -6143,14 +6143,14 @@ font-style: inherit;">None</span></span></code></pre></div>
 
  ]]></description>
   <category>earth-engine</category>
-  <guid>https://amanbagrecha.github.io/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/</guid>
-  <pubDate>Sun, 06 Feb 2022 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png" medium="image" type="image/png" height="64" width="144"/>
+  <guid>https://amanbagrecha.com/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/</guid>
+  <pubDate>Sun, 06 Feb 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/featured.png" medium="image" type="image/png" height="64" width="144"/>
 </item>
 <item>
   <title>Vector tiles and Docker using pg_tilerserv</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/</link>
+  <link>https://amanbagrecha.com/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/</link>
   <description><![CDATA[ 
 
 
@@ -6198,7 +6198,7 @@ font-style: inherit;">None</span></span></code></pre></div>
 <p>Notes on docker-compose file - We are mounting <code>data</code> dir from our local system to the work dir in the docker container. - We are mapping port 7800 from our local machine to 7800 to the pg_tileserv container.</p>
 <p>Start Docker Desktop and run <code>docker-compose build</code> in the command line. It will download the image needed from the dockerfile specified. It only downloads the latest alpine image and all other dependencies are installed in the build.</p>
 <p>Once the database setup is done, we now load data into the database by running either <code>load-data.sh</code> shell script (or) the following command,</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#Load data using shp2pgsql </span></span>
 <span id="cb2-2"><span class="ex" style="color: null;
@@ -6207,7 +6207,7 @@ font-style: inherit;">docker-compose</span> exec pg_tileserv_db sh <span class="
 background-color: null;
 font-style: inherit;">-c</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"shp2pgsql -D -s 4326 /work/ne_50m_admin_0_countries.shp | psql -U tileserv -d tileserv"</span></span></code></pre></div>
+font-style: inherit;">"shp2pgsql -D -s 4326 /work/ne_50m_admin_0_countries.shp | psql -U tileserv -d tileserv"</span></span></code></pre></div></div>
 <p>The above command opens a terminal inside the pg_tileserv_db container and runs the <code>shp2pgsql</code> command.</p>
 <p>We can use <code>ogr2ogr</code> command line tool if your data is anything other than shapefile. Read this blog by <a href="https://blog.crunchydata.com/blog/loading-data-into-postgis-an-overview">Kat Batuigas</a> to know how to do it.</p>
 <p>Finally, run <code>docker-compose up</code> to start the service. You’d see both containers starting up and your web app being served on port 7800. If you do not see this, stop the container and run again.</p>
@@ -6233,14 +6233,14 @@ font-style: inherit;">"shp2pgsql -D -s 4326 /work/ne_50m_admin_0_countries.shp |
  ]]></description>
   <category>Docker</category>
   <category>Vector-tiles</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/</guid>
-  <pubDate>Tue, 21 Dec 2021 18:30:00 GMT</pubDate>
-  <media:content url="https://amanbagrecha.github.io/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/featured.png" medium="image" type="image/png" height="65" width="144"/>
+  <guid>https://amanbagrecha.com/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/</guid>
+  <pubDate>Tue, 21 Dec 2021 23:00:00 GMT</pubDate>
+  <media:content url="https://amanbagrecha.com/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/featured.png" medium="image" type="image/png" height="65" width="144"/>
 </item>
 <item>
   <title>Polygonize Raster and Compute Zonal-Statistics in Python</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/</link>
+  <link>https://amanbagrecha.com/posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/</link>
   <description><![CDATA[ 
 
 
@@ -6260,7 +6260,7 @@ font-style: inherit;">"shp2pgsql -D -s 4326 /work/ne_50m_admin_0_countries.shp |
 </figcaption>
 </figure>
 <p>Another way to polygonize raster programmatically is to use the <code>rasterio</code> library. Since rasterio utilizes GDAL under the hood, it also performs similar action and results in a pair of geometry and raster value. We create a tuple of dictionaries to store each feature output.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># code to polygonize using rasterio</span></span>
 <span id="cb2-2"><span class="im" style="color: #00769E;
@@ -6323,7 +6323,7 @@ font-style: inherit;">in</span> (features.shapes(image, mask<span class="op" sty
 background-color: null;
 font-style: inherit;">=</span>mask, transform<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>src.transform)))</span></code></pre></div>
+font-style: inherit;">=</span>src.transform)))</span></code></pre></div></div>
 <p>Once we have the raster polygonized, we can use <code>rasterstats</code> library to calculate zonal statistics. We use this library since there is no in-built functionality for rasterio to calculate it.</p>
 <p>This library has a function <code>zonal_stats</code> which takes in a vector layer and a raster to calculate the zonal statistics. Read more <a href="https://pythonhosted.org/rasterstats/manual.html#zonal-statistics">here</a></p>
 <p>The parameters to the function are:</p>
@@ -6334,7 +6334,7 @@ font-style: inherit;">=</span>src.transform)))</span></code></pre></div>
 <p>and various other options which can be found <a href="https://github.com/perrygeo/python-rasterstats/blob/master/src/rasterstats/main.py#L34">here</a></p>
 <p>To create a vector layer from the tuple <code>results</code>, we use geopandas. There are other libraries (such as fiona) which can also create vector geometry from shapely objects.</p>
 <p>For raster, we pass the <code>.tif</code> file directly to <code>zonal_stats</code>. The final code looks like the following</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> rasterstats <span class="im" style="color: #00769E;
 background-color: null;
@@ -6366,7 +6366,7 @@ font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">999</span>)</span></code></pre></div>
+font-style: inherit;">999</span>)</span></code></pre></div></div>
 <p>The output is a geojson generator when <code>geojson_out</code> is True. we can convert the geojson to dataframe and export as csv for further processing.</p>
 <p>This way, with the help of geopandas, rasterstats and rasterio, we polygonize the raster and calculate zonal statistics.</p>
 
@@ -6375,13 +6375,13 @@ font-style: inherit;">999</span>)</span></code></pre></div>
  ]]></description>
   <category>GDAL</category>
   <category>Python</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/</guid>
-  <pubDate>Wed, 29 Sep 2021 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/</guid>
+  <pubDate>Wed, 29 Sep 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Two ways to Programmatically change projection of raw CSV</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/</link>
+  <link>https://amanbagrecha.com/posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/</link>
   <description><![CDATA[ 
 
 
@@ -6399,7 +6399,7 @@ font-style: inherit;">999</span>)</span></code></pre></div>
 </figcaption>
 </figure>
 <p>This example shows using <code>ogr2ogr</code> to reproject the CRS of CSV file with the latitude, longitude coordinates stored as columns <strong>lat</strong>, <strong>lon</strong> in the <code>input.csv</code> file.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ogr2ogr</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -6407,7 +6407,7 @@ font-style: inherit;">-f</span> CSV <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-lco</span> GEOMETRY=AS_XY <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-t_srs</span> EPSG:32644 output.csv input.vrt</span></code></pre></div>
+font-style: inherit;">-t_srs</span> EPSG:32644 output.csv input.vrt</span></code></pre></div></div>
 <p>Following is the explanation of the above command,</p>
 <ol type="1">
 <li><code>-lco GEOMETRY=AS_XY</code> : Layer creation option with XY columns added in output CSV.</li>
@@ -6417,7 +6417,7 @@ font-style: inherit;">-t_srs</span> EPSG:32644 output.csv input.vrt</span></code
 <li><code>output.csv</code> : output CSV with reprojected coordinates</li>
 </ol>
 <p>In the above code, <code>input.vrt</code> is a GDAL virtual raster which has to be created prior to running the command. It points to the CSV file which has the location data stored as columns (lon, lat)</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;!--input.vrt pointing to the input.csv--&gt;</span></span>
 <span id="cb2-2">&lt;<span class="kw" style="color: #003B4F;
@@ -6476,7 +6476,7 @@ font-style: inherit;">OGRVRTLayer</span>&gt; </span>
 <span id="cb2-9">&lt;/<span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">OGRVRTDataSource</span>&gt;</span></code></pre></div>
+font-style: inherit;">OGRVRTDataSource</span>&gt;</span></code></pre></div></div>
 <p><strong>But what does the above xml mean?</strong></p>
 <p>The above xml is a virtual raster (VRT) which allows for lazy processing. Often, we have to save intermediary outputs on our local disk, which could potentially take a lot of space. To avoid that, VRT allows to store the processing in an xml encoding and performs all intermediary action at once, in the final step.</p>
 <ol type="1">
@@ -6497,7 +6497,7 @@ font-style: inherit;">OGRVRTDataSource</span>&gt;</span></code></pre></div>
 <section id="using-geopandas" class="level2">
 <h2 class="anchored" data-anchor-id="using-geopandas">Using GeoPandas</h2>
 <p>With its simple and intuitive API, GeoPandas allows us to read, reproject CRS and write files on-the-fly.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">in_path <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">in_path <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -6605,7 +6605,7 @@ font-style: inherit;">file</span>), index<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">False</span> )</span></code></pre></div>
+font-style: inherit;">False</span> )</span></code></pre></div></div>
 <p>In the above code, we loop through our CSV files. For each file, we create a GeoDataFrame and change the CRS. Lastly, we replace the coordinates with reprojected one.</p>
 <section id="endnote" class="level3">
 <h3 class="anchored" data-anchor-id="endnote">Endnote</h3>
@@ -6618,13 +6618,13 @@ font-style: inherit;">False</span> )</span></code></pre></div>
  ]]></description>
   <category>GDAL</category>
   <category>Python</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/</guid>
-  <pubDate>Wed, 29 Sep 2021 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/</guid>
+  <pubDate>Wed, 29 Sep 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Overlay cropped raster with vector layer</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-09-19-overlay-cropped-raster-with-vector-layer/</link>
+  <link>https://amanbagrecha.com/posts/2021-09-19-overlay-cropped-raster-with-vector-layer/</link>
   <description><![CDATA[ 
 
 
@@ -6633,7 +6633,7 @@ font-style: inherit;">False</span> )</span></code></pre></div>
 <p>I recently faced a problem of having to plot “cropped raster” layer and a vector layer on the same axes. It is known that we first need to identify the spatial extent of each layer, having the same coordinate reference system.<br>
 Rasterio does offer a plotting function <code>show</code> which can plot a raster layer with the correct spatial extent for you when we pass the dataset reader object.</p>
 <p>When we pass a reader object, the spatial extent is automatically read by <code>show</code> function.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="cf" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">with</span> rs.<span class="bu" style="color: null;
@@ -6668,7 +6668,7 @@ font-style: inherit;">=</span> vector_layer.plot(ax<span class="op" style="color
 background-color: null;
 font-style: inherit;">=</span>ax)    <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># `vector_layer` is a geodataframe (geopandas)</span></span></code></pre></div>
+font-style: inherit;"># `vector_layer` is a geodataframe (geopandas)</span></span></code></pre></div></div>
 <figure class="figure">
 <p><img src="https://i.imgur.com/A33Vopw.png" class="img-fluid figure-img"></p>
 <figcaption align="center">
@@ -6676,7 +6676,7 @@ font-style: inherit;"># `vector_layer` is a geodataframe (geopandas)</span></spa
 </figcaption>
 </figure>
 <p>Moreover, if we pass a numpy array to the <code>show</code> function, the spatial extent of that array has to be explicitly passed using the <code>transform</code> parameter of the <code>show</code> function since the numpy array does not know the corner location of the raster and thus the plot would begin with x,y: 0,0 as shown below.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="cf" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">with</span> rs.<span class="bu" style="color: null;
@@ -6715,9 +6715,9 @@ font-style: inherit;">=</span>ax)</span>
 background-color: null;
 font-style: inherit;">=</span> vector_layer.plot(ax<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>ax)</span></code></pre></div>
+font-style: inherit;">=</span>ax)</span></code></pre></div></div>
 <p>But what if you want to plot a subset of the raster image, in the sense that you would like to slice the image arbitrarily and plot it. When you slice the image, the affine transformation is not the same anymore and thus plotting the sliced image would result in a plot having the spatial extent of the original image while the sliced image being magnified (Fig. 2).</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="cf" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">with</span> rs.<span class="bu" style="color: null;
@@ -6766,7 +6766,7 @@ font-style: inherit;">=</span>ax)</span>
 background-color: null;
 font-style: inherit;">=</span> vector_layer.plot(ax<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>ax)</span></code></pre></div>
+font-style: inherit;">=</span>ax)</span></code></pre></div></div>
 <figure class="figure">
 <p><img src="https://i.imgur.com/ePTM6q0.png" class="img-fluid figure-img"></p>
 <figcaption align="center">
@@ -6777,7 +6777,7 @@ font-style: inherit;">=</span>ax)</span></code></pre></div>
 <section id="cropped-raster-and-vector-overlay" class="level2">
 <h2 class="anchored" data-anchor-id="cropped-raster-and-vector-overlay">Cropped raster and vector overlay</h2>
 <p>The above method returns the new affine transformation, which can be passed to the <code>show</code> function for the numpy array through the <code>transform</code> parameter. We also change the read method instead of slicing the array by window parameter to maintain uniformity</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># load raster</span></span>
 <span id="cb4-2"><span class="cf" style="color: #003B4F;
@@ -6843,7 +6843,7 @@ font-style: inherit;">=</span>ax)</span>
 background-color: null;
 font-style: inherit;">=</span> vector_layer.plot(ax<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>ax)</span></code></pre></div>
+font-style: inherit;">=</span>ax)</span></code></pre></div></div>
 <figure class="figure">
 <p><img src="https://i.imgur.com/uwVnq4z.png" class="img-fluid figure-img"></p>
 <figcaption align="center">
@@ -6858,13 +6858,13 @@ font-style: inherit;">=</span>ax)</span></code></pre></div>
  ]]></description>
   <category>Remote Sensing</category>
   <category>Python</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-09-19-overlay-cropped-raster-with-vector-layer/</guid>
-  <pubDate>Sat, 18 Sep 2021 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-09-19-overlay-cropped-raster-with-vector-layer/</guid>
+  <pubDate>Sat, 18 Sep 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>SMAP Time Series</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-09-08-smap-time-series/</link>
+  <link>https://amanbagrecha.com/posts/2021-09-08-smap-time-series/</link>
   <description><![CDATA[ 
 
 
@@ -6896,7 +6896,7 @@ font-style: inherit;">=</span>ax)</span></code></pre></div>
 <section id="run-the-downloaded-script.-it-will-ask-you-for-your-earth-data-credentials-username-and-password" class="level3">
 <h3 class="anchored" data-anchor-id="run-the-downloaded-script.-it-will-ask-you-for-your-earth-data-credentials-username-and-password">Run the downloaded script. It will ask you for your earth data credentials (username and password)</h3>
 <p>We move the downloaded files to data directory and delete any associated files that comes along with it.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Download data: Enter credentials for earth data</span></span>
 <span id="cb1-2"><span class="op" style="color: #5E5E5E;
@@ -6931,9 +6931,9 @@ background-color: null;
 font-style: inherit;">*</span>.h5<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span></span>
-<span id="cb1-8"> </span></code></pre></div>
+<span id="cb1-8"> </span></code></pre></div></div>
 <p>Next, get the lat long for EASE grid 2.0. Since we have to locate Bengaluru (study area) and SMAP uses a specific grid system, we download these files.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>wget https:<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -6974,7 +6974,7 @@ font-style: inherit;">/</span>EASE2_M36km.lons<span class="fl" style="color: #AD
 background-color: null;
 font-style: inherit;">.964</span><span class="er" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">x406x1</span>.double</span></code></pre></div>
+font-style: inherit;">x406x1</span>.double</span></code></pre></div></div>
 </section>
 <section id="extract-soil-moisture" class="level3">
 <h3 class="anchored" data-anchor-id="extract-soil-moisture">Extract soil moisture</h3>
@@ -6982,7 +6982,7 @@ font-style: inherit;">x406x1</span>.double</span></code></pre></div>
 <p>We create a <code>read_SML3P</code> method which reads the hdf5 files using the h5py library as an array and removes noisy elements as defined by the user guide. The filename contains the date of acquisition and we extract that.</p>
 <p>We next define the <code>generate_time_series</code> method to subset the array to our area of interest (Bengaluru) while also taking the mean since there might be more than 1 pixel intersecting the AOI and then return a dataframe with date and the value of Soil Moisture.</p>
 <p>There are some additional method we define to run and initialise the class which can be read from <a href="https://github.com/amanbagrecha/smap_time_series_analysis/blob/main/main.py">here</a></p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> SML3PSoilMoist:</span>
@@ -7244,7 +7244,7 @@ font-style: inherit;">return</span> pd.DataFrame({<span class="st" style="color:
 background-color: null;
 font-style: inherit;">'time'</span> : times, <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">self</span>.orbit_pass: sm_time })</span></code></pre></div>
+font-style: inherit;">self</span>.orbit_pass: sm_time })</span></code></pre></div></div>
 <p>Lastly, we plot the dataframe using pandas method <code>plot</code> and the result is to be shown to the world.</p>
 <p><img src="https://i.imgur.com/PngGsda.png" class="img-fluid"></p>
 <p>This blog helps demonstrates use of SMAP product to generate time series for an entire month of August. You can read more about the specification of the product <a href="https://nsidc.org/support/faq/how-do-i-interpret-surface-and-quality-flag-information-level-2-and-3-passive-soil">here</a></p>
@@ -7258,13 +7258,13 @@ font-style: inherit;">self</span>.orbit_pass: sm_time })</span></code></pre></di
 
  ]]></description>
   <category>Remote Sensing</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-09-08-smap-time-series/</guid>
-  <pubDate>Tue, 07 Sep 2021 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-09-08-smap-time-series/</guid>
+  <pubDate>Tue, 07 Sep 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Contour Maps in QGIS</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-07-24-contour-maps-in-qgis/</link>
+  <link>https://amanbagrecha.com/posts/2021-07-24-contour-maps-in-qgis/</link>
   <description><![CDATA[ 
 
 
@@ -7345,7 +7345,7 @@ font-style: inherit;">self</span>.orbit_pass: sm_time })</span></code></pre></di
 <h3 class="anchored" data-anchor-id="automating-the-process">Automating the process</h3>
 <p>So far we have looked into creating surface raster for an individual return period. But we have several other return periods and we do not want to repeat ourselves. Thus we write a tiny python code to automate this workflow.</p>
 <p>We derive the RCFs for return period of 5year, 10year, 25year, 50year</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># specify the output location for saving the files</span></span>
 <span id="cb1-2">OUTPATH <span class="op" style="color: #5E5E5E;
@@ -7534,7 +7534,7 @@ font-style: inherit;">'Success:'</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Output file written at '</span>, level<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>Qgis.Success)</span></code></pre></div>
+font-style: inherit;">=</span>Qgis.Success)</span></code></pre></div></div>
 <p>Our output would save and display the contour files with RCP_avg_{return_period} where return period ranges from [2,5,10,25,50]</p>
 <p>The code first fetches our shapefile, which is used to 1. create temporary TIN interpolation rasters 3. clipped to india boundary using <code>clip raster by mask layer</code></p>
 <p>Once we have the rasters for each return period, we style the raster using singleband pseudocolor in <code>Equal Interval</code> mode ranging from 1.0 - 1.8 in steps of 0.1</p>
@@ -7569,13 +7569,13 @@ font-style: inherit;">=</span>Qgis.Success)</span></code></pre></div>
 
  ]]></description>
   <category>QGIS</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-07-24-contour-maps-in-qgis/</guid>
-  <pubDate>Fri, 23 Jul 2021 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-07-24-contour-maps-in-qgis/</guid>
+  <pubDate>Fri, 23 Jul 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Query Geoserver Layer using openlayers</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-07-16-geoserver-query-builder/</link>
+  <link>https://amanbagrecha.com/posts/2021-07-16-geoserver-query-builder/</link>
   <description><![CDATA[ 
 
 
@@ -7602,7 +7602,7 @@ python manage.py startapp gisapp</code></pre>
 <h3 class="anchored" data-anchor-id="setup-the-database">Setup the database</h3>
 <p>We set up postgresql for this exercise. Create a new database and add a postgis extension from it. For more info on how to set up the extension, click here.</p>
 <p>Once the database is set up on the localhost server, we make changes to the settings.py module in our application.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># change database</span></span>
 <span id="cb3-2"></span>
@@ -7645,7 +7645,7 @@ font-style: inherit;">'PORT'</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'5432'</span>,</span>
 <span id="cb3-11">    },</span>
-<span id="cb3-12">}</span></code></pre></div>
+<span id="cb3-12">}</span></code></pre></div></div>
 </section>
 <section id="add-installed-apps" class="level3">
 <h3 class="anchored" data-anchor-id="add-installed-apps">Add installed apps</h3>
@@ -7668,7 +7668,7 @@ INSTALLED_APPS = [
 <p>Our focus will be on the frontend, but the full code can be accessed from <a href="https://github.com/amanbagrecha/openlayers-geoserver-query">here</a>.</p>
 <p>For querying and displaying layers from geoserver, we first need geoserver installed and running. For more info on how to do that can be found <a href="https://docs.geoserver.org/master/en/user/installation/win_binary.html">here</a>.</p>
 <p>In the following steps we setup our basemap layer to be ESRI World Imagery and define an empty vector layer to store the result of query.</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">// map setup</span></span>
 <span id="cb5-2"><span class="kw" style="color: #003B4F;
@@ -7953,16 +7953,16 @@ font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">btoa</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'admin:geoserver'</span>)}</span></code></pre></div>
+font-style: inherit;">'admin:geoserver'</span>)}</span></code></pre></div></div>
 <p>To access all layers from a particular workspace, the api end point to do that is as follows</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">// https://docs.geoserver.org/latest/en/api/#1.0.0/layers.yaml</span></span>
 <span id="cb6-2"><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">/workspaces/</span>{workspaceName}<span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">/layers</span></span></code></pre></div>
+font-style: inherit;">/layers</span></span></code></pre></div></div>
 <p>To see this in action, we display all layers from the <code>sf</code> workspace, provided in geoserver by default.</p>
 <figure class="figure">
 <p><img src="https://i.imgur.com/sSjlZkU.png" class="img-fluid figure-img"></p>
@@ -7970,7 +7970,7 @@ font-style: inherit;">/layers</span></span></code></pre></div>
 <b><i>Fig.2 -Geoserver layers from sf workspace</i></b>
 </figcaption>
 </figure>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"></span>
 <span id="cb7-2"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -8181,7 +8181,7 @@ font-weight: bold;
 font-style: inherit;">false</span></span>
 <span id="cb7-22">})<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">;</span></span></code></pre></div>
+font-style: inherit;">;</span></span></code></pre></div></div>
 <p>The output of this ajax call returns us a <code>layerList</code> array containing all the layer name and the url associated with it of size (:, 2)</p>
 <p>This layer can then be displayed on the frontend by looping over the array and inserting into the div element.</p>
 <figure class="figure">
@@ -8193,7 +8193,7 @@ font-style: inherit;">;</span></span></code></pre></div>
 <hr>
 <p>The next step after displaying all the layers of the workspace is to load the features of the layer on selecting a particular layer.</p>
 <p>When the layer is ticked we send a request to geoserver to load the features of that layer and add to the map. If the layer is then unticked, we do the opposite and remove the layer from map.</p>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb8-1">  <span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb8-1">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
@@ -8355,7 +8355,7 @@ font-style: inherit;">;</span></span>
 background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb8-21">      }</span>
-<span id="cb8-22">  }</span></code></pre></div>
+<span id="cb8-22">  }</span></code></pre></div></div>
 <figure class="figure">
 <img src="https://i.imgur.com/Wgy2YV5.jpg" class="img-fluid figure-img">
 <figcaption align="center">
@@ -8366,7 +8366,7 @@ font-style: inherit;">;</span></span>
 <section id="query-layer" class="level3">
 <h3 class="anchored" data-anchor-id="query-layer">Query layer</h3>
 <p>We start with the querying the layer by their attributes. We load all the attributes (as columns) and display as dropdown. We use <code>wfs</code> service and <code>DescribeFeatureType</code> request to load the attributes.</p>
-<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1">  <span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
@@ -8564,9 +8564,9 @@ font-style: inherit;">;</span></span>
 <span id="cb9-30">        })<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb9-31">  }</span></code></pre></div>
+<span id="cb9-31">  }</span></code></pre></div></div>
 <p>Upto this point we have the layer and its features we want to search for. To query the layer we make a fetch call to ows service protocol and pass in the values of feature and the layer we want to query for.</p>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb10-1">CQL_filter <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb10-1">CQL_filter <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> column_name <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -8644,9 +8644,9 @@ background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb10-6">    })<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">;</span></span></code></pre></div>
+font-style: inherit;">;</span></span></code></pre></div></div>
 <p>We define a fetch_search_call function which makes a request to ows service and returns a geojson. We can parse the geojson and display it on the map.</p>
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb11-1">  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb11-1">  </span>
 <span id="cb11-2"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -8844,7 +8844,7 @@ font-style: inherit;">;</span></span>
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> fetch_result</span>
-<span id="cb11-26">  }</span></code></pre></div>
+<span id="cb11-26">  }</span></code></pre></div></div>
 <p>The above function queries a feature and adds it to the map as a new layer. If the search is successful, we are zoomed into that location and only the feature queried gets displayed. If the fetch call could not find the match it returns an error which is caught by <code>catch</code> and displays the error to the client.</p>
 <figure class="figure">
 <img src="https://i.imgur.com/syqvzq0.gif" class="img-fluid figure-img">
@@ -8861,13 +8861,13 @@ font-style: inherit;">return</span> fetch_result</span>
  ]]></description>
   <category>Geoserver</category>
   <category>OpenLayers</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-07-16-geoserver-query-builder/</guid>
-  <pubDate>Thu, 15 Jul 2021 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-07-16-geoserver-query-builder/</guid>
+  <pubDate>Thu, 15 Jul 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Validating LULC classes in QGIS</title>
   <dc:creator>Aman Bagrecha</dc:creator>
-  <link>https://amanbagrecha.github.io/posts/2021-06-09-validating-lulc-classes-in-qgis/</link>
+  <link>https://amanbagrecha.com/posts/2021-06-09-validating-lulc-classes-in-qgis/</link>
   <description><![CDATA[ 
 
 
@@ -8981,7 +8981,7 @@ font-style: inherit;">return</span> fetch_result</span>
 <section id="step-7-add-other-field-to-the-attribute-table-with-reclassification" class="level2">
 <h2 class="anchored" data-anchor-id="step-7-add-other-field-to-the-attribute-table-with-reclassification"><strong>Step 7: Add other field to the attribute table with reclassification</strong></h2>
 <p>We can use the <code>Field Calculator</code> to generate verbose text for each label in our feature class and display labels for the prediction.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-- in field calculator to increase verbosity</span></span>
 <span id="cb1-2"><span class="cf" style="color: #003B4F;
@@ -9046,7 +9046,7 @@ font-style: inherit;">'Urban'</span></span>
 <span id="cb1-6"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">END</span></span></code></pre></div>
+font-style: inherit;">END</span></span></code></pre></div></div>
 <figure class="figure">
 <p><img src="https://i.imgur.com/3CBAK6X.jpg" class="img-fluid figure-img"></p>
 <figcaption align="center">
@@ -9061,8 +9061,8 @@ font-style: inherit;">END</span></span></code></pre></div>
  ]]></description>
   <category>QGIS</category>
   <category>machine learning</category>
-  <guid>https://amanbagrecha.github.io/posts/2021-06-09-validating-lulc-classes-in-qgis/</guid>
-  <pubDate>Tue, 08 Jun 2021 18:30:00 GMT</pubDate>
+  <guid>https://amanbagrecha.com/posts/2021-06-09-validating-lulc-classes-in-qgis/</guid>
+  <pubDate>Tue, 08 Jun 2021 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
