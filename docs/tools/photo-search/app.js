@@ -130,7 +130,10 @@ async function performSearch() {
     searchButton.classList.add('loading');
 
     try {
-        // Call the backend API
+        // Call the backend API with timeout
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
+
         const response = await fetch('/api/search', {
             method: 'POST',
             headers: {
@@ -138,16 +141,30 @@ async function performSearch() {
             },
             body: JSON.stringify({
                 image_data: uploadedImageData,
-                top_k: 100
-            })
+                top_k: 5000  // Increased limit to show all matches
+            }),
+            signal: controller.signal
         });
 
+        clearTimeout(timeoutId);
+
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.detail || 'Search failed');
+            let errorMessage = 'Search failed';
+            try {
+                const errorData = await response.json();
+                errorMessage = errorData.detail || errorMessage;
+            } catch (e) {
+                errorMessage = `Server error (${response.status})`;
+            }
+            throw new Error(errorMessage);
         }
 
         const data = await response.json();
+
+        if (!data || !data.results) {
+            throw new Error('Invalid response from server');
+        }
+
         displayResults(data);
 
         // Scroll to results
@@ -155,7 +172,19 @@ async function performSearch() {
 
     } catch (error) {
         console.error('Search error:', error);
-        alert(`Search failed: ${error.message}`);
+
+        let errorMsg = 'Search failed';
+        if (error.name === 'AbortError') {
+            errorMsg = 'Search timed out. Please try again or use a smaller image.';
+        } else if (error.message.includes('No face detected')) {
+            errorMsg = error.message;
+        } else if (error.message.includes('Failed to fetch')) {
+            errorMsg = 'Cannot connect to server. Please check if the backend is running.';
+        } else {
+            errorMsg = error.message;
+        }
+
+        alert(errorMsg);
     } finally {
         // Reset button state
         searchButton.textContent = 'Search Similar Images';
@@ -165,7 +194,8 @@ async function performSearch() {
 }
 
 // Display Results
-let currentDisplayCount = 10;
+let currentDisplayCount = 20;
+let previousDisplayCount = 0;
 
 function displayResults(data) {
     resultsGrid.innerHTML = '';
@@ -174,7 +204,6 @@ function displayResults(data) {
         resultsCount.textContent = 'No similar faces found';
         resultsSection.style.display = 'block';
         resultsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #b0aea5;">No matches found. Try a different image with a clear face.</p>';
-        document.getElementById('downloadButton').disabled = true;
         return;
     }
 
@@ -184,28 +213,42 @@ function displayResults(data) {
         return maxSimB - maxSimA;
     });
 
-    currentDisplayCount = 10;
-    renderResults();
-
-    const downloadBtn = document.getElementById('downloadButton');
-    downloadBtn.disabled = false;
-    downloadBtn.textContent = 'Download All';
+    previousDisplayCount = 0;
+    currentDisplayCount = 20;
+    renderResults(true);
 
     resultsSection.style.display = 'block';
 }
 
-function renderResults() {
+function renderResults(isInitial = true) {
     const totalCount = allResults.length;
     const displayCount = Math.min(currentDisplayCount, totalCount);
 
     resultsCount.textContent = `${totalCount} match${totalCount !== 1 ? 'es' : ''} found`;
 
-    resultsGrid.innerHTML = '';
+    if (isInitial) {
+        // Initial render: clear and render all
+        resultsGrid.innerHTML = '';
 
-    allResults.slice(0, displayCount).forEach((result) => {
-        const card = createResultCard(result);
-        resultsGrid.appendChild(card);
-    });
+        allResults.slice(0, displayCount).forEach((result) => {
+            const card = createResultCard(result);
+            resultsGrid.appendChild(card);
+        });
+    } else {
+        // Incremental render: remove "Show More" button and add only new cards
+        const showMoreContainer = resultsGrid.querySelector('.show-more-container');
+        if (showMoreContainer) {
+            showMoreContainer.remove();
+        }
+
+        // Add only the new results from previousDisplayCount to displayCount
+        const newResults = allResults.slice(previousDisplayCount, displayCount);
+
+        newResults.forEach((result) => {
+            const card = createResultCard(result);
+            resultsGrid.appendChild(card);
+        });
+    }
 
     if (displayCount < totalCount) {
         const showMoreBtn = document.createElement('div');
@@ -243,7 +286,9 @@ function createResultCard(result) {
     loadImageForCard(card, result.image_path);
 
     card.addEventListener('click', () => {
-        window.open(result.image_path, '_blank');
+        // Open the raw image using the /api/image/raw endpoint
+        const rawImageUrl = `/api/image/raw?path=${encodeURIComponent(result.image_path)}`;
+        window.open(rawImageUrl, '_blank');
     });
 
     return card;
@@ -289,8 +334,9 @@ async function loadImageForCard(card, imagePath) {
 
 // Show More Results
 function showMoreResults() {
-    currentDisplayCount += 10;
-    renderResults();
+    previousDisplayCount = currentDisplayCount;
+    currentDisplayCount += 20;
+    renderResults(false);
 }
 
 // Download All functionality

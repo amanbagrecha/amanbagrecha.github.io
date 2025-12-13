@@ -9,7 +9,9 @@
       "Bash(sudo ln:*)",
       "Bash(sudo nginx:*)",
       "Bash(curl:*)",
-      "Bash(sudo journalctl:*)"
+      "Bash(sudo journalctl:*)",
+      "Bash(journalctl:*)",
+      "Bash(sudo tail:*)"
     ],
     "deny": [],
     "ask": []

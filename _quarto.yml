@@ -39,6 +39,8 @@ website:
         menu:
           - text: "Photo Search"
             file: tools/photo-search.qmd
+          - text: "TiTiler Viewer"
+            href: tools/titiler-viewer/titiler_viewer.html
   page-footer:
     left: "Copyright © Aman Bagrecha, 2025. [Disclaimer](disclaimer)"
   twitter-card: true

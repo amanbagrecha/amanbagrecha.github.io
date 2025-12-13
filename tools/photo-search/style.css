@@ -338,15 +338,24 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
+    }
+
+    header {
+        margin-bottom: 2rem;
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
     }
 
     .upload-section {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
     }
 
     .upload-zone {

@@ -1,6 +1,6 @@
 ---
-title: "Photo Search"
-description: "Find photos using facial recognition"
+title: "Wedding Photo Search"
+description: "Find yourself in every moment"
 page-layout: full
 format:
   html:
@@ -15,11 +15,6 @@ comments: false
 
 ```{=html}
 <div class="container">
-    <header>
-        <h1>Wedding Photo Matcher</h1>
-        <p class="subtitle">Find yourself in every moment</p>
-    </header>
-
     <main>
         <!-- Upload Section -->
         <section class="upload-section">
@@ -53,7 +48,6 @@ comments: false
                     <h2>Your Photos</h2>
                     <p class="results-count" id="resultsCount">Found 0 matches</p>
                 </div>
-                <button class="btn-secondary" id="downloadButton" onclick="downloadAll()" disabled>Download All</button>
             </div>
             <div class="results-grid" id="resultsGrid">
                 <!-- Results will be populated by JavaScript -->
@@ -62,7 +56,6 @@ comments: false
     </main>
 
     <footer>
-        <p>Powered by InsightFace facial recognition</p>
     </footer>
 </div>
 ```
