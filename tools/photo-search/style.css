@@ -22,15 +22,20 @@
     --transition: all 0.3s ease;
 }
 
-body {
+.container {
     font-family: 'Lora', Georgia, serif;
-    background: linear-gradient(135deg, #faf9f5 0%, #e8e6dc 100%);
     color: var(--text-primary);
     line-height: 1.6;
+}
+
+#quarto-content {
+    background: linear-gradient(135deg, #faf9f5 0%, #e8e6dc 100%);
     min-height: 100vh;
 }
 
-h1, h2, h3 {
+.container h1,
+.container h2,
+.container h3 {
     font-family: 'Poppins', Arial, sans-serif;
 }
 
@@ -103,7 +108,15 @@ header h1 {
     margin-bottom: 1.5rem;
 }
 
-.browse-button {
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.browse-button,
+.camera-button {
     background: var(--accent-color);
     color: white;
     border: none;
@@ -114,16 +127,29 @@ header h1 {
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.browse-button:hover {
+.browse-button:hover,
+.camera-button:hover {
     background: #c56645;
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
 }
 
-.browse-button:active {
+.browse-button:active,
+.camera-button:active {
     transform: translateY(0);
+}
+
+.camera-button {
+    background: var(--accent-secondary);
+}
+
+.camera-button:hover {
+    background: #5889b8;
 }
 
 /* Preview Section */
@@ -384,4 +410,127 @@ footer {
     .results-grid {
         grid-template-columns: 1fr;
     }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .browse-button,
+    .camera-button {
+        width: 100%;
+    }
+}
+
+/* Camera Modal */
+.camera-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.camera-modal-content {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    max-width: 640px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.camera-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.camera-modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.camera-close-button {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera-close-button:hover {
+    color: var(--text-primary);
+}
+
+.camera-container {
+    position: relative;
+    background: #000;
+    aspect-ratio: 4/3;
+}
+
+.camera-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-controls {
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.camera-capture-button,
+.camera-cancel-button {
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.camera-capture-button {
+    background: var(--accent-color);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.camera-capture-button:hover {
+    background: #c56645;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.camera-cancel-button {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.camera-cancel-button:hover {
+    color: var(--text-primary);
+    border-color: var(--text-primary);
 }

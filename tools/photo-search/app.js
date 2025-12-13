@@ -2,6 +2,7 @@
 const uploadZone = document.getElementById('uploadZone');
 const fileInput = document.getElementById('fileInput');
 const browseButton = document.getElementById('browseButton');
+const cameraButton = document.getElementById('cameraButton');
 const previewSection = document.getElementById('previewSection');
 const previewImage = document.getElementById('previewImage');
 const clearButton = document.getElementById('clearButton');
@@ -9,10 +10,17 @@ const searchButton = document.getElementById('searchButton');
 const resultsSection = document.getElementById('resultsSection');
 const resultsGrid = document.getElementById('resultsGrid');
 const resultsCount = document.getElementById('resultsCount');
+const cameraModal = document.getElementById('cameraModal');
+const cameraVideo = document.getElementById('cameraVideo');
+const cameraCanvas = document.getElementById('cameraCanvas');
+const captureButton = document.getElementById('captureButton');
+const cancelCameraButton = document.getElementById('cancelCameraButton');
+const closeCameraButton = document.getElementById('closeCameraButton');
 
 // State
 let uploadedImageData = null;
 let allResults = [];
+let cameraStream = null;
 
 // Initialize
 function init() {
@@ -22,14 +30,30 @@ function init() {
 // Event Listeners
 function setupEventListeners() {
     // Browse button click
-    browseButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        fileInput.click();
-    });
+    if (browseButton) {
+        browseButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            fileInput.click();
+        });
+    }
+
+    // Camera button click
+    if (cameraButton) {
+        cameraButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            openCamera();
+        });
+    } else {
+        console.warn('Camera button not found in DOM');
+    }
 
     // Upload zone click
-    uploadZone.addEventListener('click', () => {
-        fileInput.click();
+    uploadZone.addEventListener('click', (e) => {
+        // Don't trigger if clicking on buttons
+        if (!e.target.closest('button')) {
+            fileInput.click();
+        }
     });
 
     // File input change
@@ -45,6 +69,17 @@ function setupEventListeners() {
 
     // Search button
     searchButton.addEventListener('click', performSearch);
+
+    // Camera controls
+    if (captureButton) {
+        captureButton.addEventListener('click', capturePhoto);
+    }
+    if (cancelCameraButton) {
+        cancelCameraButton.addEventListener('click', closeCamera);
+    }
+    if (closeCameraButton) {
+        closeCameraButton.addEventListener('click', closeCamera);
+    }
 }
 
 // Drag and Drop Handlers
@@ -392,6 +427,74 @@ async function downloadAll() {
         downloadBtn.textContent = originalText;
         downloadBtn.disabled = false;
     }
+}
+
+// Camera Functions
+async function openCamera() {
+    try {
+        // Request camera with user-facing camera (front camera for selfies)
+        const constraints = {
+            video: {
+                facingMode: 'user', // Use front camera for selfies
+                width: { ideal: 1280 },
+                height: { ideal: 720 }
+            },
+            audio: false
+        };
+
+        cameraStream = await navigator.mediaDevices.getUserMedia(constraints);
+        cameraVideo.srcObject = cameraStream;
+        cameraModal.style.display = 'flex';
+    } catch (error) {
+        console.error('Error accessing camera:', error);
+        let errorMsg = 'Unable to access camera. ';
+
+        if (error.name === 'NotAllowedError') {
+            errorMsg += 'Please allow camera access in your browser settings.';
+        } else if (error.name === 'NotFoundError') {
+            errorMsg += 'No camera found on your device.';
+        } else if (error.name === 'NotReadableError') {
+            errorMsg += 'Camera is already in use by another application.';
+        } else {
+            errorMsg += 'Please check your camera permissions.';
+        }
+
+        alert(errorMsg);
+    }
+}
+
+function closeCamera() {
+    if (cameraStream) {
+        cameraStream.getTracks().forEach(track => track.stop());
+        cameraStream = null;
+    }
+    cameraVideo.srcObject = null;
+    cameraModal.style.display = 'none';
+}
+
+function capturePhoto() {
+    const canvas = cameraCanvas;
+    const video = cameraVideo;
+
+    // Set canvas dimensions to match video
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    // Draw the current video frame to canvas
+    const context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // Convert canvas to data URL
+    uploadedImageData = canvas.toDataURL('image/jpeg', 0.9);
+
+    // Display preview
+    previewImage.src = uploadedImageData;
+    uploadZone.style.display = 'none';
+    previewSection.style.display = 'block';
+    resultsSection.style.display = 'none';
+
+    // Close camera
+    closeCamera();
 }
 
 // Initialize app when DOM is ready

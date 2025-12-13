@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../img/favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -88,8 +89,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/AB.png" alt="" class="navbar-logo light-content">
-    <img src="../img/AB.png" alt="" class="navbar-logo dark-content">
+    <img src="../img/ab-logo-small.png" alt="" class="navbar-logo light-content">
+    <img src="../img/ab-logo-small.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Aman Bagrecha</span>
@@ -200,7 +201,16 @@ ul.task-list li input[type="checkbox"] {
                 </svg>
                 <p class="upload-text">Drag and drop an image here</p>
                 <p class="upload-subtext">or</p>
-                <button class="browse-button" id="browseButton">Browse Files</button>
+                <div class="button-group">
+                    <button class="browse-button" id="browseButton">Browse Files</button>
+                    <button class="camera-button" id="cameraButton">
+                        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                        Take Photo
+                    </button>
+                </div>
                 <input type="file" id="fileInput" accept="image/*" hidden="">
             </div>
 
@@ -231,6 +241,29 @@ ul.task-list li input[type="checkbox"] {
 
     <footer>
     </footer>
+
+    <!-- Camera Modal -->
+    <div id="cameraModal" class="camera-modal" style="display: none;">
+        <div class="camera-modal-content">
+            <div class="camera-modal-header">
+                <h3 class="anchored">Take a Photo</h3>
+                <button class="camera-close-button" id="closeCameraButton">×</button>
+            </div>
+            <div class="camera-container">
+                <video id="cameraVideo" autoplay="" playsinline=""></video>
+                <canvas id="cameraCanvas" style="display: none;"></canvas>
+            </div>
+            <div class="camera-controls">
+                <button class="camera-capture-button" id="captureButton">
+                    <svg width="24" height="24" viewbox="0 0 24 24" fill="white" stroke="white" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                    Capture
+                </button>
+                <button class="camera-cancel-button" id="cancelCameraButton">Cancel</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 

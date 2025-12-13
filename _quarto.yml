@@ -7,6 +7,7 @@ website:
   description: "Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial"
   site-url: https://amanbagrecha.com
   draft-mode: unlinked
+  favicon: img/favicon.png
   navbar:
     search: true
     tools:
@@ -17,7 +18,7 @@ website:
       - icon: youtube
         href: https://www.youtube.com/@amanbagrecha/videos
     pinned: true
-    logo: img/AB.png
+    logo: img/ab-logo-small.png
     left:
       - text: "Home"
         file: index.qmd
