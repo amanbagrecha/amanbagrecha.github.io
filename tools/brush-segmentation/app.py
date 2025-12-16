@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 from pathlib import Path
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, session
 import base64
 from io import BytesIO
 import json
@@ -10,6 +10,8 @@ from rasterio.plot import reshape_as_image
 import logging
 from logging.handlers import RotatingFileHandler
 import os
+import uuid
+import pickle
 
 app = Flask(__name__)
 
@@ -17,6 +19,8 @@ app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100MB max upload
 app.config['UPLOAD_FOLDER'] = '/tmp/brush_segmentation_uploads'
 app.config['MASK_FOLDER'] = '/tmp/brush_segmentation_masks'
+app.config['SESSION_FOLDER'] = '/tmp/image_mask_labeler_sessions'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production-' + str(uuid.uuid4()))
 
 # Setup logging
 if not app.debug:
@@ -37,12 +41,9 @@ if not app.debug:
     app.logger.info('Image Mask Labeler startup')
 
 class ImageSegmenter:
-    def __init__(self):
-        self.image = None
-        self.mask = None
-        self.original_image = None
-
-    def load_image(self, image_path):
+    @staticmethod
+    def load_image(image_path, session_folder):
+        """Load image and save metadata to session folder"""
         path = Path(image_path)
         if not path.exists():
             raise FileNotFoundError(f"Image not found: {image_path}")
@@ -59,53 +60,78 @@ class ImageSegmenter:
                 if data.dtype != np.uint8:
                     data = ((data - data.min()) / (data.max() - data.min()) * 255).astype(np.uint8)
 
-                self.image = data
+                image = data
         else:
             # Read image
-            self.image = cv2.imread(str(image_path), cv2.IMREAD_UNCHANGED)
-            if self.image is None:
+            image = cv2.imread(str(image_path), cv2.IMREAD_UNCHANGED)
+            if image is None:
                 raise ValueError(f"Failed to load image: {image_path}")
 
             # Handle different image formats
-            if self.image.ndim == 3 and self.image.shape[2] == 3:
+            if image.ndim == 3 and image.shape[2] == 3:
                 # BGR to RGB
-                self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2RGB)
-            elif self.image.ndim == 2:
+                image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            elif image.ndim == 2:
                 # Grayscale - convert to RGB for display
-                self.image = cv2.cvtColor(self.image, cv2.COLOR_GRAY2RGB)
-            elif self.image.ndim == 3 and self.image.shape[2] == 4:
+                image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
+            elif image.ndim == 3 and image.shape[2] == 4:
                 # RGBA to RGB
-                self.image = cv2.cvtColor(self.image, cv2.COLOR_BGRA2RGB)
+                image = cv2.cvtColor(image, cv2.COLOR_BGRA2RGB)
 
-        # Keep a copy for redrawing
-        self.original_image = self.image.copy()
-        self.mask = np.zeros(self.image.shape[:2], dtype=np.uint8)
+        # Save image data to session folder
+        session_data = {
+            'shape': image.shape,
+            'dtype': str(image.dtype)
+        }
+
+        # Save the actual image array
+        image_file = session_folder / 'image.npy'
+        np.save(str(image_file), image)
+
+        # Save metadata
+        metadata_file = session_folder / 'metadata.pkl'
+        with open(metadata_file, 'wb') as f:
+            pickle.dump(session_data, f)
 
         # Encode image to base64
-        success, buffer = cv2.imencode('.png', cv2.cvtColor(self.image, cv2.COLOR_RGB2BGR))
+        success, buffer = cv2.imencode('.png', cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
         if not success:
             raise ValueError("Failed to encode image")
 
         img_base64 = base64.b64encode(buffer).decode('utf-8')
-        return img_base64, self.image.shape[1], self.image.shape[0]
+        return img_base64, image.shape[1], image.shape[0]
 
-    def update_mask(self, strokes):
-        self.mask = np.zeros(self.image.shape[:2], dtype=np.uint8)
+    @staticmethod
+    def create_mask(session_folder, strokes):
+        """Create mask from strokes using stored image data"""
+        image_file = session_folder / 'image.npy'
+        if not image_file.exists():
+            raise ValueError("No image data found in session")
+
+        # Load image shape
+        image = np.load(str(image_file))
+        mask = np.zeros(image.shape[:2], dtype=np.uint8)
+
         for stroke in strokes:
             points = stroke['points']
             mode = stroke['mode']
             brush_size = stroke['brushSize']
 
             for point in points:
-                cv2.circle(self.mask,
+                cv2.circle(mask,
                           (int(point['x']), int(point['y'])),
                           brush_size, mode * 255, -1)
 
-    def save_mask(self, output_path):
-        cv2.imwrite(str(output_path), self.mask)
-        return True
+        return mask
 
-segmenter = ImageSegmenter()
+def get_session_folder():
+    """Get or create session folder for current user"""
+    if 'session_id' not in session:
+        session['session_id'] = str(uuid.uuid4())
+
+    session_folder = Path(app.config['SESSION_FOLDER']) / session['session_id']
+    session_folder.mkdir(parents=True, exist_ok=True)
+    return session_folder
 
 @app.route('/')
 def index():
@@ -380,8 +406,11 @@ def upload_image():
         file_path = temp_path / file.filename
         file.save(file_path)
 
-        app.logger.info(f'Image uploaded: {file.filename}')
-        img_base64, width, height = segmenter.load_image(file_path)
+        # Get or create session folder
+        session_folder = get_session_folder()
+
+        app.logger.info(f'Image uploaded: {file.filename} (session: {session["session_id"]})')
+        img_base64, width, height = ImageSegmenter.load_image(file_path, session_folder)
 
         # Clean up temp file
         file_path.unlink()
@@ -399,13 +428,18 @@ def save_mask():
             app.logger.warning('Save mask attempt with no stroke data')
             return jsonify({'error': 'No stroke data provided'}), 400
 
-        segmenter.update_mask(data['strokes'])
+        # Get session folder
+        session_folder = get_session_folder()
 
-        output_path = Path(app.config['MASK_FOLDER']) / 'mask.png'
+        # Create mask from strokes
+        mask = ImageSegmenter.create_mask(session_folder, data['strokes'])
+
+        # Save mask
+        output_path = Path(app.config['MASK_FOLDER']) / f'mask_{session["session_id"]}.png'
         output_path.parent.mkdir(exist_ok=True)
-        segmenter.save_mask(output_path)
+        cv2.imwrite(str(output_path), mask)
 
-        app.logger.info('Mask saved successfully')
+        app.logger.info(f'Mask saved successfully (session: {session["session_id"]})')
         return send_file(str(output_path), mimetype='image/png', as_attachment=True, download_name='mask.png')
     except Exception as e:
         app.logger.error(f'Save mask error: {str(e)}', exc_info=True)
