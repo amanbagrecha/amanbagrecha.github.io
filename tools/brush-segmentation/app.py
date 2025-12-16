@@ -20,7 +20,22 @@ app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100MB max upload
 app.config['UPLOAD_FOLDER'] = '/tmp/brush_segmentation_uploads'
 app.config['MASK_FOLDER'] = '/tmp/brush_segmentation_masks'
 app.config['SESSION_FOLDER'] = '/tmp/image_mask_labeler_sessions'
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production-' + str(uuid.uuid4()))
+
+# Generate or load a persistent secret key
+secret_key_file = Path('/var/log/image-mask-labeler/secret.key')
+if secret_key_file.exists():
+    with open(secret_key_file, 'r') as f:
+        app.config['SECRET_KEY'] = f.read().strip()
+else:
+    secret_key_file.parent.mkdir(exist_ok=True, parents=True)
+    app.config['SECRET_KEY'] = str(uuid.uuid4())
+    with open(secret_key_file, 'w') as f:
+        f.write(app.config['SECRET_KEY'])
+
+# Session cookie configuration for subpath deployment
+app.config['SESSION_COOKIE_PATH'] = '/tools/mask-labeler/'
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
 # Setup logging
 if not app.debug:
@@ -260,7 +275,7 @@ def index():
 
             setStatus('Loading...', 'info');
 
-            fetch('/upload_image', {method: 'POST', body: formData})
+            fetch('upload_image', {method: 'POST', body: formData})
                 .then(r => {
                     if (!r.ok) throw new Error('Upload failed');
                     return r.json();
@@ -352,7 +367,7 @@ def index():
             }
 
             setStatus('Saving...', 'info');
-            fetch('/save_mask', {
+            fetch('save_mask', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({strokes: strokes})
