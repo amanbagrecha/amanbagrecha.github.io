@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+
+# Temporary files (just in case)
+mask.png
+temp_upload/
+*.png
