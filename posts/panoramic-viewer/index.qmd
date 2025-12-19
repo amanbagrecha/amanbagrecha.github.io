@@ -10,10 +10,10 @@ description: 'Using multi-modal AI for editing 360° panoramic imagery with pers
 draft: true
 reading-time: yes
 resources:
-  - panorama.png
+  - panorama.jpg
   - before.png
   - after.png
-  - b682781c-7947-48e8-b704-0067a56d8725.png
+  - workflow.webp
 format:
   html:
     include-in-header:
@@ -45,7 +45,7 @@ That is when I thought of doing this trick to get around the bottlenecks.
 I built a structured workflow that extracts clean perspective views, edits them using generative models (Qwen Image Edit 2509 here), and then maps the edits back accurately into the original panorama.
 
 
-![Workflow Diagram](b682781c-7947-48e8-b704-0067a56d8725.png)
+![Workflow Diagram](workflow.webp)
 
 
 
@@ -123,7 +123,7 @@ The entire process was tested and built on ComfyUI workflow with the Qwen model 
 document.addEventListener('DOMContentLoaded', function() {
     pannellum.viewer('panorama', {
         "type": "equirectangular",
-        "panorama": "./panorama.png",
+        "panorama": "./panorama.jpg",
         "autoLoad": true,
         "showZoomCtrl": true,
         "showFullscreenCtrl": true,

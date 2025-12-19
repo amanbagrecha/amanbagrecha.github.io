@@ -1,0 +1,10 @@
+project:
+  output-dir: docs-staging
+
+website:
+  site-url: https://staging.amanbagrecha.com
+  draft-mode: visible
+
+format:
+  html:
+    css: [styles.css, staging.css]

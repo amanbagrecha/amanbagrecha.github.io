@@ -28,9 +28,13 @@
     line-height: 1.6;
 }
 
-#quarto-content {
-    background: linear-gradient(135deg, #faf9f5 0%, #e8e6dc 100%);
+body {
+    background: linear-gradient(135deg, #faf9f5 0%, #e8e6dc 100%) fixed;
     min-height: 100vh;
+}
+
+#quarto-content {
+    background: transparent;
 }
 
 .container h1,

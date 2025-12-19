@@ -1,0 +1,6 @@
+project:
+  output-dir: docs
+
+website:
+  site-url: https://amanbagrecha.com
+  draft-mode: unlinked

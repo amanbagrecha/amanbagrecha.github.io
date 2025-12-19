@@ -8,11 +8,18 @@ Self-hosted Quarto website with FastAPI photo search integration.
 User Browser
     ↓
 Nginx (port 80/443)
-    ├─→ Static files: /root/work/amanbagrecha.github.io/docs/
-    └─→ API proxy: /api/* → http://localhost:8000
-                               ↓
-                         FastAPI (port 8000)
-                         /root/work/photos-index-search
+    ├─→ Production (amanbagrecha.com)
+    │   ├─→ Static files: /root/work/amanbagrecha.github.io/docs/
+    │   ├─→ API proxy: /api/* → http://localhost:8000
+    │   └─→ Tool proxy: /tools/mask-labeler/* → http://localhost:8001
+    │
+    └─→ Staging (staging.amanbagrecha.com)
+        ├─→ Static files: /root/work/amanbagrecha.github.io/docs-staging/
+        ├─→ API proxy: /api/* → http://localhost:8000 (shared)
+        └─→ Tool proxy: /tools/mask-labeler/* → http://localhost:8001 (shared)
+                                   ↓                                  ↓
+                             FastAPI (port 8000)              Flask (port 8001)
+                             /root/work/photos-index-search   Image Mask Labeler
 ```
 
 ## Setup Instructions
@@ -144,7 +151,29 @@ curl http://localhost/
 curl http://localhost/api/health
 ```
 
-#### 4. Configure SSL (Production)
+#### 4. Configure Staging Environment
+
+**Create staging Nginx configuration:**
+
+```bash
+sudo nano /etc/nginx/sites-available/staging.amanbagrecha.conf
+```
+
+See `/etc/nginx/sites-available/staging.amanbagrecha.conf` for full config.
+
+**Enable staging site:**
+```bash
+sudo ln -s /etc/nginx/sites-available/staging.amanbagrecha.conf /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+**Install SSL for staging:**
+```bash
+sudo certbot certonly --nginx -d staging.amanbagrecha.com
+```
+
+#### 5. Configure SSL (Production)
 
 ```bash
 # Install SSL certificate
@@ -161,11 +190,12 @@ sudo certbot --nginx -d amanbagrecha.com -d www.amanbagrecha.com
 sudo certbot renew --dry-run
 ```
 
-#### 5. DNS Configuration
+#### 6. DNS Configuration
 
-Point your domain to the server:
+Point your domains to the server:
 
 ```
+# Production
 Type: A
 Name: @
 Value: <your-server-ip>
@@ -173,22 +203,128 @@ Value: <your-server-ip>
 Type: A
 Name: www
 Value: <your-server-ip>
+
+# Staging
+Type: A
+Name: staging
+Value: <your-server-ip>
 ```
 
-## Daily Workflow
+## Content Workflow
 
-### Updating Content
+### Staging & Preview System
+
+This site uses a **three-tier preview workflow** for safe content deployment:
+
+1. **Local Preview** - Test changes on your machine
+2. **Staging** - Preview on staging.amanbagrecha.com before going live
+3. **Production** - Live site at amanbagrecha.com
+
+### Creating New Content
+
+#### New Blog Post with Draft
 
 ```bash
-# Navigate to project
-cd /root/work/amanbagrecha.github.io
+cd /root/work/amanbagrecha.github.io/posts
+mkdir my-new-post
 
-# Edit .qmd files as needed
-# Then render:
-quarto render
+cat > my-new-post/index.qmd << 'EOF'
+---
+title: My New Post Title
+date: 2025-12-19
+draft: true
+categories: [category1, category2]
+description: "Brief description"
+---
 
-# Changes are live immediately (Nginx serves from docs/)
+## Your content here
+EOF
 ```
+
+#### New Project
+
+Edit `projects/gallery.yaml`:
+```yaml
+- path: https://github.com/user/project
+  image: /projects/project-slug/featured.png
+  title: "Project Title"
+  description: "Description"
+  date: 2025-12-19
+  categories: [Python]
+```
+
+### Testing & Deployment
+
+#### 1. Local Preview (Fastest)
+
+```bash
+cd /root/work/amanbagrecha.github.io
+quarto preview
+
+# Opens at http://localhost:4848
+# Live reload on file changes
+# Drafts rendered but not linked
+# Press Ctrl+C to stop
+```
+
+#### 2. Build to Staging
+
+```bash
+# Build staging version
+quarto render --profile staging
+# Or use helper script:
+./build-staging.sh
+
+# Visit: https://staging.amanbagrecha.com
+# - Orange banner shows "STAGING ENVIRONMENT"
+# - Drafts ARE visible in listings
+# - Test all functionality before production
+```
+
+#### 3. Deploy to Production
+
+```bash
+# First, publish draft content
+vim posts/my-new-post/index.qmd
+# Change: draft: true → draft: false
+
+# Build production
+quarto render --profile production
+# Or use helper script:
+./build-production.sh
+
+# Visit: https://amanbagrecha.com
+# - Changes live immediately
+# - Only published content visible
+# - Production auto-backed up before build
+```
+
+### Quick Commands
+
+| Task | Command |
+|------|---------|
+| Local preview | `quarto preview` |
+| Build staging | `quarto render --profile staging` |
+| Build production | `quarto render --profile production` |
+| Production (default) | `quarto render` |
+
+### Quarto Profiles
+
+The site uses Quarto profiles for environment-specific configurations:
+
+**Files:**
+- `_quarto.yml` - Main configuration (default/production)
+- `_quarto-staging.yml` - Staging overrides
+- `_quarto-production.yml` - Production overrides (explicit)
+
+**Key Differences:**
+
+| Setting | Staging | Production |
+|---------|---------|------------|
+| Output directory | `docs-staging/` | `docs/` |
+| Draft mode | `visible` | `unlinked` |
+| Site URL | staging.amanbagrecha.com | amanbagrecha.com |
+| CSS | Includes `staging.css` (banner) | Standard only |
 
 ### Updating Photo Search
 
@@ -312,16 +448,22 @@ sudo systemctl restart nginx
 ```
 /root/work/
 ├── amanbagrecha.github.io/          # Quarto website
-│   ├── _quarto.yml                  # Site configuration
+│   ├── _quarto.yml                  # Main site configuration
+│   ├── _quarto-staging.yml          # Staging profile configuration
+│   ├── _quarto-production.yml       # Production profile configuration
+│   ├── staging.css                  # Staging banner styles
+│   ├── build-staging.sh             # Staging build helper script
+│   ├── build-production.sh          # Production build helper script
 │   ├── index.qmd                    # Home page
 │   ├── posts/                       # Blog posts
 │   ├── projects/                    # Projects
-│   ├── tools/                       # Tools (NEW)
+│   ├── tools/                       # Tools
 │   │   ├── photo-search.qmd         # Photo search page
 │   │   └── photo-search/            # Static assets
 │   │       ├── app.js               # Frontend JavaScript
 │   │       └── style.css            # Styles
-│   └── docs/                        # Rendered output (served by Nginx)
+│   ├── docs/                        # Production build (served by Nginx)
+│   └── docs-staging/                # Staging build (served by Nginx, gitignored)
 │
 └── photos-index-search/             # FastAPI photo search app
     ├── image_search_app/
@@ -339,16 +481,22 @@ sudo systemctl restart nginx
 
 ### Configuration Files
 
-- **Nginx config**: `/etc/nginx/sites-available/amanbagrecha.conf`
+- **Nginx config (production)**: `/etc/nginx/sites-available/amanbagrecha.conf`
+- **Nginx config (staging)**: `/etc/nginx/sites-available/staging.amanbagrecha.conf`
 - **FastAPI service**: `/etc/systemd/system/photo-search-api.service`
-- **Quarto config**: `/root/work/amanbagrecha.github.io/_quarto.yml`
-- **SSL certificates**: `/etc/letsencrypt/live/amanbagrecha.com/`
+- **Quarto main config**: `/root/work/amanbagrecha.github.io/_quarto.yml`
+- **Quarto staging profile**: `/root/work/amanbagrecha.github.io/_quarto-staging.yml`
+- **Quarto production profile**: `/root/work/amanbagrecha.github.io/_quarto-production.yml`
+- **SSL certificates (production)**: `/etc/letsencrypt/live/amanbagrecha.com/`
+- **SSL certificates (staging)**: `/etc/letsencrypt/live/staging.amanbagrecha.com/`
 
 ### Application Files
 
 - **FastAPI app**: `/root/work/photos-index-search/image_search_app/app.py`
 - **Photo search page**: `/root/work/amanbagrecha.github.io/tools/photo-search.qmd`
 - **Face DB**: `/root/work/photos-index-search/face_db.parquet`
+- **Staging banner CSS**: `/root/work/amanbagrecha.github.io/staging.css`
+- **Build scripts**: `/root/work/amanbagrecha.github.io/build-{staging,production}.sh`
 
 ## Backup
 
@@ -357,14 +505,15 @@ sudo systemctl restart nginx
 ```bash
 # Quarto source files
 /root/work/amanbagrecha.github.io/
-  (exclude docs/ - it's generated)
+  (exclude docs/ and docs-staging/ - they're generated)
 
 # Photo search app
 /root/work/photos-index-search/
   (exclude .venv/ - it's rebuilable)
 
-# Nginx config
+# Nginx configs
 /etc/nginx/sites-available/amanbagrecha.conf
+/etc/nginx/sites-available/staging.amanbagrecha.conf
 
 # Service config
 /etc/systemd/system/photo-search-api.service
@@ -380,14 +529,15 @@ sudo systemctl restart nginx
 BACKUP_DIR="/backup/$(date +%Y%m%d)"
 mkdir -p $BACKUP_DIR
 
-# Backup Quarto source (exclude docs)
-rsync -av --exclude='docs/' /root/work/amanbagrecha.github.io/ $BACKUP_DIR/quarto/
+# Backup Quarto source (exclude generated docs)
+rsync -av --exclude='docs/' --exclude='docs-staging/' /root/work/amanbagrecha.github.io/ $BACKUP_DIR/quarto/
 
 # Backup photo search app (exclude venv)
 rsync -av --exclude='.venv/' /root/work/photos-index-search/ $BACKUP_DIR/photo-search/
 
 # Backup configs
 cp /etc/nginx/sites-available/amanbagrecha.conf $BACKUP_DIR/
+cp /etc/nginx/sites-available/staging.amanbagrecha.conf $BACKUP_DIR/
 cp /etc/systemd/system/photo-search-api.service $BACKUP_DIR/
 ```
 
@@ -438,7 +588,25 @@ For faster builds, render only changed files:
 ```bash
 quarto render --to html  # Only render to HTML
 quarto render posts/new-post.qmd  # Render specific file
+quarto render --profile staging posts/  # Render only posts to staging
 ```
+
+### Helper Scripts
+
+Use the provided build scripts for common tasks:
+```bash
+# Build staging (creates docs-staging/)
+./build-staging.sh
+
+# Build production (creates docs/, auto-backs up previous version)
+./build-production.sh
+```
+
+These scripts provide:
+- Automatic error handling
+- Production backup before build
+- Clear success messages with URLs
+- Backup cleanup (keeps last 3 backups)
 
 ## Security Checklist
 

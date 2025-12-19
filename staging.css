@@ -1,0 +1,19 @@
+/* Staging environment indicator banner */
+body::before {
+  content: 'STAGING ENVIRONMENT - NOT PRODUCTION';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ff9800;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  z-index: 9999;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+body {
+  padding-top: 40px;
+}
