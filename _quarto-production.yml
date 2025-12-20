@@ -4,3 +4,7 @@ project:
 website:
   site-url: https://amanbagrecha.com
   draft-mode: unlinked
+
+format:
+  html:
+    include-in-header: _umami-tracking.html

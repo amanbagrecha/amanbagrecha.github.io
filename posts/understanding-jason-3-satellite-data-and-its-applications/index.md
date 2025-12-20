@@ -13,18 +13,20 @@ draft: false
 
 ### What is Jason-3?
 Jason-3 is a satellite which measures topographic height of the entire earth once every ~10 days since the year 2016 and is used in applications such as sea level rise, ocean circulation, and climate change.
-- It has an **altimeter** which measures the two-way travel time from the Earth’s surface to satellite.
+- It has an **altimeter** which measures the two-way travel time from the Earth's surface to satellite.
 - It emits a pulse (radar pulse in this case) at a certain frequency to measure time. Thus it can also penetrate clouds.
 
-
 <figure>
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/WUfq2zLW4zo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+
+<!-- <figure>
 <iframe width="100%" height="450" frameborder="0" title="Felt Map" src="https://felt.com/embed/map/Jason-3-pass-vgfiMu1mRpaWz6BZqg9Cx4D?lat=-6.478218&lon=16.823646&zoom=6.366"></iframe>
 
 <figcaption align = "center"><b><i>Fig.1 - Jason-3 ground track visualised on felt. Each point represents a measurement. The distance between two measurements depends on specific product type. </i></b></figcaption>
 
-</figure>
+</figure> -->
 
->The data format of this satellite is Vector Points, distributed as netCDF4 file format.
 
 
 ### Understanding Jason-3 Family of products

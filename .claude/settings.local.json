@@ -11,7 +11,16 @@
       "Bash(curl:*)",
       "Bash(sudo journalctl:*)",
       "Bash(journalctl:*)",
-      "Bash(sudo tail:*)"
+      "Bash(sudo tail:*)",
+      "Bash(cat:*)",
+      "Bash(git -C /root/work/amanbagrecha.github.io log --oneline -10)",
+      "Bash(tree:*)",
+      "Bash(grep:*)",
+      "Bash(systemctl list-units:*)",
+      "Bash(systemctl list-unit-files:*)",
+      "Bash(node --version:*)",
+      "Bash(npm --version:*)",
+      "Bash(lsb_release:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,6 +1,6 @@
 # Aman Bagrecha's Personal Website
 
-Self-hosted Quarto website with FastAPI photo search integration.
+Self-hosted Quarto website with FastAPI photo search integration and privacy-friendly analytics.
 
 ## Architecture
 
@@ -11,7 +11,8 @@ Nginx (port 80/443)
     ├─→ Production (amanbagrecha.com)
     │   ├─→ Static files: /root/work/amanbagrecha.github.io/docs/
     │   ├─→ API proxy: /api/* → http://localhost:8000
-    │   └─→ Tool proxy: /tools/mask-labeler/* → http://localhost:8001
+    │   ├─→ Tool proxy: /tools/mask-labeler/* → http://localhost:8001
+    │   └─→ Analytics proxy: /umami/* → http://localhost:8002
     │
     └─→ Staging (staging.amanbagrecha.com)
         ├─→ Static files: /root/work/amanbagrecha.github.io/docs-staging/
@@ -20,7 +21,12 @@ Nginx (port 80/443)
                                    ↓                                  ↓
                              FastAPI (port 8000)              Flask (port 8001)
                              /root/work/photos-index-search   Image Mask Labeler
+                                                                       ↓
+                                                                Umami Analytics (port 8002)
+                                                                /opt/umami + PostgreSQL
 ```
+
+**📊 Analytics:** Self-hosted Umami analytics tracks website metrics. See [UMAMI.md](UMAMI.md) for complete setup and reference guide.
 
 ## Setup Instructions
 
@@ -484,6 +490,8 @@ sudo systemctl restart nginx
 - **Nginx config (production)**: `/etc/nginx/sites-available/amanbagrecha.conf`
 - **Nginx config (staging)**: `/etc/nginx/sites-available/staging.amanbagrecha.conf`
 - **FastAPI service**: `/etc/systemd/system/photo-search-api.service`
+- **Umami service**: `/etc/systemd/system/umami.service`
+- **Umami environment**: `/opt/umami/.env`
 - **Quarto main config**: `/root/work/amanbagrecha.github.io/_quarto.yml`
 - **Quarto staging profile**: `/root/work/amanbagrecha.github.io/_quarto-staging.yml`
 - **Quarto production profile**: `/root/work/amanbagrecha.github.io/_quarto-production.yml`
@@ -495,8 +503,11 @@ sudo systemctl restart nginx
 - **FastAPI app**: `/root/work/photos-index-search/image_search_app/app.py`
 - **Photo search page**: `/root/work/amanbagrecha.github.io/tools/photo-search.qmd`
 - **Face DB**: `/root/work/photos-index-search/face_db.parquet`
+- **Umami app**: `/opt/umami/`
+- **Umami tracking script**: `/root/work/amanbagrecha.github.io/_umami-tracking.html`
 - **Staging banner CSS**: `/root/work/amanbagrecha.github.io/staging.css`
 - **Build scripts**: `/root/work/amanbagrecha.github.io/build-{staging,production}.sh`
+- **Backup scripts**: `/root/scripts/backup-umami.sh`
 
 ## Backup
 
@@ -515,12 +526,19 @@ sudo systemctl restart nginx
 /etc/nginx/sites-available/amanbagrecha.conf
 /etc/nginx/sites-available/staging.amanbagrecha.conf
 
-# Service config
+# Service configs
 /etc/systemd/system/photo-search-api.service
+/etc/systemd/system/umami.service
+
+# Umami analytics
+/opt/umami/.env  # Contains database credentials
+/var/backups/umami/  # Automated daily backups
 
 # SSL certificates (handled by certbot)
 /etc/letsencrypt/
 ```
+
+**Note:** Umami database backups are automated (daily at 2 AM, keeps 30 days). See [UMAMI.md](UMAMI.md) for details.
 
 ### Backup script:
 
