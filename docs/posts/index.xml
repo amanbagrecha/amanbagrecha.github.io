@@ -83,16 +83,55 @@
 <section id="what-is-jason-3" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-jason-3">What is Jason-3?</h3>
 <p>Jason-3 is a satellite which measures topographic height of the entire earth once every ~10 days since the year 2016 and is used in applications such as sea level rise, ocean circulation, and climate change. - It has an <strong>altimeter</strong> which measures the two-way travel time from the Earth’s surface to satellite. - It emits a pulse (radar pulse in this case) at a certain frequency to measure time. Thus it can also penetrate clouds.</p>
-<figure class="figure">
-<iframe width="100%" height="450" src="https://www.youtube.com/embed/WUfq2zLW4zo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-</figure>
-<!-- <figure>
-<iframe width="100%" height="450" frameborder="0" title="Felt Map" src="https://felt.com/embed/map/Jason-3-pass-vgfiMu1mRpaWz6BZqg9Cx4D?lat=-6.478218&lon=16.823646&zoom=6.366"></iframe>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/pmtiles@3.2.0/dist/pmtiles.js"></script>
+<div id="map" style="height: 450px; width: 100%; margin-bottom: 10px;">
 
-<figcaption align = "center"><b><i>Fig.1 - Jason-3 ground track visualised on felt. Each point represents a measurement. The distance between two measurements depends on specific product type. </i></b></figcaption>
+</div>
+<figcaption align="center">
+<b><i>Fig.1 - Sentinel-3 ground track visualised on interactive map. Each line represents a satellite pass measurement.</i></b>
+</figcaption>
+<script>
+  const protocol = new pmtiles.Protocol();
+  maplibregl.addProtocol('pmtiles', protocol.tile);
 
-</figure> -->
+  const PMTILES_URL = "s3a-sral-tracks.pmtiles";
+  const p = new pmtiles.PMTiles(PMTILES_URL);
+  protocol.add(p);
+
+  p.getHeader().then(h => {
+    const map = new maplibregl.Map({
+      container: "map",
+      center: [h.centerLon, h.centerLat],
+      zoom: Math.max(0, h.maxZoom - 2),
+      style: 'https://cdn.jsdelivr.net/gh/osm-in/mapbox-gl-styles@master/osm-mapnik-india-v8.json'
+    });
+
+    map.on('load', () => {
+      // Add the PMTiles source
+      map.addSource('tracks', {
+        type: 'vector',
+        url: `pmtiles://${PMTILES_URL}`
+      });
+
+      // Add the satellite tracks layer
+      map.addLayer({
+        id: 'tracks_line',
+        type: 'line',
+        source: 'tracks',
+        'source-layer': 'S3A',
+        paint: {
+          'line-color': '#0066cc',
+          'line-width': 2,
+          'line-opacity': 0.7
+        }
+      });
+    });
+
+    map.addControl(new maplibregl.NavigationControl());
+  });
+</script>
 </section>
 <section id="understanding-jason-3-family-of-products" class="level3">
 <h3 class="anchored" data-anchor-id="understanding-jason-3-family-of-products">Understanding Jason-3 Family of products</h3>
@@ -158,10 +197,15 @@
 <blockquote class="blockquote">
 <p>Since September 2018, all data products associated with <strong><code>gdr</code></strong> family have been moved to version <strong><code>f</code></strong>. If you require historcal jason3 data, it is a no-brainer to use GDR family products since it is at the most accurate among all the families and also has been updated with the latest model version <strong><code>f</code></strong>.</p>
 </blockquote>
+<figure class="figure">
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/WUfq2zLW4zo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</figure>
 <p>References</p>
 <ul>
 <li><a href="https://www.ospo.noaa.gov/Products/documents/hdbk_j3.pdf">Jason-3 Product Handbook</a></li>
 <li><a href="https://podaac.jpl.nasa.gov/dataset/JASON_3_L2_OST_OGDR_GPS">PODAAC JPL NASA</a></li>
+<li><a href="https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-3">Sentinel-3 SRAL Tracks</a></li>
 </ul>
 
 

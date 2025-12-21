@@ -16,16 +16,56 @@ Jason-3 is a satellite which measures topographic height of the entire earth onc
 - It has an **altimeter** which measures the two-way travel time from the Earth's surface to satellite.
 - It emits a pulse (radar pulse in this case) at a certain frequency to measure time. Thus it can also penetrate clouds.
 
-<figure>
-<iframe width="100%" height="450" src="https://www.youtube.com/embed/WUfq2zLW4zo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>
 
-<!-- <figure>
-<iframe width="100%" height="450" frameborder="0" title="Felt Map" src="https://felt.com/embed/map/Jason-3-pass-vgfiMu1mRpaWz6BZqg9Cx4D?lat=-6.478218&lon=16.823646&zoom=6.366"></iframe>
 
-<figcaption align = "center"><b><i>Fig.1 - Jason-3 ground track visualised on felt. Each point represents a measurement. The distance between two measurements depends on specific product type. </i></b></figcaption>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.css" />
+<script src="https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/pmtiles@3.2.0/dist/pmtiles.js"></script>
 
-</figure> -->
+<div id="map" style="height: 450px; width: 100%; margin-bottom: 10px;"></div>
+
+<figcaption align="center"><b><i>Fig.1 - Sentinel-3 ground track visualised on interactive map. Each line represents a satellite pass measurement.</i></b></figcaption>
+
+<script>
+  const protocol = new pmtiles.Protocol();
+  maplibregl.addProtocol('pmtiles', protocol.tile);
+
+  const PMTILES_URL = "s3a-sral-tracks.pmtiles";
+  const p = new pmtiles.PMTiles(PMTILES_URL);
+  protocol.add(p);
+
+  p.getHeader().then(h => {
+    const map = new maplibregl.Map({
+      container: "map",
+      center: [h.centerLon, h.centerLat],
+      zoom: Math.max(0, h.maxZoom - 2),
+      style: 'https://cdn.jsdelivr.net/gh/osm-in/mapbox-gl-styles@master/osm-mapnik-india-v8.json'
+    });
+
+    map.on('load', () => {
+      // Add the PMTiles source
+      map.addSource('tracks', {
+        type: 'vector',
+        url: `pmtiles://${PMTILES_URL}`
+      });
+
+      // Add the satellite tracks layer
+      map.addLayer({
+        id: 'tracks_line',
+        type: 'line',
+        source: 'tracks',
+        'source-layer': 'S3A',
+        paint: {
+          'line-color': '#0066cc',
+          'line-width': 2,
+          'line-opacity': 0.7
+        }
+      });
+    });
+
+    map.addControl(new maplibregl.NavigationControl());
+  });
+</script>
 
 
 
@@ -107,11 +147,14 @@ Product families with no suffix, combines all the versioned family product, keep
 
 > Since September 2018, all data products associated with **`gdr`** family have been moved to version **`f`**. If you require historcal jason3 data, it is a no-brainer to use GDR family products since it is at the most accurate among all the families and also has been updated with the latest model version **`f`**.
 
-
+<figure>
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/WUfq2zLW4zo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
 
 
 References
 
 - [Jason-3 Product Handbook](https://www.ospo.noaa.gov/Products/documents/hdbk_j3.pdf)
 - [PODAAC JPL NASA](https://podaac.jpl.nasa.gov/dataset/JASON_3_L2_OST_OGDR_GPS)
+- [Sentinel-3 SRAL Tracks](https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-3)
 

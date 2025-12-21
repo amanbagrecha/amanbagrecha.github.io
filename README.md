@@ -20,7 +20,7 @@ Nginx (port 80/443)
         └─→ Tool proxy: /tools/mask-labeler/* → http://localhost:8001 (shared)
                                    ↓                                  ↓
                              FastAPI (port 8000)              Flask (port 8001)
-                             /root/work/photos-index-search   Image Mask Labeler
+                             /root/work/photos-index-search   /root/work/amanbagrecha.github.io/tools/brush-segmentation
                                                                        ↓
                                                                 Umami Analytics (port 8002)
                                                                 /opt/umami + PostgreSQL
@@ -93,6 +93,59 @@ sudo systemctl status photo-search-api
 ```bash
 curl http://localhost:8000/api/health
 # Should return: {"status":"healthy","message":"Image search API is running"}
+```
+
+#### 2b. Configure Image Mask Labeler Service
+
+**Create systemd service file:**
+
+```bash
+sudo nano /etc/systemd/system/image-mask-labeler.service
+```
+
+**Content:**
+```ini
+[Unit]
+Description=Image Mask Labeler - Flask Application
+After=network.target
+
+[Service]
+Type=notify
+User=root
+Group=root
+WorkingDirectory=/root/work/amanbagrecha.github.io/tools/brush-segmentation
+Environment="PATH=/root/work/amanbagrecha.github.io/tools/brush-segmentation/.venv/bin"
+
+ExecStart=/root/work/amanbagrecha.github.io/tools/brush-segmentation/.venv/bin/gunicorn \
+    --workers 2 \
+    --worker-class sync \
+    --bind 127.0.0.1:8001 \
+    --timeout 120 \
+    --access-logfile /var/log/image-mask-labeler/access.log \
+    --error-logfile /var/log/image-mask-labeler/error.log \
+    --log-level info \
+    app:app
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+**Create log directory and enable service:**
+```bash
+sudo mkdir -p /var/log/image-mask-labeler
+sudo systemctl daemon-reload
+sudo systemctl enable image-mask-labeler
+sudo systemctl start image-mask-labeler
+sudo systemctl status image-mask-labeler
+```
+
+**Test service:**
+```bash
+curl http://localhost:8001/
+# Should return HTML for the Image Mask Labeler interface
 ```
 
 #### 3. Configure Nginx
@@ -362,6 +415,24 @@ sudo journalctl -u photo-search-api -f
 sudo journalctl -u photo-search-api --since today
 ```
 
+### Image Mask Labeler Service
+
+```bash
+# Check status
+sudo systemctl status image-mask-labeler
+
+# Start/Stop/Restart
+sudo systemctl start image-mask-labeler
+sudo systemctl stop image-mask-labeler
+sudo systemctl restart image-mask-labeler
+
+# View logs
+sudo journalctl -u image-mask-labeler -f
+sudo journalctl -u image-mask-labeler --since today
+sudo tail -f /var/log/image-mask-labeler/access.log
+sudo tail -f /var/log/image-mask-labeler/error.log
+```
+
 ### Nginx
 
 ```bash
@@ -465,9 +536,13 @@ sudo systemctl restart nginx
 │   ├── projects/                    # Projects
 │   ├── tools/                       # Tools
 │   │   ├── photo-search.qmd         # Photo search page
-│   │   └── photo-search/            # Static assets
-│   │       ├── app.js               # Frontend JavaScript
-│   │       └── style.css            # Styles
+│   │   ├── photo-search/            # Static assets
+│   │   │   ├── app.js               # Frontend JavaScript
+│   │   │   └── style.css            # Styles
+│   │   └── brush-segmentation/      # Image mask labeler Flask app
+│   │       ├── app.py               # Flask application (served at /tools/mask-labeler/)
+│   │       ├── requirements.txt     # Python dependencies
+│   │       └── .venv/               # Python virtual environment
 │   ├── docs/                        # Production build (served by Nginx)
 │   └── docs-staging/                # Staging build (served by Nginx, gitignored)
 │
@@ -490,6 +565,7 @@ sudo systemctl restart nginx
 - **Nginx config (production)**: `/etc/nginx/sites-available/amanbagrecha.conf`
 - **Nginx config (staging)**: `/etc/nginx/sites-available/staging.amanbagrecha.conf`
 - **FastAPI service**: `/etc/systemd/system/photo-search-api.service`
+- **Image Mask Labeler service**: `/etc/systemd/system/image-mask-labeler.service`
 - **Umami service**: `/etc/systemd/system/umami.service`
 - **Umami environment**: `/opt/umami/.env`
 - **Quarto main config**: `/root/work/amanbagrecha.github.io/_quarto.yml`
@@ -502,6 +578,7 @@ sudo systemctl restart nginx
 
 - **FastAPI app**: `/root/work/photos-index-search/image_search_app/app.py`
 - **Photo search page**: `/root/work/amanbagrecha.github.io/tools/photo-search.qmd`
+- **Image Mask Labeler app**: `/root/work/amanbagrecha.github.io/tools/brush-segmentation/app.py`
 - **Face DB**: `/root/work/photos-index-search/face_db.parquet`
 - **Umami app**: `/opt/umami/`
 - **Umami tracking script**: `/root/work/amanbagrecha.github.io/_umami-tracking.html`

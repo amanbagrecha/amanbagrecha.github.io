@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - "posts/**/*.pmtiles"
 
 website:
   title: "Aman Bagrecha"
