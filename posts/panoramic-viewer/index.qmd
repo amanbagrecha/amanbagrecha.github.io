@@ -14,6 +14,7 @@ resources:
   - before.png
   - after.png
   - workflow.webp
+  - original.webp
 format:
   html:
     include-in-header:
@@ -28,6 +29,8 @@ format:
 
 Over the past month, I have been building a pipeline for editing panoramic (360° equirectangular) imagery, with a focus on object removal, more specifically - inpainting, and reconstruction back into equirectangular format.
 
+![Original Panoramic Images with artifacts](original.webp)
+> original equirectangular image with artifacts in car and sky glare
 
 My task in this fun project was to remove artifacts (a car captured in the 360-degree view and sky glare) from the scene. The problem is that these panoramic scenes are large, and traditional LaMa models do not work well for large object removal.
 To tackle this, I initially thought of segmenting the road using SAM and regenerating a new road (using an image editing model) as a replacement, and doing the same process for the sky. But there are many ifs and buts in that approach:
@@ -144,6 +147,26 @@ document.addEventListener('DOMContentLoaded', function() {
 The final result after inpainting and reconstruction. Click and drag to explore the 360° view. Use the mouse wheel to zoom in and out.
 
 ---
+
+*The above process is computationally expensive. I ran the FP8 version on a L40S system having 48 GB VRAM. The time it takes for one entire run is about 20 sec.
+The models are heavy in size (total of about 20GB) which were downloaded from huggingface. I did find another repository which bundled all the weights into one - called [RAPID AIO](https://huggingface.co/Phr00t/Qwen-Image-Edit-Rapid-AIO), but it seem to have a offset issue.
+*
+
+
+### Links
+
+1. [Core Qwen / Model References](https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit)
+
+2. [Vehicle and Number Plate Removal](https://github.com/facebookresearch/EgoBlur)
+
+3. [Simple Inpainting (LaMa)](https://github.com/advimman/lama)
+
+4. [Equirectangular → Perspective](https://github.com/ProGamerGov/pytorch360convert)
+
+5. [Perspective → Equirectangular](https://github.com/amanbagrecha/p2e)
+
+6. [SAM3 segmentation](https://github.com/facebookresearch/sam3)
+
 
 
 

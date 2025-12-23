@@ -71,8 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<!-- Umami Analytics -->
-<script defer="" src="https://amanbagrecha.com/umami/script.js" data-website-id="5298ff92-3c09-41df-9551-85c6f5f961b4"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 <meta name="quarto:status" content="draft">
@@ -181,7 +179,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#segmentation-and-lama" id="toc-segmentation-and-lama" class="nav-link" data-scroll-target="#segmentation-and-lama">5. Segmentation and Lama</a></li>
   <li><a href="#comfyui-automation-api-workflow" id="toc-comfyui-automation-api-workflow" class="nav-link" data-scroll-target="#comfyui-automation-api-workflow">6. ComfyUI Automation + API Workflow</a></li>
   </ul></li>
-  <li><a href="#interactive-360-panoramic-viewer" id="toc-interactive-360-panoramic-viewer" class="nav-link" data-scroll-target="#interactive-360-panoramic-viewer">Interactive 360° Panoramic Viewer</a></li>
+  <li><a href="#interactive-360-panoramic-viewer" id="toc-interactive-360-panoramic-viewer" class="nav-link" data-scroll-target="#interactive-360-panoramic-viewer">Interactive 360° Panoramic Viewer</a>
+  <ul class="collapse">
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -231,6 +232,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="panoramic-image-editing-reconstruction" class="level2">
 <h2 class="anchored" data-anchor-id="panoramic-image-editing-reconstruction">Panoramic Image Editing &amp; Reconstruction</h2>
 <p>Over the past month, I have been building a pipeline for editing panoramic (360° equirectangular) imagery, with a focus on object removal, more specifically - inpainting, and reconstruction back into equirectangular format.</p>
+<p><img src="original.webp" class="img-fluid" alt="Original Panoramic Images with artifacts"> &gt; original equirectangular image with artifacts in car and sky glare</p>
 <p>My task in this fun project was to remove artifacts (a car captured in the 360-degree view and sky glare) from the scene. The problem is that these panoramic scenes are large, and traditional LaMa models do not work well for large object removal. To tackle this, I initially thought of segmenting the road using SAM and regenerating a new road (using an image editing model) as a replacement, and doing the same process for the sky. But there are many ifs and buts in that approach: - road detection is poor and can lead to over/under prediction, causing seams and abrupt changes</p>
 <ul>
 <li><p>glare from the camera blocks the full view</p></li>
@@ -313,6 +315,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <p>The final result after inpainting and reconstruction. Click and drag to explore the 360° view. Use the mouse wheel to zoom in and out.</p>
 <hr>
+<p><em>The above process is computationally expensive. I ran the FP8 version on a L40S system having 48 GB VRAM. The time it takes for one entire run is about 20 sec. The models are heavy in size (total of about 20GB) which were downloaded from huggingface. I did find another repository which bundled all the weights into one - called <a href="https://huggingface.co/Phr00t/Qwen-Image-Edit-Rapid-AIO">RAPID AIO</a>, but it seem to have a offset issue. </em></p>
+<section id="links" class="level3">
+<h3 class="anchored" data-anchor-id="links">Links</h3>
+<ol type="1">
+<li><p><a href="https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit">Core Qwen / Model References</a></p></li>
+<li><p><a href="https://github.com/facebookresearch/EgoBlur">Vehicle and Number Plate Removal</a></p></li>
+<li><p><a href="https://github.com/advimman/lama">Simple Inpainting (LaMa)</a></p></li>
+<li><p><a href="https://github.com/ProGamerGov/pytorch360convert">Equirectangular → Perspective</a></p></li>
+<li><p><a href="https://github.com/amanbagrecha/p2e">Perspective → Equirectangular</a></p></li>
+<li><p><a href="https://github.com/facebookresearch/sam3">SAM3 segmentation</a></p></li>
+</ol>
 <script>
 let isDragging = false;
 
@@ -343,6 +356,7 @@ document.addEventListener('mouseup', () => {
 </script>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
