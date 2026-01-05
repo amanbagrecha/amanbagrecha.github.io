@@ -17,175 +17,51 @@
     <lastmod>2025-12-18T09:37:22.589Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects.html</loc>
-    <lastmod>2025-12-07T14:05:57.883Z</lastmod>
+    <loc>https://amanbagrecha.com/UMAMI.html</loc>
+    <lastmod>2025-12-20T08:53:25.691Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/atharva/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.884Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/projects/enrolment-by-level/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.891Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/projects/surface-water-extent/index.html</loc>
+    <loc>https://amanbagrecha.com/talks/index.html</loc>
     <lastmod>2025-12-07T14:05:57.905Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/brush-tool-selection/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.890Z</lastmod>
+    <loc>https://amanbagrecha.com/projects/land-surface-temperature/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.898Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/mapbox-api/index.html</loc>
+    <loc>https://amanbagrecha.com/projects/spacenet-5-cresi-extract-road-satellite/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.902Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/projects/ml-challenge/index.html</loc>
     <lastmod>2025-12-07T14:05:57.899Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/image-viewer/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.894Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/projects/drf-userprofile/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.890Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/projects/spot-the-crop-radiantearth/index.html</loc>
+    <loc>https://amanbagrecha.com/projects/store-info-leaflet/index.html</loc>
     <lastmod>2025-12-07T14:05:57.903Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/project/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.883Z</lastmod>
+    <loc>https://amanbagrecha.com/projects/geoserver-query/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.891Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/post/event/my-first-foss4g/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.575Z</lastmod>
+    <loc>https://amanbagrecha.com/projects/smap-soil-moisture/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.900Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.533Z</lastmod>
+    <loc>https://amanbagrecha.com/projects/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.894Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/notebooks/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.565Z</lastmod>
+    <loc>https://amanbagrecha.com/events/index.html</loc>
+    <lastmod>2026-01-05T15:50:52.376Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/presentations/asce_conference_2019/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.878Z</lastmod>
+    <loc>https://amanbagrecha.com/disclaimer/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.162Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/presentations/datajam_2023/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.881Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.874Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-06-09-validating-lulc-classes-in-qgis/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.672Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.688Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.579Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.687Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/first-foss4g/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.693Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.698Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.678Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/gpm-imerg-xarray/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.698Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.577Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-07-16-geoserver-query-builder/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2022-07-31-merge-rasters-the-modern-way-using-python/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.685Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-05-24-pdf-and-email-creation/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/understanding-jason-3-satellite-data-and-its-applications/index.html</loc>
-    <lastmod>2025-12-20T11:03:27.154Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-07-24-contour-maps-in-qgis/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-crud-in-django-rest-framework/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.579Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-09-08-smap-time-series/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.690Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-09-19-overlay-cropped-raster-with-vector-layer/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2021-django-image-upload/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.579Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.677Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/presentations/foss4g_asia_2023/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.883Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/presentations/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.883Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/presentations/design_of_surface_drainage_2021/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.882Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html</loc>
+    <loc>https://amanbagrecha.com/post/index.html</loc>
     <lastmod>2025-12-07T14:05:57.575Z</lastmod>
   </url>
   <url>
@@ -193,48 +69,176 @@
     <lastmod>2025-12-07T14:05:57.905Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/post/index.html</loc>
+    <loc>https://amanbagrecha.com/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html</loc>
     <lastmod>2025-12-07T14:05:57.575Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/disclaimer/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.162Z</lastmod>
+    <loc>https://amanbagrecha.com/presentations/design_of_surface_drainage_2021/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.882Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/events/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.532Z</lastmod>
+    <loc>https://amanbagrecha.com/presentations/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.883Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.894Z</lastmod>
+    <loc>https://amanbagrecha.com/presentations/foss4g_asia_2023/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.883Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/smap-soil-moisture/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.900Z</lastmod>
+    <loc>https://amanbagrecha.com/posts/2022-03-06-what-is-a-block-tile-overview-pyramids-and-cogs-an-experiment/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.677Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/geoserver-query/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.891Z</lastmod>
+    <loc>https://amanbagrecha.com/posts/2021-django-image-upload/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.579Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/store-info-leaflet/index.html</loc>
+    <loc>https://amanbagrecha.com/posts/2021-09-19-overlay-cropped-raster-with-vector-layer/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2023-01-14-cloud-native-composite-subset-and-processing-of-satellite-imagery-with-stac-and-stackstac/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.690Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-09-08-smap-time-series/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-crud-in-django-rest-framework/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.579Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-07-24-contour-maps-in-qgis/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/understanding-jason-3-satellite-data-and-its-applications/index.html</loc>
+    <lastmod>2025-12-20T11:03:27.154Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-05-24-polygon-selection-and-area-calculating-in-openlayers/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.575Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-05-24-pdf-and-email-creation/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.575Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2022-07-31-merge-rasters-the-modern-way-using-python/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.685Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-07-16-geoserver-query-builder/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-09-30-three-ways-to-change-projection-of-raw-csv/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.577Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/gpm-imerg-xarray/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.698Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2022-07-28-download-modis-data-using-cmr-api-in-python/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.678Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.698Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/first-foss4g/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.693Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2022-09-18-import-csv-and-osm-data-into-postgresql-using-ogr2ogr/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.687Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-12-22-vector-tiles-and-docker-using-pg-tilerserv/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.579Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2022-12-21-how-hard-can-it-be-to-create-30-maps/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-09-30-polygonize-raster-and-compute-zonal-stats-in-python/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2022-02-07-how-to-save-earth-engine-image-directly-to-your-local-machine/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.672Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/2021-06-09-validating-lulc-classes-in-qgis/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.575Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/posts/reverse-geocode-using-mapbox-api-with-zoom-functionality/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.874Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/presentations/datajam_2023/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/presentations/asce_conference_2019/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.878Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/notebooks/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.565Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/post/event/my-first-foss4g/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.575Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/project/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.883Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/projects/spot-the-crop-radiantearth/index.html</loc>
     <lastmod>2025-12-07T14:05:57.903Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/ml-challenge/index.html</loc>
+    <loc>https://amanbagrecha.com/projects/drf-userprofile/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.890Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/projects/image-viewer/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.894Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/projects/mapbox-api/index.html</loc>
     <lastmod>2025-12-07T14:05:57.899Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/spacenet-5-cresi-extract-road-satellite/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.902Z</lastmod>
+    <loc>https://amanbagrecha.com/projects/brush-tool-selection/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.890Z</lastmod>
   </url>
   <url>
-    <loc>https://amanbagrecha.com/projects/land-surface-temperature/index.html</loc>
-    <lastmod>2025-12-07T14:05:57.898Z</lastmod>
-  </url>
-  <url>
-    <loc>https://amanbagrecha.com/talks/index.html</loc>
+    <loc>https://amanbagrecha.com/projects/surface-water-extent/index.html</loc>
     <lastmod>2025-12-07T14:05:57.905Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/projects/enrolment-by-level/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.891Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/projects/atharva/index.html</loc>
+    <lastmod>2025-12-07T14:05:57.884Z</lastmod>
+  </url>
+  <url>
+    <loc>https://amanbagrecha.com/projects.html</loc>
+    <lastmod>2025-12-07T14:05:57.883Z</lastmod>
   </url>
   <url>
     <loc>https://amanbagrecha.com/event/index.html</loc>

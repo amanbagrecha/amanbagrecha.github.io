@@ -4,6 +4,11 @@ description: |
   News and Professional Journal - Updated once a month!
 ---
 
+## December 2025
+I gave a talk at BNMIT regarding satellite embeddings and showed how it is useful and acts as a abtraction layer to L2 products. Check it out [here](https://www.canva.com/design/DAG6pC9Y6qk/jLImxL7Zk0hOMGOCEzamkA/edit).
+
+I had my new year vacation (long pending) in Phuket! Amazing place and vibe. Back to grind!
+
 ## November 2025
 
 Gave a talk on machine learning for geospatial analysis to show instance segmentation. workshop material is published [here](https://github.com/amanbagrecha/intro-geospatial-ai).

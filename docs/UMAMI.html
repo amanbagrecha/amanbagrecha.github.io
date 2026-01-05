@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>umami – Aman Bagrecha</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./img/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b41e3af0db88674e0a0ed1bb04d0ec7f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<!-- Umami Analytics -->
+<script defer="" src="https://amanbagrecha.com/umami/script.js" data-website-id="5298ff92-3c09-41df-9551-85c6f5f961b4"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Aman Bagrecha">
+<meta property="og:description" content="Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial">
+<meta property="og:site_name" content="Aman Bagrecha">
+<meta name="twitter:title" content="Aman Bagrecha">
+<meta name="twitter:description" content="Aman is a geospatial scientist at Galaxeye Space and runs a geospatial community Lets Talk Spatial">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/ab-logo-small.png" alt="" class="navbar-logo light-content">
+    <img src="./img/ab-logo-small.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Aman Bagrecha</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./talks/index.html"> 
+<span class="menu-text">Videos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./posts.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./events.html"> 
+<span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./travel/index.html"> 
+<span class="menu-text">Travel</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./presentations/index.html"> 
+<span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="./tools/photo-search.html">
+ <span class="dropdown-text">Photo Search</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tools/titiler-viewer/titiler_viewer.html">
+ <span class="dropdown-text">TiTiler Viewer</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://twitter.com/aman_bagrecha" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/amanbagrecha" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://www.youtube.com/@amanbagrecha/videos" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#umami-analytics---setup-reference-guide" id="toc-umami-analytics---setup-reference-guide" class="nav-link active" data-scroll-target="#umami-analytics---setup-reference-guide">Umami Analytics - Setup &amp; Reference Guide</a>
+  <ul class="collapse">
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#metrics-tracked" id="toc-metrics-tracked" class="nav-link" data-scroll-target="#metrics-tracked">Metrics Tracked</a></li>
+  <li><a href="#privacy-features" id="toc-privacy-features" class="nav-link" data-scroll-target="#privacy-features">Privacy Features</a></li>
+  </ul></li>
+  <li><a href="#access-credentials" id="toc-access-credentials" class="nav-link" data-scroll-target="#access-credentials">Access &amp; Credentials</a>
+  <ul class="collapse">
+  <li><a href="#dashboard-access" id="toc-dashboard-access" class="nav-link" data-scroll-target="#dashboard-access">Dashboard Access</a></li>
+  <li><a href="#website-tracking" id="toc-website-tracking" class="nav-link" data-scroll-target="#website-tracking">Website Tracking</a></li>
+  </ul></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a>
+  <ul class="collapse">
+  <li><a href="#components" id="toc-components" class="nav-link" data-scroll-target="#components">Components</a></li>
+  <li><a href="#network" id="toc-network" class="nav-link" data-scroll-target="#network">Network</a></li>
+  </ul></li>
+  <li><a href="#service-management" id="toc-service-management" class="nav-link" data-scroll-target="#service-management">Service Management</a>
+  <ul class="collapse">
+  <li><a href="#umami-service" id="toc-umami-service" class="nav-link" data-scroll-target="#umami-service">Umami Service</a></li>
+  <li><a href="#postgresql-database" id="toc-postgresql-database" class="nav-link" data-scroll-target="#postgresql-database">PostgreSQL Database</a></li>
+  </ul></li>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a>
+  <ul class="collapse">
+  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables">Environment Variables</a></li>
+  <li><a href="#nginx-configuration" id="toc-nginx-configuration" class="nav-link" data-scroll-target="#nginx-configuration">Nginx Configuration</a></li>
+  <li><a href="#quarto-integration" id="toc-quarto-integration" class="nav-link" data-scroll-target="#quarto-integration">Quarto Integration</a></li>
+  </ul></li>
+  <li><a href="#backup-maintenance" id="toc-backup-maintenance" class="nav-link" data-scroll-target="#backup-maintenance">Backup &amp; Maintenance</a>
+  <ul class="collapse">
+  <li><a href="#automated-backups" id="toc-automated-backups" class="nav-link" data-scroll-target="#automated-backups">Automated Backups</a></li>
+  <li><a href="#manual-backup" id="toc-manual-backup" class="nav-link" data-scroll-target="#manual-backup">Manual Backup</a></li>
+  <li><a href="#restore-from-backup" id="toc-restore-from-backup" class="nav-link" data-scroll-target="#restore-from-backup">Restore from Backup</a></li>
+  <li><a href="#database-maintenance" id="toc-database-maintenance" class="nav-link" data-scroll-target="#database-maintenance">Database Maintenance</a></li>
+  </ul></li>
+  <li><a href="#monitoring-logs" id="toc-monitoring-logs" class="nav-link" data-scroll-target="#monitoring-logs">Monitoring &amp; Logs</a>
+  <ul class="collapse">
+  <li><a href="#service-health" id="toc-service-health" class="nav-link" data-scroll-target="#service-health">Service Health</a></li>
+  <li><a href="#log-files" id="toc-log-files" class="nav-link" data-scroll-target="#log-files">Log Files</a></li>
+  <li><a href="#monitoring-database-growth" id="toc-monitoring-database-growth" class="nav-link" data-scroll-target="#monitoring-database-growth">Monitoring Database Growth</a></li>
+  </ul></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
+  <ul class="collapse">
+  <li><a href="#umami-service-wont-start" id="toc-umami-service-wont-start" class="nav-link" data-scroll-target="#umami-service-wont-start">Umami Service Won’t Start</a></li>
+  <li><a href="#tracking-script-not-loading" id="toc-tracking-script-not-loading" class="nav-link" data-scroll-target="#tracking-script-not-loading">Tracking Script Not Loading</a></li>
+  <li><a href="#no-data-in-dashboard" id="toc-no-data-in-dashboard" class="nav-link" data-scroll-target="#no-data-in-dashboard">No Data in Dashboard</a></li>
+  <li><a href="#staging-site-tracking-unintended" id="toc-staging-site-tracking-unintended" class="nav-link" data-scroll-target="#staging-site-tracking-unintended">Staging Site Tracking (Unintended)</a></li>
+  <li><a href="#high-database-size" id="toc-high-database-size" class="nav-link" data-scroll-target="#high-database-size">High Database Size</a></li>
+  <li><a href="#performance-issues" id="toc-performance-issues" class="nav-link" data-scroll-target="#performance-issues">Performance Issues</a></li>
+  </ul></li>
+  <li><a href="#updating-umami" id="toc-updating-umami" class="nav-link" data-scroll-target="#updating-umami">Updating Umami</a></li>
+  <li><a href="#important-file-locations" id="toc-important-file-locations" class="nav-link" data-scroll-target="#important-file-locations">Important File Locations</a>
+  <ul class="collapse">
+  <li><a href="#configuration-files" id="toc-configuration-files" class="nav-link" data-scroll-target="#configuration-files">Configuration Files</a></li>
+  <li><a href="#application-files" id="toc-application-files" class="nav-link" data-scroll-target="#application-files">Application Files</a></li>
+  <li><a href="#data-backups" id="toc-data-backups" class="nav-link" data-scroll-target="#data-backups">Data &amp; Backups</a></li>
+  <li><a href="#logs" id="toc-logs" class="nav-link" data-scroll-target="#logs">Logs</a></li>
+  </ul></li>
+  <li><a href="#database-credentials" id="toc-database-credentials" class="nav-link" data-scroll-target="#database-credentials">Database Credentials</a></li>
+  <li><a href="#quick-reference-commands" id="toc-quick-reference-commands" class="nav-link" data-scroll-target="#quick-reference-commands">Quick Reference Commands</a>
+  <ul class="collapse">
+  <li><a href="#daily-operations" id="toc-daily-operations" class="nav-link" data-scroll-target="#daily-operations">Daily Operations</a></li>
+  <li><a href="#maintenance" id="toc-maintenance" class="nav-link" data-scroll-target="#maintenance">Maintenance</a></li>
+  <li><a href="#troubleshooting-1" id="toc-troubleshooting-1" class="nav-link" data-scroll-target="#troubleshooting-1">Troubleshooting</a></li>
+  </ul></li>
+  <li><a href="#support-resources" id="toc-support-resources" class="nav-link" data-scroll-target="#support-resources">Support &amp; Resources</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="umami-analytics---setup-reference-guide" class="level1">
+<h1>Umami Analytics - Setup &amp; Reference Guide</h1>
+<p>Self-hosted privacy-friendly analytics for amanbagrecha.com.</p>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#access--credentials">Access &amp; Credentials</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#service-management">Service Management</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#backup--maintenance">Backup &amp; Maintenance</a></li>
+<li><a href="#monitoring--logs">Monitoring &amp; Logs</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#updating-umami">Updating Umami</a></li>
+</ul>
+<hr>
+</section>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><strong>What:</strong> Umami v2.13.2 - Open-source, privacy-focused web analytics <strong>Installed:</strong> December 2024 <strong>Purpose:</strong> Track website metrics without third-party data sharing</p>
+<section id="metrics-tracked" class="level3">
+<h3 class="anchored" data-anchor-id="metrics-tracked">Metrics Tracked</h3>
+<ul>
+<li>Page views &amp; unique visitors</li>
+<li>Photo-search tool usage</li>
+<li>Traffic sources (direct, search, referral, social)</li>
+<li>Device breakdown (desktop, mobile, tablet)</li>
+<li>Browser &amp; OS distribution</li>
+<li>Geographic location (country-level)</li>
+<li>Session metrics (duration, bounce rate, new vs returning)</li>
+</ul>
+</section>
+<section id="privacy-features" class="level3">
+<h3 class="anchored" data-anchor-id="privacy-features">Privacy Features</h3>
+<ul>
+<li>No cookies required</li>
+<li>GDPR compliant</li>
+<li>Self-hosted (all data stays on our server)</li>
+<li>No third-party data sharing</li>
+<li>Anonymous by default</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="access-credentials" class="level2">
+<h2 class="anchored" data-anchor-id="access-credentials">Access &amp; Credentials</h2>
+<section id="dashboard-access" class="level3">
+<h3 class="anchored" data-anchor-id="dashboard-access">Dashboard Access</h3>
+<p><strong>URL:</strong> <code>https://amanbagrecha.com/umami</code></p>
+<p><strong>Login:</strong> - Username: <code>admin</code> - Password: <em>[You set this during initial setup]</em></p>
+<p><strong>Important:</strong> Change the default password immediately after first login via Settings → Profile → Change Password.</p>
+</section>
+<section id="website-tracking" class="level3">
+<h3 class="anchored" data-anchor-id="website-tracking">Website Tracking</h3>
+<p><strong>Production:</strong> <code>https://amanbagrecha.com</code> - <strong>Tracking ENABLED</strong> <strong>Staging:</strong> <code>https://staging.amanbagrecha.com</code> - <strong>Tracking DISABLED</strong></p>
+<p><strong>Website ID:</strong> <code>5298ff92-3c09-41df-9551-85c6f5f961b4</code></p>
+<hr>
+</section>
+</section>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
+<pre><code>User Browser (amanbagrecha.com)
+    ↓
+Tracking Script (/umami/script.js)
+    ↓
+Nginx (port 443)
+    ↓ proxy /umami → localhost:8002
+Umami (Next.js app on port 8002)
+    ↓
+PostgreSQL Database (port 5432)</code></pre>
+<section id="components" class="level3">
+<h3 class="anchored" data-anchor-id="components">Components</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Location</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Umami App</td>
+<td><code>/opt/umami</code></td>
+<td>Next.js application</td>
+</tr>
+<tr class="even">
+<td>Database</td>
+<td>PostgreSQL <code>umami</code> db</td>
+<td>Analytics data storage</td>
+</tr>
+<tr class="odd">
+<td>Service</td>
+<td>systemd <code>umami.service</code></td>
+<td>Keeps Umami running</td>
+</tr>
+<tr class="even">
+<td>Proxy</td>
+<td>Nginx <code>/umami</code> location</td>
+<td>Public access via SSL</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="network" class="level3">
+<h3 class="anchored" data-anchor-id="network">Network</h3>
+<ul>
+<li><strong>Umami:</strong> <code>localhost:8002</code> (internal only)</li>
+<li><strong>PostgreSQL:</strong> <code>localhost:5432</code> (internal only)</li>
+<li><strong>Public Access:</strong> <code>https://amanbagrecha.com/umami</code> (via Nginx)</li>
+<li><strong>Tracking Script:</strong> <code>https://amanbagrecha.com/umami/script.js</code></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="service-management" class="level2">
+<h2 class="anchored" data-anchor-id="service-management">Service Management</h2>
+<section id="umami-service" class="level3">
+<h3 class="anchored" data-anchor-id="umami-service">Umami Service</h3>
+<p><strong>Check status:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Start/Stop/Restart:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl start umami</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl stop umami</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Enable/Disable auto-start:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl enable umami   <span class="co"># Start on boot</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl disable umami  <span class="co"># Don't start on boot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>View logs:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Follow logs in real-time</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-f</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View last 100 lines</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-n</span> 100</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View logs since today</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">--since</span> today</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View logs with errors only</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-p</span> err</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="postgresql-database" class="level3">
+<h3 class="anchored" data-anchor-id="postgresql-database">PostgreSQL Database</h3>
+<p><strong>Check database status:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> status postgresql</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Connect to database:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Check database size:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql <span class="at">-c</span> <span class="st">"SELECT pg_size_pretty(pg_database_size('umami'));"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Manual vacuum (optimization):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami <span class="at">-c</span> <span class="st">"VACUUM ANALYZE;"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="configuration" class="level2">
+<h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
+<section id="environment-variables" class="level3">
+<h3 class="anchored" data-anchor-id="environment-variables">Environment Variables</h3>
+<p><strong>File:</strong> <code>/opt/umami/.env</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_URL</span><span class="op">=</span>postgresql://umami_user:PASSWORD@localhost:5432/umami</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="va">APP_SECRET</span><span class="op">=</span>RANDOM_SECRET_KEY</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="va">BASE_PATH</span><span class="op">=</span>/umami</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="va">DISABLE_TELEMETRY</span><span class="op">=</span>1</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="va">TIMEZONE</span><span class="op">=</span>Asia/Kolkata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Important:</strong> Never commit <code>.env</code> file to git. Contains sensitive credentials.</p>
+<p><strong>After changing <code>.env</code>:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="nginx-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="nginx-configuration">Nginx Configuration</h3>
+<p><strong>File:</strong> <code>/etc/nginx/sites-available/amanbagrecha.conf</code></p>
+<p><strong>Relevant sections:</strong></p>
+<pre class="nginx"><code># Tracking script (exact match has priority)
+location = /umami/script.js {
+    proxy_pass http://127.0.0.1:8002/umami/script.js;
+    # ... proxy headers ...
+}
+
+# Dashboard and API
+location /umami {
+    proxy_pass http://127.0.0.1:8002/umami;
+    # ... proxy headers with WebSocket support ...
+}</code></pre>
+<p><strong>After changing Nginx config:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nginx <span class="at">-t</span>              <span class="co"># Test configuration</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl reload nginx <span class="co"># Apply changes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quarto-integration" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-integration">Quarto Integration</h3>
+<p><strong>Tracking script:</strong> <code>/root/work/amanbagrecha.github.io/_umami-tracking.html</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> defer src</span><span class="op">=</span><span class="st">"https://amanbagrecha.com/umami/script.js"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-website-id</span><span class="op">=</span><span class="st">"5298ff92-3c09-41df-9551-85c6f5f961b4"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Production profile:</strong> <code>/root/work/amanbagrecha.github.io/_quarto-production.yml</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-in-header</span><span class="kw">:</span><span class="at"> _umami-tracking.html</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Staging profile:</strong> <code>/root/work/amanbagrecha.github.io/_quarto-staging.yml</code> - Does NOT include <code>include-in-header</code> (no tracking on staging)</p>
+<p><strong>After changing tracking:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /root/work/amanbagrecha.github.io</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./build-production.sh</span>  <span class="co"># Rebuild production site</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="backup-maintenance" class="level2">
+<h2 class="anchored" data-anchor-id="backup-maintenance">Backup &amp; Maintenance</h2>
+<section id="automated-backups" class="level3">
+<h3 class="anchored" data-anchor-id="automated-backups">Automated Backups</h3>
+<p><strong>Schedule:</strong> Daily at 2:00 AM <strong>Retention:</strong> 30 days <strong>Location:</strong> <code>/var/backups/umami/</code></p>
+<p><strong>Backup script:</strong> <code>/root/scripts/backup-umami.sh</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="va">BACKUP_DIR</span><span class="op">=</span><span class="st">"/var/backups/umami"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="va">TIMESTAMP</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span> +%Y%m%d-%H%M%S<span class="va">)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$BACKUP_DIR</span><span class="st">"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres pg_dump umami <span class="kw">|</span> <span class="fu">gzip</span> <span class="op">&gt;</span> <span class="st">"</span><span class="va">$BACKUP_DIR</span><span class="st">/umami-</span><span class="va">$TIMESTAMP</span><span class="st">.sql.gz"</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> <span class="st">"</span><span class="va">$BACKUP_DIR</span><span class="st">"</span> <span class="at">-name</span> <span class="st">"umami-*.sql.gz"</span> <span class="at">-mtime</span> +30 <span class="at">-delete</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Cron schedule:</strong> (view with <code>crontab -l</code>)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daily backup at 2 AM</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> 2 <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /root/scripts/backup-umami.sh</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Weekly database optimization on Sunday at 3 AM</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> 3 <span class="pp">*</span> <span class="pp">*</span> 0 sudo <span class="at">-u</span> postgres psql umami <span class="at">-c</span> <span class="st">"VACUUM ANALYZE;"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="manual-backup" class="level3">
+<h3 class="anchored" data-anchor-id="manual-backup">Manual Backup</h3>
+<p><strong>Create backup now:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/root/scripts/backup-umami.sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>List backups:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> /var/backups/umami/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="restore-from-backup" class="level3">
+<h3 class="anchored" data-anchor-id="restore-from-backup">Restore from Backup</h3>
+<p><strong>Restore specific backup:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stop Umami service</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl stop umami</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore database</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> <span class="at">-c</span> /var/backups/umami/umami-YYYYMMDD-HHMMSS.sql.gz <span class="kw">|</span> <span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Umami service</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl start umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="database-maintenance" class="level3">
+<h3 class="anchored" data-anchor-id="database-maintenance">Database Maintenance</h3>
+<p><strong>Automatic:</strong> Weekly vacuum on Sunday at 3 AM (via cron)</p>
+<p><strong>Manual optimization:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami <span class="at">-c</span> <span class="st">"VACUUM ANALYZE;"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Check table sizes:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami <span class="at">-c</span> <span class="st">"</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT schemaname, tablename,</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="st">         pg_size_pretty(pg_total_relation_size(schemaname||'.'||tablename)) AS size</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM pg_tables</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="st">  WHERE schemaname = 'public'</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="st">  ORDER BY pg_total_relation_size(schemaname||'.'||tablename) DESC;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="monitoring-logs" class="level2">
+<h2 class="anchored" data-anchor-id="monitoring-logs">Monitoring &amp; Logs</h2>
+<section id="service-health" class="level3">
+<h3 class="anchored" data-anchor-id="service-health">Service Health</h3>
+<p><strong>Quick health check:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if Umami is running</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl is-active umami</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if port 8002 is listening</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ss</span> <span class="at">-tlnp</span> <span class="kw">|</span> <span class="fu">grep</span> 8002</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Test local access</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-I</span> http://localhost:8002/umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Full status check:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Umami service status</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status umami</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Recent logs</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-n</span> 50</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Database connection</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami <span class="at">-c</span> <span class="st">"SELECT version();"</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Nginx proxy</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-I</span> https://amanbagrecha.com/umami/</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-I</span> https://amanbagrecha.com/umami/script.js</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="log-files" class="level3">
+<h3 class="anchored" data-anchor-id="log-files">Log Files</h3>
+<p><strong>Umami application logs:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-f</span>          <span class="co"># Follow in real-time</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">--since</span> <span class="st">"1 hour ago"</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">--since</span> today</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Nginx access logs:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> tail <span class="at">-f</span> /var/log/nginx/access.log <span class="kw">|</span> <span class="fu">grep</span> umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Nginx error logs:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> tail <span class="at">-f</span> /var/log/nginx/error.log <span class="kw">|</span> <span class="fu">grep</span> umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>PostgreSQL logs:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> tail <span class="at">-f</span> /var/log/postgresql/postgresql-16-main.log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="monitoring-database-growth" class="level3">
+<h3 class="anchored" data-anchor-id="monitoring-database-growth">Monitoring Database Growth</h3>
+<p><strong>Database size over time:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql <span class="at">-c</span> <span class="st">"</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT datname, pg_size_pretty(pg_database_size(datname))</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM pg_database</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="st">  WHERE datname = 'umami';</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Monitor disk usage:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> <span class="at">-h</span> /var/lib/postgresql  <span class="co"># Database storage</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> <span class="at">-h</span> /var/backups         <span class="co"># Backup storage</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<section id="umami-service-wont-start" class="level3">
+<h3 class="anchored" data-anchor-id="umami-service-wont-start">Umami Service Won’t Start</h3>
+<p><strong>Check logs for errors:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-n</span> 100 <span class="at">--no-pager</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Common issues:</strong></p>
+<ol type="1">
+<li><p><strong>Database connection failed</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify PostgreSQL is running</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> status postgresql</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Test database connection</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="va">PGPASSWORD</span><span class="op">=</span><span class="st">'PASSWORD'</span> <span class="ex">psql</span> <span class="at">-U</span> umami_user <span class="at">-d</span> umami <span class="at">-h</span> localhost <span class="at">-c</span> <span class="st">"SELECT 1;"</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check credentials in .env file</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> /opt/umami/.env <span class="kw">|</span> <span class="fu">grep</span> DATABASE_URL</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Port 8002 already in use</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check what's using the port</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ss <span class="at">-tlnp</span> <span class="kw">|</span> <span class="fu">grep</span> 8002</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Kill the process if needed</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> kill <span class="op">&lt;</span>PID<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Missing dependencies</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /opt/umami</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">--legacy-peer-deps</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+</section>
+<section id="tracking-script-not-loading" class="level3">
+<h3 class="anchored" data-anchor-id="tracking-script-not-loading">Tracking Script Not Loading</h3>
+<p><strong>Verify script is accessible:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://amanbagrecha.com/umami/script.js</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>If 404 error:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check Nginx config</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nginx <span class="at">-t</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cat /etc/nginx/sites-available/amanbagrecha.conf <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-A</span> 10 <span class="st">"umami"</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check Nginx error log</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> tail <span class="at">-20</span> /var/log/nginx/error.log <span class="kw">|</span> <span class="fu">grep</span> umami</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Reload Nginx</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl reload nginx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Check production HTML includes script:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"umami/script.js"</span> /root/work/amanbagrecha.github.io/docs/index.html</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>If missing, rebuild site:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /root/work/amanbagrecha.github.io</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./build-production.sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="no-data-in-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="no-data-in-dashboard">No Data in Dashboard</h3>
+<p><strong>Possible causes:</strong></p>
+<ol type="1">
+<li><p><strong>Wrong Website ID</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check Website ID in tracking script</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"data-website-id"</span> /root/work/amanbagrecha.github.io/_umami-tracking.html</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with dashboard (login to https://amanbagrecha.com/umami)</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Settings → Websites → Check Website ID</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Browser blocking (ad blockers)</strong></p>
+<ul>
+<li>Test in incognito mode without extensions</li>
+<li>Check browser console for errors (F12 → Console)</li>
+</ul></li>
+<li><p><strong>Tracking script not loaded</strong></p>
+<ul>
+<li>Open browser DevTools → Network tab</li>
+<li>Visit your site</li>
+<li>Look for request to <code>umami/script.js</code> (should be 200 OK)</li>
+<li>Look for POST to <code>umami/api/send</code> (should be 200 OK)</li>
+</ul></li>
+<li><p><strong>Clock skew</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check server time</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="ex">timedatectl</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+</section>
+<section id="staging-site-tracking-unintended" class="level3">
+<h3 class="anchored" data-anchor-id="staging-site-tracking-unintended">Staging Site Tracking (Unintended)</h3>
+<p><strong>Verify staging doesn’t include tracking:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"umami"</span> /root/work/amanbagrecha.github.io/docs-staging/index.html</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Should return nothing</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check staging config</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> /root/work/amanbagrecha.github.io/_quarto-staging.yml <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"include-in-header"</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Should NOT have include-in-header for tracking</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>If staging has tracking, rebuild:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /root/work/amanbagrecha.github.io</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./build-staging.sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="high-database-size" class="level3">
+<h3 class="anchored" data-anchor-id="high-database-size">High Database Size</h3>
+<p><strong>Check database size:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql <span class="at">-c</span> <span class="st">"SELECT pg_size_pretty(pg_database_size('umami'));"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Cleanup old data (if needed):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Connect to database</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>sudo <span class="op">-</span>u postgres psql umami</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Delete data older than 90 days</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> event <span class="kw">WHERE</span> created_at <span class="op">&lt;</span> NOW() <span class="op">-</span> <span class="dt">INTERVAL</span> <span class="st">'90 days'</span>;</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Vacuum to reclaim space</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>VACUUM <span class="kw">FULL</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="performance-issues" class="level3">
+<h3 class="anchored" data-anchor-id="performance-issues">Performance Issues</h3>
+<p><strong>Check resource usage:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CPU and memory</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="ex">top</span> <span class="at">-bn1</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-E</span> <span class="st">"(umami|postgres)"</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Database connections</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami <span class="at">-c</span> <span class="st">"SELECT count(*) FROM pg_stat_activity;"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Optimize queries:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run vacuum</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami <span class="at">-c</span> <span class="st">"VACUUM ANALYZE;"</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Restart Umami</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="updating-umami" class="level2">
+<h2 class="anchored" data-anchor-id="updating-umami">Updating Umami</h2>
+<p><strong>Before updating:</strong> 1. Create backup: <code>/root/scripts/backup-umami.sh</code> 2. Note current version: <code>cd /opt/umami &amp;&amp; cat package.json | grep version</code></p>
+<p><strong>Update process:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stop service</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl stop umami</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Backup current installation</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /opt</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cp <span class="at">-r</span> umami umami-backup-<span class="va">$(</span><span class="fu">date</span> +%Y%m%d<span class="va">)</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Download new version</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /opt/umami</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/umami-software/umami/archive/refs/tags/vX.X.X.tar.gz</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzf</span> vX.X.X.tar.gz</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy environment file</span></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /opt/umami-backup-<span class="pp">*</span>/. env /opt/umami/.env</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies and build</span></span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">--legacy-peer-deps</span></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build</span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply database migrations (if any)</span></span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build-db</span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Start service</span></span>
+<span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl start umami</span>
+<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Check status</span></span>
+<span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status umami</span>
+<span id="cb48-28"><a href="#cb48-28" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-f</span></span>
+<span id="cb48-29"><a href="#cb48-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-30"><a href="#cb48-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Test access</span></span>
+<span id="cb48-31"><a href="#cb48-31" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-I</span> https://amanbagrecha.com/umami/</span>
+<span id="cb48-32"><a href="#cb48-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-33"><a href="#cb48-33" aria-hidden="true" tabindex="-1"></a><span class="co"># If successful, clean up</span></span>
+<span id="cb48-34"><a href="#cb48-34" aria-hidden="true" tabindex="-1"></a><span class="co"># sudo rm -rf /opt/umami-backup-*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Check for updates:</strong> - GitHub releases: https://github.com/umami-software/umami/releases - Security advisories: https://github.com/umami-software/umami/security</p>
+<hr>
+</section>
+<section id="important-file-locations" class="level2">
+<h2 class="anchored" data-anchor-id="important-file-locations">Important File Locations</h2>
+<section id="configuration-files" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-files">Configuration Files</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/opt/umami/.env</code></td>
+<td>Environment variables (DATABASE_URL, APP_SECRET)</td>
+</tr>
+<tr class="even">
+<td><code>/etc/systemd/system/umami.service</code></td>
+<td>Systemd service definition</td>
+</tr>
+<tr class="odd">
+<td><code>/etc/nginx/sites-available/amanbagrecha.conf</code></td>
+<td>Nginx proxy configuration</td>
+</tr>
+<tr class="even">
+<td><code>/root/work/amanbagrecha.github.io/_umami-tracking.html</code></td>
+<td>Tracking script HTML</td>
+</tr>
+<tr class="odd">
+<td><code>/root/work/amanbagrecha.github.io/_quarto-production.yml</code></td>
+<td>Production Quarto config</td>
+</tr>
+<tr class="even">
+<td><code>/root/work/amanbagrecha.github.io/_quarto-staging.yml</code></td>
+<td>Staging Quarto config</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="application-files" class="level3">
+<h3 class="anchored" data-anchor-id="application-files">Application Files</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Directory/File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/opt/umami/</code></td>
+<td>Umami application root</td>
+</tr>
+<tr class="even">
+<td><code>/opt/umami/public/script.js</code></td>
+<td>Tracking script (2.6KB)</td>
+</tr>
+<tr class="odd">
+<td><code>/opt/umami/.next/</code></td>
+<td>Built Next.js application</td>
+</tr>
+<tr class="even">
+<td><code>/opt/umami/prisma/</code></td>
+<td>Database schema and migrations</td>
+</tr>
+<tr class="odd">
+<td><code>/opt/umami/node_modules/</code></td>
+<td>NPM dependencies</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-backups" class="level3">
+<h3 class="anchored" data-anchor-id="data-backups">Data &amp; Backups</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Directory</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/var/lib/postgresql/16/main/</code></td>
+<td>PostgreSQL data directory</td>
+</tr>
+<tr class="even">
+<td><code>/var/backups/umami/</code></td>
+<td>Database backup files</td>
+</tr>
+<tr class="odd">
+<td><code>/root/scripts/backup-umami.sh</code></td>
+<td>Backup script</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logs" class="level3">
+<h3 class="anchored" data-anchor-id="logs">Logs</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>journalctl -u umami</code></td>
+<td>Umami application logs</td>
+</tr>
+<tr class="even">
+<td><code>/var/log/nginx/access.log</code></td>
+<td>Nginx access logs</td>
+</tr>
+<tr class="odd">
+<td><code>/var/log/nginx/error.log</code></td>
+<td>Nginx error logs</td>
+</tr>
+<tr class="even">
+<td><code>/var/log/postgresql/</code></td>
+<td>PostgreSQL logs</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="database-credentials" class="level2">
+<h2 class="anchored" data-anchor-id="database-credentials">Database Credentials</h2>
+<p><strong>IMPORTANT:</strong> Keep these credentials secure and never commit to git.</p>
+<p><strong>PostgreSQL:</strong> - Database: <code>umami</code> - User: <code>umami_user</code> - Password: <em>Stored in <code>/opt/umami/.env</code></em> - Host: <code>localhost</code> - Port: <code>5432</code></p>
+<p><strong>Umami Admin:</strong> - Username: <code>admin</code> - Password: <em>Set during initial setup</em> - Change via: Settings → Profile → Change Password</p>
+<hr>
+</section>
+<section id="quick-reference-commands" class="level2">
+<h2 class="anchored" data-anchor-id="quick-reference-commands">Quick Reference Commands</h2>
+<section id="daily-operations" class="level3">
+<h3 class="anchored" data-anchor-id="daily-operations">Daily Operations</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if everything is running</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status umami</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-I</span> https://amanbagrecha.com/umami/</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View recent activity</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-n</span> 20</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create manual backup</span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="ex">/root/scripts/backup-umami.sh</span></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Restart after changes</span></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart umami</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="maintenance" class="level3">
+<h3 class="anchored" data-anchor-id="maintenance">Maintenance</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Weekly optimization (runs automatically)</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql umami <span class="at">-c</span> <span class="st">"VACUUM ANALYZE;"</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check database size</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> <span class="at">-u</span> postgres psql <span class="at">-c</span> <span class="st">"SELECT pg_size_pretty(pg_database_size('umami'));"</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># List backups</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> /var/backups/umami/</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View cron schedule</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="fu">crontab</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="troubleshooting-1" class="level3">
+<h3 class="anchored" data-anchor-id="troubleshooting-1">Troubleshooting</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Full diagnostic</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status umami</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> journalctl <span class="at">-u</span> umami <span class="at">-n</span> 50</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-I</span> http://localhost:8002/umami</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-I</span> https://amanbagrecha.com/umami/script.js</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"umami"</span> /root/work/amanbagrecha.github.io/docs/index.html</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Restart all components</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart umami</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl reload nginx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="support-resources" class="level2">
+<h2 class="anchored" data-anchor-id="support-resources">Support &amp; Resources</h2>
+<ul>
+<li><strong>Umami Documentation:</strong> https://umami.is/docs</li>
+<li><strong>GitHub Repository:</strong> https://github.com/umami-software/umami</li>
+<li><strong>Community Forum:</strong> https://github.com/umami-software/umami/discussions</li>
+<li><strong>Security Issues:</strong> https://github.com/umami-software/umami/security</li>
+</ul>
+<hr>
+<p><strong>Last Updated:</strong> December 2024 <strong>Version:</strong> Umami v2.13.2 <strong>Maintainer:</strong> Aman Bagrecha</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/amanbagrecha\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright © Aman Bagrecha, 2025. <a href="disclaimer">Disclaimer</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

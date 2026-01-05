@@ -3,3 +3,5 @@
 **/*.quarto_ipynb
 /docs-staging/
 docs-backup-*
+docs/_site/
+docs/docs-staging/

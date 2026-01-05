@@ -6,14 +6,16 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/talks/index.html",
     "items": []
   },
   {
-    "listing": "/notebooks/index.html",
-    "items": [
-      "/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html"
-    ]
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
+    "listing": "/presentations/index.html",
+    "items": []
   },
   {
     "listing": "/posts/index.html",
@@ -44,15 +46,13 @@
     ]
   },
   {
-    "listing": "/presentations/index.html",
-    "items": []
+    "listing": "/notebooks/index.html",
+    "items": [
+      "/notebooks/nie-geoml-workshop/torchgeo_vhr10_maskrcnn_workshop.html"
+    ]
   },
   {
-    "listing": "/projects/index.html",
-    "items": []
-  },
-  {
-    "listing": "/talks/index.html",
+    "listing": "/index.html",
     "items": []
   }
 ]
