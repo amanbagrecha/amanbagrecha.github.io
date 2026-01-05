@@ -1,6 +1,7 @@
 ---
 title: Panoramic Image Editing & Reconstruction Pipeline
 date: 2025-12-05
+date-modified: last-modified
 slug: panoramic-viewer
 categories:
 - visualization
@@ -9,6 +10,9 @@ tags: [panorama, '360', viewer, image-editing, inpainting]
 description: 'Using AI for editing and inpainting high resolution 360° panoramic imagery'
 draft: true
 reading-time: yes
+image: original.webp
+image-alt: 'inpainting streetview panoramic imagery'
+url_code: "https://github.com/amanbagrecha/comfyui-workflow-docker"
 resources:
   - panorama.jpg
   - before.png
@@ -17,30 +21,36 @@ resources:
   - original.webp
 format:
   html:
+    toc: false
     include-in-header:
       - text: |
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
           <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 ---
 
+::: {.callout-note icon=false}
+## Source Code
+The complete ComfyUI workflow and Docker setup for this project is available on GitHub: [comfyui-workflow-docker](https://github.com/amanbagrecha/comfyui-workflow-docker)
+:::
 
 
-## Panoramic Image Editing & Reconstruction
-
-Over the past month, I have been building a pipeline for editing panoramic (360° equirectangular) imagery, with a focus on object removal, more specifically - inpainting, and reconstruction back into equirectangular format.
+Over the past month, I have been building a pipeline for editing panoramic (360° equirectangular) imagery, similar to how google streetview cleans up its imagery. More specifically - I wanted to make my image visually appealing without loosing the quality and resolution of the image.
 
 ![Original Panoramic Images with artifacts](original.webp)
-> original equirectangular image with artifacts in car and sky glare
+> original equirectangular image with artifacts in car and sky glare (marked with red arrows in the image)
 
-My task in this fun project was to remove artifacts (a car captured in the 360-degree view and sky glare) from the scene. The problem is that these panoramic scenes are large, and traditional LaMa models do not work well for large object removal.
-To tackle this, I initially thought of segmenting the road using SAM and regenerating a new road (using an image editing model) as a replacement, and doing the same process for the sky. But there are many ifs and buts in that approach:
-  - road detection is poor and can lead to over/under prediction, causing seams and abrupt changes
+My task in this fun project was to remove artifacts (a car captured in the 360-degree view and sky glare) from the scene. The problem is that these panoramic scenes are large, and traditional [LaMa](https://github.com/advimman/lama) inpainting models do not work well for large object removal.
+
+
+To tackle this, I initially thought of segmenting the road using Segment Anything model and regenerating a new road (using an image editing model) as a replacement, and doing the same process for the sky. But there are many ifs and buts in that approach:
+
+  - if road detection is poor and can lead to over/under prediction, causing seams and abrupt changes
 
   - glare from the camera blocks the full view
 
   - object obstruction makes replacement difficult
 
-Another challenge was that any of these inpainting models (from SDXL / Flux / Fooocus) were not made for very high-resolution imagery.
+Also, any of these inpainting models (from [SDXL](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0) / [Flux](https://huggingface.co/black-forest-labs/FLUX.1-dev) / [Fooocus](https://github.com/lllyasviel/Fooocus)) were not made for very high-resolution imagery.
 
 Additionally, the challenge with panoramic imagery is that editing in equirectangular projection introduces distortions, edge-wrap artifacts, and inconsistent geometry. I saw firsthand that changing the sky using any generative model introduces seams at the edges (the left and right images are not continuous after the edit).
 
@@ -50,7 +60,7 @@ That is when I thought of using the following tricks to get around the bottlenec
 
 
 
-### 1. Extracting Perspective Views From equirectangular Image Using pytorch360convert (+ Masking)
+### Extract Perspective Views
 
 I used `pytorch360convert` to extract targeted perspective slices from the 360° image.
 
@@ -64,19 +74,23 @@ These perspective slices provided a geometrically accurate view of localized reg
 I also generated a mask (manually created) for the unwanted object (in this case the car and sky). Since these are stationary throughout, it was easier to manually make the binary mask.
 
 
-### 2. Object Removal Pipeline Using Qwen Image Edit 2509
+### Object Removal Pipeline Using Qwen Image Edit 2509
 
 I ran the Qwen Image Edit 2509 model on the two separate tasks - one for car inpainting and other for sky regeneration. The workflow was:
 
 For Car:
+
 1. Create a perspective Image+mask composite to hide only the car to inpaint, which avoids altering any other part of the image. This was crucial as Qwen model doesn't allow to pass in a mask, but rather you can mask in other image (which I did not want to do) 
+
 2. Run the perspective slice through Qwen Image Edit 2509 with a prompt to remove the masked car.
 
 For sky:
+
 1. Create a 1024x1024 resized image (with padding at top and bottom) - such that the actual pixels of image are only at 1024x512. This was again critical to avoid the problem of [offset/zoom](https://www.reddit.com/r/StableDiffusion/comments/1o01e6i/totally_fixed_the_qwenimageedit2509_unzooming/) that these diffusion models face.  
+
 2. Run the 1024x1024 px through Qwen Image Edit 2509 with a prompt to replace the sky with bright sunny clear day.
 
-#### Before/After Comparison Slider
+### Before/After Comparison Slider
 
 ```{=html}
 <div style="position: relative; width: 100%; max-width: 1024px; margin: 0 auto; overflow: hidden; border: 1px solid #ddd;">
@@ -86,17 +100,19 @@ For sky:
   </div>
   <div id="sliderHandle" style="position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: white; cursor: ew-resize; z-index: 1000; box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
 </div>
+
+The inpainting is pixel perfect with no offset while maintaining structural consistency.
 ```
 
-### 2. Building an Exact Forward Mapping (Perspective -> equirectangular image)
+### Forward Mapping (Perspective -> equirectangular image)
 
 Since editing happens in perspective space, I needed to convert edited pixels back into the original equirectangular space.
 
-To ensure perfect geometric alignment, I built (actually Claude did) a per-pixel forward map, mimicking pytorch360convert's sampling behavior:
+To ensure perfect geometric alignment, I built a per-pixel forward map, mimicking pytorch360convert's sampling behavior.  There was no existing code for this forward mapping available online, so I had to build this one myself and the code for this project is now a ComfyUI node which can be found [here](https://github.com/amanbagrecha/p2e).
 
 
 
-### 4. Merging the Edited Perspective Patch Back Into equirectangular image.
+### Merge the Edited Perspective Patch
 
 Once the edit is done, I use the precomputed forward map to scatter updated pixels onto the original panorama. I applied a slight feather at the edge to blend. This method gave smooth, artifact-free transitions without visible seams.
 
@@ -114,19 +130,20 @@ To this end, I used SAM3, which offered prompt based Segmentation - perfect for 
 This allowed me to get a good segment and replace it (after upsampling to the original scene size). The only other concern was seam at the edges and black artifacts due to camera capture.
 
 I used [LAMA](https://github.com/advimman/lama) to inpaint this as it was a small and stationary spot. Though it required generating a perspective image and then perform the edit. For seam removal, I applied a thin blending at edges after rolling the image and bringing it to the center.
+As post-processing step I EgoBlur model to blur faces and License Plates similar to how things are done in google streetview
 
 
 
-### 6. ComfyUI Automation + API Workflow
+### ComfyUI API Workflow
 
-The entire process mentioned above was tested and built on ComfyUI workflow to match for my requirement for this project. It was a lot of trial and error to make this work.
+The entire process mentioned above was tested and built on ComfyUI workflow to match my requirements for this project. It was a lot of trial and error to make this work. The workflow json can be found [here](https://github.com/amanbagrecha/comfyui-workflow-docker/blob/master/workflow-updated.json)
 
-
+The end result is original image quality, but visually appealing. I used to wonder how is generative AI of any use - but this project helped me find value in such technology. I am amazed with what open source models could accompolish, provided you navigate the messy documentation and scattered literature
 
 
 ---
 
-## Interactive 360° Panoramic Viewer
+### Interactive 360° Panoramic Viewer
 
 <div id="panorama" style="width: 100%; height: 500px;"></div>
 
@@ -168,6 +185,16 @@ The models are heavy in size (total of about 20GB) which were downloaded from hu
 6. [SAM3 segmentation](https://github.com/facebookresearch/sam3)
 
 
+### Models Used
+
+- **Text Encoder**: Qwen 2.5 VL 7B (FP8)
+- **VAE**: Qwen Image VAE
+- **LoRA**: Qwen Image Edit Lightning (4-step)
+- **Upscaler**: Real-ESRGAN x2
+- **Diffusion Model**: Qwen Image Edit 2509 (FP8)
+- **SAM3**: Segment Anything Model 3
+- **EgoBlur Face**: Face detection model
+- **EgoBlur License Plate**: License plate detection model
 
 
 <script>
@@ -177,24 +204,35 @@ const sliderHandle = document.getElementById('sliderHandle');
 const afterContainer = document.getElementById('afterContainer');
 const container = sliderHandle.parentElement;
 
-sliderHandle.addEventListener('mousedown', (e) => {
+function startDragging(e) {
     isDragging = true;
     e.preventDefault();
-});
+}
 
-document.addEventListener('mousemove', (e) => {
+function handleDrag(e) {
     if (!isDragging) return;
 
     const rect = container.getBoundingClientRect();
-    let x = e.clientX - rect.left;
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    let x = clientX - rect.left;
     x = Math.max(0, Math.min(x, rect.width));
 
     const percentage = (x / rect.width) * 100;
     sliderHandle.style.left = percentage + '%';
     afterContainer.style.clipPath = `inset(0 0 0 ${percentage}%)`;
-});
+}
 
-document.addEventListener('mouseup', () => {
+function stopDragging() {
     isDragging = false;
-});
+}
+
+// Mouse events
+sliderHandle.addEventListener('mousedown', startDragging);
+document.addEventListener('mousemove', handleDrag);
+document.addEventListener('mouseup', stopDragging);
+
+// Touch events for mobile
+sliderHandle.addEventListener('touchstart', startDragging);
+document.addEventListener('touchmove', handleDrag);
+document.addEventListener('touchend', stopDragging);
 </script>
