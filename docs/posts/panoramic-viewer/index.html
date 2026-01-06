@@ -81,15 +81,17 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Panoramic Image Editing &amp; Reconstruction Pipeline – Aman Bagrecha">
 <meta property="og:description" content="Using AI for editing and inpainting high resolution 360° panoramic imagery">
-<meta property="og:image" content="https://amanbagrecha.com/posts/panoramic-viewer/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta property="og:image" content="https://amanbagrecha.com/posts/panoramic-viewer/original.webp">
 <meta property="og:site_name" content="Aman Bagrecha">
+<meta property="og:image:alt" content="inpainting streetview panoramic imagery">
 <meta name="twitter:title" content="Panoramic Image Editing &amp; Reconstruction Pipeline – Aman Bagrecha">
 <meta name="twitter:description" content="Using AI for editing and inpainting high resolution 360° panoramic imagery">
-<meta name="twitter:image" content="https://amanbagrecha.com/posts/panoramic-viewer/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta name="twitter:image" content="https://amanbagrecha.com/posts/panoramic-viewer/original.webp">
+<meta name="twitter:image:alt" content="inpainting streetview panoramic imagery">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
@@ -167,27 +169,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#panoramic-image-editing-reconstruction" id="toc-panoramic-image-editing-reconstruction" class="nav-link active" data-scroll-target="#panoramic-image-editing-reconstruction">Panoramic Image Editing &amp; Reconstruction</a>
-  <ul class="collapse">
-  <li><a href="#extracting-perspective-views-from-equirectangular-image-using-pytorch360convert-masking" id="toc-extracting-perspective-views-from-equirectangular-image-using-pytorch360convert-masking" class="nav-link" data-scroll-target="#extracting-perspective-views-from-equirectangular-image-using-pytorch360convert-masking">1. Extracting Perspective Views From equirectangular Image Using pytorch360convert (+ Masking)</a></li>
-  <li><a href="#object-removal-pipeline-using-qwen-image-edit-2509" id="toc-object-removal-pipeline-using-qwen-image-edit-2509" class="nav-link" data-scroll-target="#object-removal-pipeline-using-qwen-image-edit-2509">2. Object Removal Pipeline Using Qwen Image Edit 2509</a></li>
-  <li><a href="#building-an-exact-forward-mapping-perspective---equirectangular-image" id="toc-building-an-exact-forward-mapping-perspective---equirectangular-image" class="nav-link" data-scroll-target="#building-an-exact-forward-mapping-perspective---equirectangular-image">2. Building an Exact Forward Mapping (Perspective -&gt; equirectangular image)</a></li>
-  <li><a href="#merging-the-edited-perspective-patch-back-into-equirectangular-image." id="toc-merging-the-edited-perspective-patch-back-into-equirectangular-image." class="nav-link" data-scroll-target="#merging-the-edited-perspective-patch-back-into-equirectangular-image.">4. Merging the Edited Perspective Patch Back Into equirectangular image.</a></li>
-  <li><a href="#segmentation-and-lama" id="toc-segmentation-and-lama" class="nav-link" data-scroll-target="#segmentation-and-lama">5. Segmentation and Lama</a></li>
-  <li><a href="#comfyui-automation-api-workflow" id="toc-comfyui-automation-api-workflow" class="nav-link" data-scroll-target="#comfyui-automation-api-workflow">6. ComfyUI Automation + API Workflow</a></li>
-  </ul></li>
-  <li><a href="#interactive-360-panoramic-viewer" id="toc-interactive-360-panoramic-viewer" class="nav-link" data-scroll-target="#interactive-360-panoramic-viewer">Interactive 360° Panoramic Viewer</a>
-  <ul class="collapse">
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -223,6 +205,12 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">5 January 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -231,16 +219,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="panoramic-image-editing-reconstruction" class="level2">
-<h2 class="anchored" data-anchor-id="panoramic-image-editing-reconstruction">Panoramic Image Editing &amp; Reconstruction</h2>
-<p>Over the past month, I have been building a pipeline for editing panoramic (360° equirectangular) imagery, with a focus on object removal, more specifically - inpainting, and reconstruction back into equirectangular format.</p>
-<p><img src="original.webp" class="img-fluid" alt="Original Panoramic Images with artifacts"> &gt; original equirectangular image with artifacts in car and sky glare</p>
-<p>My task in this fun project was to remove artifacts (a car captured in the 360-degree view and sky glare) from the scene. The problem is that these panoramic scenes are large, and traditional LaMa models do not work well for large object removal. To tackle this, I initially thought of segmenting the road using SAM and regenerating a new road (using an image editing model) as a replacement, and doing the same process for the sky. But there are many ifs and buts in that approach: - road detection is poor and can lead to over/under prediction, causing seams and abrupt changes</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Source Code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The complete ComfyUI workflow and Docker setup for this project is available on GitHub: <a href="https://github.com/amanbagrecha/comfyui-workflow-docker">comfyui-workflow-docker</a></p>
+</div>
+</div>
+<p>Over the past month, I have been building a pipeline for editing panoramic (360° equirectangular) imagery, similar to how google streetview cleans up its imagery. More specifically - I wanted to make my image visually appealing without loosing the quality and resolution of the image.</p>
+<p><img src="original.webp" class="img-fluid" alt="Original Panoramic Images with artifacts"> &gt; original equirectangular image with artifacts in car and sky glare (marked with red arrows in the image)</p>
+<p>My task in this fun project was to remove artifacts (a car captured in the 360-degree view and sky glare) from the scene. The problem is that these panoramic scenes are large, and traditional <a href="https://github.com/advimman/lama">LaMa</a> inpainting models do not work well for large object removal.</p>
+<p>To tackle this, I initially thought of segmenting the road using Segment Anything model and regenerating a new road (using an image editing model) as a replacement, and doing the same process for the sky. But there are many ifs and buts in that approach:</p>
 <ul>
+<li><p>if road detection is poor and can lead to over/under prediction, causing seams and abrupt changes</p></li>
 <li><p>glare from the camera blocks the full view</p></li>
 <li><p>object obstruction makes replacement difficult</p></li>
 </ul>
-<p>Another challenge was that any of these inpainting models (from SDXL / Flux / Fooocus) were not made for very high-resolution imagery.</p>
+<p>Also, any of these inpainting models (from <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0">SDXL</a> / <a href="https://huggingface.co/black-forest-labs/FLUX.1-dev">Flux</a> / <a href="https://github.com/lllyasviel/Fooocus">Fooocus</a>) were not made for very high-resolution imagery.</p>
 <p>Additionally, the challenge with panoramic imagery is that editing in equirectangular projection introduces distortions, edge-wrap artifacts, and inconsistent geometry. I saw firsthand that changing the sky using any generative model introduces seams at the edges (the left and right images are not continuous after the edit).</p>
 <p>That is when I thought of using the following tricks to get around the bottlenecks. I built a structured workflow that extracts clean perspective views, edits them using generative models (Qwen Image Edit 2509 in this case), and then maps the edits back accurately into the original panorama.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -249,21 +250,29 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Workflow Diagram</figcaption>
 </figure>
 </div>
-<section id="extracting-perspective-views-from-equirectangular-image-using-pytorch360convert-masking" class="level3">
-<h3 class="anchored" data-anchor-id="extracting-perspective-views-from-equirectangular-image-using-pytorch360convert-masking">1. Extracting Perspective Views From equirectangular Image Using pytorch360convert (+ Masking)</h3>
+<section id="extract-perspective-views" class="level3">
+<h3 class="anchored" data-anchor-id="extract-perspective-views">Extract Perspective Views</h3>
 <p>I used <code>pytorch360convert</code> to extract targeted perspective slices from the 360° image.</p>
 <p>I ensured the Field of View was wide enough to capture surrounding context for the model to work - - since in this view the car was visible along with front and back of the road (enough context for the model) - the sky artifact also had surrounding region to infer from for inpainting the region.</p>
 <p>These perspective slices provided a geometrically accurate view of localized regions—particularly useful when removing objects and artifacts like cars or cleaning up the sky.</p>
 <p>I also generated a mask (manually created) for the unwanted object (in this case the car and sky). Since these are stationary throughout, it was easier to manually make the binary mask.</p>
 </section>
 <section id="object-removal-pipeline-using-qwen-image-edit-2509" class="level3">
-<h3 class="anchored" data-anchor-id="object-removal-pipeline-using-qwen-image-edit-2509">2. Object Removal Pipeline Using Qwen Image Edit 2509</h3>
+<h3 class="anchored" data-anchor-id="object-removal-pipeline-using-qwen-image-edit-2509">Object Removal Pipeline Using Qwen Image Edit 2509</h3>
 <p>I ran the Qwen Image Edit 2509 model on the two separate tasks - one for car inpainting and other for sky regeneration. The workflow was:</p>
-<p>For Car: 1. Create a perspective Image+mask composite to hide only the car to inpaint, which avoids altering any other part of the image. This was crucial as Qwen model doesn’t allow to pass in a mask, but rather you can mask in other image (which I did not want to do) 2. Run the perspective slice through Qwen Image Edit 2509 with a prompt to remove the masked car.</p>
-<p>For sky: 1. Create a 1024x1024 resized image (with padding at top and bottom) - such that the actual pixels of image are only at 1024x512. This was again critical to avoid the problem of <a href="https://www.reddit.com/r/StableDiffusion/comments/1o01e6i/totally_fixed_the_qwenimageedit2509_unzooming/">offset/zoom</a> that these diffusion models face.<br>
-2. Run the 1024x1024 px through Qwen Image Edit 2509 with a prompt to replace the sky with bright sunny clear day.</p>
-<section id="beforeafter-comparison-slider" class="level4">
-<h4 class="anchored" data-anchor-id="beforeafter-comparison-slider">Before/After Comparison Slider</h4>
+<p>For Car:</p>
+<ol type="1">
+<li><p>Create a perspective Image+mask composite to hide only the car to inpaint, which avoids altering any other part of the image. This was crucial as Qwen model doesn’t allow to pass in a mask, but rather you can mask in other image (which I did not want to do)</p></li>
+<li><p>Run the perspective slice through Qwen Image Edit 2509 with a prompt to remove the masked car.</p></li>
+</ol>
+<p>For sky:</p>
+<ol type="1">
+<li><p>Create a 1024x1024 resized image (with padding at top and bottom) - such that the actual pixels of image are only at 1024x512. This was again critical to avoid the problem of <a href="https://www.reddit.com/r/StableDiffusion/comments/1o01e6i/totally_fixed_the_qwenimageedit2509_unzooming/">offset/zoom</a> that these diffusion models face.</p></li>
+<li><p>Run the 1024x1024 px through Qwen Image Edit 2509 with a prompt to replace the sky with bright sunny clear day.</p></li>
+</ol>
+</section>
+<section id="beforeafter-comparison-slider" class="level3">
+<h3 class="anchored" data-anchor-id="beforeafter-comparison-slider">Before/After Comparison Slider</h3>
 <div style="position: relative; width: 100%; max-width: 1024px; margin: 0 auto; overflow: hidden; border: 1px solid #ddd;">
   <img id="imageBefore" src="before.png" style="display: block; width: 100%; height: auto;">
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; clip-path: inset(0 0 0 50%);" id="afterContainer">
@@ -271,15 +280,16 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div id="sliderHandle" style="position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: white; cursor: ew-resize; z-index: 1000; box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
 </div>
+
+The inpainting is pixel perfect with no offset while maintaining structural consistency.
 </section>
-</section>
-<section id="building-an-exact-forward-mapping-perspective---equirectangular-image" class="level3">
-<h3 class="anchored" data-anchor-id="building-an-exact-forward-mapping-perspective---equirectangular-image">2. Building an Exact Forward Mapping (Perspective -&gt; equirectangular image)</h3>
+<section id="forward-mapping-perspective---equirectangular-image" class="level3">
+<h3 class="anchored" data-anchor-id="forward-mapping-perspective---equirectangular-image">Forward Mapping (Perspective -&gt; equirectangular image)</h3>
 <p>Since editing happens in perspective space, I needed to convert edited pixels back into the original equirectangular space.</p>
-<p>To ensure perfect geometric alignment, I built (actually Claude did) a per-pixel forward map, mimicking pytorch360convert’s sampling behavior:</p>
+<p>To ensure perfect geometric alignment, I built a per-pixel forward map, mimicking pytorch360convert’s sampling behavior. There was no existing code for this forward mapping available online, so I had to build this one myself and the code for this project is now a ComfyUI node which can be found <a href="https://github.com/amanbagrecha/p2e">here</a>.</p>
 </section>
-<section id="merging-the-edited-perspective-patch-back-into-equirectangular-image." class="level3">
-<h3 class="anchored" data-anchor-id="merging-the-edited-perspective-patch-back-into-equirectangular-image.">4. Merging the Edited Perspective Patch Back Into equirectangular image.</h3>
+<section id="merge-the-edited-perspective-patch" class="level3">
+<h3 class="anchored" data-anchor-id="merge-the-edited-perspective-patch">Merge the Edited Perspective Patch</h3>
 <p>Once the edit is done, I use the precomputed forward map to scatter updated pixels onto the original panorama. I applied a slight feather at the edge to blend. This method gave smooth, artifact-free transitions without visible seams.</p>
 <hr>
 <p>So till this point, we just removed the car from the scene, now the sky had to be replaced.</p>
@@ -289,16 +299,16 @@ ul.task-list li input[type="checkbox"] {
 <p>As mentioned above, I used Qwen to replace the sky on a low resolution image. The problem was now to replace on the original scene, since I did not want to lose the high-resolution details from the entire scene.</p>
 <p>To this end, I used SAM3, which offered prompt based Segmentation - perfect for my use case. More so, because it did very well in a variety of different lighting conditions. And I could also prompt “glare” and get the segments for that as well.</p>
 <p>This allowed me to get a good segment and replace it (after upsampling to the original scene size). The only other concern was seam at the edges and black artifacts due to camera capture.</p>
-<p>I used <a href="https://github.com/advimman/lama">LAMA</a> to inpaint this as it was a small and stationary spot. Though it required generating a perspective image and then perform the edit. For seam removal, I applied a thin blending at edges after rolling the image and bringing it to the center.</p>
+<p>I used <a href="https://github.com/advimman/lama">LAMA</a> to inpaint this as it was a small and stationary spot. Though it required generating a perspective image and then perform the edit. For seam removal, I applied a thin blending at edges after rolling the image and bringing it to the center. As post-processing step I EgoBlur model to blur faces and License Plates similar to how things are done in google streetview</p>
 </section>
-<section id="comfyui-automation-api-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="comfyui-automation-api-workflow">6. ComfyUI Automation + API Workflow</h3>
-<p>The entire process mentioned above was tested and built on ComfyUI workflow to match for my requirement for this project. It was a lot of trial and error to make this work.</p>
+<section id="comfyui-api-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="comfyui-api-workflow">ComfyUI API Workflow</h3>
+<p>The entire process mentioned above was tested and built on ComfyUI workflow to match my requirements for this project. It was a lot of trial and error to make this work. The workflow json can be found <a href="https://github.com/amanbagrecha/comfyui-workflow-docker/blob/master/workflow-updated.json">here</a></p>
+<p>The end result is original image quality, but visually appealing. I used to wonder how is generative AI of any use - but this project helped me find value in such technology. I am amazed with what open source models could accompolish, provided you navigate the messy documentation and scattered literature</p>
 <hr>
 </section>
-</section>
-<section id="interactive-360-panoramic-viewer" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-360-panoramic-viewer">Interactive 360° Panoramic Viewer</h2>
+<section id="interactive-360-panoramic-viewer" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-360-panoramic-viewer">Interactive 360° Panoramic Viewer</h3>
 <div id="panorama" style="width: 100%; height: 500px;">
 
 </div>
@@ -318,6 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>The final result after inpainting and reconstruction. Click and drag to explore the 360° view. Use the mouse wheel to zoom in and out.</p>
 <hr>
 <p><em>The above process is computationally expensive. I ran the FP8 version on a L40S system having 48 GB VRAM. The time it takes for one entire run is about 20 sec. The models are heavy in size (total of about 20GB) which were downloaded from huggingface. I did find another repository which bundled all the weights into one - called <a href="https://huggingface.co/Phr00t/Qwen-Image-Edit-Rapid-AIO">RAPID AIO</a>, but it seem to have a offset issue. </em></p>
+</section>
 <section id="links" class="level3">
 <h3 class="anchored" data-anchor-id="links">Links</h3>
 <ol type="1">
@@ -328,6 +339,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><p><a href="https://github.com/amanbagrecha/p2e">Perspective → Equirectangular</a></p></li>
 <li><p><a href="https://github.com/facebookresearch/sam3">SAM3 segmentation</a></p></li>
 </ol>
+</section>
+<section id="models-used" class="level3">
+<h3 class="anchored" data-anchor-id="models-used">Models Used</h3>
+<ul>
+<li><strong>Text Encoder</strong>: Qwen 2.5 VL 7B (FP8)</li>
+<li><strong>VAE</strong>: Qwen Image VAE</li>
+<li><strong>LoRA</strong>: Qwen Image Edit Lightning (4-step)</li>
+<li><strong>Upscaler</strong>: Real-ESRGAN x2</li>
+<li><strong>Diffusion Model</strong>: Qwen Image Edit 2509 (FP8)</li>
+<li><strong>SAM3</strong>: Segment Anything Model 3</li>
+<li><strong>EgoBlur Face</strong>: Face detection model</li>
+<li><strong>EgoBlur License Plate</strong>: License plate detection model</li>
+</ul>
 <script>
 let isDragging = false;
 
@@ -335,30 +359,40 @@ const sliderHandle = document.getElementById('sliderHandle');
 const afterContainer = document.getElementById('afterContainer');
 const container = sliderHandle.parentElement;
 
-sliderHandle.addEventListener('mousedown', (e) => {
+function startDragging(e) {
     isDragging = true;
     e.preventDefault();
-});
+}
 
-document.addEventListener('mousemove', (e) => {
+function handleDrag(e) {
     if (!isDragging) return;
 
     const rect = container.getBoundingClientRect();
-    let x = e.clientX - rect.left;
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    let x = clientX - rect.left;
     x = Math.max(0, Math.min(x, rect.width));
 
     const percentage = (x / rect.width) * 100;
     sliderHandle.style.left = percentage + '%';
     afterContainer.style.clipPath = `inset(0 0 0 ${percentage}%)`;
-});
+}
 
-document.addEventListener('mouseup', () => {
+function stopDragging() {
     isDragging = false;
-});
+}
+
+// Mouse events
+sliderHandle.addEventListener('mousedown', startDragging);
+document.addEventListener('mousemove', handleDrag);
+document.addEventListener('mouseup', stopDragging);
+
+// Touch events for mobile
+sliderHandle.addEventListener('touchstart', startDragging);
+document.addEventListener('touchmove', handleDrag);
+document.addEventListener('touchend', stopDragging);
 </script>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
